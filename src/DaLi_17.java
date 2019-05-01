@@ -1,5 +1,6 @@
 import auxp.ch10.MyLoan;
 import auxp.ch17.AddressBook;
+import auxp.ch17.BitOutputStream;
 import auxp.ch17.encryption.Crypt;
 import auxp.ch17.splitter.FileSplitter;
 import auxp.ch17.splitter.SplitterTabbedPane;
@@ -30,8 +31,8 @@ public class DaLi_17 extends Application {
     }
 
     public static void main(String[] args) {
-        ex12();
-        //Application.launch(args);
+        ex17();
+        Application.launch(args);
     }
 
     public static void ex00() {
@@ -163,6 +164,13 @@ public class DaLi_17 extends Application {
     public static void ex16() {//Frequency of characters
     }
     public static void ex17() {//BitOutputStream
+        try(BitOutputStream out = new BitOutputStream(new File("src/auxp/ch17/Exercise17_17.dat"))){
+            out.writeBit('0');
+            out.writeBit("10000100100001001");
+            out.writeBit('1','0','1');
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex18() {//View bits
     }
