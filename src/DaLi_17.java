@@ -2,6 +2,7 @@ import auxp.ch10.MyLoan;
 import auxp.ch17.AddressBook;
 import auxp.ch17.BitOutputStream;
 import auxp.ch17.encryption.Crypt;
+import auxp.ch17.rawedit.RawEditorPane;
 import auxp.ch17.splitter.FileSplitter;
 import auxp.ch17.splitter.SplitterTabbedPane;
 import javafx.application.Application;
@@ -20,7 +21,7 @@ public class DaLi_17 extends Application {
         primaryStage.setTitle("C17");
 
 
-        Pane pane = ex13();
+        Pane pane = ex18();
 
 
         pane.setPadding(new Insets(5));
@@ -31,7 +32,7 @@ public class DaLi_17 extends Application {
     }
 
     public static void main(String[] args) {
-        ex17();
+        //ex18();
         Application.launch(args);
     }
 
@@ -172,7 +173,8 @@ public class DaLi_17 extends Application {
             e.printStackTrace();
         }
     }
-    public static void ex18() {//View bits
+    public static Pane ex18() {//View bits
+        return new RawEditorPane();
     }
     public static void ex19() {//View hex
     }

@@ -1,6 +1,6 @@
 package auxp;
 
-import auxp.ch17.splitter.SplitterTabbedPane;
+import auxp.ch17.rawedit.RawEditorPane;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -14,8 +14,7 @@ public class MainFX extends Application {
         primaryStage.setTitle("MainFX Test");
 
 
-        SplitterTabbedPane pane = new SplitterTabbedPane();
-
+        RawEditorPane pane = new RawEditorPane();
 
 
         Pane padded = new StackPane(pane);

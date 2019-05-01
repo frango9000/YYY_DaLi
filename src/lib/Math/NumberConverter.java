@@ -19,6 +19,9 @@ public class NumberConverter {
         return decToHex(binToDec(bin));
     }
 
+    public static String decToBin(int dec, int bits) {
+        return String.format("%0" + bits + "d", Long.parseLong(decToBin(dec)));
+    }
 
     public static String decToBin(int dec) {
         return Integer.toBinaryString(dec);
@@ -32,6 +35,13 @@ public class NumberConverter {
         return Integer.toHexString(dec);
     }
 
+    public static String decToHex(int dec, int bits) {
+        StringBuilder hex = new StringBuilder(decToHex(dec));
+        while (hex.length() < bits)
+            hex.insert(0, 0);
+        return hex.toString();
+    }
+
 
     public static String octToBin(String oct) {
         return decToBin(octToDec(oct));
@@ -39,7 +49,7 @@ public class NumberConverter {
 
     public static int octToDec(String oct) throws NumberFormatException {
         for (int i = 0; i < oct.length(); i++) {
-            if (oct.charAt(i) < '0' || oct.charAt(i) < '8')
+            if (oct.charAt(i) < '0' || oct.charAt(i) > '7')
                 throw new NumberFormatException("String is not an octal string");
         }
         return Integer.parseInt(oct, 8);
