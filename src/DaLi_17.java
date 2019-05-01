@@ -18,7 +18,7 @@ public class DaLi_17 extends Application {
         primaryStage.setTitle("C17");
 
 
-        Pane pane = ex11();
+        Pane pane = ex13();
 
 
         pane.setPadding(new Insets(5));
@@ -149,7 +149,8 @@ public class DaLi_17 extends Application {
     }
     public static void ex12() {//Combine files
     }
-    public static void ex13() {//Combine files GUI
+    public static Pane ex13() {//Combine files GUI
+        return  new Pane(new SplitterTabbedPane());
     }
     public static void ex14() {//Encrypt files
     }
