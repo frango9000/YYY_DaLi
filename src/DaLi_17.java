@@ -158,6 +158,7 @@ public class DaLi_17 extends Application {
         Crypt.encrypt(new File("src/res/image/adventure-climb-grass-2138908.jpg"), 10);
     }
     public static void ex15() {//Decrypt files
+        Crypt.decrypt(new File("src/auxp/ch17/adventure-climb-grass-2138908.jpg.crypt"), 10);
     }
     public static void ex16() {//Frequency of characters
     }
