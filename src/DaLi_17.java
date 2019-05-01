@@ -1,5 +1,6 @@
 import auxp.ch10.MyLoan;
 import auxp.ch17.AddressBook;
+import auxp.ch17.splitter.FileSplitter;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -27,8 +28,8 @@ public class DaLi_17 extends Application {
     }
 
     public static void main(String[] args) {
-        //ex08();
-        Application.launch(args);
+        ex10();
+        //Application.launch(args);
     }
 
     public static void ex00() {
@@ -140,6 +141,7 @@ public class DaLi_17 extends Application {
         return new AddressBook();
     }
     public static void ex10() {//Split files
+        FileSplitter.splitByPieces(new File("src/auxp/ch17/Exercise17_08.dat"),2);
     }
     public static void ex11() {//Split files GUI
     }
