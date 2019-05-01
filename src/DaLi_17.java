@@ -1,6 +1,7 @@
 import auxp.ch10.MyLoan;
 import auxp.ch17.AddressBook;
 import auxp.ch17.splitter.FileSplitter;
+import auxp.ch17.splitter.SplitterTabbedPane;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -17,7 +18,7 @@ public class DaLi_17 extends Application {
         primaryStage.setTitle("C17");
 
 
-        Pane pane = ex09();
+        Pane pane = ex11();
 
 
         pane.setPadding(new Insets(5));
@@ -28,8 +29,8 @@ public class DaLi_17 extends Application {
     }
 
     public static void main(String[] args) {
-        ex10();
-        //Application.launch(args);
+        //ex10();
+        Application.launch(args);
     }
 
     public static void ex00() {
@@ -143,7 +144,8 @@ public class DaLi_17 extends Application {
     public static void ex10() {//Split files
         FileSplitter.splitByPieces(new File("src/auxp/ch17/Exercise17_08.dat"),2);
     }
-    public static void ex11() {//Split files GUI
+    public static Pane ex11() {//Split files GUI
+        return  new Pane(new SplitterTabbedPane());
     }
     public static void ex12() {//Combine files
     }
