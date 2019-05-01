@@ -29,8 +29,8 @@ public class DaLi_17 extends Application {
     }
 
     public static void main(String[] args) {
-        //ex10();
-        Application.launch(args);
+        ex12();
+        //Application.launch(args);
     }
 
     public static void ex00() {
@@ -148,6 +148,7 @@ public class DaLi_17 extends Application {
         return  new Pane(new SplitterTabbedPane());
     }
     public static void ex12() {//Combine files
+        FileSplitter.join((new File("src/auxp/ch17/Exercise17_08.dat.0")));
     }
     public static Pane ex13() {//Combine files GUI
         return  new Pane(new SplitterTabbedPane());
