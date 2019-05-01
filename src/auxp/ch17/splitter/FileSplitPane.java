@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import lib.Misc.FileIO;
 
 import javax.swing.*;
 import java.io.File;
@@ -170,6 +171,11 @@ public class FileSplitPane extends BorderPane {
         });
     }
 
+    /**
+     * returns a string with n * 0 where n = the min digits needed to hold the number of pieces value
+     * @param pieces
+     * @return
+     */
     private String getExtString(long pieces) {
         int digits = (pieces + "").length();
         StringBuilder ext = new StringBuilder();
@@ -182,28 +188,28 @@ public class FileSplitPane extends BorderPane {
     private void setJoinActions() {
         browseButton.setOnAction(event -> {
             file = fileChooser.showOpenDialog(new Stage());
-            if (file == null || !file.exists() || !FileSplitter.getFileExtension(file).matches("[0-9]*")) {
+            if (file == null || !file.exists() || !FileIO.getFileExtension(file).matches("[0-9]*")) {
                 JOptionPane.showMessageDialog(null, "Invalid file");
             } else {
                 files = FileSplitter.getSplitFiles(file);
 
                 fileDir.setText(file.getAbsolutePath());
-                newName.setText(FileSplitter.getCleanName(FileSplitter.getCleanName(file.getName())) + "-[joint]");
+                newName.setText(FileIO.getCleanName(FileIO.getCleanName(file.getName())) + "-[joint]");
                 newName.setEditable(true);
-                newExt.setText(FileSplitter.getFileExtension(FileSplitter.getCleanName(file)));
+                newExt.setText(FileIO.getFileExtension(FileIO.getCleanName(file)));
 
                 sizeOfPieces.setText(FileSplitter.byteSizeFormatter(file.length()));
 
 
                 numOfPieces.setText(files.size() + "");
-                totalSize.setText(FileSplitter.byteSizeFormatter(FileSplitter.getSizeOfFilesList(files)));
+                totalSize.setText(FileSplitter.byteSizeFormatter(FileIO.getSizeOfFilesList(files)));
             }
         });
 
         execButton.setOnAction(event -> {
             if (files == null)
                 JOptionPane.showMessageDialog(null, "You must pick a file.");
-            else if (files.size() < 1 || !file.exists() || !FileSplitter.getFileExtension(file).matches("[0-9]*"))
+            else if (files.size() < 1 || !file.exists() || !FileIO.getFileExtension(file).matches("[0-9]*"))
                 JOptionPane.showMessageDialog(null, "Invalid file");
             else if (newName.getText().length() == 0)
                 JOptionPane.showMessageDialog(null, "Invalid filename");

@@ -1,5 +1,7 @@
 package auxp.ch17.splitter;
 
+import lib.Misc.FileIO;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -70,9 +72,9 @@ public class FileSplitter {
     }
 
     public static void join(ArrayList<File> files) {
-        String originalName = getCleanName(files.get(0));
-        String originalExt = getFileExtension(originalName);
-        String newName = getCleanName(originalName) + "-[joint]." + originalExt;
+        String originalName = FileIO.getCleanName(files.get(0));
+        String originalExt = FileIO.getFileExtension(originalName);
+        String newName = FileIO.getCleanName(originalName) + "-[joint]." + originalExt;
         join(files, newName);
     }
 
@@ -81,34 +83,11 @@ public class FileSplitter {
     }
 
 
-    public static String getFileExtension(File file) {
-        return getFileExtension(file.getName());
-    }
-
-    public static String getFileExtension(String filename) {
-        int lastIndexOf = filename.lastIndexOf(".");
-        if (lastIndexOf == -1)
-            return ""; // empty extension
-        return filename.substring(lastIndexOf + 1);
-    }
-
-    public static String getCleanName(File file) {
-        return getCleanName(file.getName());
-    }
-
-    public static String getCleanName(String filename) {
-        int lastIndexOf = filename.lastIndexOf(".");
-        if (lastIndexOf == -1) {
-            return ""; // empty extension
-        }
-        return filename.substring(0, lastIndexOf);
-    }
-
     public static ArrayList<File> getSplitFiles(File file0) {
         ArrayList<File> splitFiles = new ArrayList<>();
-        int extensionSize = getFileExtension(file0).length();
+        int extensionSize = FileIO.getFileExtension(file0).length();
 
-        String baseName = getCleanName(file0);
+        String baseName = FileIO.getCleanName(file0);
 
         int count = 0;
         File actual;
@@ -122,14 +101,6 @@ public class FileSplitter {
         }
 
         return splitFiles;
-    }
-
-    public static long getSizeOfFilesList(ArrayList<File> files) {
-        long size = 0;
-        for (File file : files) {
-            size += file.length();
-        }
-        return size;
     }
 
 }

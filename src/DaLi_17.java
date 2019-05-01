@@ -1,5 +1,6 @@
 import auxp.ch10.MyLoan;
 import auxp.ch17.AddressBook;
+import auxp.ch17.encryption.Crypt;
 import auxp.ch17.splitter.FileSplitter;
 import auxp.ch17.splitter.SplitterTabbedPane;
 import javafx.application.Application;
@@ -142,18 +143,19 @@ public class DaLi_17 extends Application {
         return new AddressBook();
     }
     public static void ex10() {//Split files
-        FileSplitter.splitByPieces(new File("src/auxp/ch17/Exercise17_08.dat"),2);
+        FileSplitter.splitByPieces(new File("src/res/image/adventure-climb-grass-2138908.jpg"),2);
     }
     public static Pane ex11() {//Split files GUI
         return  new Pane(new SplitterTabbedPane());
     }
     public static void ex12() {//Combine files
-        FileSplitter.join((new File("src/auxp/ch17/Exercise17_08.dat.0")));
+        FileSplitter.join((new File("src/auxp/ch17/adventure-climb-grass-2138908.jpg.0")));
     }
     public static Pane ex13() {//Combine files GUI
         return  new Pane(new SplitterTabbedPane());
     }
     public static void ex14() {//Encrypt files
+        Crypt.encrypt(new File("src/res/image/adventure-climb-grass-2138908.jpg"), 10);
     }
     public static void ex15() {//Decrypt files
     }

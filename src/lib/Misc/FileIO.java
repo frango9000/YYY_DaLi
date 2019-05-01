@@ -5,6 +5,7 @@ import lib.Data.ArrayManip;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileIO {
@@ -48,5 +49,36 @@ public class FileIO {
             e.printStackTrace();
         }
 
+    }
+
+    public static String getFileExtension(File file) {
+        return getFileExtension(file.getName());
+    }
+
+    public static String getFileExtension(String filename) {
+        int lastIndexOf = filename.lastIndexOf(".");
+        if (lastIndexOf == -1)
+            return ""; // empty extension
+        return filename.substring(lastIndexOf + 1);
+    }
+
+    public static String getCleanName(File file) {
+        return getCleanName(file.getName());
+    }
+
+    public static String getCleanName(String filename) {
+        int lastIndexOf = filename.lastIndexOf(".");
+        if (lastIndexOf == -1) {
+            return ""; // empty extension
+        }
+        return filename.substring(0, lastIndexOf);
+    }
+
+    public static long getSizeOfFilesList(ArrayList<File> files) {
+        long size = 0;
+        for (File file : files) {
+            size += file.length();
+        }
+        return size;
     }
 }
