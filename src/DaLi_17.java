@@ -179,7 +179,8 @@ public class DaLi_17 extends Application {
     public static Pane ex19() {//View hex
         return new RawEditorPane();
     }
-    public static void ex20() {//Binary editor
+    public static Pane ex20() {//Binary editor
+        return new RawEditorPane();
     }
     public static void ex21() {//Hex editor
     }
