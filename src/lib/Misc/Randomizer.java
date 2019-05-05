@@ -143,4 +143,21 @@ public abstract class Randomizer {
     public static ArrayList<Integer> randomIntList(int elements) {
         return randomIntList(elements, 0, Integer.MAX_VALUE);
     }
+
+
+    public static ArrayList<Double> randomDoubleList(int elements, double lowBound, double highBound) {
+        ArrayList<Double> list = new ArrayList<>(elements);
+        for (int i = 0; i < elements; i++) {
+            list.add(randomDouble(lowBound, highBound));
+        }
+        return list;
+    }
+
+    public static ArrayList<Double> randomDoubleList(int elements, double highBound) {
+        return randomDoubleList(elements, 0, highBound);
+    }
+
+    public static ArrayList<Double> randomDoubleList(int elements) {
+        return randomDoubleList(elements, 0, Double.MAX_VALUE);
+    }
 }

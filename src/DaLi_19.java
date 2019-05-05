@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public abstract class DaLi_19 {
 
     public static void main(String[] args) {
-        ex09();
+        ex10();
 
     }
 
@@ -72,6 +72,10 @@ public abstract class DaLi_19 {
         ListManip.printList(nums, true);
     }
     public static void ex10() {
+        ArrayList<Double> nums = Randomizer.randomDoubleList(20, 100);
+        ListManip.printList(nums);
+        System.out.println("MIN: " + ListManip.min(nums));
+        System.out.println("MAX: " + ListManip.max(nums));
     }
     public static void ex11() {
     }

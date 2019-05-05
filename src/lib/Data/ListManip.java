@@ -37,15 +37,22 @@ public class ListManip {
         return array;
     }
 
-    public static <E extends Number> double max(ArrayList<E> list) {
-        if (list == null || list.size() == 0)
-            return 0;
-        double max = list.get(0).doubleValue();
+    public static <E extends Comparable<E>> E max(ArrayList<E> list) {
+        E max = list.get(0);
         for (int i = 1; i < list.size(); i++) {
-            if (list.get(i).doubleValue() > max)
-                max = list.get(i).doubleValue();
+            if(list.get(i).compareTo(max)>0)
+                max = list.get(i);
         }
         return max;
+    }
+
+    public static <E extends Comparable<E>> E min(ArrayList<E> list){
+        E min = list.get(0);
+        for (int i = 1; i < list.size(); i++) {
+            if(list.get(i).compareTo(min) < 0)
+                min = list.get(i);
+        }
+        return min;
     }
 
 
@@ -102,8 +109,8 @@ public class ListManip {
         }
     }
 
-    public static ArrayList<Integer> union(ArrayList<Integer> list1, ArrayList<Integer> list2) {
-        ArrayList<Integer> union = new ArrayList<>(list1.size() + list2.size());
+    public static <E> ArrayList<E> union(ArrayList<E> list1, ArrayList<E> list2) {
+        ArrayList<E> union = new ArrayList<>(list1.size() + list2.size());
         union.addAll(list1);
         union.addAll(list2);
         return union;
