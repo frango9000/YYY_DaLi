@@ -3,7 +3,7 @@ import auxp.ch19.*;
 public abstract class DaLi_19 {
 
     public static void main(String[] args) {
-        ex06();
+        ex07();
 
     }
 
@@ -45,12 +45,12 @@ public abstract class DaLi_19 {
     public static void ex06() {//Several types
         MyAssociation<Integer,Double> asoc = new MyAssociation<>(1,3.33333);
         MyTransition<Character,String,Integer> trans = new MyTransition<>('A', "Hello", 111);
-
         System.out.println(asoc.toString());
-
         System.out.println(trans.toString());
     }
-    public static void ex07() {
+    public static void ex07() {//Sum of an association
+        MyTransition<Integer,Double,Integer> trans = new MyTransition<>(1,3.33333,2);
+        System.out.println(MyTransition.sum(trans));
     }
     public static void ex08() {
     }

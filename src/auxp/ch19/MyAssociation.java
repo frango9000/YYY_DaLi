@@ -33,4 +33,8 @@ public class MyAssociation<E,F> {
                 ", second=" + second +
                 '}';
     }
+
+    public static double sum(MyAssociation<? extends Number, ? extends Number> asoc){
+        return asoc.first.doubleValue() + asoc.second.doubleValue();
+    }
 }
