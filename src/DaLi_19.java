@@ -5,7 +5,7 @@ import auxp.ch19.MyPair;
 public abstract class DaLi_19 {
 
     public static void main(String[] args) {
-        ex03();
+        ex04();
 
     }
 
@@ -36,6 +36,9 @@ public abstract class DaLi_19 {
         System.out.println(pair.toString());
     }
     public static void ex04() {
+        MyPair<Double> pair = new MyPair<>(3.14, 1.8888);
+        System.out.println(pair.toString());
+        System.out.println(MyPair.min(pair));
     }
     public static void ex05() {
     }

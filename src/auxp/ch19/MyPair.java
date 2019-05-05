@@ -32,4 +32,10 @@ public class MyPair<E> {
                 ", second=" + second +
                 '}';
     }
+
+    public static double min(MyPair<? extends Number> pair){
+        if(pair.first.doubleValue() < pair.second.doubleValue()){
+            return pair.first.doubleValue();
+        }else return pair.second.doubleValue();
+    }
 }
