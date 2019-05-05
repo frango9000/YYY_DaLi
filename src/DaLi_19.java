@@ -1,12 +1,13 @@
 import auxp.ch19.*;
 import lib.Data.ListManip;
+import lib.Misc.Randomizer;
 
 import java.util.ArrayList;
 
 public abstract class DaLi_19 {
 
     public static void main(String[] args) {
-        ex08();
+        ex09();
 
     }
 
@@ -64,7 +65,11 @@ public abstract class DaLi_19 {
         ListManip.shuffle(nums);
         ListManip.printList(nums);
     }
-    public static void ex09() {
+    public static void ex09() {//Sort ArrayList
+        ArrayList<Integer> nums = Randomizer.randomIntList(20, 100);
+        ListManip.printList(nums, true);
+        ListManip.sort(nums);
+        ListManip.printList(nums, true);
     }
     public static void ex10() {
     }

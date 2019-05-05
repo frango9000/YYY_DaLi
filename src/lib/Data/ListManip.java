@@ -11,6 +11,10 @@ public class ListManip {
         printList(list, 0, list.size() - 1, false, 0);
     }
 
+    public static <E> void printList(ArrayList<E> list, boolean withIndex){
+        printList(list,0, list.size()-1, withIndex, 0);
+    }
+
     public static <E> void printList(ArrayList<E> list, boolean withIndex, int firstIndex) {
         printList(list, 0, list.size() - 1, withIndex, firstIndex);
     }
@@ -66,13 +70,13 @@ public class ListManip {
         return list;
     }
 
-    public static void sort(ArrayList<Integer> list) {
-        for (int i = 0; i < list.size() - 1; i++) {
+    public static <E extends Comparable<E>> void sort(ArrayList<E> list){
+        for (int i = 0; i < list.size() -1; i++) {
             for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(i) > list.get(j)) {
-                    Integer integer = list.get(i);
-                    list.set(i, list.get(j));
-                    list.set(j, integer);
+                if (list.get(i).compareTo(list.get(j)) > 0 ){
+                    E e = list.get(i);
+                    list.set(i,list.get(j));
+                    list.set(j, e);
                 }
             }
         }
@@ -86,8 +90,8 @@ public class ListManip {
         return sum;
     }
 
-    public static void removeDuplicate(ArrayList<Integer> list) {
-        ArrayList<Integer> list2 = new ArrayList<>();
+    public static <E> void removeDuplicate(ArrayList<E> list) {
+        ArrayList<E> list2 = new ArrayList<>();
         for (int i = 0; i < list.size(); ) {
             if (list2.contains(list.get(i)))
                 list.remove(i);

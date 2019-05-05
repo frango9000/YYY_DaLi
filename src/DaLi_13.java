@@ -28,7 +28,7 @@ public abstract class DaLi_13 {
 
     public static void ex02() {//Average ArrayList
         ArrayList<Integer> list = Randomizer.randomIntList(10, 100);
-        int sum = ListManip.sum(list);
+        double sum = ListManip.sum(list);
         double avg = (float) sum / list.size();
         print(avg);
     }
