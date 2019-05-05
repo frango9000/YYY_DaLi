@@ -1,31 +1,12 @@
 package auxp.ch19;
 
-public class MyTriplet<E> {
+public class MyTriplet<E> extends MyPair<E> {
 
-    E first;
-    E second;
     E third;
 
     public MyTriplet(E first, E second, E third) {
-        this.first = first;
-        this.second = second;
+        super(first, second);
         this.third = third;
-    }
-
-    public E getFirst() {
-        return first;
-    }
-
-    public void setFirst(E first) {
-        this.first = first;
-    }
-
-    public E getSecond() {
-        return second;
-    }
-
-    public void setSecond(E second) {
-        this.second = second;
     }
 
     public E getThird() {

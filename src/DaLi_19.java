@@ -36,16 +36,16 @@ public abstract class DaLi_19 {
         MyPair<Character> pair = new MyPair<>('a', 'z');
         System.out.println(pair.toString());
     }
-    public static void ex04() {
+    public static void ex04() {//Using wildcards
         MyPair<Double> pair = new MyPair<>(3.14, 1.8888);
         System.out.println(pair.toString());
         System.out.println(MyPair.min(pair));
     }
-    public static void ex05() {
+    public static void ex05() {//Inheritance between generic classes
         MyTriplet<Double> triple = new MyTriplet<>(2.1, 3.3333, 99.99999);
         System.out.println(triple.toString());
     }
-    public static void ex06() {
+    public static void ex06() {//Several types
     }
     public static void ex07() {
     }
