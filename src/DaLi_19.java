@@ -1,10 +1,11 @@
 import auxp.ch19.GenericStackArray;
 import auxp.ch19.GenericStackInheritedList;
+import auxp.ch19.MyPair;
 
 public abstract class DaLi_19 {
 
     public static void main(String[] args) {
-        ex02();
+        ex03();
 
     }
 
@@ -30,7 +31,9 @@ public abstract class DaLi_19 {
         numbers.push(7.45);
         System.out.println(numbers.toString());
     }
-    public static void ex03() {
+    public static void ex03() {//(MyPair of objects of the same type
+        MyPair<Character> pair = new MyPair<>('a', 'z');
+        System.out.println(pair.toString());
     }
     public static void ex04() {
     }
