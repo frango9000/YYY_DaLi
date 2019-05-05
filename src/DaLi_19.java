@@ -1,11 +1,12 @@
 import auxp.ch19.GenericStackArray;
 import auxp.ch19.GenericStackInheritedList;
 import auxp.ch19.MyPair;
+import auxp.ch19.MyTriplet;
 
 public abstract class DaLi_19 {
 
     public static void main(String[] args) {
-        ex04();
+        ex05();
 
     }
 
@@ -41,6 +42,8 @@ public abstract class DaLi_19 {
         System.out.println(MyPair.min(pair));
     }
     public static void ex05() {
+        MyTriplet<Double> triple = new MyTriplet<>(2.1, 3.3333, 99.99999);
+        System.out.println(triple.toString());
     }
     public static void ex06() {
     }
