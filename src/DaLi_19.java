@@ -1,9 +1,10 @@
 import auxp.ch19.GenericStackArray;
+import auxp.ch19.GenericStackInheritedList;
 
 public abstract class DaLi_19 {
 
     public static void main(String[] args) {
-        ex01();
+        ex02();
 
     }
 
@@ -22,7 +23,12 @@ public abstract class DaLi_19 {
         names.push("N1");
         System.out.println(names.toString());
     }
-    public static void ex02() {
+    public static void ex02() {//Implement GenericStack using inheritance
+        GenericStackInheritedList<Double> numbers = new GenericStackInheritedList<>();
+        numbers.push(6.98);
+        numbers.push(2.01);
+        numbers.push(7.45);
+        System.out.println(numbers.toString());
     }
     public static void ex03() {
     }
