@@ -1,12 +1,9 @@
-import auxp.ch19.GenericStackArray;
-import auxp.ch19.GenericStackInheritedList;
-import auxp.ch19.MyPair;
-import auxp.ch19.MyTriplet;
+import auxp.ch19.*;
 
 public abstract class DaLi_19 {
 
     public static void main(String[] args) {
-        ex05();
+        ex06();
 
     }
 
@@ -46,6 +43,12 @@ public abstract class DaLi_19 {
         System.out.println(triple.toString());
     }
     public static void ex06() {//Several types
+        MyAssociation<Integer,Double> asoc = new MyAssociation<>(1,3.33333);
+        MyTransition<Character,String,Integer> trans = new MyTransition<>('A', "Hello", 111);
+
+        System.out.println(asoc.toString());
+
+        System.out.println(trans.toString());
     }
     public static void ex07() {
     }
