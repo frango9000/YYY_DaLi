@@ -1,9 +1,12 @@
 import auxp.ch19.*;
+import lib.Data.ListManip;
+
+import java.util.ArrayList;
 
 public abstract class DaLi_19 {
 
     public static void main(String[] args) {
-        ex07();
+        ex08();
 
     }
 
@@ -52,7 +55,14 @@ public abstract class DaLi_19 {
         MyTransition<Integer,Double,Integer> trans = new MyTransition<>(1,3.33333,2);
         System.out.println(MyTransition.sum(trans));
     }
-    public static void ex08() {
+    public static void ex08() {//Shuffle ArrayList
+        ArrayList<Integer> nums = new ArrayList<>();
+        nums.add(1);
+        nums.add(3);
+        nums.add(5);
+        nums.add(6);
+        ListManip.shuffle(nums);
+        ListManip.printList(nums);
     }
     public static void ex09() {
     }

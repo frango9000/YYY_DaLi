@@ -3,26 +3,25 @@ package lib.Data;
 import lib.Misc.Randomizer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static lib.Misc.IO.scanInt;
 
 public class ListManip {
-    public static void printList(ArrayList<int[]> list) {
+    public static <E> void printList(ArrayList<E> list) {
         printList(list, 0, list.size() - 1, false, 0);
     }
 
-    public static void printList(ArrayList<int[]> list, boolean withIndex, int firstIndex) {
+    public static <E> void printList(ArrayList<E> list, boolean withIndex, int firstIndex) {
         printList(list, 0, list.size() - 1, withIndex, firstIndex);
     }
 
-    public static void printList(ArrayList<int[]> list, int start, int end, boolean withIndex, int firstIndex) {
+    public static <E> void printList(ArrayList<E> list, int start, int end, boolean withIndex, int firstIndex) {
         String index = "";
         if (!(start > list.size() - 1 || end > list.size() - 1 || start < 0 || end < 0))
             for (int i = start; i < list.size() && i <= end; i++) {
                 if (withIndex)
                     index = (i + firstIndex) + " ";
-                System.out.println(index + Arrays.toString(list.get(i)));
+                System.out.println(index + list.get(i).toString());
             }
     }
 
@@ -34,24 +33,24 @@ public class ListManip {
         return array;
     }
 
-    public static Integer max(ArrayList<Integer> list) {
+    public static <E extends Number> double max(ArrayList<E> list) {
         if (list == null || list.size() == 0)
-            return null;
-        int max = list.get(0);
+            return 0;
+        double max = list.get(0).doubleValue();
         for (int i = 1; i < list.size(); i++) {
-            if (list.get(i) > max)
-                max = list.get(i);
-
+            if (list.get(i).doubleValue() > max)
+                max = list.get(i).doubleValue();
         }
         return max;
     }
 
-    public static void shuffle(ArrayList<Integer> list) {
+
+    public static <E> void shuffle(ArrayList<E> list){
         for (int i = 0; i < list.size(); i++) {
-            Integer integer = list.get(i);
-            int rand = Randomizer.randomInt(list.size());
-            list.set(i, list.get(rand));
-            list.set(rand, integer);
+            int randIndex = Randomizer.randomInt(list.size()-1);
+            E temp = list.get(i);
+            list.set(i, list.get(randIndex));
+            list.set(randIndex, temp);
         }
     }
 
@@ -79,10 +78,10 @@ public class ListManip {
         }
     }
 
-    public static int sum(ArrayList<Integer> list) {
-        int sum = 0;
+    public static <E extends Number> double sum(ArrayList<E> list) {
+        double sum = 0;
         for (int i = 0; i < list.size(); i++) {
-            sum += list.get(i);
+            sum += list.get(i).doubleValue();
         }
         return sum;
     }

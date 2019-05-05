@@ -11,7 +11,7 @@ import static lib.Misc.IO.println;
 public abstract class DaLi_11 {
 
     public static void main(String[] args) {
-        ex18();
+        ex07();
 
     }
 
