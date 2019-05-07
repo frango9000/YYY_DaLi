@@ -1,3 +1,5 @@
+import auxp.MainFX;
+import auxp.ch20.LinkedNumbersPane;
 import lib.Data.ListManip;
 
 import java.io.File;
@@ -8,7 +10,9 @@ import java.util.Scanner;
 public abstract class DaLi_20 {
 
     public static void main(String[] args) {
-        ex01();
+        MainFX.initializeToolkit();//JavaFX toolkit init
+
+        ex02();
 
     }
 
@@ -39,6 +43,8 @@ public abstract class DaLi_20 {
         ListManip.printList(words);
     }
     public static void ex02() {//Store numbers in a linked list
+        MainFX ui = new MainFX(new LinkedNumbersPane());
+        ui.go();
     }
     public static void ex03() {//Guessing the capitals
     }
