@@ -7,12 +7,14 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static lib.Misc.IO.println;
+import static lib.Misc.IO.scanNext;
+
 public abstract class DaLi_20 {
 
     public static void main(String[] args) {
-        MainFX.initializeToolkit();//JavaFX toolkit init
 
-        ex02();
+        ex03();
 
     }
 
@@ -43,10 +45,33 @@ public abstract class DaLi_20 {
         ListManip.printList(words);
     }
     public static void ex02() {//Store numbers in a linked list
+        MainFX.initializeToolkit();//JavaFX toolkit init
         MainFX ui = new MainFX(new LinkedNumbersPane());
         ui.go();
     }
     public static void ex03() {//Guessing the capitals
+        ArrayList<String> states = new ArrayList<>();
+        states.add("Alabama");
+        states.add("Alaska");
+        states.add("Arizona");
+        ArrayList<String> capitals = new ArrayList<>();
+        capitals.add("Montgomery");
+        capitals.add("Juneau");
+        capitals.add("Phoenix");
+        ArrayList<Integer> shuffled = new ArrayList<>();
+        for (String state :states) {
+            shuffled.add(states.indexOf(state));
+        }
+        ListManip.shuffle(shuffled);
+        int count =0;
+        for (int i = 0; i < shuffled.size(); i++) {
+            String answer = scanNext("What is the capital of %s?", states.get(shuffled.get(i)));
+            if (answer.equalsIgnoreCase(capitals.get(shuffled.get(i)))) {
+                println("Your answer is correct");
+                count++;
+            } else println("Correct answer is %s", capitals.get(shuffled.get(i)));
+        }
+        println("Correct count is %d", count);
     }
     public static void ex04() {//Implement Comparable
     }
