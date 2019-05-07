@@ -1,10 +1,13 @@
 import auxp.MainFX;
+import auxp.ch20.CalendarComparator;
 import auxp.ch20.LinkedNumbersPane;
 import lib.Data.ListManip;
+import lib.Misc.Randomizer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 import static lib.Misc.IO.println;
@@ -14,7 +17,7 @@ public abstract class DaLi_20 {
 
     public static void main(String[] args) {
 
-        ex03();
+        ex04();
 
     }
 
@@ -74,6 +77,16 @@ public abstract class DaLi_20 {
         println("Correct count is %d", count);
     }
     public static void ex04() {//Implement Comparable
+        ArrayList<GregorianCalendar> calendars = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            GregorianCalendar gc = new GregorianCalendar();
+            gc.setTimeInMillis(Math.abs(Randomizer.randomLong()));
+            calendars.add(gc);
+        }
+        calendars.sort(new CalendarComparator());
+        for(GregorianCalendar calendar : calendars){
+            System.out.printf("%d-%d-%d%n", calendar.get(GregorianCalendar.DAY_OF_MONTH),calendar.get(GregorianCalendar.MONTH)+1,calendar.get(GregorianCalendar.YEAR));
+        }
     }
     public static void ex05() {//Combine colliding bouncing balls
     }

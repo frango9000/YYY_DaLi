@@ -24,6 +24,10 @@ public abstract class Randomizer {
         return lowBound + random().nextInt(highBound - lowBound);
     }
 
+    public static long randomLong() {
+        return random().nextLong();
+    }
+
     public static double randomDouble() {
         return random().nextDouble();
     }
