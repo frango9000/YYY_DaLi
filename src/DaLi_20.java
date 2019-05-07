@@ -1,13 +1,42 @@
+import lib.Data.ListManip;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public abstract class DaLi_20 {
 
     public static void main(String[] args) {
-        ex00();
+        ex01();
 
     }
 
     public static void ex00() {
     }
     public static void ex01() {//Display words in descending alphabetical order
+        File lorem = new File("src/res/txt/lorem.txt");
+        ArrayList<String> words = new ArrayList<>();
+
+        try(Scanner scan = new Scanner(lorem).useDelimiter("[ .,:;\n]")){
+            while(scan.hasNext()){
+                String newWord = scan.next().trim();
+                if(!(newWord.length()<1 || " ".equals(newWord)))
+                    words.add(newWord);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+//        words.sort(new Comparator<String>() {
+//            @Override
+//            public int compare(String o1, String o2) {
+//                return Integer.compare(0, o1.compareTo(o2));
+//
+//            }
+//        });
+        words.sort((o1,o2) -> Integer.compare(0, o1.compareTo(o2)));
+        ListManip.printList(words);
     }
     public static void ex02() {//Store numbers in a linked list
     }
