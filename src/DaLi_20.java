@@ -1,6 +1,8 @@
 import auxp.MainFX;
+import auxp.ch20.BouncingBallsPane;
 import auxp.ch20.CalendarComparator;
 import auxp.ch20.LinkedNumbersPane;
+import javafx.application.Application;
 import lib.Data.ListManip;
 import lib.Misc.Randomizer;
 
@@ -17,7 +19,7 @@ public abstract class DaLi_20 {
 
     public static void main(String[] args) {
 
-        ex04();
+        ex05();
 
     }
 
@@ -89,6 +91,7 @@ public abstract class DaLi_20 {
         }
     }
     public static void ex05() {//Combine colliding bouncing balls
+        Application.launch(BouncingBallsPane.class, "");
     }
     public static void ex06() {//Use iterators on ArrayList
     }
