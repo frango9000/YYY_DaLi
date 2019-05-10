@@ -1,5 +1,6 @@
 package auxp.ch15;
 
+import auxp.ch16.MediaStopWatch;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
@@ -12,7 +13,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import lib.Misc.Randomizer;
-import lib.Misc.StopWatch;
 import lib.MyFX.ToolFX;
 
 public class CreatePointPane extends Pane {
@@ -40,7 +40,7 @@ public class CreatePointPane extends Pane {
         Text time = new Text(500, 50, "00:00:00");
         Circle c = new Circle(Randomizer.randomInt(600), Randomizer.randomInt(600), radius, Color.GRAY);
         c.setVisible(false);
-        StopWatch sw = new StopWatch();
+        MediaStopWatch sw = new MediaStopWatch();
 
         Pane p = new Pane();
         p.setMinSize(600, 600);

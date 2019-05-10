@@ -5,12 +5,11 @@ import auxp.ch20.LinkedNumbersPane;
 import javafx.application.Application;
 import lib.Data.ListManip;
 import lib.Misc.Randomizer;
+import lib.Misc.StopWatch;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
-import java.util.Scanner;
+import java.util.*;
 
 import static lib.Misc.IO.println;
 import static lib.Misc.IO.scanNext;
@@ -19,7 +18,7 @@ public abstract class DaLi_20 {
 
     public static void main(String[] args) {
 
-        ex05();
+        ex06();
 
     }
 
@@ -94,6 +93,39 @@ public abstract class DaLi_20 {
         Application.launch(BouncingBallsPane.class, "");
     }
     public static void ex06() {//Use iterators on ArrayList
+        int size = 10000000;
+        StopWatch sw0 = new StopWatch();
+        ArrayList<Integer> millions = new ArrayList<>(size);
+        for (int i = 1; i <= size; i++) {
+            millions.add(i);
+        }
+        sw0.stop();
+
+        StopWatch sw1 = new StopWatch();
+        millions.get(size-1);
+        sw1.stop();
+
+        Iterator<Integer> it = millions.iterator();
+        StopWatch sw2 = new StopWatch();
+        int number;
+        while(it.hasNext()){
+            it.next();
+        }
+        sw2.stop();
+
+        StopWatch sw3 = new StopWatch();
+        ListIterator<Integer> it2 = millions.listIterator();
+        try {
+            while (true)
+                it2.next();
+        }catch (NoSuchElementException ignored){}
+        it2.previous();
+        sw3.stop();
+
+        System.out.println(sw0.getElapsedFormat());
+        System.out.println(sw1.getElapsedFormat());
+        System.out.println(sw2.getElapsedFormat());
+        System.out.println(sw3.getElapsedFormat());
     }
     public static void ex07() {//Game: hangman
     }

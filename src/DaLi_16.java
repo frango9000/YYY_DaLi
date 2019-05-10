@@ -34,7 +34,6 @@ import javafx.util.Duration;
 import lib.Data.ArrayManip;
 import lib.Math.NumberConverter;
 import lib.Math.Scales;
-import lib.Misc.StopWatch;
 import lib.MyFX.ToolFX;
 
 import java.io.File;
@@ -582,32 +581,32 @@ public class DaLi_16 extends Application {
         buttons.setAlignment(Pos.CENTER);
         buttons.setSpacing(10);
 
-        StopWatch stopWatch = new StopWatch();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), event -> time.setText(stopWatch.getLapsedFormat())));
+        MediaStopWatch mediaStopWatch = new MediaStopWatch();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), event -> time.setText(mediaStopWatch.getLapsedFormat())));
         timeline.setCycleCount(Timeline.INDEFINITE);
         start.setOnAction(event -> {
             switch (start.getText()) {
                 case "Start":
                     timeline.play();
-                    stopWatch.start();
+                    mediaStopWatch.start();
                     start.setText("Pause");
                     break;
                 case "Pause":
                     timeline.pause();
-                    stopWatch.pause();
-                    time.setText(stopWatch.getElapsedFormat());
+                    mediaStopWatch.pause();
+                    time.setText(mediaStopWatch.getElapsedFormat());
                     start.setText("Resume");
                     break;
                 case "Resume":
                     timeline.play();
-                    stopWatch.start();
+                    mediaStopWatch.start();
                     start.setText("Pause");
                     break;
             }
         });
         clear.setOnAction(event -> {
-            stopWatch.reset();
-            stopWatch.stop();
+            mediaStopWatch.reset();
+            mediaStopWatch.stop();
             timeline.stop();
             time.setText("00:00:00:000");
             start.setText("Start");
