@@ -25,14 +25,15 @@ public abstract class DaLi_20 {
 
     public static void ex00() {
     }
+
     public static void ex01() {//Display words in descending alphabetical order
         File lorem = new File("src/res/txt/lorem.txt");
         ArrayList<String> words = new ArrayList<>();
 
-        try(Scanner scan = new Scanner(lorem).useDelimiter("[ .,:;\n]")){
-            while(scan.hasNext()){
+        try (Scanner scan = new Scanner(lorem).useDelimiter("[ .,:;\n]")) {
+            while (scan.hasNext()) {
                 String newWord = scan.next().trim();
-                if(!(newWord.length()<1 || " ".equals(newWord)))
+                if (!(newWord.length() < 1 || " ".equals(newWord)))
                     words.add(newWord);
             }
 
@@ -46,14 +47,16 @@ public abstract class DaLi_20 {
 //
 //            }
 //        });
-        words.sort((o1,o2) -> Integer.compare(0, o1.compareTo(o2)));
+        words.sort((o1, o2) -> Integer.compare(0, o1.compareTo(o2)));
         ListManip.printList(words);
     }
+
     public static void ex02() {//Store numbers in a linked list
         MainFX.initializeToolkit();//JavaFX toolkit init
         MainFX ui = new MainFX(new LinkedNumbersPane());
         ui.go();
     }
+
     public static void ex03() {//Guessing the capitals
         ArrayList<String> states = new ArrayList<>();
         states.add("Alabama");
@@ -64,11 +67,11 @@ public abstract class DaLi_20 {
         capitals.add("Juneau");
         capitals.add("Phoenix");
         ArrayList<Integer> shuffled = new ArrayList<>();
-        for (String state :states) {
+        for (String state : states) {
             shuffled.add(states.indexOf(state));
         }
         ListManip.shuffle(shuffled);
-        int count =0;
+        int count = 0;
         for (int i = 0; i < shuffled.size(); i++) {
             String answer = scanNext("What is the capital of %s?", states.get(shuffled.get(i)));
             if (answer.equalsIgnoreCase(capitals.get(shuffled.get(i)))) {
@@ -78,6 +81,7 @@ public abstract class DaLi_20 {
         }
         println("Correct count is %d", count);
     }
+
     public static void ex04() {//Implement Comparable
         ArrayList<GregorianCalendar> calendars = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -86,13 +90,15 @@ public abstract class DaLi_20 {
             calendars.add(gc);
         }
         calendars.sort(new CalendarComparator());
-        for(GregorianCalendar calendar : calendars){
-            System.out.printf("%d-%d-%d%n", calendar.get(GregorianCalendar.DAY_OF_MONTH),calendar.get(GregorianCalendar.MONTH)+1,calendar.get(GregorianCalendar.YEAR));
+        for (GregorianCalendar calendar : calendars) {
+            System.out.printf("%d-%d-%d%n", calendar.get(GregorianCalendar.DAY_OF_MONTH), calendar.get(GregorianCalendar.MONTH) + 1, calendar.get(GregorianCalendar.YEAR));
         }
     }
+
     public static void ex05() {//Combine colliding bouncing balls
         Application.launch(BouncingBallsPane.class, "");
     }
+
     public static void ex06() {//Use iterators on ArrayList
         int size = 10000000;
         StopWatch sw0 = new StopWatch();
@@ -103,13 +109,13 @@ public abstract class DaLi_20 {
         sw0.stop();
 
         StopWatch sw1 = new StopWatch();
-        millions.get(size-1);
+        millions.get(size - 1);
         sw1.stop();
 
         Iterator<Integer> it = millions.iterator();
         StopWatch sw2 = new StopWatch();
         int number;
-        while(it.hasNext()){
+        while (it.hasNext()) {
             it.next();
         }
         sw2.stop();
@@ -119,7 +125,8 @@ public abstract class DaLi_20 {
         try {
             while (true)
                 it2.next();
-        }catch (NoSuchElementException ignored){}
+        } catch (NoSuchElementException ignored) {
+        }
         it2.previous();
         sw3.stop();
 
@@ -128,42 +135,59 @@ public abstract class DaLi_20 {
         System.out.println(sw2.getElapsedFormat());
         System.out.println(sw3.getElapsedFormat());
     }
+
     public static void ex07() {//Game: hangman
         MainFX.initializeToolkit();//JavaFX toolkit init
         MainFX ui = new MainFX(new MyHangman());
         ui.go();
     }
+
     public static void ex08() {//Game: lottery
     }
+
     public static void ex09() {//Remove the largest ball first
         Application.launch(BouncingBallsPane.class, "");
     }
+
     public static void ex10() {//Perform set operations on priority queues
     }
+
     public static void ex11() {//Remove Consecutive Integers
     }
+
     public static void ex12() {//Create Stack from list
     }
+
     public static void ex13() {//Postfix notation
     }
+
     public static void ex14() {//Postfix notation
     }
+
     public static void ex15() {//Game: the 24-point card game
     }
+
     public static void ex16() {//Game: the 24-point card game
     }
+
     public static void ex17() {//Game: the 24-point card game
     }
+
     public static void ex18() {//Directory size
     }
+
     public static void ex19() {//Use Comparator
     }
+
     public static void ex20() {//Nonrecursive Tower of Hanoi
     }
+
     public static void ex21() {//Use Comparator
     }
+
     public static void ex22() {//Nonrecursive Tower of Hanoi
     }
+
     public static void ex23() {//Evaluate expression
     }
 }

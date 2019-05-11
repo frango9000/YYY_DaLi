@@ -363,29 +363,31 @@ public abstract class ArrayManip {
         }
         return -1;
     }
-    public static int[] linearSearchAll(int[] array, int number){
+
+    public static int[] linearSearchAll(int[] array, int number) {
         ArrayList<Integer> matches = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
-            if(array[i] == number)
+            if (array[i] == number)
                 matches.add(i);
         }
         int[] ret = new int[matches.size()];
-        Iterator<Integer> it  = matches.listIterator();
+        Iterator<Integer> it = matches.listIterator();
         int count = 0;
-        while(it.hasNext())
+        while (it.hasNext())
             ret[count++] = it.next();
         return ret;
     }
-    public static int[] linearSearchAll(char[] array, char character){
+
+    public static int[] linearSearchAll(char[] array, char character) {
         ArrayList<Integer> matches = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
-            if(array[i] == character)
+            if (array[i] == character)
                 matches.add(i);
         }
         int[] ret = new int[matches.size()];
-        Iterator<Integer> it  = matches.listIterator();
+        Iterator<Integer> it = matches.listIterator();
         int count = 0;
-        while(it.hasNext())
+        while (it.hasNext())
             ret[count++] = it.next();
         return ret;
     }

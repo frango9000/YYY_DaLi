@@ -39,7 +39,7 @@ public class MyHangman extends Pane {
         resetGame();
 
         setOnKeyTyped(event -> {
-            if(!gameOver) {
+            if (!gameOver) {
                 notification.setText("");
                 char pressed = Character.toLowerCase(event.getCharacter().charAt(0));
                 if (ArrayManip.contains(hiddenLetters, pressed) || pressedLetters[pressed - 'a']) {
@@ -84,7 +84,7 @@ public class MyHangman extends Pane {
             }
         });
         setOnKeyPressed(event -> {
-            if(event.getCode() == KeyCode.ENTER)
+            if (event.getCode() == KeyCode.ENTER)
                 resetGame();
         });
     }
@@ -113,17 +113,17 @@ public class MyHangman extends Pane {
         rLeg = new Line(hang2.x, hang2.y, hang2.x + 50, hang2.y + 50);
         hangman.getChildren().addAll(head, body, lArm, lLeg, rArm, rLeg);
 
-        word.setX(hang1.x-100);
-        word.setY(hang2.y+100);
+        word.setX(hang1.x - 100);
+        word.setY(hang2.y + 100);
         notification.setX(word.getX());
-        notification.setY(word.getY()+20);
+        notification.setY(word.getY() + 20);
         ToolFX.setFillStroke(Color.WHITE, Color.BLACK, arc, head);
-        getChildren().addAll(frame1, frame2, frame3, arc, body, lArm, lLeg, rArm, rLeg,head,word,notification);
+        getChildren().addAll(frame1, frame2, frame3, arc, body, lArm, lLeg, rArm, rLeg, head, word, notification);
 
     }
 
-    public void resetGame(){
-        gameOver=false;
+    public void resetGame() {
+        gameOver = false;
         head.setVisible(false);
         body.setVisible(false);
         lArm.setVisible(false);
@@ -132,7 +132,7 @@ public class MyHangman extends Pane {
         rLeg.setVisible(false);
         notification.setText("");
 
-        pressedLetters = new boolean['z'+1-'a'];
+        pressedLetters = new boolean['z' + 1 - 'a'];
         gameWord = words[Randomizer.randomInt(3)];
         hiddenLetters = new char[gameWord.length()];
         Arrays.fill(hiddenLetters, '_');

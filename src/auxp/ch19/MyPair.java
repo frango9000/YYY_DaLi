@@ -33,9 +33,9 @@ public class MyPair<E> {
                 '}';
     }
 
-    public static double min(MyPair<? extends Number> pair){
-        if(pair.first.doubleValue() < pair.second.doubleValue()){
+    public static double min(MyPair<? extends Number> pair) {
+        if (pair.first.doubleValue() < pair.second.doubleValue()) {
             return pair.first.doubleValue();
-        }else return pair.second.doubleValue();
+        } else return pair.second.doubleValue();
     }
 }

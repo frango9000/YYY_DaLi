@@ -1,6 +1,6 @@
 package auxp.ch19;
 
-public class MyAssociation<E,F> {
+public class MyAssociation<E, F> {
 
     E first;
     F second;
@@ -34,7 +34,7 @@ public class MyAssociation<E,F> {
                 '}';
     }
 
-    public static double sum(MyAssociation<? extends Number, ? extends Number> asoc){
+    public static double sum(MyAssociation<? extends Number, ? extends Number> asoc) {
         return asoc.first.doubleValue() + asoc.second.doubleValue();
     }
 }

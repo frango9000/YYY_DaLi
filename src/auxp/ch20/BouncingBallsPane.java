@@ -64,10 +64,10 @@ public class BouncingBallsPane extends Application {
         }
 
         public void add() {
-            Color color = new Color(Math.random(),Math.random(), Math.random(), 0.5);
-            Ball ball = new Ball(30, 30, Randomizer.randomInt(2,21), color);
+            Color color = new Color(Math.random(), Math.random(), Math.random(), 0.5);
+            Ball ball = new Ball(30, 30, Randomizer.randomInt(2, 21), color);
             getChildren().add(ball);
-            ball.setOnMouseClicked(event ->getChildren().remove(ball));
+            ball.setOnMouseClicked(event -> getChildren().remove(ball));
         }
 
 
@@ -117,17 +117,17 @@ public class BouncingBallsPane extends Application {
 
             }
             int size = nodes.size();
-            for (int i = 0; i < size-1; i++) {
-                Ball ballA = (Ball)nodes.get(i);
+            for (int i = 0; i < size - 1; i++) {
+                Ball ballA = (Ball) nodes.get(i);
                 Point2D centerA = new Point2D(ballA.getCenterX(), ballA.getCenterY());
-                for (int j = i+1; j < size; ) {
-                    Ball ballB = (Ball)nodes.get(j);
+                for (int j = i + 1; j < size; ) {
+                    Ball ballB = (Ball) nodes.get(j);
                     Point2D centerB = new Point2D(ballB.getCenterX(), ballB.getCenterY());
-                    if( centerA.distance(centerB) < ballA.getRadius() + ballB.getRadius()){
-                        ballA.setRadius(ballA.getRadius()+ballB.getRadius());
+                    if (centerA.distance(centerB) < ballA.getRadius() + ballB.getRadius()) {
+                        ballA.setRadius(ballA.getRadius() + ballB.getRadius());
                         this.getChildren().remove(ballB);
                         size--;
-                    }else j++;
+                    } else j++;
                 }
 
             }
@@ -137,11 +137,11 @@ public class BouncingBallsPane extends Application {
 
     class Ball extends Circle {
         private double dx = 1, dy = 1;
-        private Point2D center = new Point2D(1,1);
+        private Point2D center = new Point2D(1, 1);
 
         Ball(double x, double y, double radius, Color color) {
             super(x, y, radius);
-            center = new Point2D(x,y);
+            center = new Point2D(x, y);
             setFill(color); // Set ball color
         }
 
