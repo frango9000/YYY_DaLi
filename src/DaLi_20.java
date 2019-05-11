@@ -1,4 +1,5 @@
 import auxp.MainFX;
+import auxp.ch14.MyHangman;
 import auxp.ch20.BouncingBallsPane;
 import auxp.ch20.CalendarComparator;
 import auxp.ch20.LinkedNumbersPane;
@@ -18,7 +19,7 @@ public abstract class DaLi_20 {
 
     public static void main(String[] args) {
 
-        ex06();
+        ex07();
 
     }
 
@@ -128,6 +129,9 @@ public abstract class DaLi_20 {
         System.out.println(sw3.getElapsedFormat());
     }
     public static void ex07() {//Game: hangman
+        MainFX.initializeToolkit();//JavaFX toolkit init
+        MainFX ui = new MainFX(new MyHangman());
+        ui.go();
     }
     public static void ex08() {//Game: lottery
     }

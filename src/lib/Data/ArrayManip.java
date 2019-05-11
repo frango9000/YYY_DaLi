@@ -3,7 +3,9 @@ package lib.Data;
 import lib.Math.Algebra;
 import lib.Misc.Randomizer;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 public abstract class ArrayManip {
 
@@ -360,6 +362,32 @@ public abstract class ArrayManip {
                 return i;
         }
         return -1;
+    }
+    public static int[] linearSearchAll(int[] array, int number){
+        ArrayList<Integer> matches = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == number)
+                matches.add(i);
+        }
+        int[] ret = new int[matches.size()];
+        Iterator<Integer> it  = matches.listIterator();
+        int count = 0;
+        while(it.hasNext())
+            ret[count++] = it.next();
+        return ret;
+    }
+    public static int[] linearSearchAll(char[] array, char character){
+        ArrayList<Integer> matches = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == character)
+                matches.add(i);
+        }
+        int[] ret = new int[matches.size()];
+        Iterator<Integer> it  = matches.listIterator();
+        int count = 0;
+        while(it.hasNext())
+            ret[count++] = it.next();
+        return ret;
     }
 
     public static int binarySearch(int[] array, int number) {

@@ -1,11 +1,11 @@
 package auxp;
 
+import auxp.ch14.MyHangman;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -25,6 +25,7 @@ public class MainFX extends Application {
         //primaryStage.setWidth(400);
         //primaryStage.setHeight(400);
         primaryStage.setScene(scene);
+        pane.requestFocus();
         primaryStage.show();
     }
 
@@ -35,7 +36,8 @@ public class MainFX extends Application {
 
     public MainFX() {
         if (pane == null)
-            pane = new Pane(new Label("Default Pane"));
+            //pane = new Pane(new Label("Default Pane"));
+            pane = new MyHangman();
         //pane = new RawEditorPane();
     }
 
