@@ -136,6 +136,7 @@ public abstract class DaLi_20 {
     public static void ex08() {//Game: lottery
     }
     public static void ex09() {//Remove the largest ball first
+        Application.launch(BouncingBallsPane.class, "");
     }
     public static void ex10() {//Perform set operations on priority queues
     }

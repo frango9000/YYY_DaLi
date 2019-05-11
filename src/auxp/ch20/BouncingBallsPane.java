@@ -18,6 +18,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lib.Misc.Randomizer;
 
 public class BouncingBallsPane extends Application {
     @Override // Override the start method in the Application class
@@ -63,9 +64,10 @@ public class BouncingBallsPane extends Application {
         }
 
         public void add() {
-            Color color = new Color(Math.random(),
-                    Math.random(), Math.random(), 0.5);
-            getChildren().add(new Ball(30, 30, 20, color));
+            Color color = new Color(Math.random(),Math.random(), Math.random(), 0.5);
+            Ball ball = new Ball(30, 30, Randomizer.randomInt(2,21), color);
+            getChildren().add(ball);
+            ball.setOnMouseClicked(event ->getChildren().remove(ball));
         }
 
 
