@@ -1,3 +1,5 @@
+import auxp.MainFX;
+import auxp.ch21.BabyNamesPane;
 import auxp.ch21.CountOccurrenceOfWords;
 import auxp.ch21.CountOccurrenceOfWordsFile;
 import lib.Data.ListManip;
@@ -14,7 +16,7 @@ import static lib.Misc.IO.scanNext;
 public abstract class DaLi_21 {
 
     public static void main(String[] args) {
-        ex09();
+        ex11();
 
     }
 
@@ -143,6 +145,10 @@ public abstract class DaLi_21 {
     public static void ex10() {//Count the occurrences of each keyword
     }
     public static void ex11() {//Baby name popularity ranking
+        MainFX.initializeToolkit();//JavaFX toolkit init
+        MainFX ui = new MainFX(new BabyNamesPane());
+        ui.go();
+
     }
     public static void ex12() {//Name for both genders
     }
