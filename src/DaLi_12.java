@@ -21,7 +21,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex32();
+        ex33();
 
     }
 

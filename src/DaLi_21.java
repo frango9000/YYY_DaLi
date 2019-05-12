@@ -2,6 +2,7 @@ import auxp.MainFX;
 import auxp.ch21.BabyNamesPane;
 import auxp.ch21.CountOccurrenceOfWords;
 import auxp.ch21.CountOccurrenceOfWordsFile;
+import auxp.ch21.WebCrawler2;
 import lib.Data.ListManip;
 
 import java.io.File;
@@ -16,7 +17,7 @@ import static lib.Misc.IO.scanNext;
 public abstract class DaLi_21 {
 
     public static void main(String[] args) {
-        ex11();
+        ex14();
 
     }
 
@@ -148,13 +149,14 @@ public abstract class DaLi_21 {
         MainFX.initializeToolkit();//JavaFX toolkit init
         MainFX ui = new MainFX(new BabyNamesPane());
         ui.go();
-
     }
     public static void ex12() {//Name for both genders
+        ex11();
     }
     public static void ex13() {//Baby name popularity ranking
     }
     public static void ex14() {//Web crawler
+        WebCrawler2.main(null);
     }
     public static void ex15() {//Addition quiz
     }

@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
 import java.io.File;
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -30,13 +31,14 @@ public class BabyNamesPane extends BorderPane {
         ComboBox<String> gender = new ComboBox<>(FXCollections.observableArrayList("Male", "Female"));
         TextField name = new TextField();
         Button find = new Button("Find");
+        Button sout = new Button("*");
 
 
         GridPane form = new GridPane();
         form.addRow(0, new Label("Select a Year:"), year);
         form.addRow(1, new Label("Gender:"), gender);
         form.addRow(2, new Label("Name:"), name);
-        form.addRow(3, new Label(), find);
+        form.addRow(3, sout, find);
 
         Text text = new Text();
 
@@ -57,6 +59,18 @@ public class BabyNamesPane extends BorderPane {
             } catch (NullPointerException e) {
                 text.setText("Name not found with given parameters");
             }
+
+        });
+
+        sout.setOnAction(event -> {
+            int y = year.getValue() - 2001;
+            TreeMap<String, Integer> selectedMales = males[y];
+            TreeMap<String, Integer> selectedFemales = females[y];
+
+            HashSet<String> commonNames = new HashSet<>(selectedMales.keySet());
+
+            commonNames.retainAll(selectedFemales.keySet());
+            System.out.println(commonNames);
 
         });
 
