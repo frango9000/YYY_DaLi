@@ -4,15 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public abstract class DaLi_21 {
 
     public static void main(String[] args) {
-        ex04();
+        ex05();
 
     }
 
@@ -57,7 +54,7 @@ public abstract class DaLi_21 {
         }
         ListManip.printList(names);
     }
-    public static void ex03() {//Checking whether a key exists in a set
+    public static HashMap<String, Integer> ex03() {//Checking whether a key exists in a set
         HashSet<File> files = new HashSet<>();
         files.add(new File("src/res/txt/Biology.txt"));
         files.add(new File("src/res/txt/Chemistry.txt"));
@@ -78,7 +75,8 @@ public abstract class DaLi_21 {
                 }
             } catch (IOException ignored) {}
         }
-        ListManip.printMap(names);
+        //ListManip.printMap(names);
+        return names;
     }
     public static void ex04() {//Count consonants and vowels
         File text = new File("src/res/txt/Lincoln.txt");
@@ -110,6 +108,8 @@ public abstract class DaLi_21 {
         System.out.println(cNum + " consonants");
     }
     public static void ex05() {//Syntax highlighting
+        TreeMap<String, Integer> names = new TreeMap<>(ex03());
+        names.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
     }
     public static void ex06() {//Count the occurrences of words/names
     }

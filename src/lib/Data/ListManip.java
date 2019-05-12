@@ -34,10 +34,7 @@ public class ListManip {
         }
     }
 
-    public static <E,F> void printMap(HashMap<E,F> list) {
-        String index = "";
-        Integer indexNum = 0;
-
+    public static <E,F> void printMap(Map<E,F> list) {
         list.forEach((e, f) -> System.out.println(e +" - "+ f));
     }
 
