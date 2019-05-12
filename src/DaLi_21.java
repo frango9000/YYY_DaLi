@@ -8,10 +8,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+import static lib.Misc.IO.println;
+import static lib.Misc.IO.scanNext;
+
 public abstract class DaLi_21 {
 
     public static void main(String[] args) {
-        ex06();
+        ex09();
 
     }
 
@@ -122,6 +125,20 @@ public abstract class DaLi_21 {
         CountOccurrenceOfWordsFile.main(null);
     }
     public static void ex09() {//Guess the capitals using maps
+        HashMap<String,String> states = new HashMap<>();
+        states.put("Alabama", "Montgomery");
+        states.put("Alaska", "Juneau");
+        states.put("Arizona", "Phoenix");
+        int count = 0;
+            for (Map.Entry<String,String> entries : states.entrySet()){
+
+                String answer = scanNext("What is the capital of %s?", entries.getKey());
+                if (answer.equalsIgnoreCase(entries.getValue())) {
+                    println("Your answer is correct");
+                    count++;
+                } else println("Correct answer is %s", entries.getValue());
+            }
+        println("Correct count is %d", count);
     }
     public static void ex10() {//Count the occurrences of each keyword
     }
