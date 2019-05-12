@@ -1,3 +1,4 @@
+import auxp.ch21.CountOccurrenceOfWords;
 import lib.Data.ListManip;
 
 import java.io.File;
@@ -9,7 +10,7 @@ import java.util.*;
 public abstract class DaLi_21 {
 
     public static void main(String[] args) {
-        ex05();
+        ex06();
 
     }
 
@@ -112,6 +113,7 @@ public abstract class DaLi_21 {
         names.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
     }
     public static void ex06() {//Count the occurrences of words/names
+        CountOccurrenceOfWords.main(null);
     }
     public static void ex07() {//Revise Listing 21.9, CountOccurrenceOfWords.java
     }
