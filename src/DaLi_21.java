@@ -1,4 +1,5 @@
 import auxp.ch21.CountOccurrenceOfWords;
+import auxp.ch21.CountOccurrenceOfWordsFile;
 import lib.Data.ListManip;
 
 import java.io.File;
@@ -116,6 +117,7 @@ public abstract class DaLi_21 {
         CountOccurrenceOfWords.main(null);
     }
     public static void ex07() {//Revise Listing 21.9, CountOccurrenceOfWords.java
+        CountOccurrenceOfWordsFile.main(null);
     }
     public static void ex08() {//Count the occurrences of words in a text file
     }
