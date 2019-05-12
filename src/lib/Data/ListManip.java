@@ -41,8 +41,6 @@ public class ListManip {
         list.forEach((e, f) -> System.out.println(e +" - "+ f));
     }
 
-
-
     public static int[][] listToMatrix(ArrayList<int[]> list) {
         int[][] array = new int[list.size()][];
         for (int i = 0; i < array.length; i++) {
@@ -103,12 +101,8 @@ public class ListManip {
         }
     }
 
-    public static <E extends Number> double sum(ArrayList<E> list) {
-        double sum = 0;
-        for (int i = 0; i < list.size(); i++) {
-            sum += list.get(i).doubleValue();
-        }
-        return sum;
+    public static <E extends Number> double sum(Collection<E> list) {
+        return list.stream().mapToDouble(E::doubleValue).sum();
     }
 
     public static <E> void removeDuplicate(ArrayList<E> list) {
@@ -123,7 +117,7 @@ public class ListManip {
         }
     }
 
-    public static <E> ArrayList<E> union(ArrayList<E> list1, ArrayList<E> list2) {
+    public static <E> ArrayList<E> union(Collection<E> list1, Collection<E> list2) {
         ArrayList<E> union = new ArrayList<>(list1.size() + list2.size());
         union.addAll(list1);
         union.addAll(list2);

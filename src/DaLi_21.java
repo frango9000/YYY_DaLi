@@ -3,6 +3,7 @@ import lib.Data.ListManip;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 public abstract class DaLi_21 {
 
     public static void main(String[] args) {
-        ex03();
+        ex04();
 
     }
 
@@ -80,6 +81,33 @@ public abstract class DaLi_21 {
         ListManip.printMap(names);
     }
     public static void ex04() {//Count consonants and vowels
+        File text = new File("src/res/txt/Lincoln.txt");
+        HashSet<Character> vocals = new HashSet<>();
+        vocals.add('a');
+        vocals.add('e');
+        vocals.add('i');
+        vocals.add('o');
+        vocals.add('u');
+
+        int cNum=0;
+        int vNum=0;
+
+        try(InputStreamReader in = new InputStreamReader(new FileInputStream(text))){
+
+            int int2char;
+            while((int2char = in.read()) != -1){
+                char c = (char)int2char;
+                if(c >= 'a' && c<='z'){
+                    if(vocals.contains(c))
+                        vNum++;
+                    else cNum++;
+                }
+            }
+        }catch(Exception ignored){
+            System.out.println("eerrr");
+        }
+        System.out.println(vNum + " vocals");
+        System.out.println(cNum + " consonants");
     }
     public static void ex05() {//Syntax highlighting
     }
