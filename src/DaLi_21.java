@@ -57,6 +57,27 @@ public abstract class DaLi_21 {
         ListManip.printList(names);
     }
     public static void ex03() {//Checking whether a key exists in a set
+        HashSet<File> files = new HashSet<>();
+        files.add(new File("src/res/txt/Biology.txt"));
+        files.add(new File("src/res/txt/Chemistry.txt"));
+        files.add(new File("src/res/txt/Geography.txt"));
+
+        HashMap<String, Integer> names = new HashMap<>();
+
+        for(File file : files){
+
+            try(Scanner in = new Scanner(new FileInputStream(file))){
+                while(in.hasNextLine()){
+                    String name = in.nextLine();
+                    if(names.containsKey(name)){
+                        names.replace(name, names.get(name)+1);
+                    }else{
+                        names.put(name, 1);
+                    }
+                }
+            } catch (IOException ignored) {}
+        }
+        ListManip.printMap(names);
     }
     public static void ex04() {//Count consonants and vowels
     }

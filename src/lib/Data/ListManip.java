@@ -34,6 +34,15 @@ public class ListManip {
         }
     }
 
+    public static <E,F> void printMap(HashMap<E,F> list) {
+        String index = "";
+        Integer indexNum = 0;
+
+        list.forEach((e, f) -> System.out.println(e +" - "+ f));
+    }
+
+
+
     public static int[][] listToMatrix(ArrayList<int[]> list) {
         int[][] array = new int[list.size()][];
         for (int i = 0; i < array.length; i++) {
