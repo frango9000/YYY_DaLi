@@ -110,16 +110,16 @@ public abstract class DaLi_21 {
         System.out.println(cNum + " consonants");
     }
     public static void ex05() {//Syntax highlighting
+    }
+    public static void ex06() {//Count the occurrences of words/names
         TreeMap<String, Integer> names = new TreeMap<>(ex03());
         names.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
     }
-    public static void ex06() {//Count the occurrences of words/names
+    public static void ex07() {//Revise Listing 21.9, CountOccurrenceOfWords.java
         CountOccurrenceOfWords.main(null);
     }
-    public static void ex07() {//Revise Listing 21.9, CountOccurrenceOfWords.java
-        CountOccurrenceOfWordsFile.main(null);
-    }
     public static void ex08() {//Count the occurrences of words in a text file
+        CountOccurrenceOfWordsFile.main(null);
     }
     public static void ex09() {//Guess the capitals using maps
     }
