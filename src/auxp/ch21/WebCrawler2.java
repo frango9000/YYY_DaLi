@@ -19,7 +19,7 @@ public class WebCrawler2 {
         Set<String> subURLs = new HashSet<>();
         listOfPendingURLs.add(startingURL);
         while (!listOfPendingURLs.isEmpty() && listOfTraversedURLs.size() <= 100) {
-            for (String urlString: listOfPendingURLs) {
+            for (String urlString : listOfPendingURLs) {
                 System.out.println("Craw " + urlString);
                 subURLs.addAll(getSubURLs(urlString));
             }

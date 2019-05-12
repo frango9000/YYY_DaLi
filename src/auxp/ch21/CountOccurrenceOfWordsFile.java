@@ -13,14 +13,15 @@ public class CountOccurrenceOfWordsFile {
 
         File file = new File("src/res/txt/Lincoln.txt");
 
-        try(Scanner in = new Scanner(new FileInputStream(file)).useDelimiter("[ ,.;:?'\"()\n]*")){
-            while(in.hasNext()){
+        try (Scanner in = new Scanner(new FileInputStream(file)).useDelimiter("[ ,.;:?'\"()\n]*")) {
+            while (in.hasNext()) {
                 String next = in.next().toLowerCase();
-                if(map.containsKey(next)){
-                    map.replace(next, map.get(next)+1);
-                }else map.put(next, 1);
+                if (map.containsKey(next)) {
+                    map.replace(next, map.get(next) + 1);
+                } else map.put(next, 1);
             }
-        }catch (Exception ignored){}
+        } catch (Exception ignored) {
+        }
         // Create a TreeMap to hold words as key and count as value
 
         // Display key and value for each entry

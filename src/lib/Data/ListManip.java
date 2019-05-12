@@ -24,9 +24,9 @@ public class ListManip {
         int indexNum = 0;
         Iterator<E> it = list.iterator();
 
-        while(it.hasNext()){
-            if(start<=indexNum && end>=indexNum){
-                if(withIndex)
+        while (it.hasNext()) {
+            if (start <= indexNum && end >= indexNum) {
+                if (withIndex)
                     index = (indexNum + firstIndex) + " ";
                 System.out.println(index + it.next());
             }
@@ -34,8 +34,8 @@ public class ListManip {
         }
     }
 
-    public static <E,F> void printMap(Map<E,F> list) {
-        list.forEach((e, f) -> System.out.println(e +" - "+ f));
+    public static <E, F> void printMap(Map<E, F> list) {
+        list.forEach((e, f) -> System.out.println(e + " - " + f));
     }
 
     public static int[][] listToMatrix(ArrayList<int[]> list) {
