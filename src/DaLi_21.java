@@ -1,7 +1,10 @@
+import java.util.Arrays;
+import java.util.HashSet;
+
 public abstract class DaLi_21 {
 
     public static void main(String[] args) {
-        ex00();
+        ex01();
 
     }
 
@@ -9,6 +12,24 @@ public abstract class DaLi_21 {
     }
 
     public static void ex01() {//Perform set operations on hash sets
+        String[] s1 = {"Chemistry", "Mathematics", "Biology", "English"};
+        String[] s2 = {"Biology", "English", "Geography", "Physics"};
+
+        HashSet<String> hs1 = new HashSet<>(Arrays.asList(s1));
+        HashSet<String> hs2 = new HashSet<>(Arrays.asList(s2));
+
+        HashSet<String> a1 = new HashSet<>(hs1);
+        a1.removeAll(hs2);
+
+        HashSet<String> a2 = new HashSet<>(hs2);
+        a2.removeAll(hs1);
+
+        HashSet<String> a3 = new HashSet<>(hs1);
+        a3.retainAll(hs2);
+
+        System.out.println(a1);
+        System.out.println(a2);
+        System.out.println(a3);
     }
 
     public static void ex02() {//Display nonduplicate names in ascending order
