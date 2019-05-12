@@ -2,32 +2,36 @@ package lib.Data;
 
 import lib.Misc.Randomizer;
 
-import java.util.AbstractList;
-import java.util.ArrayList;
+import java.util.*;
 
 import static lib.Misc.IO.scanInt;
 
 public class ListManip {
-    public static <E> void printList(ArrayList<E> list) {
+    public static <E> void printList(Collection<E> list) {
         printList(list, 0, list.size() - 1, false, 0);
     }
 
-    public static <E> void printList(ArrayList<E> list, boolean withIndex) {
+    public static <E> void printList(Collection<E> list, boolean withIndex) {
         printList(list, 0, list.size() - 1, withIndex, 0);
     }
 
-    public static <E> void printList(ArrayList<E> list, boolean withIndex, int firstIndex) {
+    public static <E> void printList(Collection<E> list, boolean withIndex, int firstIndex) {
         printList(list, 0, list.size() - 1, withIndex, firstIndex);
     }
 
-    public static <E> void printList(ArrayList<E> list, int start, int end, boolean withIndex, int firstIndex) {
+    public static <E> void printList(Collection<E> list, int start, int end, boolean withIndex, int firstIndex) {
         String index = "";
-        if (!(start > list.size() - 1 || end > list.size() - 1 || start < 0 || end < 0))
-            for (int i = start; i < list.size() && i <= end; i++) {
-                if (withIndex)
-                    index = (i + firstIndex) + " ";
-                System.out.println(index + list.get(i).toString());
+        int indexNum = 0;
+        Iterator<E> it = list.iterator();
+
+        while(it.hasNext()){
+            if(start<=indexNum && end>=indexNum){
+                if(withIndex)
+                    index = (indexNum + firstIndex) + " ";
+                System.out.println(index + it.next());
             }
+            indexNum++;
+        }
     }
 
     public static int[][] listToMatrix(ArrayList<int[]> list) {
