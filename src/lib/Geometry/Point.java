@@ -41,7 +41,8 @@ public class Point {
         return array;
     }
 
-    public static double distanceBetweenPoints(double x1, double y1, double z1, double x2, double y2, double z2) {
+    public static double distanceBetweenPoints(
+            double x1, double y1, double z1, double x2, double y2, double z2) {
         return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2) + Math.pow(z2 - z1, 2));
     }
 
@@ -53,7 +54,8 @@ public class Point {
         return distanceBetweenPoints(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);
     }
 
-    public static double[] middlePoint(double x1, double y1, double z1, double x2, double y2, double z2) {
+    public static double[] middlePoint(
+            double x1, double y1, double z1, double x2, double y2, double z2) {
         return new double[]{(x1 + x2) / 2, (y1 + y2) / 2, (z1 + z2) / 2};
     }
 
@@ -83,7 +85,8 @@ public class Point {
     }
 
     public static double closestPointsDistance(Point... points) {
-        return distanceBetweenPoints(points[closestPointsIndex(points)[0]], points[closestPointsIndex(points)[1]]);
+        return distanceBetweenPoints(
+                points[closestPointsIndex(points)[0]], points[closestPointsIndex(points)[1]]);
     }
 
     public static HashMap<Point, Point> closestPoints(Point... points) {
@@ -118,6 +121,4 @@ public class Point {
     public String toString3() {
         return "( " + x + ", " + y + ", " + z + " )";
     }
-
-
 }

@@ -22,6 +22,7 @@ public class Sphere {
         double x2 = Math.toRadians(pointB.x);
         double y2 = Math.toRadians(pointB.y);
 
-        return radius * Math.acos(Math.sin(x1) * Math.sin(x2) + Math.cos(x1) * Math.cos(x2) * Math.cos(y1 - y2));
+        return radius
+                * Math.acos(Math.sin(x1) * Math.sin(x2) + Math.cos(x1) * Math.cos(x2) * Math.cos(y1 - y2));
     }
 }

@@ -32,27 +32,22 @@ public class MySineGraph extends Pane {
         width = getWidth();
         height = getHeight();
 
-        setOnMousePressed(event -> {
-            if (showSineAnimation)
-                ptSin.pause();
-            if (showCosineAnimation)
-                ptCos.pause();
-        });
-        setOnMouseReleased(event -> {
-            if (showSineAnimation)
-                ptSin.play();
-            if (showCosineAnimation)
-                ptCos.play();
-        });
+        setOnMousePressed(
+                event -> {
+                    if (showSineAnimation) ptSin.pause();
+                    if (showCosineAnimation) ptCos.pause();
+                });
+        setOnMouseReleased(
+                event -> {
+                    if (showSineAnimation) ptSin.play();
+                    if (showCosineAnimation) ptCos.play();
+                });
 
         getChildren().clear();
         getChildren().add(base(1260));
-        if (showSine)
-            getChildren().add(sin(1260));
-        if (showCosine)
-            getChildren().add(cos(1260));
-        if (showTan)
-            getChildren().add(tan(1260));
+        if (showSine) getChildren().add(sin(1260));
+        if (showCosine) getChildren().add(cos(1260));
+        if (showTan) getChildren().add(tan(1260));
     }
 
     private Pane base(int bound) {

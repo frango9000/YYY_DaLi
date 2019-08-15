@@ -25,7 +25,6 @@ public class MovableRectanglePane extends BorderPane {
         pane.setMinWidth(size * 2);
         pane.setMinHeight(size * 2);
 
-
         rect = new Rectangle(10, 10, size, size);
         ToolFX.setFillStroke(null, Color.BLACK, rect);
 
@@ -55,13 +54,19 @@ public class MovableRectanglePane extends BorderPane {
                 rect.setY(rect.getY() > 10 ? rect.getY() - 5 : 10);
                 break;
             case DOWN:
-                rect.setY(rect.getY() < pane.getHeight() - size - 10 ? rect.getY() + 5 : pane.getHeight() - size - 10);
+                rect.setY(
+                        rect.getY() < pane.getHeight() - size - 10
+                                ? rect.getY() + 5
+                                : pane.getHeight() - size - 10);
                 break;
             case LEFT:
                 rect.setX(rect.getX() > 10 ? rect.getX() - 5 : 10);
                 break;
             case RIGHT:
-                rect.setX(rect.getX() < pane.getWidth() - size - 10 ? rect.getX() + 5 : pane.getWidth() - size - 10);
+                rect.setX(
+                        rect.getX() < pane.getWidth() - size - 10
+                                ? rect.getX() + 5
+                                : pane.getWidth() - size - 10);
                 break;
         }
     }

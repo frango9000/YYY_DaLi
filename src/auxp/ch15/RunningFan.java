@@ -14,7 +14,7 @@ import javafx.util.Duration;
 
 public class RunningFan extends StackPane {
     private double startAngle = 15;
-    private double speed = 100; //max 100
+    private double speed = 100; // max 100
     private Timeline fan;
     private Pane blades = getBlades();
     private ObservableList<Node> list = blades.getChildren(); // List of arcs
@@ -26,7 +26,6 @@ public class RunningFan extends StackPane {
         fan.setCycleCount(Timeline.INDEFINITE);
         fan.play();
     }
-
 
     private void spinFan() {
         for (int i = 0; i < list.size(); i++) {

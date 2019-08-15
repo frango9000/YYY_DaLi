@@ -15,7 +15,6 @@ public class Rectangle extends GeometricObject {
     private Point pointC;
     private Point pointD;
 
-
     public Rectangle() {
     }
 
@@ -27,10 +26,9 @@ public class Rectangle extends GeometricObject {
         setCenter();
         setWidth();
         setHeight();
-
     }
 
-    public Rectangle(Point pointA, Point pointC) {//opposite corners
+    public Rectangle(Point pointA, Point pointC) { // opposite corners
         this(pointA, new Point(pointA.x, pointC.y), pointC, new Point(pointC.x, pointA.y));
     }
 
@@ -47,7 +45,10 @@ public class Rectangle extends GeometricObject {
     }
 
     public static Rectangle boundingRectangle(Point... points) {
-        double minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE, maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE;
+        double minX = Integer.MAX_VALUE,
+                minY = Integer.MAX_VALUE,
+                maxX = Integer.MIN_VALUE,
+                maxY = Integer.MIN_VALUE;
         for (int point = 0; point < points.length; point++) {
             minX = Algebra.min(minX, points[point].x);
             minY = Algebra.min(minY, points[point].y);
@@ -131,23 +132,26 @@ public class Rectangle extends GeometricObject {
         double xDistance = Math.abs(this.center.x - rectangle.center.x);
         double yDistance = Math.abs(this.center.y - rectangle.center.y);
 
-        if (xDistance <= Math.abs(this.width - rectangle.width) / 2 && yDistance <= Math.abs(this.height - rectangle.height) / 2) {
+        if (xDistance <= Math.abs(this.width - rectangle.width) / 2
+                && yDistance <= Math.abs(this.height - rectangle.height) / 2) {
             if (this.width > rectangle.width)
-                return true;//System.out.println("rectangle 2 is in rectangle 1");
+                return true; // System.out.println("rectangle 2 is in rectangle 1");
             else return !(rectangle.width > this.width);
-        } else if (xDistance <= Math.abs(this.width + rectangle.width) / 2 && yDistance <= Math.abs(this.height + rectangle.height) / 2)
-            return false;//System.out.println("r2 contains r1");
+        } else if (xDistance <= Math.abs(this.width + rectangle.width) / 2
+                && yDistance <= Math.abs(this.height + rectangle.height) / 2)
+            return false; // System.out.println("r2 contains r1");
         else {
-            return false;// System.out.println("r2 does not overlap r1");
+            return false; // System.out.println("r2 does not overlap r1");
         }
-        //return true;
+        // return true;
     }
 
     public boolean overlaps(Rectangle rectangle) {
         double xDistance = Math.abs(this.center.x - rectangle.center.x);
         double yDistance = Math.abs(this.center.y - rectangle.center.y);
 
-        //Overlap
-        return xDistance <= this.width + rectangle.width / 2 && yDistance <= this.height + rectangle.height / 2;
+        // Overlap
+        return xDistance <= this.width + rectangle.width / 2
+                && yDistance <= this.height + rectangle.height / 2;
     }
 }

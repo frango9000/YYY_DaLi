@@ -3,10 +3,11 @@ package lib.Math;
 import java.util.Arrays;
 
 public abstract class Algebra {
-    public static double[] linear2x2Equation(double a, double b, double c, double d, double e, double f) {
+    public static double[] linear2x2Equation(
+            double a, double b, double c, double d, double e, double f) {
 
-        //ax+by=e
-        //cx+dy=f
+        // ax+by=e
+        // cx+dy=f
         double discriminant = (a * d) - (b * c);
 
         if (discriminant == 0) return null;
@@ -45,49 +46,41 @@ public abstract class Algebra {
             b = t;
         }
         for (int i = a; i > 0; i--) {
-            if (a % i == 0 && b % i == 0)
-                return i;
+            if (a % i == 0 && b % i == 0) return i;
         }
-        return -1;//bug
+        return -1; // bug
     }
 
     public static double pi() {
         double PI = 0.0;
-        for (int i = 100000; i > 0; i--)
-            PI += Math.pow(-1, i + 1) / (2 * i - 1);
+        for (int i = 100000; i > 0; i--) PI += Math.pow(-1, i + 1) / (2 * i - 1);
         return PI * 4;
     }
 
     public static long factorial(int number) {
         long prod = 1;
-        for (int i = 1; i <= number; i++)
-            prod = prod * i;
+        for (int i = 1; i <= number; i++) prod = prod * i;
         return prod;
     }
 
     public static double calcE() {
         double e = 1;
-        for (int i = 64; i > 0; i--)
-            e = e + 1 / (double) (factorial(i));
+        for (int i = 64; i > 0; i--) e = e + 1 / (double) (factorial(i));
         return e;
     }
 
     public static int[] listOfDivisors(int number) {
         int[] list = new int[number / 2];
         int count = 0;
-        for (int i = 1; i <= number / 2; i++)
-            if (number % i == 0)
-                list[count++] = i;
+        for (int i = 1; i <= number / 2; i++) if (number % i == 0) list[count++] = i;
         return Arrays.copyOf(list, count);
     }
 
     public static boolean isPerfectNumber(int number) {
         int sum = 0;
         int[] divisors = listOfDivisors(number);
-        for (int divisor : divisors)
-            sum += divisor;
+        for (int divisor : divisors) sum += divisor;
         return sum == number;
-
     }
 
     public static int pentagonalNumber(int index) {
@@ -128,8 +121,7 @@ public abstract class Algebra {
     public static int min(int... numbers) {
         int min = numbers[0];
         for (int e : numbers) {
-            if (e < min)
-                min = e;
+            if (e < min) min = e;
         }
         return min;
     }
@@ -137,8 +129,7 @@ public abstract class Algebra {
     public static int max(int... numbers) {
         int max = numbers[0];
         for (int e : numbers) {
-            if (e > max)
-                max = e;
+            if (e > max) max = e;
         }
         return max;
     }
@@ -146,8 +137,7 @@ public abstract class Algebra {
     public static double min(double... numbers) {
         double min = numbers[0];
         for (double e : numbers) {
-            if (e < min)
-                min = e;
+            if (e < min) min = e;
         }
         return min;
     }
@@ -155,8 +145,7 @@ public abstract class Algebra {
     public static double max(double... numbers) {
         double max = numbers[0];
         for (double e : numbers) {
-            if (e > max)
-                max = e;
+            if (e > max) max = e;
         }
         return max;
     }

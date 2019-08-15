@@ -67,13 +67,27 @@ public class TaggedTrianglePane extends Pane {
     }
 
     private void updateAngles() {
-        Triangle triangle = new Triangle(c1.getCenterX(), c1.getCenterY(), c2.getCenterX(), c2.getCenterY(), c3.getCenterX(), c3.getCenterY());
+        Triangle triangle =
+                new Triangle(
+                        c1.getCenterX(),
+                        c1.getCenterY(),
+                        c2.getCenterX(),
+                        c2.getCenterY(),
+                        c3.getCenterX(),
+                        c3.getCenterY());
         angle1.setText(String.format("%.2f", Math.toDegrees(triangle.angleA)));
         angle2.setText(String.format("%.2f", Math.toDegrees(triangle.angleB)));
         angle3.setText(String.format("%.2f", Math.toDegrees(triangle.angleC)));
 
         if (visibleCircle) {
-            lib.Geometry.Circle tcirc = new lib.Geometry.Circle(c1.getCenterX(), c1.getCenterY(), c2.getCenterX(), c2.getCenterY(), c3.getCenterX(), c3.getCenterY());
+            lib.Geometry.Circle tcirc =
+                    new lib.Geometry.Circle(
+                            c1.getCenterX(),
+                            c1.getCenterY(),
+                            c2.getCenterX(),
+                            c2.getCenterY(),
+                            c3.getCenterX(),
+                            c3.getCenterY());
             superC.setCenterX(tcirc.center.x);
             superC.setCenterY(tcirc.center.y);
             superC.setRadius(tcirc.radius);
@@ -81,7 +95,6 @@ public class TaggedTrianglePane extends Pane {
     }
 
     private class AngleMover implements EventHandler<MouseEvent> {
-
 
         @Override
         public void handle(MouseEvent event) {
@@ -92,4 +105,3 @@ public class TaggedTrianglePane extends Pane {
         }
     }
 }
-

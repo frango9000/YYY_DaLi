@@ -19,10 +19,6 @@ public class MyTriplet<E> extends MyPair<E> {
 
     @Override
     public String toString() {
-        return "MyTriplet{" +
-                "first=" + first +
-                ", second=" + second +
-                ", third=" + third +
-                '}';
+        return "MyTriplet{" + "first=" + first + ", second=" + second + ", third=" + third + '}';
     }
 }

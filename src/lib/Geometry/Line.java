@@ -14,7 +14,6 @@ public class Line {
     public double yIntercept;
     public double xIntercept;
 
-
     public Line() {
     }
 
@@ -56,7 +55,7 @@ public class Line {
         return pointA.y - (slope() * pointA.x);
     }
 
-    public double xIntercept() {//??
+    public double xIntercept() { // ??
         return pointA.x - ((1 / slope()) * pointA.y);
     }
 
@@ -73,7 +72,8 @@ public class Line {
     }
 
     public double squaredLength() {
-        return (pointB.x - pointA.x) * (pointB.x - pointA.x) + (pointB.y - pointA.y) * (pointB.y - pointA.y);
+        return (pointB.x - pointA.x) * (pointB.x - pointA.x)
+                + (pointB.y - pointA.y) * (pointB.y - pointA.y);
     }
 
     public double[] intersect(Line line) {
@@ -85,7 +85,8 @@ public class Line {
     }
 
     public double crossProduct(Point point) {
-        return ((pointB.x - pointA.x) * (point.y - pointA.y) - (point.x - pointA.x) * (pointB.y - pointA.y));
+        return ((pointB.x - pointA.x) * (point.y - pointA.y)
+                - (point.x - pointA.x) * (pointB.y - pointA.y));
     }
 
     public double crossProduct(double x, double y) {
@@ -101,11 +102,17 @@ public class Line {
     }
 
     public double dotProduct(Point point) {
-        return ((pointB.x - pointA.x) * (point.x - pointA.x) - (point.y - pointA.y) * (pointB.y - pointA.y));
+        return ((pointB.x - pointA.x) * (point.x - pointA.x)
+                - (point.y - pointA.y) * (pointB.y - pointA.y));
     }
 
     public boolean isOnSegment(Point point) {
-        return !((crossProduct(point) > 0) || (crossProduct(point) < 0) || (point.x < pointA.x) || (point.y < pointA.y) || (point.x > pointB.x) || (point.y > pointB.y));
+        return !((crossProduct(point) > 0)
+                || (crossProduct(point) < 0)
+                || (point.x < pointA.x)
+                || (point.y < pointA.y)
+                || (point.x > pointB.x)
+                || (point.y > pointB.y));
     }
 
     public Point middlePoint() {
@@ -116,7 +123,7 @@ public class Line {
         return pointA.distanceBetweenPoints(pointB);
     }
 
-    public double getAngle() {// 0 degrees @ east
+    public double getAngle() { // 0 degrees @ east
         if (pointA.x >= pointB.x) {
             if (pointA.y <= pointB.y) {
                 return -(Math.toDegrees(Math.atan(slope)));

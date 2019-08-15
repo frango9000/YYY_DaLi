@@ -32,7 +32,13 @@ public class AnimationPane extends VBox {
         anim.setMinSize(500, 500);
         AudioClip audioF = new AudioClip(new File("src/res/audio/denmark.mp3").toURI().toString());
         GridPane grid = new GridPane();
-        String[] tags = {"Enter info for animation", "Animation speed in ms", "Image file prefix", "Number of images", "Audio file url"};
+        String[] tags = {
+                "Enter info for animation",
+                "Animation speed in ms",
+                "Image file prefix",
+                "Number of images",
+                "Audio file url"
+        };
         for (int i = 0; i < tags.length; i++) {
             grid.add(new Label(tags[i]), 0, i);
         }
@@ -50,24 +56,26 @@ public class AnimationPane extends VBox {
         grid.add(audioURL, 1, 4);
 
         for (int i = 0; i < frames.length; i++) {
-            frames[i] = new ImageView(new Image("res/image/animation/" + filePrefix.getText() + (i + 1) + ".gif"));
+            frames[i] =
+                    new ImageView(
+                            new Image("res/image/animation/" + filePrefix.getText() + (i + 1) + ".gif"));
         }
 
         Timeline animation = new Timeline();
         animation.setCycleCount(-1);
 
-        start.setOnAction(event -> {
-            speedVal = (int) Double.parseDouble(speedF.getText());
-            prefix = filePrefix.getText();
-            steps = (int) Double.parseDouble(numOfImgs.getText());
-            audio = audioURL.getText();
-            animation.stop();
-            animation.getKeyFrames().clear();
-            animation.getKeyFrames().add(recreateFrame());
-            animation.play();
-            audioF.play();
-        });
-
+        start.setOnAction(
+                event -> {
+                    speedVal = (int) Double.parseDouble(speedF.getText());
+                    prefix = filePrefix.getText();
+                    steps = (int) Double.parseDouble(numOfImgs.getText());
+                    audio = audioURL.getText();
+                    animation.stop();
+                    animation.getKeyFrames().clear();
+                    animation.getKeyFrames().add(recreateFrame());
+                    animation.play();
+                    audioF.play();
+                });
 
         getChildren().addAll(start, anim, grid);
     }
@@ -75,8 +83,7 @@ public class AnimationPane extends VBox {
     private void animate() {
         anim.getChildren().clear();
         anim.getChildren().add(frames[step]);
-        if (++step == steps)
-            step = 0;
+        if (++step == steps) step = 0;
     }
 
     private KeyFrame recreateFrame() {

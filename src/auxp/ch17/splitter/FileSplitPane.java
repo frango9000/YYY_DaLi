@@ -40,7 +40,7 @@ public class FileSplitPane extends BorderPane {
         this(false); // default is join pane
     }
 
-    public FileSplitPane(boolean split) {//false = join pane, true = split pane
+    public FileSplitPane(boolean split) { // false = join pane, true = split pane
         setPadding(new Insets(5));
 
         HBox browsePane = getBrowseBox();
@@ -80,95 +80,105 @@ public class FileSplitPane extends BorderPane {
 
     private void setSplitActions() {
 
-        numOfPieces.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                numOfPieces.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-            if (numOfPieces.getText().length() > 0) {
-                long pieces = Long.parseLong(numOfPieces.getText());
-                if (pieces > 0) {
-                    newExt.setText(getExtString(pieces));
-                    long bytes = (file.length() / pieces) + (file.length() % pieces == 0 ? 0 : 1);
-                    sizeOfPieces.setText(bytes + "");
-                    finalSizeOfPieces.setText(FileSplitter.byteSizeFormatter(bytes) + " bytes per file"); // if length % n != 0 1 more byte per file.
-                } else
-                    finalSizeOfPieces.setText("0 bytes per file");
-            } else finalSizeOfPieces.setText("0 bytes per file");
-        });
+        numOfPieces
+                .textProperty()
+                .addListener(
+                        (observable, oldValue, newValue) -> {
+                            if (!newValue.matches("\\d*")) {
+                                numOfPieces.setText(newValue.replaceAll("[^\\d]", ""));
+                            }
+                            if (numOfPieces.getText().length() > 0) {
+                                long pieces = Long.parseLong(numOfPieces.getText());
+                                if (pieces > 0) {
+                                    newExt.setText(getExtString(pieces));
+                                    long bytes = (file.length() / pieces) + (file.length() % pieces == 0 ? 0 : 1);
+                                    sizeOfPieces.setText(bytes + "");
+                                    finalSizeOfPieces.setText(
+                                            FileSplitter.byteSizeFormatter(bytes)
+                                                    + " bytes per file"); // if length % n != 0 1 more byte per file.
+                                } else finalSizeOfPieces.setText("0 bytes per file");
+                            } else finalSizeOfPieces.setText("0 bytes per file");
+                        });
 
-        sizeOfPieces.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                sizeOfPieces.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-            if (sizeOfPieces.getText().length() > 0) {
-                long size = Long.parseLong(sizeOfPieces.getText());
-                if (size > 0) {
-                    long pieces = (file.length() % size == 0 ? file.length() / size : (file.length() / size) + 1);
-                    numOfPieces.setText(pieces + "");
-                    finalNumOfSplits.setText(pieces + " piece(s)");
-                } else
-                    finalNumOfSplits.setText("0 piece(s)");
-            } else finalNumOfSplits.setText("0 piece(s)");
-        });
-        browseButton.setOnAction(event -> {
-            file = fileChooser.showOpenDialog(new Stage());
-            if (file != null) {
-                fileDir.setText(file.getAbsolutePath());
+        sizeOfPieces
+                .textProperty()
+                .addListener(
+                        (observable, oldValue, newValue) -> {
+                            if (!newValue.matches("\\d*")) {
+                                sizeOfPieces.setText(newValue.replaceAll("[^\\d]", ""));
+                            }
+                            if (sizeOfPieces.getText().length() > 0) {
+                                long size = Long.parseLong(sizeOfPieces.getText());
+                                if (size > 0) {
+                                    long pieces =
+                                            (file.length() % size == 0
+                                                    ? file.length() / size
+                                                    : (file.length() / size) + 1);
+                                    numOfPieces.setText(pieces + "");
+                                    finalNumOfSplits.setText(pieces + " piece(s)");
+                                } else finalNumOfSplits.setText("0 piece(s)");
+                            } else finalNumOfSplits.setText("0 piece(s)");
+                        });
+        browseButton.setOnAction(
+                event -> {
+                    file = fileChooser.showOpenDialog(new Stage());
+                    if (file != null) {
+                        fileDir.setText(file.getAbsolutePath());
 
-                newName.setText(file.getName());
-                newExt.setText("000");
+                        newName.setText(file.getName());
+                        newExt.setText("000");
 
-                totalSize.setText(FileSplitter.byteSizeFormatter(file.length()));
-                numOfPieces.setText("1");
-                sizeOfPieces.setText(file.length() + "");
+                        totalSize.setText(FileSplitter.byteSizeFormatter(file.length()));
+                        numOfPieces.setText("1");
+                        sizeOfPieces.setText(file.length() + "");
 
-                numOfPieces.setEditable(true);
-                pickNumOfPiecesRadio.setSelected(true);
-                finalSizeOfPieces.setVisible(true);
-            }
-        });
-        pickNumOfPiecesRadio.setOnAction(event -> {
-            if (file != null && file.exists()) {
-                finalSizeOfPieces.setVisible(true);
-                finalNumOfSplits.setVisible(false);
+                        numOfPieces.setEditable(true);
+                        pickNumOfPiecesRadio.setSelected(true);
+                        finalSizeOfPieces.setVisible(true);
+                    }
+                });
+        pickNumOfPiecesRadio.setOnAction(
+                event -> {
+                    if (file != null && file.exists()) {
+                        finalSizeOfPieces.setVisible(true);
+                        finalNumOfSplits.setVisible(false);
 
-                numOfPieces.setEditable(true);
-                sizeOfPieces.setEditable(false);
-            }
-        });
-        pickSizeOfSplitsRadio.setOnAction(event -> {
-            if (file != null && file.exists()) {
-                finalSizeOfPieces.setVisible(false);
-                finalNumOfSplits.setVisible(true);
+                        numOfPieces.setEditable(true);
+                        sizeOfPieces.setEditable(false);
+                    }
+                });
+        pickSizeOfSplitsRadio.setOnAction(
+                event -> {
+                    if (file != null && file.exists()) {
+                        finalSizeOfPieces.setVisible(false);
+                        finalNumOfSplits.setVisible(true);
 
-                numOfPieces.setEditable(false);
-                sizeOfPieces.setEditable(true);
-            }
-        });
-        execButton.setOnAction(event -> {
-            if (pickNumOfPiecesRadio.isSelected()) {
-                if (numOfPieces.getText().length() > 0) {
-                    int piecesValue = Integer.parseInt(numOfPieces.getText());
-                    if (piecesValue > 0) {
-                        FileSplitter.splitByPieces(file, piecesValue);
-                        JOptionPane.showMessageDialog(null, "Success");
-                    } else
-                        JOptionPane.showMessageDialog(null, "Invalid value");
-                } else JOptionPane.showMessageDialog(null, "Invalid value");
+                        numOfPieces.setEditable(false);
+                        sizeOfPieces.setEditable(true);
+                    }
+                });
+        execButton.setOnAction(
+                event -> {
+                    if (pickNumOfPiecesRadio.isSelected()) {
+                        if (numOfPieces.getText().length() > 0) {
+                            int piecesValue = Integer.parseInt(numOfPieces.getText());
+                            if (piecesValue > 0) {
+                                FileSplitter.splitByPieces(file, piecesValue);
+                                JOptionPane.showMessageDialog(null, "Success");
+                            } else JOptionPane.showMessageDialog(null, "Invalid value");
+                        } else JOptionPane.showMessageDialog(null, "Invalid value");
 
-            } else if (pickSizeOfSplitsRadio.isSelected()) {
-                if (sizeOfPieces.getText().length() > 0) {
-                    long sizeValue = Long.parseLong(sizeOfPieces.getText());
-                    if (sizeValue > 0) {
-                        FileSplitter.splitBySize(file, sizeValue);
-                        JOptionPane.showMessageDialog(null, "Success");
-                    } else
-                        JOptionPane.showMessageDialog(null, "Invalid value");
-                } else JOptionPane.showMessageDialog(null, "Invalid value");
+                    } else if (pickSizeOfSplitsRadio.isSelected()) {
+                        if (sizeOfPieces.getText().length() > 0) {
+                            long sizeValue = Long.parseLong(sizeOfPieces.getText());
+                            if (sizeValue > 0) {
+                                FileSplitter.splitBySize(file, sizeValue);
+                                JOptionPane.showMessageDialog(null, "Success");
+                            } else JOptionPane.showMessageDialog(null, "Invalid value");
+                        } else JOptionPane.showMessageDialog(null, "Invalid value");
 
-            } else
-                JOptionPane.showMessageDialog(null, "Invalid option");
-        });
+                    } else JOptionPane.showMessageDialog(null, "Invalid option");
+                });
     }
 
     /**
@@ -187,38 +197,40 @@ public class FileSplitPane extends BorderPane {
     }
 
     private void setJoinActions() {
-        browseButton.setOnAction(event -> {
-            file = fileChooser.showOpenDialog(new Stage());
-            if (file == null || !file.exists() || !FileIO.getFileExtension(file).matches("[0-9]*")) {
-                JOptionPane.showMessageDialog(null, "Invalid file");
-            } else {
-                files = FileSplitter.getSplitFiles(file);
+        browseButton.setOnAction(
+                event -> {
+                    file = fileChooser.showOpenDialog(new Stage());
+                    if (file == null || !file.exists() || !FileIO.getFileExtension(file).matches("[0-9]*")) {
+                        JOptionPane.showMessageDialog(null, "Invalid file");
+                    } else {
+                        files = FileSplitter.getSplitFiles(file);
 
-                fileDir.setText(file.getAbsolutePath());
-                newName.setText(FileIO.getCleanName(FileIO.getCleanName(file.getName())) + "-[joint]");
-                newName.setEditable(true);
-                newExt.setText(FileIO.getFileExtension(FileIO.getCleanName(file)));
+                        fileDir.setText(file.getAbsolutePath());
+                        newName.setText(FileIO.getCleanName(FileIO.getCleanName(file.getName())) + "-[joint]");
+                        newName.setEditable(true);
+                        newExt.setText(FileIO.getFileExtension(FileIO.getCleanName(file)));
 
-                sizeOfPieces.setText(FileSplitter.byteSizeFormatter(file.length()));
+                        sizeOfPieces.setText(FileSplitter.byteSizeFormatter(file.length()));
 
+                        numOfPieces.setText(files.size() + "");
+                        totalSize.setText(FileSplitter.byteSizeFormatter(FileIO.getSizeOfFilesList(files)));
+                    }
+                });
 
-                numOfPieces.setText(files.size() + "");
-                totalSize.setText(FileSplitter.byteSizeFormatter(FileIO.getSizeOfFilesList(files)));
-            }
-        });
-
-        execButton.setOnAction(event -> {
-            if (files == null)
-                JOptionPane.showMessageDialog(null, "You must pick a file.");
-            else if (files.size() < 1 || !file.exists() || !FileIO.getFileExtension(file).matches("[0-9]*"))
-                JOptionPane.showMessageDialog(null, "Invalid file");
-            else if (newName.getText().length() == 0)
-                JOptionPane.showMessageDialog(null, "Invalid filename");
-            else {
-                FileSplitter.join(files, newName.getText() + "." + newExt.getText());
-                JOptionPane.showMessageDialog(null, "Success");
-            }
-        });
+        execButton.setOnAction(
+                event -> {
+                    if (files == null) JOptionPane.showMessageDialog(null, "You must pick a file.");
+                    else if (files.size() < 1
+                            || !file.exists()
+                            || !FileIO.getFileExtension(file).matches("[0-9]*"))
+                        JOptionPane.showMessageDialog(null, "Invalid file");
+                    else if (newName.getText().length() == 0)
+                        JOptionPane.showMessageDialog(null, "Invalid filename");
+                    else {
+                        FileSplitter.join(files, newName.getText() + "." + newExt.getText());
+                        JOptionPane.showMessageDialog(null, "Success");
+                    }
+                });
     }
 
     private HBox getExecButtonBox() {
@@ -265,8 +277,13 @@ public class FileSplitPane extends BorderPane {
         browsePane.setSpacing(5);
         browsePane.setAlignment(Pos.BASELINE_LEFT);
         browsePane.setPadding(new Insets(10));
-        browsePane.setBorder(new Border(new BorderStroke(Color.LIGHTGRAY, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        browsePane.setBorder(
+                new Border(
+                        new BorderStroke(
+                                Color.LIGHTGRAY,
+                                BorderStrokeStyle.SOLID,
+                                CornerRadii.EMPTY,
+                                BorderWidths.DEFAULT)));
         return browsePane;
     }
-
 }

@@ -8,7 +8,6 @@ import lib.Geometry.Point;
 import lib.Geometry.TriangleEquilateral;
 import lib.Math.Algebra;
 
-
 public class UglySmiley extends Pane {
     public UglySmiley() {
     }
@@ -23,15 +22,21 @@ public class UglySmiley extends Pane {
         Circle face = new Circle(centerX, centerY, (radiusX + radiusY) / 2, null);
         face.setStroke(Color.BLACK);
 
-        Ellipse eyeL = new Ellipse(centerX - radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.2, radiusY * 0.15);
+        Ellipse eyeL =
+                new Ellipse(
+                        centerX - radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.2, radiusY * 0.15);
         eyeL.setFill(null);
         eyeL.setStroke(Color.BLACK);
-        Ellipse eyeR = new Ellipse(centerX + radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.2, radiusY * 0.15);
+        Ellipse eyeR =
+                new Ellipse(
+                        centerX + radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.2, radiusY * 0.15);
         eyeR.setFill(null);
         eyeR.setStroke(Color.BLACK);
 
-        Circle cL = new Circle(centerX - radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.1, Color.BLACK);
-        Circle cR = new Circle(centerX + radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.1, Color.BLACK);
+        Circle cL =
+                new Circle(centerX - radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.1, Color.BLACK);
+        Circle cR =
+                new Circle(centerX + radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.1, Color.BLACK);
 
         TriangleEquilateral triangle = new TriangleEquilateral(radiusX * 0.2, true);
         triangle.setCenter(new Point(centerX, centerY + radiusY * 0.1));

@@ -10,6 +10,10 @@ public class MyAssociation<E, F> {
         this.second = second;
     }
 
+    public static double sum(MyAssociation<? extends Number, ? extends Number> asoc) {
+        return asoc.first.doubleValue() + asoc.second.doubleValue();
+    }
+
     public E getFirst() {
         return first;
     }
@@ -28,13 +32,6 @@ public class MyAssociation<E, F> {
 
     @Override
     public String toString() {
-        return "MyAssociation{" +
-                "first=" + first +
-                ", second=" + second +
-                '}';
-    }
-
-    public static double sum(MyAssociation<? extends Number, ? extends Number> asoc) {
-        return asoc.first.doubleValue() + asoc.second.doubleValue();
+        return "MyAssociation{" + "first=" + first + ", second=" + second + '}';
     }
 }

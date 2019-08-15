@@ -14,14 +14,12 @@ public abstract class DaLi_03 {
     public static void main(String[] args) {
 
         ex35();
-
     }
 
     public static void ex00() {
-
     }
 
-    public static void ex01() {//Algebra: solve quadratic equations
+    public static void ex01() { // Algebra: solve quadratic equations
         print("Enter a: ");
         float a = scanFloat();
 
@@ -38,7 +36,7 @@ public abstract class DaLi_03 {
         else if (r.length == 2) println("The equation has two roots " + r[0] + " and " + r[1]);
     }
 
-    public static void ex02() {//Game: multiply three numbers
+    public static void ex02() { // Game: multiply three numbers
         Random rand = new Random();
 
         int a = rand.nextInt(10);
@@ -52,7 +50,7 @@ public abstract class DaLi_03 {
         else println("You lose, answer is =" + result);
     }
 
-    public static void ex03() {//(Algebra: solve 2 * 2 linear equations)
+    public static void ex03() { // (Algebra: solve 2 * 2 linear equations)
         print("Enter a: ");
         float a = scanFloat();
 
@@ -77,24 +75,28 @@ public abstract class DaLi_03 {
         else println("x: " + xy[0] + "\ny: " + xy[1]);
     }
 
-    public static void ex04() {//Random month)
+    public static void ex04() { // Random month)
         Random rand = new Random();
         int monthNumber = rand.nextInt(11) + 1;
 
         println(Calendar.monthName(monthNumber));
     }
 
-    public static void ex05() {//Find future dates
+    public static void ex05() { // Find future dates
         print("Enter today's day (0 - 6): ");
         int today = scanInt();
 
         print("Enter the number of days elapsed since today: ");
         int elapsedDays = scanInt();
 
-        println("Today is " + Calendar.dayName(today) + " and the future day is " + Calendar.dayName(today + elapsedDays));
+        println(
+                "Today is "
+                        + Calendar.dayName(today)
+                        + " and the future day is "
+                        + Calendar.dayName(today + elapsedDays));
     }
 
-    public static void ex06() {//Health application: BMI)
+    public static void ex06() { // Health application: BMI)
         print("Enter weight in pounds: ");
         float pounds = scanFloat();
         print("Enter height in feet: ");
@@ -104,22 +106,17 @@ public abstract class DaLi_03 {
 
         double weightInKilograms = Scales.poundToKilogram(pounds);
         double heightInMeters = Scales.inchToMeter(Scales.feetToInch(feet) + inches);
-        double bmi = weightInKilograms /
-                (heightInMeters * heightInMeters);
+        double bmi = weightInKilograms / (heightInMeters * heightInMeters);
 
         // Display result
         System.out.println("BMI is " + bmi);
-        if (bmi < 18.5)
-            System.out.println("Underweight");
-        else if (bmi < 25)
-            System.out.println("Normal");
-        else if (bmi < 30)
-            System.out.println("Overweight");
-        else
-            System.out.println("Obese");
+        if (bmi < 18.5) System.out.println("Underweight");
+        else if (bmi < 25) System.out.println("Normal");
+        else if (bmi < 30) System.out.println("Overweight");
+        else System.out.println("Obese");
     }
 
-    public static void ex07() {//Financial application: monetary units)
+    public static void ex07() { // Financial application: monetary units)
         print("Enter amount: ");
         float amount = scanFloat();
 
@@ -166,7 +163,7 @@ public abstract class DaLi_03 {
         if (numberOfPennies > 0) println(" " + numberOfPennies + " pennies coins");
     }
 
-    public static void ex08() {//Sort three integers)
+    public static void ex08() { // Sort three integers)
         print("Enter a: ");
         float a = scanFloat();
 
@@ -200,7 +197,7 @@ public abstract class DaLi_03 {
         }
     }
 
-    public static void ex09() {//Business: check ISBN-10)
+    public static void ex09() { // Business: check ISBN-10)
         print("Enter 9 digits of ISBN: ");
         String isbn = scanNext();
         String lastDigit;
@@ -215,7 +212,7 @@ public abstract class DaLi_03 {
         println("The ISBN-10 number is " + isbn + lastDigit);
     }
 
-    public static void ex10() {//(Game: multiplication quiz)
+    public static void ex10() { // (Game: multiplication quiz)
         int num1 = randomInt(100);
         int num2 = randomInt(100);
 
@@ -230,15 +227,22 @@ public abstract class DaLi_03 {
         else println("Answer " + num1 + " - " + num2 + " : " + (num1 - num2));
     }
 
-    public static void ex11() {//(Find the number of days in a month)
+    public static void ex11() { // (Find the number of days in a month)
         print("Enter month number (Jan = 1 ; Dec = 12) ");
-        int monthIndex = scanInt();        //minus one to convert to monthIndex
+        int monthIndex = scanInt(); // minus one to convert to monthIndex
         print("Enter year number (ex. 1999) ");
         int year = scanInt();
-        println("Month : " + (monthIndex) + " of year " + year + " has " + Calendar.daysInMonth(monthIndex, year) + " days.");
+        println(
+                "Month : "
+                        + (monthIndex)
+                        + " of year "
+                        + year
+                        + " has "
+                        + Calendar.daysInMonth(monthIndex, year)
+                        + " days.");
     }
 
-    public static void ex12() {//(Palindrome integer)
+    public static void ex12() { // (Palindrome integer)
         print("Enter 3 digit int ");
         int threeDigitInt = scanInt();
         int firstDigit = String.valueOf(threeDigitInt).charAt(0);
@@ -247,8 +251,9 @@ public abstract class DaLi_03 {
         else println(threeDigitInt + " is not palindrome.");
     }
 
-    public static void ex13() {//Financial application: compute taxes) L
-        print("0-single filer\n1-married jointly or qualifying widow(er)\n2-married separately\n3-head of household)\nEnter the filing status: ");
+    public static void ex13() { // Financial application: compute taxes) L
+        print(
+                "0-single filer\n1-married jointly or qualifying widow(er)\n2-married separately\n3-head of household)\nEnter the filing status: ");
         int status = scanInt();
 
         print("Enter the taxable income: ");
@@ -277,24 +282,40 @@ public abstract class DaLi_03 {
                 incomeRange = new int[]{11950, 45500, 117450, 190200, 372950};
                 break;
         }
-        if (income <= incomeRange[0])
-            tax = income * 0.10;
+        if (income <= incomeRange[0]) tax = income * 0.10;
         else if (income <= incomeRange[1])
             tax = incomeRange[0] * taxRange[0] + (income - incomeRange[0]) * taxRange[1];
         else if (income <= incomeRange[2])
-            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (income - incomeRange[1]) * taxRange[2];
+            tax =
+                    incomeRange[0] * taxRange[0]
+                            + (incomeRange[1] - incomeRange[0]) * taxRange[1]
+                            + (income - incomeRange[1]) * taxRange[2];
         else if (income <= incomeRange[3])
-            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (incomeRange[2] - incomeRange[1]) * taxRange[2] + (income - incomeRange[2]) * taxRange[3];
+            tax =
+                    incomeRange[0] * taxRange[0]
+                            + (incomeRange[1] - incomeRange[0]) * taxRange[1]
+                            + (incomeRange[2] - incomeRange[1]) * taxRange[2]
+                            + (income - incomeRange[2]) * taxRange[3];
         else if (income <= incomeRange[4])
-            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (incomeRange[2] - incomeRange[1]) * taxRange[2] + (incomeRange[3] - incomeRange[2]) * taxRange[3] + (income - incomeRange[3]) * taxRange[4];
+            tax =
+                    incomeRange[0] * taxRange[0]
+                            + (incomeRange[1] - incomeRange[0]) * taxRange[1]
+                            + (incomeRange[2] - incomeRange[1]) * taxRange[2]
+                            + (incomeRange[3] - incomeRange[2]) * taxRange[3]
+                            + (income - incomeRange[3]) * taxRange[4];
         else
-            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (incomeRange[2] - incomeRange[1]) * taxRange[2] + (incomeRange[3] - incomeRange[2]) * taxRange[3] + (incomeRange[4] - incomeRange[3]) * taxRange[4] + (income - incomeRange[4]) * taxRange[5];
+            tax =
+                    incomeRange[0] * taxRange[0]
+                            + (incomeRange[1] - incomeRange[0]) * taxRange[1]
+                            + (incomeRange[2] - incomeRange[1]) * taxRange[2]
+                            + (incomeRange[3] - incomeRange[2]) * taxRange[3]
+                            + (incomeRange[4] - incomeRange[3]) * taxRange[4]
+                            + (income - incomeRange[4]) * taxRange[5];
 
         return (float) tax;
-
     }
 
-    public static void ex14() {//Game: heads or tails
+    public static void ex14() { // Game: heads or tails
         print("Enter 0 for heads, 1 for tails : ");
         byte guess = scanByte();
 
@@ -302,14 +323,12 @@ public abstract class DaLi_03 {
 
         println("Coin flip result = " + (coin == 0 ? "head" : "tail"));
         println(guess == coin ? "You win." : "You loose");
-
     }
 
-    public static void ex15() {//Game: lottery)
+    public static void ex15() { // Game: lottery)
         int lottery = randomInt(1000);
         print("Enter your 3-digit lottery number: ");
         int guess = scanInt();
-
 
         int prize;
         int matches = ex15matches(lottery, guess);
@@ -343,15 +362,14 @@ public abstract class DaLi_03 {
         return arr;
     }
 
-    public static void ex16() {//Random point)
+    public static void ex16() { // Random point)
         Point center = new Point(0, 0);
         Rectangle rect = new Rectangle(50, 150, center);
         double[] randPoint = rect.randomPoint();
         println("Random X : " + randPoint[0] + "\nRandom Y : " + randPoint[1]);
-
     }
 
-    public static void ex17() {//Game: scissor, rock, paper)
+    public static void ex17() { // Game: scissor, rock, paper)
         print("0 rock\n1 paper\n2 scissor\n");
         int player = scanInt();
         int ai = randomInt(3);
@@ -362,7 +380,8 @@ public abstract class DaLi_03 {
         String reply;
         if (player == ai) reply = "draw";
         else {
-            if ((ai == 0 && player == 1) || (ai == 1 && player == 2) || (ai == 2 && player == 0)) reply = "win";
+            if ((ai == 0 && player == 1) || (ai == 1 && player == 2) || (ai == 2 && player == 0))
+                reply = "win";
             else reply = "lose";
         }
         println("You " + reply);
@@ -380,7 +399,7 @@ public abstract class DaLi_03 {
         return null;
     }
 
-    public static void ex18() {//Cost of shipping)
+    public static void ex18() { // Cost of shipping)
         print("Enter weight ");
         float weight = scanFloat();
 
@@ -395,7 +414,7 @@ public abstract class DaLi_03 {
         }
     }
 
-    public static void ex19() {//(Compute the getPerimeter of a triangle)
+    public static void ex19() { // (Compute the getPerimeter of a triangle)
 
         print("Enter AB: ");
         float sideAB = scanFloat();
@@ -409,22 +428,25 @@ public abstract class DaLi_03 {
             Triangle triangle = new Triangle(sideAB, sideBC, sideCA);
             println("Perimeter is " + triangle.getPerimeter());
         } else println("Invalid Triangle");
-
     }
 
-    public static void ex20() {//Science: wind-chill temperature)
+    public static void ex20() { // Science: wind-chill temperature)
         print("Enter the temperature in Fahrenheit between -58°F and 41°F: ");
         float temp = scanFloat();
         print("Enter the wind speed (>= 2) in miles per hour: ");
         float windSpeed = scanFloat();
         if (temp > 41 || temp < -58 || windSpeed < 2) println("Invalid Imput");
         else {
-            double windChill = 35.74 + (0.6215 * temp) - (35.75 * Math.pow(windSpeed, 0.16)) + (0.4275 * temp * Math.pow(windSpeed, 0.16));
+            double windChill =
+                    35.74
+                            + (0.6215 * temp)
+                            - (35.75 * Math.pow(windSpeed, 0.16))
+                            + (0.4275 * temp * Math.pow(windSpeed, 0.16));
             println("The wind chill index is " + windChill);
         }
     }
 
-    public static void ex21() {//Science: day of the week)
+    public static void ex21() { // Science: day of the week)
         print("Enter day number (1 - 31): ");
         int day = scanInt();
 
@@ -437,7 +459,7 @@ public abstract class DaLi_03 {
         println("Day of week is " + Calendar.dayOfWeekString(year, month, day));
     }
 
-    public static void ex22() {//Geometry: point in a circle?)
+    public static void ex22() { // Geometry: point in a circle?)
         Circle circle = new Circle(10, new Point(0, 0));
 
         print("Enter X: ");
@@ -450,7 +472,7 @@ public abstract class DaLi_03 {
         println(point.toString() + (circle.contains(point) ? " is in circle" : "is not in circle"));
     }
 
-    public static void ex23() {//Geometry: point in a rectangle?
+    public static void ex23() { // Geometry: point in a rectangle?
         Rectangle rectangle = new Rectangle(10, 5, new Point(1, 1));
 
         print("Enter X: ");
@@ -460,10 +482,12 @@ public abstract class DaLi_03 {
         float y = scanFloat();
 
         Point point = new Point(x, y);
-        println(point.toString() + (rectangle.contains(point) ? " is in rectangle" : "is not in rectangle"));
+        println(
+                point.toString()
+                        + (rectangle.contains(point) ? " is in rectangle" : "is not in rectangle"));
     }
 
-    public static void ex24() {//Game: pick a card)
+    public static void ex24() { // Game: pick a card)
         String[] rank = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
         String[] suit = {"Clubs", "Diamonds", "Hearts", "Spades"};
 
@@ -471,10 +495,9 @@ public abstract class DaLi_03 {
         int randSuit = randomInt(suit.length);
 
         print("Random card is " + rank[randRank] + " of " + suit[randSuit]);
-
     }
 
-    public static void ex25() {//Geometry: intersecting point)
+    public static void ex25() { // Geometry: intersecting point)
         print("Enter x1: ");
         float x1 = scanFloat();
         print("Enter y1: ");
@@ -504,16 +527,20 @@ public abstract class DaLi_03 {
         else println("x: " + xy[0] + "\ny: " + xy[1]);
     }
 
-    public static void ex26() {//Use the &&, || and ^ operators
+    public static void ex26() { // Use the &&, || and ^ operators
         print("Enter an integer: ");
         int n = scanInt();
 
         println("Is " + n + " divisible by 4 and 5? " + (n % 4 == 0 && n % 5 == 0));
         println("Is " + n + " divisible by 4 or 5? " + (n % 4 == 0 || n % 5 == 0));
-        println("Is " + n + " divisible by 4 or 5 but not both? " + ((n % 4 == 0 || n % 5 == 0) && !(n % 4 == 0 && n % 5 == 0)));
+        println(
+                "Is "
+                        + n
+                        + " divisible by 4 or 5 but not both? "
+                        + ((n % 4 == 0 || n % 5 == 0) && !(n % 4 == 0 && n % 5 == 0)));
     }
 
-    public static void ex27() {//Geometry: points in triangle?
+    public static void ex27() { // Geometry: points in triangle?
         Triangle triangle = new Triangle(new Point(0, 0), new Point(0, 100), new Point(200, 0));
 
         print("Enter x: ");
@@ -526,7 +553,7 @@ public abstract class DaLi_03 {
         println("The point is" + (triangle.contains(point) ? " " : " not ") + "in the triangle.");
     }
 
-    public static void ex28() {//Geometry: two rectangles
+    public static void ex28() { // Geometry: two rectangles
         print("Enter r1 center x: ");
         float x1 = scanFloat();
         print("Enter r1 center y: ");
@@ -550,7 +577,7 @@ public abstract class DaLi_03 {
         println("The rectangle r2 is" + (r1.contains(r2) ? " " : " not ") + "in the rectangle r1.");
     }
 
-    public static void ex29() {//Geometry: two circles
+    public static void ex29() { // Geometry: two circles
         print("Enter c1 center x: ");
         float x1 = scanFloat();
         print("Enter c1 center y: ");
@@ -570,7 +597,7 @@ public abstract class DaLi_03 {
         println("The circle 2 does" + (c1.overlaps(c2) ? " " : " not ") + "overlap c1");
     }
 
-    public static void ex30() {//Current time)
+    public static void ex30() { // Current time)
         print("Enter the time zone offset to GMT: ");
         byte offset = scanByte();
         Time now = new Time();
@@ -578,7 +605,7 @@ public abstract class DaLi_03 {
         println(now.timeToString());
     }
 
-    public static void ex31() {//Financials: currency exchange
+    public static void ex31() { // Financials: currency exchange
         print("Enter rate dol to rmb: ");
         float rate = scanFloat();
         print("Enter 0 dol to rmb, 1 vice versa: ");
@@ -592,7 +619,7 @@ public abstract class DaLi_03 {
         else println(amount + currency + " is " + amount * (1 / rate));
     }
 
-    public static void ex32() {//Geometry: point position
+    public static void ex32() { // Geometry: point position
         print("Enter x1: ");
         float x1 = scanFloat();
         print("Enter y1: ");
@@ -615,7 +642,7 @@ public abstract class DaLi_03 {
         else println("p2  is on the left sideLength of the line");
     }
 
-    public static void ex33() {//(Financial: compare costs
+    public static void ex33() { // (Financial: compare costs
         print("Enter w1: ");
         float w1 = scanFloat();
         print("Enter p1: ");
@@ -631,7 +658,7 @@ public abstract class DaLi_03 {
         else println("same price");
     }
 
-    public static void ex34() {//Geometry: point on line segment
+    public static void ex34() { // Geometry: point on line segment
         print("Enter x1: ");
         float x1 = scanFloat();
         print("Enter y1: ");
@@ -652,7 +679,7 @@ public abstract class DaLi_03 {
         println("Point is" + (line.isOnSegment(point) ? " " : " not ") + "on segment");
     }
 
-    public static void ex35() {//Even or odd number
+    public static void ex35() { // Even or odd number
         print("Enter integer ");
         int number = scanInt();
 

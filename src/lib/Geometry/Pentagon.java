@@ -13,5 +13,4 @@ public class Pentagon extends Polygon {
     public Pentagon(double radius, boolean dummy) {
         super(5, radius, dummy);
     }
-
 }

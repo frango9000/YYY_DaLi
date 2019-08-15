@@ -6,10 +6,12 @@ public class CreditCard {
      */
     public static boolean isValid(long number) {
         boolean valid =
-                (getSize(number) >= 13 && getSize(number) <= 16) &&
-                        (prefixMatched(number, 4) || prefixMatched(number, 5) ||
-                                prefixMatched(number, 37) || prefixMatched(number, 6)) &&
-                        ((sumOfDoubleEvenPlace(number) + sumOfOddPlace(number)) % 10 == 0);
+                (getSize(number) >= 13 && getSize(number) <= 16)
+                        && (prefixMatched(number, 4)
+                        || prefixMatched(number, 5)
+                        || prefixMatched(number, 37)
+                        || prefixMatched(number, 6))
+                        && ((sumOfDoubleEvenPlace(number) + sumOfOddPlace(number)) % 10 == 0);
 
         return valid;
     }
@@ -27,14 +29,11 @@ public class CreditCard {
     }
 
     /**
-     * Return this number if it is a single digit, otherwise,
-     * return the sum of the two digits
+     * Return this number if it is a single digit, otherwise, return the sum of the two digits
      */
     public static int getDigit(int number) {
-        if (number < 9)
-            return number;
-        else
-            return number / 10 + number % 10;
+        if (number < 9) return number;
+        else return number / 10 + number % 10;
     }
 
     /**
@@ -65,8 +64,8 @@ public class CreditCard {
     }
 
     /**
-     * Return the first k number of digits from number. If the
-     * number of digits in number is less than k, return number.
+     * Return the first k number of digits from number. If the number of digits in number is less than
+     * k, return number.
      */
     public static long getPrefix(long number, int k) {
         if (getSize(number) > k) {

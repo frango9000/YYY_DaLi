@@ -16,30 +16,15 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class DaLi_17 extends Application {
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("C17");
-
-
-        Pane pane = ex18();
-
-
-        pane.setPadding(new Insets(5));
-        Scene scene = new Scene(pane);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        pane.requestFocus();
-    }
-
     public static void main(String[] args) {
-        //ex18();
+        // ex18();
         Application.launch(args);
     }
 
     public static void ex00() {
     }
 
-    public static void ex01() {//Create a text file
+    public static void ex01() { // Create a text file
         File file = new File("src/auxp/ch17/Exercise17_01.txt");
         try (PrintWriter filewriter = new PrintWriter(new FileWriter(file, true))) {
             for (int i = 0; i < 50; i++) {
@@ -48,10 +33,9 @@ public class DaLi_17 extends Application {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
 
-    public static void ex02() {//Create a binary data file
+    public static void ex02() { // Create a binary data file
         File file = new File("src/auxp/ch17/Exercise17_02.dat");
         try (DataOutputStream out = new DataOutputStream(new FileOutputStream(file))) {
             for (int i = 0; i < 50; i++) {
@@ -62,7 +46,7 @@ public class DaLi_17 extends Application {
         }
     }
 
-    public static void ex03() {//Sum all the floating points in a binary data file
+    public static void ex03() { // Sum all the floating points in a binary data file
         File file = new File("src/auxp/ch17/Exercise17_02.dat");
         try (DataInputStream in = new DataInputStream(new FileInputStream(file))) {
             double sum = 0;
@@ -75,13 +59,11 @@ public class DaLi_17 extends Application {
         }
     }
 
-    public static void ex04() {//Convert a text file into UTF
+    public static void ex04() { // Convert a text file into UTF
         File textfile = new File("src/auxp/ch12/e24data.txt");
         File binfile = new File("src/auxp/ch17/Exercise17_04.dat");
-        try (
-                Scanner in = new Scanner(textfile);
-                DataOutputStream out = new DataOutputStream(new FileOutputStream(binfile))
-        ) {
+        try (Scanner in = new Scanner(textfile);
+             DataOutputStream out = new DataOutputStream(new FileOutputStream(binfile))) {
             while (in.hasNextLine()) {
                 out.writeUTF(in.nextLine());
             }
@@ -92,7 +74,7 @@ public class DaLi_17 extends Application {
         System.out.println("Bin copy size = " + binfile.length());
     }
 
-    public static void ex05() {//Store objects and arrays in a file
+    public static void ex05() { // Store objects and arrays in a file
         int[] nums = {1, 2, 3, 4, 5, 6};
         Date date = new Date(System.currentTimeMillis());
         double dbl = 10.5;
@@ -106,7 +88,7 @@ public class DaLi_17 extends Application {
         }
     }
 
-    public static void ex06() {//Store Loan objects
+    public static void ex06() { // Store Loan objects
         File file = new File("src/auxp/ch17/Exercise17_06.dat");
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
             for (int i = 0; i < 5; i++) {
@@ -117,7 +99,7 @@ public class DaLi_17 extends Application {
         }
     }
 
-    public static void ex07() {//Restore objects from a file
+    public static void ex07() { // Restore objects from a file
         File file = new File("src/auxp/ch17/Exercise17_06.dat");
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
             MyLoan loan;
@@ -129,17 +111,16 @@ public class DaLi_17 extends Application {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
-    public static void ex08() {//Update count
+    public static void ex08() { // Update count
         File file = new File("src/auxp/ch17/Exercise17_08.dat");
         int count = 0;
         try (DataInputStream in = new DataInputStream(new FileInputStream(file))) {
             count = in.readInt();
             System.out.println(count);
         } catch (IOException e) {
-            //e.printStackTrace();
+            // e.printStackTrace();
         }
         try (DataOutputStream out = new DataOutputStream(new FileOutputStream(file))) {
             out.writeInt(++count);
@@ -149,38 +130,38 @@ public class DaLi_17 extends Application {
         }
     }
 
-    public static Pane ex09() {//Address book
+    public static Pane ex09() { // Address book
         return new AddressBook();
     }
 
-    public static void ex10() {//Split files
+    public static void ex10() { // Split files
         FileSplitter.splitByPieces(new File("src/res/image/adventure-climb-grass-2138908.jpg"), 2);
     }
 
-    public static Pane ex11() {//Split files GUI
+    public static Pane ex11() { // Split files GUI
         return new Pane(new SplitterTabbedPane());
     }
 
-    public static void ex12() {//Combine files
+    public static void ex12() { // Combine files
         FileSplitter.join((new File("src/auxp/ch17/adventure-climb-grass-2138908.jpg.0")));
     }
 
-    public static Pane ex13() {//Combine files GUI
+    public static Pane ex13() { // Combine files GUI
         return new Pane(new SplitterTabbedPane());
     }
 
-    public static void ex14() {//Encrypt files
+    public static void ex14() { // Encrypt files
         Crypt.encrypt(new File("src/res/image/adventure-climb-grass-2138908.jpg"), 10);
     }
 
-    public static void ex15() {//Decrypt files
+    public static void ex15() { // Decrypt files
         Crypt.decrypt(new File("src/auxp/ch17/adventure-climb-grass-2138908.jpg.crypt"), 10);
     }
 
-    public static void ex16() {//Frequency of characters
+    public static void ex16() { // Frequency of characters
     }
 
-    public static void ex17() {//BitOutputStream
+    public static void ex17() { // BitOutputStream
         try (BitOutputStream out = new BitOutputStream(new File("src/auxp/ch17/Exercise17_17.dat"))) {
             out.writeBit('0');
             out.writeBit("10000100100001001");
@@ -190,19 +171,32 @@ public class DaLi_17 extends Application {
         }
     }
 
-    public static Pane ex18() {//View bits
+    public static Pane ex18() { // View bits
         return new RawEditorPane();
     }
 
-    public static Pane ex19() {//View hex
+    public static Pane ex19() { // View hex
         return new RawEditorPane();
     }
 
-    public static Pane ex20() {//Binary editor
+    public static Pane ex20() { // Binary editor
         return new RawEditorPane();
     }
 
-    public static Pane ex21() {//Hex editor
+    public static Pane ex21() { // Hex editor
         return new RawEditorPane();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("C17");
+
+        Pane pane = ex18();
+
+        pane.setPadding(new Insets(5));
+        Scene scene = new Scene(pane);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        pane.requestFocus();
     }
 }

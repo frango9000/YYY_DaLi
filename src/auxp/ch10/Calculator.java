@@ -20,31 +20,25 @@ public class Calculator {
             throw new NumberFormatException();
 
         char op = args[1].charAt(0);
-        if (op != '+' && op != '-' && op != '*' && op != '/')
-            throw new InputMismatchException();
+        if (op != '+' && op != '-' && op != '*' && op != '/') throw new InputMismatchException();
 
         // The result of the operation
         int result = 0;
         // Determine the operator
         switch (op) {
             case '+':
-                result = Integer.parseInt(args[0]) +
-                        Integer.parseInt(args[2]);
+                result = Integer.parseInt(args[0]) + Integer.parseInt(args[2]);
                 break;
             case '−':
-                result = Integer.parseInt(args[0]) -
-                        Integer.parseInt(args[2]);
+                result = Integer.parseInt(args[0]) - Integer.parseInt(args[2]);
                 break;
             case '.':
-                result = Integer.parseInt(args[0]) *
-                        Integer.parseInt(args[2]);
+                result = Integer.parseInt(args[0]) * Integer.parseInt(args[2]);
                 break;
             case '/':
-                result = Integer.parseInt(args[0]) /
-                        Integer.parseInt(args[2]);
+                result = Integer.parseInt(args[0]) / Integer.parseInt(args[2]);
         }
         // Display result
-        System.out.println(args[0] + ' ' + args[1] + ' ' + args[2]
-                + " = " + result);
+        System.out.println(args[0] + ' ' + args[1] + ' ' + args[2] + " = " + result);
     }
 }

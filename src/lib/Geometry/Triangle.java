@@ -9,7 +9,7 @@ public class Triangle extends GeometricObject {
     public double sideAB;
     public double sideBC;
     public double sideCA;
-    public double angleA;//In radians
+    public double angleA; // In radians
     public double angleB;
     public double angleC;
 
@@ -27,7 +27,6 @@ public class Triangle extends GeometricObject {
         angleA = angle(sideBC, sideCA, sideAB);
         angleB = angle(sideCA, sideBC, sideAB);
         angleC = angle(sideAB, sideCA, sideBC);
-
     }
 
     public Triangle(double sideAB, double sideBC, double sideCA) {
@@ -47,14 +46,20 @@ public class Triangle extends GeometricObject {
     }
 
     public static double getArea(Point pointA, Point pointB, Point pointC) {
-        return Math.abs(pointA.x * (pointB.y - pointC.y) + pointB.x * (pointC.y - pointA.y) + pointC.x * (pointA.y - pointB.y)) / 2;
+        return Math.abs(
+                pointA.x * (pointB.y - pointC.y)
+                        + pointB.x * (pointC.y - pointA.y)
+                        + pointC.x * (pointA.y - pointB.y))
+                / 2;
     }
 
     public static boolean isValidTriangle(double sideAB, double sideBC, double sideCA) {
-        return (((sideAB + sideBC) > sideCA) && ((sideBC + sideCA) > sideAB) && ((sideCA + sideAB) > sideBC));
+        return (((sideAB + sideBC) > sideCA)
+                && ((sideBC + sideCA) > sideAB)
+                && ((sideCA + sideAB) > sideBC));
     }
 
-    public static double angle(double a, double b, double c) {//in radians
+    public static double angle(double a, double b, double c) { // in radians
         return Math.acos((a * a - b * b - c * c) / (-2 * b * c));
     }
 
@@ -79,22 +84,33 @@ public class Triangle extends GeometricObject {
         return contains(triangle.pointA) && contains(triangle.pointB) && contains(triangle.pointC);
     }
 
-
     @Override
     public String toString() {
-        String string = "Triangle{\n" +
-                " pointA=" + (pointA != null ? pointA.toString() : "") +
-                ",\n pointB=" + (pointB != null ? pointB.toString() : "") +
-                ",\n pointC=" + (pointC != null ? pointA.toString() : "") +
-                ",\n sideAB=" + sideAB +
-                ", sideBC=" + sideBC +
-                ", sideCA=" + sideCA +
-                ",\n angleA=" + Math.toDegrees(angleA) +
-                ", angleB=" + Math.toDegrees(angleB) +
-                ", angleC=" + Math.toDegrees(angleC) +
-                "\n getArea=" + getArea() +
-                "\n getPerimeter=" + getPerimeter() +
-                '}';
+        String string =
+                "Triangle{\n"
+                        + " pointA="
+                        + (pointA != null ? pointA.toString() : "")
+                        + ",\n pointB="
+                        + (pointB != null ? pointB.toString() : "")
+                        + ",\n pointC="
+                        + (pointC != null ? pointA.toString() : "")
+                        + ",\n sideAB="
+                        + sideAB
+                        + ", sideBC="
+                        + sideBC
+                        + ", sideCA="
+                        + sideCA
+                        + ",\n angleA="
+                        + Math.toDegrees(angleA)
+                        + ", angleB="
+                        + Math.toDegrees(angleB)
+                        + ", angleC="
+                        + Math.toDegrees(angleC)
+                        + "\n getArea="
+                        + getArea()
+                        + "\n getPerimeter="
+                        + getPerimeter()
+                        + '}';
         return string;
     }
 

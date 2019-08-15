@@ -8,6 +8,13 @@ public class MyTransition<E, F, G> extends MyAssociation<E, F> {
         this.third = third;
     }
 
+    public static double sum(
+            MyTransition<? extends Number, ? extends Number, ? extends Number> transition) {
+        return transition.first.doubleValue()
+                + transition.second.doubleValue()
+                + transition.third.doubleValue();
+    }
+
     public G getThird() {
         return third;
     }
@@ -17,16 +24,7 @@ public class MyTransition<E, F, G> extends MyAssociation<E, F> {
     }
 
     @Override
-    public String
-    toString() {
-        return "MyTransition{" +
-                "first=" + first +
-                ", second=" + second +
-                ", third=" + third +
-                '}';
-    }
-
-    public static double sum(MyTransition<? extends Number, ? extends Number, ? extends Number> transition) {
-        return transition.first.doubleValue() + transition.second.doubleValue() + transition.third.doubleValue();
+    public String toString() {
+        return "MyTransition{" + "first=" + first + ", second=" + second + ", third=" + third + '}';
     }
 }

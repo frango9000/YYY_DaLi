@@ -118,20 +118,20 @@ public class Calendar {
 
     public static int daysInMonth(int month, long year) {
         switch (month) {
-            case 1:         //January
-            case 3:         //March
-            case 5:         //May
-            case 7:         //July
-            case 8:         //August
-            case 10:         //October
-            case 12:        //December
+            case 1: // January
+            case 3: // March
+            case 5: // May
+            case 7: // July
+            case 8: // August
+            case 10: // October
+            case 12: // December
                 return 31;
-            case 4:         //April
-            case 6:         //June
-            case 9:         //September
-            case 11:        //November
+            case 4: // April
+            case 6: // June
+            case 9: // September
+            case 11: // November
                 return 30;
-            case 2:         //February
+            case 2: // February
                 return isLeapYear(year) ? 29 : 28;
         }
         return 0;
@@ -183,7 +183,7 @@ public class Calendar {
 
         int dayOfWeek = (q + ((26 * (m + 1)) / 10) + k + (k / 4) + (j / 4) + (5 * j)) % 7;
 
-        return dayOfWeek < 1 ? 6 : dayOfWeek - 1; //this returns 0 for sat 1 for monday
+        return dayOfWeek < 1 ? 6 : dayOfWeek - 1; // this returns 0 for sat 1 for monday
     }
 
     public static String dayOfWeekString(int year, int month, int day) {
@@ -194,13 +194,11 @@ public class Calendar {
         StringBuilder calendar = new StringBuilder(String.format("%20s %d\n", monthName(month), year));
         calendar.append("-------------------------------------\n");
 
-        for (int i = 0; i < 7; i++)
-            calendar.append(String.format("%5s", dayName(i).substring(0, 3)));
+        for (int i = 0; i < 7; i++) calendar.append(String.format("%5s", dayName(i).substring(0, 3)));
         calendar.append("\n");
 
         for (int index = 0, day = 1; day <= daysInMonth(month, year); index++) {
-            if (index == dayOfWeek(year, month, day))
-                calendar.append(String.format("%5d", day++));
+            if (index == dayOfWeek(year, month, day)) calendar.append(String.format("%5d", day++));
             else calendar.append(String.format("%5s", " "));
 
             if (index > 5) {
@@ -214,7 +212,8 @@ public class Calendar {
     public void computeDate() {
         long days = millis / 86400000;
         int yearsPassedApprox = (int) days / 365;
-        int daysPassedThisYear = (int) (days - (yearsPassedApprox * 365 + leapYearsCount(yearsPassedApprox)));
+        int daysPassedThisYear =
+                (int) (days - (yearsPassedApprox * 365 + leapYearsCount(yearsPassedApprox)));
         year = yearsPassedApprox + 1970;
         setMonthAndDay(daysPassedThisYear);
     }
@@ -227,11 +226,6 @@ public class Calendar {
 
     @Override
     public String toString() {
-        return "Calendar{" +
-                "day=" + day +
-                ", month=" + month +
-                ", year=" + year +
-                '}';
+        return "Calendar{" + "day=" + day + ", month=" + month + ", year=" + year + '}';
     }
-
 }

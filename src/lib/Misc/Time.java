@@ -87,13 +87,26 @@ public class Time {
     }
 
     public String timeToString() {
-        return ("Current time is " + currentHour + ":" + currentMinute + ":" + currentSecond + " GMT: ");
+        return ("Current time is "
+                + currentHour
+                + ":"
+                + currentMinute
+                + ":"
+                + currentSecond
+                + " GMT: ");
     }
 
     public String timeToStringM(byte offset) {
         long offsetHour = currentHour + offset;
         if (offsetHour >= 24) offsetHour -= 24;
-        return ("Current time is " + offsetHour + ":" + currentMinute + ":" + currentSecond + " GMT: " + offset);
+        return ("Current time is "
+                + offsetHour
+                + ":"
+                + currentMinute
+                + ":"
+                + currentSecond
+                + " GMT: "
+                + offset);
     }
 
     public String timeToString(byte offset) {
@@ -104,7 +117,15 @@ public class Time {
             offsetHour -= 12;
             post = "PM";
         }
-        return ("Current time is " + offsetHour + ":" + currentMinute + ":" + currentSecond + " " + post + " GMT: " + offset);
+        return ("Current time is "
+                + offsetHour
+                + ":"
+                + currentMinute
+                + ":"
+                + currentSecond
+                + " "
+                + post
+                + " GMT: "
+                + offset);
     }
-
 }

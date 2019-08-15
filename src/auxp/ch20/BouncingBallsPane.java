@@ -57,8 +57,7 @@ public class BouncingBallsPane extends Application {
 
         public MultipleBallPane() {
             // Create an animation for moving the ball
-            animation = new Timeline(
-                    new KeyFrame(Duration.millis(50), e -> moveBall()));
+            animation = new Timeline(new KeyFrame(Duration.millis(50), e -> moveBall()));
             animation.setCycleCount(Timeline.INDEFINITE);
             animation.play(); // Start animation
         }
@@ -69,7 +68,6 @@ public class BouncingBallsPane extends Application {
             getChildren().add(ball);
             ball.setOnMouseClicked(event -> getChildren().remove(ball));
         }
-
 
         public void subtract() {
             if (getChildren().size() > 0) {
@@ -90,8 +88,7 @@ public class BouncingBallsPane extends Application {
         }
 
         public void decreaseSpeed() {
-            animation.setRate(
-                    animation.getRate() > 0 ? animation.getRate() - 0.1 : 0);
+            animation.setRate(animation.getRate() > 0 ? animation.getRate() - 0.1 : 0);
         }
 
         public DoubleProperty rateProperty() {
@@ -103,18 +100,17 @@ public class BouncingBallsPane extends Application {
             for (Node node : nodes) {
                 Ball ball = (Ball) node;
                 // Check boundaries
-                if (ball.getCenterX() < ball.getRadius() ||
-                        ball.getCenterX() > getWidth() - ball.getRadius()) {
+                if (ball.getCenterX() < ball.getRadius()
+                        || ball.getCenterX() > getWidth() - ball.getRadius()) {
                     ball.dx *= -1; // Change ball move direction
                 }
-                if (ball.getCenterY() < ball.getRadius() ||
-                        ball.getCenterY() > getHeight() - ball.getRadius()) {
+                if (ball.getCenterY() < ball.getRadius()
+                        || ball.getCenterY() > getHeight() - ball.getRadius()) {
                     ball.dy *= -1; // Change ball move direction
                 }
                 // Adjust ball position
                 ball.setCenterX(ball.dx + ball.getCenterX());
                 ball.setCenterY(ball.dy + ball.getCenterY());
-
             }
             int size = nodes.size();
             for (int i = 0; i < size - 1; i++) {
@@ -129,9 +125,7 @@ public class BouncingBallsPane extends Application {
                         size--;
                     } else j++;
                 }
-
             }
-
         }
     }
 

@@ -30,7 +30,6 @@ public class StopPane extends StackPane {
         stop.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.REGULAR, radius / 2));
         stop.setFill(Color.WHITE);
 
-
         getChildren().clear();
         getChildren().addAll(sign, stop);
     }

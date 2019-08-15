@@ -90,5 +90,4 @@ public class MyString {
     public int length() {
         return string.length;
     }
-
 }

@@ -25,7 +25,8 @@ public class AnimatedPendulum extends Pane {
         ToolFX.setFillStroke(null, Color.BLACK, arc);
         arc.setType(ArcType.OPEN);
         Circle base = new Circle(arc.getCenterX(), arc.getCenterY(), 10, Color.DARKGREY);
-        Circle circle = new Circle(arc.getCenterX(), arc.getCenterY() + arc.getRadiusY(), 20, Color.BLACK);
+        Circle circle =
+                new Circle(arc.getCenterX(), arc.getCenterY() + arc.getRadiusY(), 20, Color.BLACK);
 
         pt = new PathTransition(Duration.millis(1000), arc, circle);
         pt.setCycleCount(Timeline.INDEFINITE);
@@ -41,7 +42,8 @@ public class AnimatedPendulum extends Pane {
             ft.play();
         }
 
-        Line line = new Line(arc.getCenterX(), arc.getCenterY(), circle.getCenterX(), circle.getCenterY());
+        Line line =
+                new Line(arc.getCenterX(), arc.getCenterY(), circle.getCenterX(), circle.getCenterY());
 
         line.endXProperty().bind(circle.centerXProperty().add(circle.translateXProperty()));
         line.endYProperty().bind(circle.centerYProperty().add(circle.translateYProperty()));
@@ -52,7 +54,6 @@ public class AnimatedPendulum extends Pane {
         setOnMouseReleased(event -> playAnimation());
         setMinWidth(400);
     }
-
 
     public void increaseSpeed() {
         pt.setRate(pt.getRate() + 1);

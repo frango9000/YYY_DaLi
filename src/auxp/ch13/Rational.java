@@ -29,8 +29,7 @@ public class Rational extends Number implements Comparable<Rational> {
         long n2 = Math.abs(d);
         int gcd = 1;
         for (int k = 1; k <= n1 && k <= n2; k++) {
-            if (n1 % k == 0 && n2 % k == 0)
-                gcd = k;
+            if (n1 % k == 0 && n2 % k == 0) gcd = k;
         }
         return gcd;
     }
@@ -53,8 +52,8 @@ public class Rational extends Number implements Comparable<Rational> {
      * Add a rational number to this rational
      */
     public Rational add(Rational secondRational) {
-        long n = numerator * secondRational.getDenominator() +
-                denominator * secondRational.getNumerator();
+        long n =
+                numerator * secondRational.getDenominator() + denominator * secondRational.getNumerator();
         long d = denominator * secondRational.getDenominator();
         return new Rational(n, d);
     }
@@ -63,7 +62,8 @@ public class Rational extends Number implements Comparable<Rational> {
      * Subtract a rational number from this rational
      */
     public Rational subtract(Rational secondRational) {
-        long n = numerator * secondRational.getDenominator() - denominator * secondRational.getNumerator();
+        long n =
+                numerator * secondRational.getDenominator() - denominator * secondRational.getNumerator();
         long d = denominator * secondRational.getDenominator();
         return new Rational(n, d);
     }
@@ -88,10 +88,8 @@ public class Rational extends Number implements Comparable<Rational> {
 
     @Override
     public String toString() {
-        if (denominator == 1)
-            return numerator + "";
-        else
-            return numerator + "/" + denominator;
+        if (denominator == 1) return numerator + "";
+        else return numerator + "/" + denominator;
     }
 
     @Override // Override the equals method in the Object class
@@ -121,11 +119,8 @@ public class Rational extends Number implements Comparable<Rational> {
 
     @Override // Implement the compareTo method in Comparable
     public int compareTo(Rational o) {
-        if (this.subtract(o).getNumerator() > 0)
-            return 1;
-        else if (this.subtract(o).getNumerator() < 0)
-            return -1;
-        else
-            return 0;
+        if (this.subtract(o).getNumerator() > 0) return 1;
+        else if (this.subtract(o).getNumerator() < 0) return -1;
+        else return 0;
     }
 }

@@ -11,7 +11,7 @@ public class FileSplitter {
      * Recursive Byte string formatter ex: 10000 = 10.000
      *
      * @param bytes string containing digits to be formated
-     * @return x.xxx.xxx.xxx  style string
+     * @return x.xxx.xxx.xxx style string
      */
     private static String byteSizeFormatter(String bytes) {
         StringBuilder sb = new StringBuilder();
@@ -40,15 +40,15 @@ public class FileSplitter {
         try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(file))) {
             while (in.available() > 0) {
                 long size = in.available() >= bytes ? bytes : in.available();
-                byte[] split = new byte[(int) size];//TODO fix casting
+                byte[] split = new byte[(int) size]; // TODO fix casting
                 in.read(split);
 
-                File piece = new File(file.getAbsolutePath() + "." + String.format("%0" + digits + "d", count++));
+                File piece =
+                        new File(file.getAbsolutePath() + "." + String.format("%0" + digits + "d", count++));
 
                 try (FileOutputStream out = new FileOutputStream(piece)) {
                     out.write(split);
                 }
-
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -82,7 +82,6 @@ public class FileSplitter {
         join(getSplitFiles(file0));
     }
 
-
     public static ArrayList<File> getSplitFiles(File file0) {
         ArrayList<File> splitFiles = new ArrayList<>();
         int extensionSize = FileIO.getFileExtension(file0).length();
@@ -92,15 +91,18 @@ public class FileSplitter {
         int count = 0;
         File actual;
         while (true) {
-            actual = new File(file0.getParent() + "/" + baseName + "." + String.format("%0" + extensionSize + "d", count++));
-            //System.out.println(actual.getAbsolutePath() + actual.exists());
-            if (!actual.exists())
-                break;
-            else
-                splitFiles.add(actual);
+            actual =
+                    new File(
+                            file0.getParent()
+                                    + "/"
+                                    + baseName
+                                    + "."
+                                    + String.format("%0" + extensionSize + "d", count++));
+            // System.out.println(actual.getAbsolutePath() + actual.exists());
+            if (!actual.exists()) break;
+            else splitFiles.add(actual);
         }
 
         return splitFiles;
     }
-
 }

@@ -12,7 +12,7 @@ public class MyPolygonOutline extends Pane {
         Polygon base = new Polygon(20, radius, true);
         base.setCenter(new Point(getWidth() / 2, getHeight() / 2));
 
-        //base.setVertexOnTop();
+        // base.setVertexOnTop();
         base.setTopHorizontal();
 
         Point[] ps = base.getPoints();

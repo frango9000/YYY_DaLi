@@ -20,44 +20,42 @@ public abstract class DaLi_20 {
     public static void main(String[] args) {
 
         ex07();
-
     }
 
     public static void ex00() {
     }
 
-    public static void ex01() {//Display words in descending alphabetical order
+    public static void ex01() { // Display words in descending alphabetical order
         File lorem = new File("src/res/txt/lorem.txt");
         ArrayList<String> words = new ArrayList<>();
 
         try (Scanner scan = new Scanner(lorem).useDelimiter("[ .,:;\n]")) {
             while (scan.hasNext()) {
                 String newWord = scan.next().trim();
-                if (!(newWord.length() < 1 || " ".equals(newWord)))
-                    words.add(newWord);
+                if (!(newWord.length() < 1 || " ".equals(newWord))) words.add(newWord);
             }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-//        words.sort(new Comparator<String>() {
-//            @Override
-//            public int compare(String o1, String o2) {
-//                return Integer.compare(0, o1.compareTo(o2));
-//
-//            }
-//        });
+        //        words.sort(new Comparator<String>() {
+        //            @Override
+        //            public int compare(String o1, String o2) {
+        //                return Integer.compare(0, o1.compareTo(o2));
+        //
+        //            }
+        //        });
         words.sort((o1, o2) -> Integer.compare(0, o1.compareTo(o2)));
         ListManip.printList(words);
     }
 
-    public static void ex02() {//Store numbers in a linked list
-        MainFX.initializeToolkit();//JavaFX toolkit init
+    public static void ex02() { // Store numbers in a linked list
+        MainFX.initializeToolkit(); // JavaFX toolkit init
         MainFX ui = new MainFX(new LinkedNumbersPane());
         ui.go();
     }
 
-    public static void ex03() {//Guessing the capitals
+    public static void ex03() { // Guessing the capitals
         ArrayList<String> states = new ArrayList<>();
         states.add("Alabama");
         states.add("Alaska");
@@ -82,7 +80,7 @@ public abstract class DaLi_20 {
         println("Correct count is %d", count);
     }
 
-    public static void ex04() {//Implement Comparable
+    public static void ex04() { // Implement Comparable
         ArrayList<GregorianCalendar> calendars = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             GregorianCalendar gc = new GregorianCalendar();
@@ -91,15 +89,19 @@ public abstract class DaLi_20 {
         }
         calendars.sort(new CalendarComparator());
         for (GregorianCalendar calendar : calendars) {
-            System.out.printf("%d-%d-%d%n", calendar.get(GregorianCalendar.DAY_OF_MONTH), calendar.get(GregorianCalendar.MONTH) + 1, calendar.get(GregorianCalendar.YEAR));
+            System.out.printf(
+                    "%d-%d-%d%n",
+                    calendar.get(GregorianCalendar.DAY_OF_MONTH),
+                    calendar.get(GregorianCalendar.MONTH) + 1,
+                    calendar.get(GregorianCalendar.YEAR));
         }
     }
 
-    public static void ex05() {//Combine colliding bouncing balls
+    public static void ex05() { // Combine colliding bouncing balls
         Application.launch(BouncingBallsPane.class, "");
     }
 
-    public static void ex06() {//Use iterators on ArrayList
+    public static void ex06() { // Use iterators on ArrayList
         int size = 10000000;
         StopWatch sw0 = new StopWatch();
         ArrayList<Integer> millions = new ArrayList<>(size);
@@ -123,8 +125,7 @@ public abstract class DaLi_20 {
         StopWatch sw3 = new StopWatch();
         ListIterator<Integer> it2 = millions.listIterator();
         try {
-            while (true)
-                it2.next();
+            while (true) it2.next();
         } catch (NoSuchElementException ignored) {
         }
         it2.previous();
@@ -136,58 +137,58 @@ public abstract class DaLi_20 {
         System.out.println(sw3.getElapsedFormat());
     }
 
-    public static void ex07() {//Game: hangman
-        MainFX.initializeToolkit();//JavaFX toolkit init
+    public static void ex07() { // Game: hangman
+        MainFX.initializeToolkit(); // JavaFX toolkit init
         MainFX ui = new MainFX(new MyHangman());
         ui.go();
     }
 
-    public static void ex08() {//Game: lottery
+    public static void ex08() { // Game: lottery
     }
 
-    public static void ex09() {//Remove the largest ball first
+    public static void ex09() { // Remove the largest ball first
         Application.launch(BouncingBallsPane.class, "");
     }
 
-    public static void ex10() {//Perform set operations on priority queues
+    public static void ex10() { // Perform set operations on priority queues
     }
 
-    public static void ex11() {//Remove Consecutive Integers
+    public static void ex11() { // Remove Consecutive Integers
     }
 
-    public static void ex12() {//Create Stack from list
+    public static void ex12() { // Create Stack from list
     }
 
-    public static void ex13() {//Postfix notation
+    public static void ex13() { // Postfix notation
     }
 
-    public static void ex14() {//Postfix notation
+    public static void ex14() { // Postfix notation
     }
 
-    public static void ex15() {//Game: the 24-point card game
+    public static void ex15() { // Game: the 24-point card game
     }
 
-    public static void ex16() {//Game: the 24-point card game
+    public static void ex16() { // Game: the 24-point card game
     }
 
-    public static void ex17() {//Game: the 24-point card game
+    public static void ex17() { // Game: the 24-point card game
     }
 
-    public static void ex18() {//Directory size
+    public static void ex18() { // Directory size
     }
 
-    public static void ex19() {//Use Comparator
+    public static void ex19() { // Use Comparator
     }
 
-    public static void ex20() {//Nonrecursive Tower of Hanoi
+    public static void ex20() { // Nonrecursive Tower of Hanoi
     }
 
-    public static void ex21() {//Use Comparator
+    public static void ex21() { // Use Comparator
     }
 
-    public static void ex22() {//Nonrecursive Tower of Hanoi
+    public static void ex22() { // Nonrecursive Tower of Hanoi
     }
 
-    public static void ex23() {//Evaluate expression
+    public static void ex23() { // Evaluate expression
     }
 }

@@ -16,8 +16,7 @@ public class GenericStackArray<E> {
     public int getSize() {
         int size = 0;
         for (Object o : content) {
-            if (o != null)
-                size++;
+            if (o != null) size++;
             else return size;
         }
         return content.length;
@@ -52,8 +51,6 @@ public class GenericStackArray<E> {
 
     @Override
     public String toString() {
-        return "GenericStackArray{" +
-                "content=" + Arrays.toString(content) +
-                '}';
+        return "GenericStackArray{" + "content=" + Arrays.toString(content) + '}';
     }
 }

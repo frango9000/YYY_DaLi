@@ -24,7 +24,6 @@ public class IntersectingCircles extends VBox {
         Pane pane = new Pane(c1, c2);
         pane.setMinSize(400, 300);
 
-
         Label circleTitle01 = new Label("Enter circle 1 info:");
         GridPane grid1 = new GridPane();
         Label c1xt = new Label("Center X");
@@ -37,7 +36,10 @@ public class IntersectingCircles extends VBox {
         TextField c1r = new TextField("" + c1.getRadius());
         grid1.addRow(2, c1rt, c1r);
         VBox circV1 = new VBox(circleTitle01, grid1);
-        circV1.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        circV1.setBorder(
+                new Border(
+                        new BorderStroke(
+                                Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 
         Label circleTitle02 = new Label("Enter circle 2 info:");
         GridPane grid2 = new GridPane();
@@ -51,50 +53,56 @@ public class IntersectingCircles extends VBox {
         TextField c2r = new TextField("" + c2.getRadius());
         grid2.addRow(2, c2rt, c2r);
         VBox circV2 = new VBox(circleTitle02, grid2);
-        circV2.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        circV2.setBorder(
+                new Border(
+                        new BorderStroke(
+                                Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         HBox circles = new HBox(circV1, circV2);
         circles.setSpacing(8);
         circles.setPadding(new Insets(5));
 
         Button redraw = new Button("Redraw");
 
-        redraw.setOnAction(event -> {
-            c1.setCenterX(Double.parseDouble(c1x.getText()));
-            c1.setCenterY(Double.parseDouble(c1y.getText()));
-            c1.setRadius(Double.parseDouble(c1r.getText()));
-            c2.setCenterX(Double.parseDouble(c2x.getText()));
-            c2.setCenterY(Double.parseDouble(c2y.getText()));
-            c2.setRadius(Double.parseDouble(c2r.getText()));
+        redraw.setOnAction(
+                event -> {
+                    c1.setCenterX(Double.parseDouble(c1x.getText()));
+                    c1.setCenterY(Double.parseDouble(c1y.getText()));
+                    c1.setRadius(Double.parseDouble(c1r.getText()));
+                    c2.setCenterX(Double.parseDouble(c2x.getText()));
+                    c2.setCenterY(Double.parseDouble(c2y.getText()));
+                    c2.setRadius(Double.parseDouble(c2r.getText()));
 
-            bool.setText(isIntersect() + "");
+                    bool.setText(isIntersect() + "");
+                });
+        c1.setOnMouseDragged(
+                e -> {
+                    if (c1.contains(e.getX(), e.getY())) {
+                        c1.setCenterX(e.getX());
+                        c1.setCenterY(e.getY());
+                        c1x.setText(c1.getCenterX() + "");
+                        c1y.setText(c1.getCenterY() + "");
+                        bool.setText(isIntersect() + "");
+                    }
+                });
 
-        });
-        c1.setOnMouseDragged(e -> {
-            if (c1.contains(e.getX(), e.getY())) {
-                c1.setCenterX(e.getX());
-                c1.setCenterY(e.getY());
-                c1x.setText(c1.getCenterX() + "");
-                c1y.setText(c1.getCenterY() + "");
-                bool.setText(isIntersect() + "");
-            }
-        });
-
-        c2.setOnMouseDragged(e -> {
-            if (c2.contains(e.getX(), e.getY())) {
-                c2.setCenterX(e.getX());
-                c2.setCenterY(e.getY());
-                c2x.setText(c2.getCenterX() + "");
-                c2y.setText(c2.getCenterY() + "");
-                bool.setText(isIntersect() + "");
-            }
-        });
+        c2.setOnMouseDragged(
+                e -> {
+                    if (c2.contains(e.getX(), e.getY())) {
+                        c2.setCenterX(e.getX());
+                        c2.setCenterY(e.getY());
+                        c2x.setText(c2.getCenterX() + "");
+                        c2y.setText(c2.getCenterY() + "");
+                        bool.setText(isIntersect() + "");
+                    }
+                });
 
         getChildren().addAll(top, pane, circles, redraw);
     }
 
     private boolean isIntersect() {
-        return Math.sqrt(Math.pow(c1.getCenterX() - c2.getCenterX(), 2) +
-                Math.pow(c1.getCenterY() - c2.getCenterY(), 2))
+        return Math.sqrt(
+                Math.pow(c1.getCenterX() - c2.getCenterX(), 2)
+                        + Math.pow(c1.getCenterY() - c2.getCenterY(), 2))
                 <= c1.getRadius() + c2.getRadius();
     }
 }

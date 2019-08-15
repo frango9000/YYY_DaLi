@@ -45,32 +45,31 @@ public class CreatePointPane extends Pane {
         Pane p = new Pane();
         p.setMinSize(600, 600);
 
+        text.setOnMouseClicked(
+                event -> {
+                    if (!c.isVisible()) {
+                        sw.start();
+                        c.setVisible(true);
+                        text.setVisible(false);
+                    }
+                });
 
-        text.setOnMouseClicked(event -> {
-            if (!c.isVisible()) {
-                sw.start();
-                c.setVisible(true);
-                text.setVisible(false);
-            }
-        });
+        c.setOnMouseClicked(
+                event -> {
+                    c.setCenterY(Randomizer.randomInt(600));
+                    c.setCenterX(Randomizer.randomInt(600));
 
-        c.setOnMouseClicked(event -> {
-            c.setCenterY(Randomizer.randomInt(600));
-            c.setCenterX(Randomizer.randomInt(600));
-
-            if (tries > 0) {
-                tries--;
-            } else {
-                sw.stop();
-                c.setVisible(false);
-                text.setVisible(true);
-                time.setText(sw.getElapsedFormat());
-                tries = trie - 1;
-
-
-            }
-            System.out.println(tries);
-        });
+                    if (tries > 0) {
+                        tries--;
+                    } else {
+                        sw.stop();
+                        c.setVisible(false);
+                        text.setVisible(true);
+                        time.setText(sw.getElapsedFormat());
+                        tries = trie - 1;
+                    }
+                    System.out.println(tries);
+                });
         getChildren().addAll(text, time, c);
     }
 
@@ -104,7 +103,6 @@ public class CreatePointPane extends Pane {
         boundingRectangle = bool;
     }
 
-
     private void handle(MouseEvent event) {
         if (event.getButton() == MouseButton.PRIMARY) {
             Circle c = new Circle(event.getX(), event.getY(), radius, Color.GRAY);
@@ -113,15 +111,11 @@ public class CreatePointPane extends Pane {
             if (circles.contains(event.getX(), event.getY())) {
                 ObservableList<Node> list = circles.getChildren();
                 for (int i = 0; i < list.size(); ) {
-                    if (list.get(i).contains(event.getX(), event.getY()))
-                        list.remove(i);
+                    if (list.get(i).contains(event.getX(), event.getY())) list.remove(i);
                     else i++;
                 }
             }
         }
-        if (boundingRectangle)
-            setBoundingRectangle();
+        if (boundingRectangle) setBoundingRectangle();
     }
-
-
 }

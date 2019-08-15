@@ -16,7 +16,6 @@ public class LinkedNumbersPane extends BorderPane {
     LinkedList<Integer> numbers = new LinkedList<>();
     TextArea textArea;
 
-
     public LinkedNumbersPane() {
         TextField newNumber = new TextField();
         Button add = new Button("+");
@@ -38,45 +37,48 @@ public class LinkedNumbersPane extends BorderPane {
         setCenter(textArea);
         setBottom(bot);
 
-        add.setOnAction(event -> {
-            int num;
-            try {
-                num = Integer.parseInt(newNumber.getText());
-                if (!numbers.contains(num)) {
-                    numbers.add(num);
+        add.setOnAction(
+                event -> {
+                    int num;
+                    try {
+                        num = Integer.parseInt(newNumber.getText());
+                        if (!numbers.contains(num)) {
+                            numbers.add(num);
+                            updateListText();
+                        }
+                    } catch (NumberFormatException ignored) {
+                    }
+                });
+        rem.setOnAction(
+                event -> {
+                    int num;
+                    try {
+                        num = Integer.parseInt(newNumber.getText());
+                        if (numbers.contains(num)) {
+                            numbers.remove((Object) num);
+                            updateListText();
+                        }
+                    } catch (NumberFormatException ignored) {
+                    }
+                });
+        sort.setOnAction(
+                event -> {
+                    numbers.sort(null);
                     updateListText();
-                }
-            } catch (NumberFormatException ignored) {
-            }
-        });
-        rem.setOnAction(event -> {
-            int num;
-            try {
-                num = Integer.parseInt(newNumber.getText());
-                if (numbers.contains(num)) {
-                    numbers.remove((Object) num);
+                });
+        shuffle.setOnAction(
+                event -> {
+                    ListManip.shuffle(numbers);
                     updateListText();
-                }
-            } catch (NumberFormatException ignored) {
-            }
-        });
-        sort.setOnAction(event -> {
-            numbers.sort(null);
-            updateListText();
-        });
-        shuffle.setOnAction(event -> {
-            ListManip.shuffle(numbers);
-            updateListText();
-        });
-        reverse.setOnAction(event -> {
-            numbers.sort(Comparator.reverseOrder());
-            updateListText();
-        });
+                });
+        reverse.setOnAction(
+                event -> {
+                    numbers.sort(Comparator.reverseOrder());
+                    updateListText();
+                });
     }
 
     private void updateListText() {
         textArea.setText(numbers.toString());
     }
-
-
 }

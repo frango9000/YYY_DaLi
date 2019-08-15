@@ -69,8 +69,6 @@ public class StackOfIntegers {
 
     @Override
     public String toString() {
-        return "StackOfIntegers{" +
-                "elements=" + Arrays.toString(elements) +
-                '}';
+        return "StackOfIntegers{" + "elements=" + Arrays.toString(elements) + '}';
     }
 }

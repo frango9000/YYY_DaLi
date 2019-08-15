@@ -38,16 +38,14 @@ public abstract class Extras {
         return Primes.isPrime(number) && Primes.isPrime(reverse(number));
     }
 
-    public static int map(int number, int thisScaleMin, int thisScaleMax, int targetScaleMin, int targetScaleMax) {
-        if (number > thisScaleMax)
-            return targetScaleMax;
-        else if (number < thisScaleMin)
-            return targetScaleMin;
+    public static int map(
+            int number, int thisScaleMin, int thisScaleMax, int targetScaleMin, int targetScaleMax) {
+        if (number > thisScaleMax) return targetScaleMax;
+        else if (number < thisScaleMin) return targetScaleMin;
         else {
             targetScaleMin -= thisScaleMin;
             targetScaleMax -= targetScaleMin;
             return ((number / thisScaleMax) * targetScaleMax) + thisScaleMin;
         }
     }
-
 }

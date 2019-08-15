@@ -15,15 +15,13 @@ public class WebCrawler {
         ArrayList<String> listOfPendingURLs = new ArrayList<>();
         ArrayList<String> listOfTraversedURLs = new ArrayList<>();
         listOfPendingURLs.add(startingURL);
-        while (!listOfPendingURLs.isEmpty() &&
-                listOfTraversedURLs.size() <= 100) {
+        while (!listOfPendingURLs.isEmpty() && listOfTraversedURLs.size() <= 100) {
             String urlString = listOfPendingURLs.remove(0);
             if (!listOfTraversedURLs.contains(urlString)) {
                 listOfTraversedURLs.add(urlString);
                 System.out.println("Crawl " + urlString);
                 for (String s : getSubURLs(urlString)) {
-                    if (!listOfTraversedURLs.contains(s))
-                        listOfPendingURLs.add(s);
+                    if (!listOfTraversedURLs.contains(s)) listOfPendingURLs.add(s);
                 }
             }
         }
@@ -43,8 +41,7 @@ public class WebCrawler {
                     if (endIndex > 0) { // Ensure that a correct URL is found
                         list.add(line.substring(current, endIndex));
                         current = line.indexOf("http:", endIndex);
-                    } else
-                        current = -1;
+                    } else current = -1;
                 }
             }
         } catch (Exception ex) {

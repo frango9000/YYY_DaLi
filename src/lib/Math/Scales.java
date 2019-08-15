@@ -41,7 +41,7 @@ public abstract class Scales {
         return feet * 12;
     }
 
-    //temperature
+    // temperature
     public static double celsiusToFahrenheit(double celsius) {
         return celsius * 9 / 5 + 32;
     }
@@ -50,7 +50,7 @@ public abstract class Scales {
         return (fahrenheit - 32) * (5f / 9f);
     }
 
-    //Area
+    // Area
     public static float squareMeterToPing(float squareMeter) {
         return squareMeter / 3305f;
     }
@@ -58,5 +58,4 @@ public abstract class Scales {
     public static float pingToSquareMeter(float ping) {
         return ping * 3305f;
     }
-
 }

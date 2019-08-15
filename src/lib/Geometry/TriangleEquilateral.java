@@ -1,6 +1,5 @@
 package lib.Geometry;
 
-
 public class TriangleEquilateral extends Polygon {
 
     public TriangleEquilateral() {
@@ -14,5 +13,4 @@ public class TriangleEquilateral extends Polygon {
     public TriangleEquilateral(double radius, boolean dummy) {
         super(3, radius, dummy);
     }
-
 }

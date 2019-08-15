@@ -12,7 +12,6 @@ public class Rectanguloid extends Pane {
         double width = getWidth() - (depth * Math.sin(Math.toRadians(angle)));
         double height = getHeight() - (depth * Math.cos(Math.toRadians(angle)));
 
-
         Rectangle r1 = new Rectangle(0, depth * Math.cos(Math.toRadians(angle)), width, height);
         Rectangle r2 = new Rectangle(depth * Math.sin(Math.toRadians(angle)), 0, width, height);
 
@@ -22,16 +21,16 @@ public class Rectanguloid extends Pane {
         r1.setStroke(Color.BLACK);
         r2.setStroke(Color.BLACK);
 
-
-        Line lineTL = new Line(0, depth * Math.cos(Math.toRadians(angle)), depth * Math.sin(Math.toRadians(angle)), 0);
+        Line lineTL =
+                new Line(
+                        0, depth * Math.cos(Math.toRadians(angle)), depth * Math.sin(Math.toRadians(angle)), 0);
         Line lineTR = new Line(width, depth * Math.cos(Math.toRadians(angle)), getWidth(), 0);
 
         Line lineBL = new Line(0, getHeight(), depth * Math.sin(Math.toRadians(angle)), height);
         Line lineBR = new Line(width, getHeight(), getWidth(), height);
 
         getChildren().clear();
-        if (width > 0 && height > 0)
-            getChildren().addAll(r1, r2, lineTL, lineTR, lineBL, lineBR);
+        if (width > 0 && height > 0) getChildren().addAll(r1, r2, lineTL, lineTR, lineBL, lineBR);
     }
 
     @Override

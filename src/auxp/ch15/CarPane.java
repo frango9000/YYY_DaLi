@@ -23,7 +23,6 @@ public class CarPane extends Pane {
         animation = new Timeline(new KeyFrame(Duration.millis(50), event -> moveCar()));
         animation.setCycleCount(-1);
         animation.play();
-
     }
 
     public void drawCar() {
@@ -56,10 +55,8 @@ public class CarPane extends Pane {
     }
 
     void moveCar() {
-        if (x <= getWidth())
-            x += 1;
+        if (x <= getWidth()) x += 1;
         else x = 0;
         drawCar();
     }
-
 }

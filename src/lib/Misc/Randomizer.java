@@ -16,7 +16,7 @@ public abstract class Randomizer {
         return random().nextInt();
     }
 
-    public static int randomInt(int highBound) {//high bound is exclusive, low bound is 0
+    public static int randomInt(int highBound) { // high bound is exclusive, low bound is 0
         return random().nextInt(highBound);
     }
 
@@ -41,7 +41,8 @@ public abstract class Randomizer {
         return lowBound + (random * (highBound - lowBound));
     }
 
-    public static int[] randomIntsArray(int elements, int lowBound, int highBound) {//high bound is exclusive
+    public static int[] randomIntsArray(
+            int elements, int lowBound, int highBound) { // high bound is exclusive
         int range = highBound - lowBound;
         int[] randoms = new int[elements];
         for (int i = 0; i < randoms.length; i++) {
@@ -148,8 +149,8 @@ public abstract class Randomizer {
         return randomIntList(elements, 0, Integer.MAX_VALUE);
     }
 
-
-    public static ArrayList<Double> randomDoubleList(int elements, double lowBound, double highBound) {
+    public static ArrayList<Double> randomDoubleList(
+            int elements, double lowBound, double highBound) {
         ArrayList<Double> list = new ArrayList<>(elements);
         for (int i = 0; i < elements; i++) {
             list.add(randomDouble(lowBound, highBound));

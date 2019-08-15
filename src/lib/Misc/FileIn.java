@@ -9,12 +9,10 @@ import java.util.Scanner;
 
 public class FileIn {
 
-
     public static String fileToString(File file) throws FileNotFoundException {
         StringBuilder content = new StringBuilder();
         try (Scanner scan = new Scanner(file)) {
-            while (scan.hasNextLine())
-                content.append(scan.nextLine()).append("\n");
+            while (scan.hasNextLine()) content.append(scan.nextLine()).append("\n");
         }
         return content.toString();
     }
@@ -23,13 +21,11 @@ public class FileIn {
         return fileToString(file).split("\n");
     }
 
-
     public static int indexOfFirstOccurrence(File file, String line) throws FileNotFoundException {
         int lineNumber = 1;
         try (Scanner scan = new Scanner(file)) {
             while (scan.hasNextLine()) {
-                if (scan.nextLine().equals(line))
-                    return lineNumber;
+                if (scan.nextLine().equals(line)) return lineNumber;
                 else lineNumber++;
             }
         }
@@ -41,7 +37,14 @@ public class FileIn {
         return ArrayManip.binarySearch(fileS, line);
     }
 
-    public static void allSubFiles(File file, ArrayList<File> list) {
+    /**
+     * Recursive method to find al child Files
+     *
+     * @param file
+     * @param list
+     * @return
+     */
+    public static ArrayList<File> allSubFiles(File file, ArrayList<File> list) {
         if (!file.isDirectory()) {
             list.add(file);
         } else {
@@ -51,5 +54,6 @@ public class FileIn {
                 allSubFiles(content, list);
             }
         }
+        return list;
     }
 }

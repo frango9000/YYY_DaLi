@@ -16,11 +16,9 @@ public class MyLoan implements Serializable {
     }
 
     /**
-     * Construct a loan with specified annual interest rate,
-     * number of years, and loan amount
+     * Construct a loan with specified annual interest rate, number of years, and loan amount
      */
-    public MyLoan(double annualInterestRate, int numberOfYears,
-                  double loanAmount) {
+    public MyLoan(double annualInterestRate, int numberOfYears, double loanAmount) {
         this.annualInterestRate = annualInterestRate;
         this.numberOfYears = numberOfYears;
         this.loanAmount = loanAmount;
@@ -74,8 +72,10 @@ public class MyLoan implements Serializable {
      */
     public double getMonthlyPayment() {
         double monthlyInterestRate = annualInterestRate / 1200;
-        double monthlyPayment = loanAmount * monthlyInterestRate / (1 -
-                (1 / Math.pow(1 + monthlyInterestRate, numberOfYears * 12)));
+        double monthlyPayment =
+                loanAmount
+                        * monthlyInterestRate
+                        / (1 - (1 / Math.pow(1 + monthlyInterestRate, numberOfYears * 12)));
         return monthlyPayment;
     }
 

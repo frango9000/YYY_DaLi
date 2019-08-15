@@ -20,10 +20,10 @@ public class MyGrid extends Pane {
 
         getChildren().clear();
         for (int i = 1; i < size; i++) {
-            //horizontal lines
+            // horizontal lines
             double y = (height / size) * i;
             Line h = new Line(0, y, width, y);
-            //vertical lines
+            // vertical lines
             double x = (width / size) * i;
             Line v = new Line(x, 0, x, height);
 

@@ -74,8 +74,6 @@ public class QueueOfIntegers {
 
     @Override
     public String toString() {
-        return "StackOfIntegers{" +
-                "elements=" + Arrays.toString(elements) +
-                '}';
+        return "StackOfIntegers{" + "elements=" + Arrays.toString(elements) + '}';
     }
 }

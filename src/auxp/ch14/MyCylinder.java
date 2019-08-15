@@ -28,7 +28,6 @@ public class MyCylinder extends Pane {
         ellipse.setFill(Color.WHITE);
         ellipse.setStroke(Color.BLACK);
 
-
         Arc arc1 = new Arc(centerX, centerY + length - radiusY, radiusX, radiusY, 180, 180);
         arc1.setFill(null);
         arc1.setStroke(Color.BLACK);
@@ -38,8 +37,18 @@ public class MyCylinder extends Pane {
         arc2.setFill(null);
         arc2.setStroke(Color.BLACK);
 
-        Line lineL = new Line(centerX - radiusX, centerY + radiusY - length, centerX - radiusX, centerY - radiusY + length);
-        Line lineR = new Line(centerX + radiusX, centerY + radiusY - length, centerX + radiusX, centerY - radiusY + length);
+        Line lineL =
+                new Line(
+                        centerX - radiusX,
+                        centerY + radiusY - length,
+                        centerX - radiusX,
+                        centerY - radiusY + length);
+        Line lineR =
+                new Line(
+                        centerX + radiusX,
+                        centerY + radiusY - length,
+                        centerX + radiusX,
+                        centerY - radiusY + length);
 
         getChildren().clear();
         getChildren().addAll(ellipse, arc1, arc2, lineL, lineR);

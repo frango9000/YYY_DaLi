@@ -15,10 +15,8 @@ public class BitOutputStream extends FileOutputStream {
         nextByte = new StringBuilder();
     }
 
-
     public void writeBit(char bit) throws IOException {
-        if (bit == '0' || bit == '1')
-            nextByte.append(bit);
+        if (bit == '0' || bit == '1') nextByte.append(bit);
         if (nextByte.length() == 8) {
             writeBit();
         }

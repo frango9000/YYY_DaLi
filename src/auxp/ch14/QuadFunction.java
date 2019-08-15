@@ -8,7 +8,6 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Polyline;
 import javafx.scene.text.Text;
 
-
 public class QuadFunction extends Pane {
 
     public void paint() {

@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Polygon extends GeometricObject {
     protected int numOfSides;
     protected double sideLength;
-    protected double radius;            //radius of the circle formed by corners
+    protected double radius; // radius of the circle formed by corners
     protected Point center;
     protected Point[] points;
 
@@ -88,15 +88,13 @@ public class Polygon extends GeometricObject {
     }
 
     public Point[] setBotHorizontal() {
-        if (numOfSides % 2 == 0)
-            setTopHorizontal();
+        if (numOfSides % 2 == 0) setTopHorizontal();
         else setVertexOnTop();
         return points;
     }
 
     public Point[] setBotOnVertex() {
-        if (numOfSides % 2 != 0)
-            setTopHorizontal();
+        if (numOfSides % 2 != 0) setTopHorizontal();
         else setVertexOnTop();
         return points;
     }
@@ -113,20 +111,27 @@ public class Polygon extends GeometricObject {
         return 2 * radius * Math.sin(Math.PI / numOfSides);
     }
 
-    private double computeRadius() {//center to vertex
+    private double computeRadius() { // center to vertex
         return sideLength / (2 * Math.sin(Math.PI / numOfSides));
     }
 
     @Override
     public String toString() {
-        return "Polygon{" +
-                "\nnumOfSides=" + numOfSides +
-                ",\n sideLength=" + sideLength +
-                ",\n radius=" + radius +
-                ",\n center=" + center.toString() +
-                ",\n points=" + Arrays.toString(points) +
-                ",\n getArea=" + getArea() +
-                ",\n getPerimeter=" + getPerimeter() +
-                '}';
+        return "Polygon{"
+                + "\nnumOfSides="
+                + numOfSides
+                + ",\n sideLength="
+                + sideLength
+                + ",\n radius="
+                + radius
+                + ",\n center="
+                + center.toString()
+                + ",\n points="
+                + Arrays.toString(points)
+                + ",\n getArea="
+                + getArea()
+                + ",\n getPerimeter="
+                + getPerimeter()
+                + '}';
     }
 }

@@ -45,8 +45,7 @@ public abstract class MatrixManip {
         int t = 0;
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[i].length; j++) {
-                if (numbers.length > t)
-                    table[i][j] = numbers[t++];
+                if (numbers.length > t) table[i][j] = numbers[t++];
                 else table[i][j] = 0;
             }
         }
@@ -58,8 +57,7 @@ public abstract class MatrixManip {
         int t = 0;
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[i].length; j++) {
-                if (numbers.length > t)
-                    table[i][j] = numbers[t++];
+                if (numbers.length > t) table[i][j] = numbers[t++];
                 else table[i][j] = 0;
             }
         }
@@ -71,8 +69,7 @@ public abstract class MatrixManip {
         int t = 0;
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[i].length; j++) {
-                if (chars.length > t)
-                    table[i][j] = chars[t++];
+                if (chars.length > t) table[i][j] = chars[t++];
                 else table[i][j] = 0;
             }
         }
@@ -141,8 +138,7 @@ public abstract class MatrixManip {
                 for (int j = i + 1; j < table.length; j++) {
                     boolean isBrother = true;
                     for (int k = 0; k < h; k++) {
-                        if (table[i][k] != table[j][k])
-                            isBrother = false;
+                        if (table[i][k] != table[j][k]) isBrother = false;
                     }
                     if (table[i][h] > table[j][h] && (h == 0 || isBrother)) {
                         min = table[j];
@@ -169,14 +165,12 @@ public abstract class MatrixManip {
     }
 
     public static int sumRow(int[][] table, int rowIndex) {
-        if (rowIndex >= table.length || rowIndex < 0)
-            return 0;
+        if (rowIndex >= table.length || rowIndex < 0) return 0;
         return ArrayManip.sum(table[rowIndex]);
     }
 
     public static int sumColumn(int[][] table, int columnIndex) {
-        if (columnIndex >= table.length || columnIndex < 0)
-            return 0;
+        if (columnIndex >= table.length || columnIndex < 0) return 0;
         int sum = 0;
         for (int row = 0; row < table[0].length; row++) {
             sum += table[row][columnIndex];
@@ -205,25 +199,20 @@ public abstract class MatrixManip {
     }
 
     public static boolean isStrictIdentical(int[][] table1, int[][] table2) {
-        if (table1.length != table2.length)
-            return false;
+        if (table1.length != table2.length) return false;
         for (int i = 0; i < table1.length; i++) {
-            if (table1[i].length != table2[i].length)
-                return false;
-            if (!ArrayManip.isStrictIdentical(table1[i], table2[i]))
-                return false;
+            if (table1[i].length != table2[i].length) return false;
+            if (!ArrayManip.isStrictIdentical(table1[i], table2[i])) return false;
         }
         return true;
     }
 
     public static boolean isIdentical(int[][] table1, int[][] table2) {
-        if (table1.length != table2.length)
-            return false;
+        if (table1.length != table2.length) return false;
         boolean[][] hasValueOnIndex = new boolean[table1.length][table1[0].length];
         for (int rowt1 = 0; rowt1 < table1.length; rowt1++) {
 
-            if (table1[rowt1].length != table2[rowt1].length)
-                return false;
+            if (table1[rowt1].length != table2[rowt1].length) return false;
             for (int colt1 = 0; colt1 < table1[rowt1].length; colt1++) {
                 for (int rowt2 = 0; rowt2 < table2.length; rowt2++) {
                     for (int colt2 = 0; colt2 < table2[rowt2].length; colt2++) {
@@ -239,8 +228,7 @@ public abstract class MatrixManip {
     public static boolean isAllTrue(boolean[][] marks) {
         boolean isAllTrue = true;
         for (int i = 0; i < marks.length; i++) {
-            if (!ArrayManip.isAllTrue(marks[i]))
-                isAllTrue = false;
+            if (!ArrayManip.isAllTrue(marks[i])) isAllTrue = false;
         }
         return isAllTrue;
     }
@@ -260,5 +248,4 @@ public abstract class MatrixManip {
         }
         return newArray;
     }
-
 }

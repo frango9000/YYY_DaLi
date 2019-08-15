@@ -14,23 +14,20 @@ import java.io.*;
 
 public class RawEditorPane extends BorderPane {
 
-    private FileChooser fileChooser;
-    private File file;
-
-    private TextField fileDir;
-    private Button browseButton;
-
-    private TextArea textBinary;
-    private TextArea textOctal;
-    private TextArea textDecimal;
-    private TextArea textASCII;
-    private TextArea textHex;
-
     private final Tab tabBinary;
     private final Tab tabOctal;
     private final Tab tabDecimal;
     private final Tab tabASCII;
     private final Tab tabHex;
+    private FileChooser fileChooser;
+    private File file;
+    private TextField fileDir;
+    private Button browseButton;
+    private TextArea textBinary;
+    private TextArea textOctal;
+    private TextArea textDecimal;
+    private TextArea textASCII;
+    private TextArea textHex;
 
     public RawEditorPane() {
         HBox browsePane = getBrowseBox();
@@ -64,13 +61,14 @@ public class RawEditorPane extends BorderPane {
         setBottom(saveButton);
         setAlignment(saveButton, Pos.CENTER);
 
-        browseButton.setOnAction(event -> {
-            file = fileChooser.showOpenDialog(new Stage());
-            if (file != null && file.exists()) {
-                fileDir.setText(file.getAbsolutePath());
-                readFile(file);
-            }
-        });
+        browseButton.setOnAction(
+                event -> {
+                    file = fileChooser.showOpenDialog(new Stage());
+                    if (file != null && file.exists()) {
+                        fileDir.setText(file.getAbsolutePath());
+                        readFile(file);
+                    }
+                });
 
         saveButton.setOnAction(event -> saveAction());
     }
@@ -100,7 +98,7 @@ public class RawEditorPane extends BorderPane {
                 char[] bytesASCII = textASCII.getText().toCharArray();
                 bytesDecimal = new int[bytesASCII.length];
                 for (int i = 0; i < bytesASCII.length; i++) {
-                    bytesDecimal[i] = (int) bytesASCII[i];
+                    bytesDecimal[i] = bytesASCII[i];
                 }
             } else if (tabHex.isSelected()) {
                 String[] bytesHex = textOctal.getText().split(" ");
@@ -134,7 +132,13 @@ public class RawEditorPane extends BorderPane {
         browsePane.setSpacing(5);
         browsePane.setAlignment(Pos.BASELINE_LEFT);
         browsePane.setPadding(new Insets(10));
-        browsePane.setBorder(new Border(new BorderStroke(Color.LIGHTGRAY, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        browsePane.setBorder(
+                new Border(
+                        new BorderStroke(
+                                Color.LIGHTGRAY,
+                                BorderStrokeStyle.SOLID,
+                                CornerRadii.EMPTY,
+                                BorderWidths.DEFAULT)));
         return browsePane;
     }
 

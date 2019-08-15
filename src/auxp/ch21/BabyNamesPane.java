@@ -21,7 +21,8 @@ public class BabyNamesPane extends BorderPane {
     private TreeMap<String, Integer>[] males;
     private TreeMap<String, Integer>[] females;
 
-    private ObservableList<Integer> years = FXCollections.observableArrayList(2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010);
+    private ObservableList<Integer> years =
+            FXCollections.observableArrayList(2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010);
 
     public BabyNamesPane() {
         setPadding(new Insets(5));
@@ -32,7 +33,6 @@ public class BabyNamesPane extends BorderPane {
         TextField name = new TextField();
         Button find = new Button("Find");
         Button sout = new Button("*");
-
 
         GridPane form = new GridPane();
         form.addRow(0, new Label("Select a Year:"), year);
@@ -45,41 +45,46 @@ public class BabyNamesPane extends BorderPane {
         setCenter(form);
         setBottom(text);
 
-        find.setOnAction(event -> {
-            int y = year.getValue() - 2001;
-            boolean boy = gender.getValue().equals("Male");
-            String query = name.getText();
+        find.setOnAction(
+                event -> {
+                    int y = year.getValue() - 2001;
+                    boolean boy = gender.getValue().equals("Male");
+                    String query = name.getText();
 
-            TreeMap<String, Integer>[] selectedGender = boy ? males : females;
-            TreeMap<String, Integer> selectedYear = selectedGender[y];
+                    TreeMap<String, Integer>[] selectedGender = boy ? males : females;
+                    TreeMap<String, Integer> selectedYear = selectedGender[y];
 
-            try {
-                int position = selectedYear.get(query);
-                text.setText((boy ? "Boy" : "Girl") + " name " + query + " is ranked #" + position + " in year " + (y + 2001));
-            } catch (NullPointerException e) {
-                text.setText("Name not found with given parameters");
-            }
+                    try {
+                        int position = selectedYear.get(query);
+                        text.setText(
+                                (boy ? "Boy" : "Girl")
+                                        + " name "
+                                        + query
+                                        + " is ranked #"
+                                        + position
+                                        + " in year "
+                                        + (y + 2001));
+                    } catch (NullPointerException e) {
+                        text.setText("Name not found with given parameters");
+                    }
+                });
 
-        });
+        sout.setOnAction(
+                event -> {
+                    int y = year.getValue() - 2001;
+                    TreeMap<String, Integer> selectedMales = males[y];
+                    TreeMap<String, Integer> selectedFemales = females[y];
 
-        sout.setOnAction(event -> {
-            int y = year.getValue() - 2001;
-            TreeMap<String, Integer> selectedMales = males[y];
-            TreeMap<String, Integer> selectedFemales = females[y];
+                    HashSet<String> commonNames = new HashSet<>(selectedMales.keySet());
 
-            HashSet<String> commonNames = new HashSet<>(selectedMales.keySet());
-
-            commonNames.retainAll(selectedFemales.keySet());
-            System.out.println(commonNames);
-
-        });
-
+                    commonNames.retainAll(selectedFemales.keySet());
+                    System.out.println(commonNames);
+                });
     }
 
     private void getNames() {
         males = new TreeMap[10];
         females = new TreeMap[10];
-
 
         File[] files = new File[10];
         for (int i = 0; i < files.length; i++) {

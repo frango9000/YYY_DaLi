@@ -62,7 +62,10 @@ public abstract class IO {
 
     public static boolean scanBoolean() {
         char answer = scanNext().charAt(0);
-        return Character.isLetterOrDigit(answer) && (Character.toUpperCase(answer) == 'Y' || Character.toUpperCase(answer) == 'T' || Character.digit(answer, 2) == 1);
+        return Character.isLetterOrDigit(answer)
+                && (Character.toUpperCase(answer) == 'Y'
+                || Character.toUpperCase(answer) == 'T'
+                || Character.digit(answer, 2) == 1);
     }
 
     public static String scanNext() {
@@ -174,5 +177,4 @@ public abstract class IO {
         print(message, args);
         return scanNextLine();
     }
-
 }

@@ -18,13 +18,12 @@ public abstract class DaLi_21 {
 
     public static void main(String[] args) {
         ex14();
-
     }
 
     public static void ex00() {
     }
 
-    public static void ex01() {//Perform set operations on hash sets
+    public static void ex01() { // Perform set operations on hash sets
         String[] s1 = {"Chemistry", "Mathematics", "Biology", "English"};
         String[] s2 = {"Biology", "English", "Geography", "Physics"};
 
@@ -45,7 +44,7 @@ public abstract class DaLi_21 {
         System.out.println(a3);
     }
 
-    public static void ex02() {//Display nonduplicate names in ascending order
+    public static void ex02() { // Display nonduplicate names in ascending order
         HashSet<File> files = new HashSet<>();
         files.add(new File("src/res/txt/Biology.txt"));
         files.add(new File("src/res/txt/Chemistry.txt"));
@@ -65,7 +64,7 @@ public abstract class DaLi_21 {
         ListManip.printList(names);
     }
 
-    public static HashMap<String, Integer> ex03() {//Checking whether a key exists in a set
+    public static HashMap<String, Integer> ex03() { // Checking whether a key exists in a set
         HashSet<File> files = new HashSet<>();
         files.add(new File("src/res/txt/Biology.txt"));
         files.add(new File("src/res/txt/Chemistry.txt"));
@@ -87,11 +86,11 @@ public abstract class DaLi_21 {
             } catch (IOException ignored) {
             }
         }
-        //ListManip.printMap(names);
+        // ListManip.printMap(names);
         return names;
     }
 
-    public static void ex04() {//Count consonants and vowels
+    public static void ex04() { // Count consonants and vowels
         File text = new File("src/res/txt/Lincoln.txt");
         HashSet<Character> vocals = new HashSet<>();
         vocals.add('a');
@@ -109,8 +108,7 @@ public abstract class DaLi_21 {
             while ((int2char = in.read()) != -1) {
                 char c = (char) int2char;
                 if (c >= 'a' && c <= 'z') {
-                    if (vocals.contains(c))
-                        vNum++;
+                    if (vocals.contains(c)) vNum++;
                     else cNum++;
                 }
             }
@@ -121,23 +119,23 @@ public abstract class DaLi_21 {
         System.out.println(cNum + " consonants");
     }
 
-    public static void ex05() {//Syntax highlighting
+    public static void ex05() { // Syntax highlighting
     }
 
-    public static void ex06() {//Count the occurrences of words/names
+    public static void ex06() { // Count the occurrences of words/names
         TreeMap<String, Integer> names = new TreeMap<>(ex03());
         names.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
     }
 
-    public static void ex07() {//Revise Listing 21.9, CountOccurrenceOfWords.java
+    public static void ex07() { // Revise Listing 21.9, CountOccurrenceOfWords.java
         CountOccurrenceOfWords.main(null);
     }
 
-    public static void ex08() {//Count the occurrences of words in a text file
+    public static void ex08() { // Count the occurrences of words in a text file
         CountOccurrenceOfWordsFile.main(null);
     }
 
-    public static void ex09() {//Guess the capitals using maps
+    public static void ex09() { // Guess the capitals using maps
         HashMap<String, String> states = new HashMap<>();
         states.put("Alabama", "Montgomery");
         states.put("Alaska", "Juneau");
@@ -154,26 +152,26 @@ public abstract class DaLi_21 {
         println("Correct count is %d", count);
     }
 
-    public static void ex10() {//Count the occurrences of each keyword
+    public static void ex10() { // Count the occurrences of each keyword
     }
 
-    public static void ex11() {//Baby name popularity ranking
-        MainFX.initializeToolkit();//JavaFX toolkit init
+    public static void ex11() { // Baby name popularity ranking
+        MainFX.initializeToolkit(); // JavaFX toolkit init
         MainFX ui = new MainFX(new BabyNamesPane());
         ui.go();
     }
 
-    public static void ex12() {//Name for both genders
+    public static void ex12() { // Name for both genders
         ex11();
     }
 
-    public static void ex13() {//Baby name popularity ranking
+    public static void ex13() { // Baby name popularity ranking
     }
 
-    public static void ex14() {//Web crawler
+    public static void ex14() { // Web crawler
         WebCrawler2.main(null);
     }
 
-    public static void ex15() {//Addition quiz
+    public static void ex15() { // Addition quiz
     }
 }

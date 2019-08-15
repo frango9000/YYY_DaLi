@@ -2,7 +2,6 @@ package lib.Math;
 
 public class NumberConverter {
 
-
     public static String binToOct(String bin) {
         return decToOct(binToDec(bin));
     }
@@ -37,11 +36,9 @@ public class NumberConverter {
 
     public static String decToHex(int dec, int bits) {
         StringBuilder hex = new StringBuilder(decToHex(dec));
-        while (hex.length() < bits)
-            hex.insert(0, 0);
+        while (hex.length() < bits) hex.insert(0, 0);
         return hex.toString();
     }
-
 
     public static String octToBin(String oct) {
         return decToBin(octToDec(oct));
@@ -59,7 +56,6 @@ public class NumberConverter {
         return decToHex(octToDec(oct));
     }
 
-
     public static String hexToBin(String hex) {
         return decToBin(hexToDec(hex));
     }
@@ -71,10 +67,10 @@ public class NumberConverter {
     public static int hexToDec(String hex) throws NumberFormatException {
         hex = hex.toLowerCase();
         for (int i = 0; i < hex.length(); i++) {
-            if (!(hex.charAt(i) >= '0' || hex.charAt(i) <= '9') || !(hex.charAt(i) >= 'a' || hex.charAt(i) <= 'f'))
+            if (!(hex.charAt(i) >= '0' || hex.charAt(i) <= '9')
+                    || !(hex.charAt(i) >= 'a' || hex.charAt(i) <= 'f'))
                 throw new NumberFormatException("String is not a hex string");
         }
         return Integer.parseInt(hex, 16);
     }
-
 }

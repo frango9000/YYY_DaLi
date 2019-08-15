@@ -2,7 +2,6 @@ public abstract class DaLi_00 {
 
     public static void main(String[] args) {
         ex00();
-
     }
 
     public static void ex00() {

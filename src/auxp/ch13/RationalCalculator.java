@@ -16,14 +16,15 @@ public class RationalCalculator {
         }
 
         char op = args[1].charAt(0);
-        if (op != '+' && op != '-' && op != '*' && op != '/')
-            throw new InputMismatchException();
+        if (op != '+' && op != '-' && op != '*' && op != '/') throw new InputMismatchException();
 
         // The result of the operation
         Rational result = new Rational();
 
-        Rational r1 = new Rational(Long.parseLong(args[0].split("/")[0]), Long.parseLong(args[0].split("/")[1]));
-        Rational r2 = new Rational(Long.parseLong(args[2].split("/")[0]), Long.parseLong(args[2].split("/")[1]));
+        Rational r1 =
+                new Rational(Long.parseLong(args[0].split("/")[0]), Long.parseLong(args[0].split("/")[1]));
+        Rational r2 =
+                new Rational(Long.parseLong(args[2].split("/")[0]), Long.parseLong(args[2].split("/")[1]));
         // Determine the operator
         switch (op) {
             case '+':
@@ -39,7 +40,6 @@ public class RationalCalculator {
                 result = r1.divide(r2);
         }
         // Display result
-        System.out.println(args[0] + ' ' + args[1] + ' ' + args[2]
-                + " = " + result);
+        System.out.println(args[0] + ' ' + args[1] + ' ' + args[2] + " = " + result);
     }
 }

@@ -54,16 +54,15 @@ public abstract class StringManip {
                     unsorted.setCharAt(i, lowestChar);
                 }
             }
-            if (uppercase)
-                sorted.append(Character.toUpperCase(lowestChar));
+            if (uppercase) sorted.append(Character.toUpperCase(lowestChar));
             else sorted.append(Character.toLowerCase(lowestChar));
         }
         return sorted.toString();
     }
 
     /**
-     * Comprueba si el parametro str es parseable a int, si lo es, devuelve
-     * el int, de lo contrario devuelve null
+     * Comprueba si el parametro str es parseable a int, si lo es, devuelve el int, de lo contrario
+     * devuelve null
      *
      * @param str string a parsear a int
      * @return str parseado a int
@@ -81,7 +80,6 @@ public abstract class StringManip {
             if (unformated.length() + i >= bits) {
                 binary.append(unformated.charAt(j++));
             } else binary.append('0');
-
         }
         return binary.toString();
     }

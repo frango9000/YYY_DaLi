@@ -18,7 +18,6 @@ public class MovableCirclesPane extends Pane {
 
     Pane labelPane;
 
-
     public MovableCirclesPane() {
 
         c1 = new Circle(40, 40, 10, Color.GRAY);
@@ -33,19 +32,20 @@ public class MovableCirclesPane extends Pane {
         setPadding(new Insets(5));
         c1.setOnMouseDragged(new MoveCircleHandler());
         c2.setOnMouseDragged(new MoveCircleHandler());
-
-
     }
 
     private void updateLabelPane() {
         labelPane.getChildren().clear();
-        Point middlePoint1 = new lib.Geometry.Line(c1.getCenterX(), c1.getCenterY(), c2.getCenterX(), c2.getCenterY()).middlePoint();
-        double length1 = new lib.Geometry.Line(c1.getCenterX(), c1.getCenterY(), c2.getCenterX(), c2.getCenterY()).getLength();
+        Point middlePoint1 =
+                new lib.Geometry.Line(c1.getCenterX(), c1.getCenterY(), c2.getCenterX(), c2.getCenterY())
+                        .middlePoint();
+        double length1 =
+                new lib.Geometry.Line(c1.getCenterX(), c1.getCenterY(), c2.getCenterX(), c2.getCenterY())
+                        .getLength();
         Text label1 = new Text(middlePoint1.x, middlePoint1.y, String.format("%.1f", length1));
         Line line = new Line(c1.getCenterX(), c1.getCenterY(), c2.getCenterX(), c2.getCenterY());
         line.setStroke(Color.BLACK);
         labelPane.getChildren().addAll(label1, line);
-
     }
 
     private class MoveCircleHandler implements EventHandler<MouseEvent> {
@@ -58,5 +58,4 @@ public class MovableCirclesPane extends Pane {
             updateLabelPane();
         }
     }
-
 }

@@ -38,12 +38,17 @@ public class ColorSliders extends VBox {
         grid.addRow(1, greenL, greenSlide);
         grid.addRow(2, blueL, blueSlide);
         grid.addRow(3, opacL, opacSlide);
-        //redSlide.setOn
+        // redSlide.setOn
 
         getChildren().addAll(top, grid);
     }
 
     private void setColor() {
-        text.setFill(new Color(redSlide.getValue(), greenSlide.getValue(), blueSlide.getValue(), opacSlide.getValue()));
+        text.setFill(
+                new Color(
+                        redSlide.getValue(),
+                        greenSlide.getValue(),
+                        blueSlide.getValue(),
+                        opacSlide.getValue()));
     }
 }

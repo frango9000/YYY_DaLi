@@ -25,14 +25,22 @@ public class RandArrow extends Pane {
         double length = angled.getLength() * 0.25;
         double angle = angled.getAngle();
 
-        Line l = new Line(x1, y1, (x1 + (length * Math.sin(Math.toRadians(angle + 180 + 90 - 15)))), (y1 + (length * Math.cos(Math.toRadians(angle + 180 + 90 - 15)))));
-        Line r = new Line(x1, y1, (x1 + (length * Math.sin(Math.toRadians(angle - 75)))), (y1 + (length * Math.cos(Math.toRadians(angle - 75)))));
+        Line l =
+                new Line(
+                        x1,
+                        y1,
+                        (x1 + (length * Math.sin(Math.toRadians(angle + 180 + 90 - 15)))),
+                        (y1 + (length * Math.cos(Math.toRadians(angle + 180 + 90 - 15)))));
+        Line r =
+                new Line(
+                        x1,
+                        y1,
+                        (x1 + (length * Math.sin(Math.toRadians(angle - 75)))),
+                        (y1 + (length * Math.cos(Math.toRadians(angle - 75)))));
 
         getChildren().clear();
         getChildren().addAll(main, l, r);
-
     }
-
 
     @Override
     protected void setWidth(double value) {
@@ -45,6 +53,4 @@ public class RandArrow extends Pane {
         super.setHeight(value);
         paint();
     }
-
-
 }

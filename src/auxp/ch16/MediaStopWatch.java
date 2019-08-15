@@ -41,7 +41,8 @@ public class MediaStopWatch {
         long currentMinute = totalMinutes % 60;
         long totalHours = totalMinutes / 60;
         long currentHour = totalHours % 24;
-        return String.format("%02d:%02d:%02d:%03d", currentHour, currentMinute, currentSecond, currentMilliseconds);
+        return String.format(
+                "%02d:%02d:%02d:%03d", currentHour, currentMinute, currentSecond, currentMilliseconds);
     }
 
     public String getElapsedFormat() {
@@ -52,10 +53,7 @@ public class MediaStopWatch {
         return getElapsedFormat(elapsedTime + System.currentTimeMillis() - startTime);
     }
 
-
     public void consoleOutElapsedTime() {
         System.out.println(getElapsedFormat());
     }
-
-
 }

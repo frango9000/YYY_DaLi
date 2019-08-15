@@ -58,7 +58,7 @@ public class Primes {
         return (n % 5 == 0);
     }
 
-    public static int[] arrayOfPrimes(int highBound) {//obsolete
+    public static int[] arrayOfPrimes(int highBound) { // obsolete
         ArrayList<Integer> list = Primes.listOfPrimes(highBound);
         int[] primes = new int[list.size()];
         for (int i = 0; i < list.size(); i++) {
@@ -67,13 +67,13 @@ public class Primes {
         return primes;
     }
 
-    public static ArrayList<Integer> listOfPrimes(int lowBound, int highBound) {//inclusive bounds min = 2
+    public static ArrayList<Integer> listOfPrimes(
+            int lowBound, int highBound) { // inclusive bounds min = 2
         lowBound = Math.max(lowBound, 2);
         ArrayList<Integer> list = new ArrayList<>();
 
         while (lowBound <= highBound) {
-            if (isPrime(lowBound))
-                list.add(lowBound);
+            if (isPrime(lowBound)) list.add(lowBound);
             lowBound++;
         }
         return list;
@@ -101,8 +101,7 @@ public class Primes {
     }
 
     public static int[] getPrimeFactors(int number) {
-        if (Primes.isPrime(number))
-            return new int[]{number};
+        if (Primes.isPrime(number)) return new int[]{number};
 
         int[] array = new int[(int) Math.round(Math.sqrt(number))];
         int[] primes = arrayOfPrimes((number));
@@ -117,7 +116,7 @@ public class Primes {
                     break;
                 }
 
-        //System.out.println(number+":"+Arrays.toString(Arrays.copyOf(array, count)));
+        // System.out.println(number+":"+Arrays.toString(Arrays.copyOf(array, count)));
         return Arrays.copyOf(array, count);
     }
 

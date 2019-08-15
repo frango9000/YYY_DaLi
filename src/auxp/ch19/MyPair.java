@@ -9,6 +9,12 @@ public class MyPair<E> {
         this.second = second;
     }
 
+    public static double min(MyPair<? extends Number> pair) {
+        if (pair.first.doubleValue() < pair.second.doubleValue()) {
+            return pair.first.doubleValue();
+        } else return pair.second.doubleValue();
+    }
+
     public E getFirst() {
         return first;
     }
@@ -27,15 +33,6 @@ public class MyPair<E> {
 
     @Override
     public String toString() {
-        return "MyPair{" +
-                "first=" + first +
-                ", second=" + second +
-                '}';
-    }
-
-    public static double min(MyPair<? extends Number> pair) {
-        if (pair.first.doubleValue() < pair.second.doubleValue()) {
-            return pair.first.doubleValue();
-        } else return pair.second.doubleValue();
+        return "MyPair{" + "first=" + first + ", second=" + second + '}';
     }
 }

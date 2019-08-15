@@ -23,8 +23,7 @@ public class FileOut {
     public static int addToSortedFile(File file, String string) throws FileNotFoundException {
         String[] f = FileIn.fileToArray(file);
         int i = ArrayManip.binarySearch(f, string);
-        if (i > -1)
-            return i;
+        if (i > -1) return i;
         String[] g = new String[f.length + 1];
         System.arraycopy(f, 0, g, 0, f.length);
         g[f.length] = string;
@@ -47,7 +46,6 @@ public class FileOut {
         }
     }
 
-
     public static void prependOnFile(File file, String string) throws IOException {
         String fileStr = FileIn.fileToString(file);
         FileOut.printOnFile(file, string);
@@ -59,5 +57,4 @@ public class FileOut {
         FileOut.printOnFile(file, strings);
         FileOut.appendOnFile(file, array);
     }
-
 }

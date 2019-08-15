@@ -48,7 +48,6 @@ public class FileIO {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     public static String getFileExtension(File file) {
@@ -57,8 +56,7 @@ public class FileIO {
 
     public static String getFileExtension(String filename) {
         int lastIndexOf = filename.lastIndexOf(".");
-        if (lastIndexOf == -1)
-            return ""; // empty extension
+        if (lastIndexOf == -1) return ""; // empty extension
         return filename.substring(lastIndexOf + 1);
     }
 

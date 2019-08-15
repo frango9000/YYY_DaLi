@@ -22,13 +22,12 @@ public abstract class DaLi_12 {
 
     public static void main(String[] args) {
         ex33();
-
     }
 
     public static void ex00() {
     }
 
-    public static void ex01() {//NumberFormatException
+    public static void ex01() { // NumberFormatException
         try {
             auxp.ch10.Calculator.main("2 / 2");
         } catch (NumberFormatException | InputMismatchException ex) {
@@ -38,7 +37,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex02() {//ArrayIndexOutOfBoundsException
+    public static void ex02() { // ArrayIndexOutOfBoundsException
         String[] strs = {"1", "2", "3", "4"};
         int idx = scanInt("Enter 1-4:");
 
@@ -50,7 +49,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex03() {//InputMismatchException
+    public static void ex03() { // InputMismatchException
         try {
             ex02();
         } catch (InputMismatchException ex) {
@@ -59,13 +58,13 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex04() {//IllegalArgumentException
+    public static void ex04() { // IllegalArgumentException
     }
 
     public static void ex05() {
     }
 
-    public static void ex06() {//NumberFormatException
+    public static void ex06() { // NumberFormatException
         try {
             print(NumberConverter.hexToDec("AAAG"));
         } catch (NumberFormatException e) {
@@ -85,7 +84,7 @@ public abstract class DaLi_12 {
     public static void ex10() {
     }
 
-    public static void ex11() {//Remove text
+    public static void ex11() { // Remove text
         String argss = "john src/auxp/ch12/e11.txt";
         String[] args = argss.split(" ");
         Scanner scan = null;
@@ -118,7 +117,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex12() {//Reformat Java source code
+    public static void ex12() { // Reformat Java source code
         String file = "src/auxp/ch12/e12.java";
         File f1 = new File(file);
         String str = "";
@@ -134,7 +133,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex13() {//Count characters, words, and lines in a file
+    public static void ex13() { // Count characters, words, and lines in a file
         int lines = 0, chars = 0, words = 0;
 
         String file = "src/auxp/ch12/e13.txt";
@@ -154,7 +153,7 @@ public abstract class DaLi_12 {
         print("chr: " + chars + "\nwords: " + words + "\nlines: " + lines);
     }
 
-    public static void ex14() {//Reading in a sorted file
+    public static void ex14() { // Reading in a sorted file
         String file = "src/auxp/ch12/e14.txt";
         File f1 = new File(file);
         String str = "";
@@ -183,7 +182,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex15() {//Writing in a sorted file
+    public static void ex15() { // Writing in a sorted file
         File f1 = new File("src/auxp/ch12/e15.txt");
         String add = "Franky";
         try {
@@ -193,12 +192,12 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex16() {//Replace text
+    public static void ex16() { // Replace text
         File f1 = new File("src/auxp/ch12/e16.txt");
         FileIO.replace(f1, "Franky", "Francis");
     }
 
-    public static void ex17() {//Game: hangman
+    public static void ex17() { // Game: hangman
         File f1 = new File("src/auxp/ch12/e16.txt");
         try {
             Hangman.startGame(FileIn.fileToArray(f1));
@@ -207,7 +206,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex18() {//Add package statement
+    public static void ex18() { // Add package statement
         File file = new File("src/auxp/ch12/e18/");
         ArrayList<File> files = new ArrayList<>();
         FileIn.allSubFiles(file, files);
@@ -221,7 +220,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex19() {//Linking two files
+    public static void ex19() { // Linking two files
         File f1 = new File("src/auxp/ch12/e19authors.txt");
         File f2 = new File("src/auxp/ch12/e19books.txt");
 
@@ -239,7 +238,6 @@ public abstract class DaLi_12 {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
 
@@ -259,7 +257,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex21() {//Using two files
+    public static void ex21() { // Using two files
         File f1 = new File("src/auxp/ch12/e19authors.txt");
         File f2 = new File("src/auxp/ch12/e19books.txt");
 
@@ -270,19 +268,18 @@ public abstract class DaLi_12 {
 
             while (scan.hasNextLine()) {
                 String n = scan.nextLine();
-                if (n.startsWith(id + ""))
-                    println(n);
+                if (n.startsWith(id + "")) println(n);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public static void ex22() {//Replace text
+    public static void ex22() { // Replace text
         ex20();
     }
 
-    public static void ex23() {//Process scores in a text file on the Web
+    public static void ex23() { // Process scores in a text file on the Web
         URL scores = null;
         Scanner scan = null;
         int total = 0, sum = 0;
@@ -308,7 +305,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex24() {//Create large dataset
+    public static void ex24() { // Create large dataset
         File f1 = new File("src/auxp/ch12/e24data.txt");
         PrintWriter pw = null;
         String[] rank = {"assistant", "associate", "full"};
@@ -333,7 +330,6 @@ public abstract class DaLi_12 {
                         break;
                 }
                 pw.printf("%s %s %s %.2f%n", fn, ln, rk, sal);
-
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -343,7 +339,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex25() {//Process large dataset
+    public static void ex25() { // Process large dataset
         File f1 = new File("src/auxp/ch12/e24data.txt");
 
         ArrayList<Double> r0 = new ArrayList<>();
@@ -385,20 +381,18 @@ public abstract class DaLi_12 {
         println(av0 + "\n" + av0 / r0.size());
         println(av1 + "\n" + av1 / r1.size());
         println(av2 + "\n" + av2 / r2.size());
-
     }
 
-    public static void ex26() {//Create a directory
+    public static void ex26() { // Create a directory
         String newDir = scanNext("Enter a new dir name: ");
         File f1 = new File("src/auxp/ch12/" + newDir + "/");
-        if (f1.exists())
-            println("Directory already exists");
+        if (f1.exists()) println("Directory already exists");
         else {
             f1.mkdir();
         }
     }
 
-    public static void ex27() {//Replace words
+    public static void ex27() { // Replace words
         File f1 = new File("src/auxp/ch12/e27/");
         ArrayList<File> files = new ArrayList<>();
         FileIn.allSubFiles(f1, files);
@@ -414,7 +408,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex28() {//Rename files
+    public static void ex28() { // Rename files
         File f1 = new File("src/auxp/ch12/e28/");
         ArrayList<File> files = new ArrayList<>();
         FileIn.allSubFiles(f1, files);
@@ -429,7 +423,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex29() {//Rename files
+    public static void ex29() { // Rename files
         File f1 = new File("src/auxp/ch12/e29/");
         ArrayList<File> files = new ArrayList<>();
         FileIn.allSubFiles(f1, files);
@@ -444,7 +438,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex30() {//Occurrences of each letter
+    public static void ex30() { // Occurrences of each letter
         int[] counts = new int['z' - 'a' + 1];
 
         File in = new File("src/auxp/ch12/e13.txt");
@@ -463,11 +457,15 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex31() {//Baby name popularity ranking
+    public static void ex31() { // Baby name popularity ranking
         URL[] urls = new URL[10];
         for (int i = 0; i < urls.length; i++) {
             try {
-                urls[i] = new URL("http://liveexample.pearsoncmg.com/data/babynamesranking20" + String.format("%02d", i + 1) + ".txt");
+                urls[i] =
+                        new URL(
+                                "http://liveexample.pearsoncmg.com/data/babynamesranking20"
+                                        + String.format("%02d", i + 1)
+                                        + ".txt");
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -477,7 +475,7 @@ public abstract class DaLi_12 {
 
         URL pick = urls[year - 2001];
         try (Scanner scan = new Scanner(pick.openStream()).useDelimiter("\\n|\\t")) {
-            //String[] web = URLIn.urlToArray();
+            // String[] web = URLIn.urlToArray();
 
             ArrayList<String> namesM = new ArrayList<>();
             ArrayList<String> namesF = new ArrayList<>();
@@ -490,7 +488,6 @@ public abstract class DaLi_12 {
                 scan.next();
             }
 
-
             char gen = scanChar("Enter a gender: ");
             String name = scanNext("Enter name: ");
             int r = gen == 'm' ? namesM.indexOf(name) : namesF.indexOf(name);
@@ -501,11 +498,15 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex32() {//Ranking summary
+    public static void ex32() { // Ranking summary
         URL[] urls = new URL[10];
         for (int i = 0; i < urls.length; i++) {
             try {
-                urls[i] = new URL("http://liveexample.pearsoncmg.com/data/babynamesranking20" + String.format("%02d", i + 1) + ".txt");
+                urls[i] =
+                        new URL(
+                                "http://liveexample.pearsoncmg.com/data/babynamesranking20"
+                                        + String.format("%02d", i + 1)
+                                        + ".txt");
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -515,7 +516,7 @@ public abstract class DaLi_12 {
         for (int i = 0; i < urls.length; i++) {
             URL pick = urls[i];
             try (Scanner scan = new Scanner(pick.openStream()).useDelimiter("\\n|\\t|\\n\\t")) {
-                //String[] web = URLIn.urlToArray();
+                // String[] web = URLIn.urlToArray();
 
                 ArrayList<String> namesM = new ArrayList<>();
                 ArrayList<String> namesF = new ArrayList<>();
@@ -544,7 +545,7 @@ public abstract class DaLi_12 {
         }
     }
 
-    public static void ex33() {//Web Crawler
+    public static void ex33() { // Web Crawler
         WebCrawler.main(null);
     }
 }

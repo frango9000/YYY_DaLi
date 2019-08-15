@@ -43,7 +43,5 @@ public class MyInteger {
 
     public boolean equals(MyInteger value) {
         return this.value == value.getValue();
-
     }
-
 }
