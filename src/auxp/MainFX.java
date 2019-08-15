@@ -16,8 +16,10 @@ public class MainFX extends Application {
 
     public MainFX() {
         if (pane == null)
-            // pane = new Pane(new Label("Default Pane"));
+        // pane = new Pane(new Label("Default Pane"));
+        {
             pane = new MyHangman();
+        }
         // pane = new RawEditorPane();
     }
 

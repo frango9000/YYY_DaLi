@@ -1,8 +1,11 @@
 package lib.Misc;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import lib.Data.ArrayManip;
-
-import java.io.*;
 
 public class FileOut {
 
@@ -23,7 +26,9 @@ public class FileOut {
     public static int addToSortedFile(File file, String string) throws FileNotFoundException {
         String[] f = FileIn.fileToArray(file);
         int i = ArrayManip.binarySearch(f, string);
-        if (i > -1) return i;
+        if (i > -1) {
+            return i;
+        }
         String[] g = new String[f.length + 1];
         System.arraycopy(f, 0, g, 0, f.length);
         g[f.length] = string;

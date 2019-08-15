@@ -1,13 +1,22 @@
-import lib.Geometry.*;
+import static lib.Misc.IO.print;
+import static lib.Misc.IO.println;
+import static lib.Misc.IO.scanByte;
+import static lib.Misc.IO.scanDouble;
+import static lib.Misc.IO.scanFloat;
+import static lib.Misc.IO.scanInt;
+import static lib.Misc.IO.scanNext;
+import static lib.Misc.Randomizer.randomInt;
+
+import java.util.Random;
+import lib.Geometry.Circle;
+import lib.Geometry.Line;
+import lib.Geometry.Point;
+import lib.Geometry.Rectangle;
+import lib.Geometry.Triangle;
 import lib.Math.Algebra;
 import lib.Math.Scales;
 import lib.Misc.Calendar;
 import lib.Misc.Time;
-
-import java.util.Random;
-
-import static lib.Misc.IO.*;
-import static lib.Misc.Randomizer.randomInt;
 
 public abstract class DaLi_03 {
 
@@ -31,9 +40,13 @@ public abstract class DaLi_03 {
 
         double[] r = Algebra.quadraticEquation(a, b, c);
 
-        if (r == null) println("The equation has no real roots");
-        else if (r.length == 1) println("The equation has one root " + r[0]);
-        else if (r.length == 2) println("The equation has two roots " + r[0] + " and " + r[1]);
+        if (r == null) {
+            println("The equation has no real roots");
+        } else if (r.length == 1) {
+            println("The equation has one root " + r[0]);
+        } else if (r.length == 2) {
+            println("The equation has two roots " + r[0] + " and " + r[1]);
+        }
     }
 
     public static void ex02() { // Game: multiply three numbers
@@ -46,8 +59,11 @@ public abstract class DaLi_03 {
         print("Enter the result of : " + a + " x " + b + " x " + c + " = ");
         int answer = scanInt();
         int result = a * b * c;
-        if (answer == result) println("You win");
-        else println("You lose, answer is =" + result);
+        if (answer == result) {
+            println("You win");
+        } else {
+            println("You lose, answer is =" + result);
+        }
     }
 
     public static void ex03() { // (Algebra: solve 2 * 2 linear equations)
@@ -71,8 +87,11 @@ public abstract class DaLi_03 {
 
         double[] xy = Algebra.linear2x2Equation(a, b, c, d, e, f);
 
-        if (xy == null) println("The equation has no solution");
-        else println("x: " + xy[0] + "\ny: " + xy[1]);
+        if (xy == null) {
+            println("The equation has no solution");
+        } else {
+            println("x: " + xy[0] + "\ny: " + xy[1]);
+        }
     }
 
     public static void ex04() { // Random month)
@@ -90,10 +109,10 @@ public abstract class DaLi_03 {
         int elapsedDays = scanInt();
 
         println(
-                "Today is "
-                        + Calendar.dayName(today)
-                        + " and the future day is "
-                        + Calendar.dayName(today + elapsedDays));
+            "Today is "
+                + Calendar.dayName(today)
+                + " and the future day is "
+                + Calendar.dayName(today + elapsedDays));
     }
 
     public static void ex06() { // Health application: BMI)
@@ -110,10 +129,15 @@ public abstract class DaLi_03 {
 
         // Display result
         System.out.println("BMI is " + bmi);
-        if (bmi < 18.5) System.out.println("Underweight");
-        else if (bmi < 25) System.out.println("Normal");
-        else if (bmi < 30) System.out.println("Overweight");
-        else System.out.println("Obese");
+        if (bmi < 18.5) {
+            System.out.println("Underweight");
+        } else if (bmi < 25) {
+            System.out.println("Normal");
+        } else if (bmi < 30) {
+            System.out.println("Overweight");
+        } else {
+            System.out.println("Obese");
+        }
     }
 
     public static void ex07() { // Financial application: monetary units)
@@ -151,16 +175,36 @@ public abstract class DaLi_03 {
 
         int numberOfPennies = remainingAmount;
         println("Your amount " + amount + " consists of");
-        if (numberOfHundredDollars > 0) println(" " + numberOfHundredDollars + " 100 dollar bills");
-        if (numberOfFiftyDollars > 0) println(" " + numberOfFiftyDollars + " 50 dollar bills ");
-        if (numberOfTwentyDollars > 0) println(" " + numberOfTwentyDollars + " 20 dollar bills");
-        if (numberOfTenDollars > 0) println(" " + numberOfTenDollars + " 10 dollar bills");
-        if (numberOfFiveDollars > 0) println(" " + numberOfFiveDollars + " 5 dollar bills");
-        if (numberOfOneDollars > 0) println(" " + numberOfOneDollars + " 1 dollar bills");
-        if (numberOfQuarters > 0) println(" " + numberOfQuarters + " quarter coins");
-        if (numberOfDimes > 0) println(" " + numberOfDimes + " dime coins");
-        if (numberOfNickels > 0) println(" " + numberOfNickels + " nickel coins");
-        if (numberOfPennies > 0) println(" " + numberOfPennies + " pennies coins");
+        if (numberOfHundredDollars > 0) {
+            println(" " + numberOfHundredDollars + " 100 dollar bills");
+        }
+        if (numberOfFiftyDollars > 0) {
+            println(" " + numberOfFiftyDollars + " 50 dollar bills ");
+        }
+        if (numberOfTwentyDollars > 0) {
+            println(" " + numberOfTwentyDollars + " 20 dollar bills");
+        }
+        if (numberOfTenDollars > 0) {
+            println(" " + numberOfTenDollars + " 10 dollar bills");
+        }
+        if (numberOfFiveDollars > 0) {
+            println(" " + numberOfFiveDollars + " 5 dollar bills");
+        }
+        if (numberOfOneDollars > 0) {
+            println(" " + numberOfOneDollars + " 1 dollar bills");
+        }
+        if (numberOfQuarters > 0) {
+            println(" " + numberOfQuarters + " quarter coins");
+        }
+        if (numberOfDimes > 0) {
+            println(" " + numberOfDimes + " dime coins");
+        }
+        if (numberOfNickels > 0) {
+            println(" " + numberOfNickels + " nickel coins");
+        }
+        if (numberOfPennies > 0) {
+            println(" " + numberOfPennies + " pennies coins");
+        }
     }
 
     public static void ex08() { // Sort three integers)
@@ -178,21 +222,27 @@ public abstract class DaLi_03 {
             if (b <= c) {
                 println(b);
                 println(c);
-            } else println(c);
+            } else {
+                println(c);
+            }
             println(b);
         } else if (b <= a && b <= c) {
             println(b);
             if (a <= c) {
                 println(a);
                 println(c);
-            } else println(c);
+            } else {
+                println(c);
+            }
             println(a);
         } else {
             println(c);
             if (a <= b) {
                 println(a);
                 println(b);
-            } else println(b);
+            } else {
+                println(b);
+            }
             println(a);
         }
     }
@@ -223,8 +273,11 @@ public abstract class DaLi_03 {
         }
         print("Enter " + num1 + " - " + num2 + " : ");
         int answer = scanInt();
-        if (num1 - num2 == answer) println("Correct");
-        else println("Answer " + num1 + " - " + num2 + " : " + (num1 - num2));
+        if (num1 - num2 == answer) {
+            println("Correct");
+        } else {
+            println("Answer " + num1 + " - " + num2 + " : " + (num1 - num2));
+        }
     }
 
     public static void ex11() { // (Find the number of days in a month)
@@ -233,13 +286,13 @@ public abstract class DaLi_03 {
         print("Enter year number (ex. 1999) ");
         int year = scanInt();
         println(
-                "Month : "
-                        + (monthIndex)
-                        + " of year "
-                        + year
-                        + " has "
-                        + Calendar.daysInMonth(monthIndex, year)
-                        + " days.");
+            "Month : "
+                + (monthIndex)
+                + " of year "
+                + year
+                + " has "
+                + Calendar.daysInMonth(monthIndex, year)
+                + " days.");
     }
 
     public static void ex12() { // (Palindrome integer)
@@ -247,13 +300,16 @@ public abstract class DaLi_03 {
         int threeDigitInt = scanInt();
         int firstDigit = String.valueOf(threeDigitInt).charAt(0);
         int lastDigit = String.valueOf(threeDigitInt).charAt(2);
-        if (firstDigit == lastDigit) println(threeDigitInt + " is palindrome.");
-        else println(threeDigitInt + " is not palindrome.");
+        if (firstDigit == lastDigit) {
+            println(threeDigitInt + " is palindrome.");
+        } else {
+            println(threeDigitInt + " is not palindrome.");
+        }
     }
 
     public static void ex13() { // Financial application: compute taxes) L
         print(
-                "0-single filer\n1-married jointly or qualifying widow(er)\n2-married separately\n3-head of household)\nEnter the filing status: ");
+            "0-single filer\n1-married jointly or qualifying widow(er)\n2-married separately\n3-head of household)\nEnter the filing status: ");
         int status = scanInt();
 
         print("Enter the taxable income: ");
@@ -282,35 +338,37 @@ public abstract class DaLi_03 {
                 incomeRange = new int[]{11950, 45500, 117450, 190200, 372950};
                 break;
         }
-        if (income <= incomeRange[0]) tax = income * 0.10;
-        else if (income <= incomeRange[1])
+        if (income <= incomeRange[0]) {
+            tax = income * 0.10;
+        } else if (income <= incomeRange[1]) {
             tax = incomeRange[0] * taxRange[0] + (income - incomeRange[0]) * taxRange[1];
-        else if (income <= incomeRange[2])
+        } else if (income <= incomeRange[2]) {
             tax =
-                    incomeRange[0] * taxRange[0]
-                            + (incomeRange[1] - incomeRange[0]) * taxRange[1]
-                            + (income - incomeRange[1]) * taxRange[2];
-        else if (income <= incomeRange[3])
+                incomeRange[0] * taxRange[0]
+                    + (incomeRange[1] - incomeRange[0]) * taxRange[1]
+                    + (income - incomeRange[1]) * taxRange[2];
+        } else if (income <= incomeRange[3]) {
             tax =
-                    incomeRange[0] * taxRange[0]
-                            + (incomeRange[1] - incomeRange[0]) * taxRange[1]
-                            + (incomeRange[2] - incomeRange[1]) * taxRange[2]
-                            + (income - incomeRange[2]) * taxRange[3];
-        else if (income <= incomeRange[4])
+                incomeRange[0] * taxRange[0]
+                    + (incomeRange[1] - incomeRange[0]) * taxRange[1]
+                    + (incomeRange[2] - incomeRange[1]) * taxRange[2]
+                    + (income - incomeRange[2]) * taxRange[3];
+        } else if (income <= incomeRange[4]) {
             tax =
-                    incomeRange[0] * taxRange[0]
-                            + (incomeRange[1] - incomeRange[0]) * taxRange[1]
-                            + (incomeRange[2] - incomeRange[1]) * taxRange[2]
-                            + (incomeRange[3] - incomeRange[2]) * taxRange[3]
-                            + (income - incomeRange[3]) * taxRange[4];
-        else
+                incomeRange[0] * taxRange[0]
+                    + (incomeRange[1] - incomeRange[0]) * taxRange[1]
+                    + (incomeRange[2] - incomeRange[1]) * taxRange[2]
+                    + (incomeRange[3] - incomeRange[2]) * taxRange[3]
+                    + (income - incomeRange[3]) * taxRange[4];
+        } else {
             tax =
-                    incomeRange[0] * taxRange[0]
-                            + (incomeRange[1] - incomeRange[0]) * taxRange[1]
-                            + (incomeRange[2] - incomeRange[1]) * taxRange[2]
-                            + (incomeRange[3] - incomeRange[2]) * taxRange[3]
-                            + (incomeRange[4] - incomeRange[3]) * taxRange[4]
-                            + (income - incomeRange[4]) * taxRange[5];
+                incomeRange[0] * taxRange[0]
+                    + (incomeRange[1] - incomeRange[0]) * taxRange[1]
+                    + (incomeRange[2] - incomeRange[1]) * taxRange[2]
+                    + (incomeRange[3] - incomeRange[2]) * taxRange[3]
+                    + (incomeRange[4] - incomeRange[3]) * taxRange[4]
+                    + (income - incomeRange[4]) * taxRange[5];
+        }
 
         return (float) tax;
     }
@@ -332,11 +390,17 @@ public abstract class DaLi_03 {
 
         int prize;
         int matches = ex15matches(lottery, guess);
-        if (lottery == guess) prize = 12000;
-        else if (matches == 3) prize = 7000;
-        else if (matches == 2) prize = 5000;
-        else if (matches == 1) prize = 2000;
-        else prize = 0;
+        if (lottery == guess) {
+            prize = 12000;
+        } else if (matches == 3) {
+            prize = 7000;
+        } else if (matches == 2) {
+            prize = 5000;
+        } else if (matches == 1) {
+            prize = 2000;
+        } else {
+            prize = 0;
+        }
 
         println("Winning lottery number is " + lottery);
         println("Your prize is " + prize);
@@ -348,7 +412,9 @@ public abstract class DaLi_03 {
         int count = 0;
         for (int i = 0; i < arrA.length; i++) {
             for (int j = 0; j < arrB.length; j++) {
-                if (arrA[i] == arrB[j]) count++;
+                if (arrA[i] == arrB[j]) {
+                    count++;
+                }
             }
         }
         return count;
@@ -378,11 +444,14 @@ public abstract class DaLi_03 {
         println("AI chose " + ex17string(ai));
 
         String reply;
-        if (player == ai) reply = "draw";
-        else {
-            if ((ai == 0 && player == 1) || (ai == 1 && player == 2) || (ai == 2 && player == 0))
+        if (player == ai) {
+            reply = "draw";
+        } else {
+            if ((ai == 0 && player == 1) || (ai == 1 && player == 2) || (ai == 2 && player == 0)) {
                 reply = "win";
-            else reply = "lose";
+            } else {
+                reply = "lose";
+            }
         }
         println("You " + reply);
     }
@@ -403,13 +472,19 @@ public abstract class DaLi_03 {
         print("Enter weight ");
         float weight = scanFloat();
 
-        if (weight > 20) println("Package cannot be shipped.");
-        else {
+        if (weight > 20) {
+            println("Package cannot be shipped.");
+        } else {
             float price;
-            if (weight <= 2) price = 2.5f;
-            else if (weight <= 4) price = 4.5f;
-            else if (weight <= 10) price = 7.5f;
-            else price = 10.5f;
+            if (weight <= 2) {
+                price = 2.5f;
+            } else if (weight <= 4) {
+                price = 4.5f;
+            } else if (weight <= 10) {
+                price = 7.5f;
+            } else {
+                price = 10.5f;
+            }
             print("Price is : " + price);
         }
     }
@@ -427,7 +502,9 @@ public abstract class DaLi_03 {
         if (Triangle.isValidTriangle(sideAB, sideBC, sideCA)) {
             Triangle triangle = new Triangle(sideAB, sideBC, sideCA);
             println("Perimeter is " + triangle.getPerimeter());
-        } else println("Invalid Triangle");
+        } else {
+            println("Invalid Triangle");
+        }
     }
 
     public static void ex20() { // Science: wind-chill temperature)
@@ -435,13 +512,14 @@ public abstract class DaLi_03 {
         float temp = scanFloat();
         print("Enter the wind speed (>= 2) in miles per hour: ");
         float windSpeed = scanFloat();
-        if (temp > 41 || temp < -58 || windSpeed < 2) println("Invalid Imput");
-        else {
+        if (temp > 41 || temp < -58 || windSpeed < 2) {
+            println("Invalid Imput");
+        } else {
             double windChill =
-                    35.74
-                            + (0.6215 * temp)
-                            - (35.75 * Math.pow(windSpeed, 0.16))
-                            + (0.4275 * temp * Math.pow(windSpeed, 0.16));
+                35.74
+                    + (0.6215 * temp)
+                    - (35.75 * Math.pow(windSpeed, 0.16))
+                    + (0.4275 * temp * Math.pow(windSpeed, 0.16));
             println("The wind chill index is " + windChill);
         }
     }
@@ -483,12 +561,13 @@ public abstract class DaLi_03 {
 
         Point point = new Point(x, y);
         println(
-                point.toString()
-                        + (rectangle.contains(point) ? " is in rectangle" : "is not in rectangle"));
+            point.toString()
+                + (rectangle.contains(point) ? " is in rectangle" : "is not in rectangle"));
     }
 
     public static void ex24() { // Game: pick a card)
-        String[] rank = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+        String[] rank = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen",
+            "King"};
         String[] suit = {"Clubs", "Diamonds", "Hearts", "Spades"};
 
         int randRank = randomInt(rank.length);
@@ -523,8 +602,11 @@ public abstract class DaLi_03 {
 
         double[] xy = lineA.intersect(lineB);
 
-        if (xy == null) println("The lines are parallel");
-        else println("x: " + xy[0] + "\ny: " + xy[1]);
+        if (xy == null) {
+            println("The lines are parallel");
+        } else {
+            println("x: " + xy[0] + "\ny: " + xy[1]);
+        }
     }
 
     public static void ex26() { // Use the &&, || and ^ operators
@@ -534,10 +616,10 @@ public abstract class DaLi_03 {
         println("Is " + n + " divisible by 4 and 5? " + (n % 4 == 0 && n % 5 == 0));
         println("Is " + n + " divisible by 4 or 5? " + (n % 4 == 0 || n % 5 == 0));
         println(
-                "Is "
-                        + n
-                        + " divisible by 4 or 5 but not both? "
-                        + ((n % 4 == 0 || n % 5 == 0) && !(n % 4 == 0 && n % 5 == 0)));
+            "Is "
+                + n
+                + " divisible by 4 or 5 but not both? "
+                + ((n % 4 == 0 || n % 5 == 0) && !(n % 4 == 0 && n % 5 == 0)));
     }
 
     public static void ex27() { // Geometry: points in triangle?
@@ -615,8 +697,11 @@ public abstract class DaLi_03 {
         print("Enter the " + currency + " amount: ");
         float amount = scanFloat();
 
-        if (currN == 0) println(amount + currency + " is " + amount * rate);
-        else println(amount + currency + " is " + amount * (1 / rate));
+        if (currN == 0) {
+            println(amount + currency + " is " + amount * rate);
+        } else {
+            println(amount + currency + " is " + amount * (1 / rate));
+        }
     }
 
     public static void ex32() { // Geometry: point position
@@ -637,9 +722,13 @@ public abstract class DaLi_03 {
 
         Line line = new Line(new Point(x1, y1), new Point(x2, y2));
         double result = line.crossProduct(new Point(x3, y3));
-        if (result == 0) println("p2 is on the same line");
-        else if (result < 0) println("p2  is on the right sideLength of the line");
-        else println("p2  is on the left sideLength of the line");
+        if (result == 0) {
+            println("p2 is on the same line");
+        } else if (result < 0) {
+            println("p2  is on the right sideLength of the line");
+        } else {
+            println("p2  is on the left sideLength of the line");
+        }
     }
 
     public static void ex33() { // (Financial: compare costs
@@ -653,9 +742,13 @@ public abstract class DaLi_03 {
         print("Enter p2: ");
         float p2 = scanFloat();
 
-        if ((p1 / w1) < (p2 / w2)) println("p1 has better price");
-        else if ((p1 / w1) > (p2 / w2)) println("p2 has better price");
-        else println("same price");
+        if ((p1 / w1) < (p2 / w2)) {
+            println("p1 has better price");
+        } else if ((p1 / w1) > (p2 / w2)) {
+            println("p2 has better price");
+        } else {
+            println("same price");
+        }
     }
 
     public static void ex34() { // Geometry: point on line segment

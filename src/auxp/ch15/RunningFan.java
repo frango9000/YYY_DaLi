@@ -13,6 +13,7 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 public class RunningFan extends StackPane {
+
     private double startAngle = 15;
     private double speed = 100; // max 100
     private Timeline fan;

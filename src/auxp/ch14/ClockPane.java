@@ -1,5 +1,7 @@
 package auxp.ch14;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -11,10 +13,8 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 public class ClockPane extends Pane {
+
     Timeline animation;
     private int hour;
     private int minute;
@@ -40,9 +40,9 @@ public class ClockPane extends Pane {
     public ClockPane(boolean active) {
         this();
         EventHandler<ActionEvent> eventHandler =
-                e -> {
-                    setCurrentTime();
-                };
+            e -> {
+                setCurrentTime();
+            };
 
         // clock.setDetailed(true);
         animation = new Timeline(new KeyFrame(Duration.millis(1000), eventHandler));
@@ -171,72 +171,90 @@ public class ClockPane extends Pane {
         mLine.setStroke(Color.BLUE);
         // Draw hour hand
         double hLength = clockRadius * 0.5;
-        double hourX = centerX + hLength * Math.sin((hour % 12 + minute / 60.0) * (2 * Math.PI / 12));
-        double hourY = centerY - hLength * Math.cos((hour % 12 + minute / 60.0) * (2 * Math.PI / 12));
+        double hourX =
+            centerX + hLength * Math.sin((hour % 12 + minute / 60.0) * (2 * Math.PI / 12));
+        double hourY =
+            centerY - hLength * Math.cos((hour % 12 + minute / 60.0) * (2 * Math.PI / 12));
         Line hLine = new Line(centerX, centerY, hourX, hourY);
         hLine.setStroke(Color.GREEN);
 
         Text digit =
-                new Text(
-                        centerX - 25,
-                        centerY + clockRadius + 12,
-                        String.format("%02d:%02d:%02d", hour, minute, second));
+            new Text(
+                centerX - 25,
+                centerY + clockRadius + 12,
+                String.format("%02d:%02d:%02d", hour, minute, second));
 
         getChildren().clear();
         getChildren().addAll(circle, digit);
-        if (secondHandVisible) getChildren().add(sLine);
-        if (minuteHandVisible) getChildren().add(mLine);
-        if (hourHandVisible) getChildren().add(hLine);
+        if (secondHandVisible) {
+            getChildren().add(sLine);
+        }
+        if (minuteHandVisible) {
+            getChildren().add(mLine);
+        }
+        if (hourHandVisible) {
+            getChildren().add(hLine);
+        }
 
         if (detailed) {
             int angleH = 360 / 12;
             int angleQ = angleH / 4;
             for (int i = 1; i <= 12; i++) {
                 getChildren()
-                        .add(
-                                new Text(
-                                        centerX
-                                                - 3
-                                                + (clockRadius - 15) * Math.sin(Math.toRadians(-(i * angleH) - 180)),
-                                        centerY
-                                                + 5
-                                                + (clockRadius - 15) * Math.cos(Math.toRadians(-(i * angleH) - 180)),
-                                        i + ""));
+                    .add(
+                        new Text(
+                            centerX
+                                - 3
+                                + (clockRadius - 15) * Math
+                                .sin(Math.toRadians(-(i * angleH) - 180)),
+                            centerY
+                                + 5
+                                + (clockRadius - 15) * Math
+                                .cos(Math.toRadians(-(i * angleH) - 180)),
+                            i + ""));
                 getChildren()
-                        .add(
-                                new Line(
-                                        centerX + clockRadius * Math.sin(Math.toRadians(-(i * angleH) - 180)),
-                                        centerY + clockRadius * Math.cos(Math.toRadians(-(i * angleH) - 180)),
-                                        centerX + (clockRadius - 8) * Math.sin(Math.toRadians(-(i * angleH) - 180)),
-                                        centerY + (clockRadius - 8) * Math.cos(Math.toRadians(-(i * angleH) - 180))));
+                    .add(
+                        new Line(
+                            centerX + clockRadius * Math.sin(Math.toRadians(-(i * angleH) - 180)),
+                            centerY + clockRadius * Math.cos(Math.toRadians(-(i * angleH) - 180)),
+                            centerX + (clockRadius - 8) * Math
+                                .sin(Math.toRadians(-(i * angleH) - 180)),
+                            centerY + (clockRadius - 8) * Math
+                                .cos(Math.toRadians(-(i * angleH) - 180))));
                 for (int j = 1; j <= 3; j++) {
                     int t = j % 2 == 0 ? 5 : 0;
                     getChildren()
-                            .add(
-                                    new Line(
-                                            centerX
-                                                    + clockRadius
-                                                    * Math.sin(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180)),
-                                            centerY
-                                                    + clockRadius
-                                                    * Math.cos(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180)),
-                                            centerX
-                                                    + (clockRadius - 3 - t)
-                                                    * Math.sin(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180)),
-                                            centerY
-                                                    + (clockRadius - 3 - t)
-                                                    * Math.cos(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180))));
+                        .add(
+                            new Line(
+                                centerX
+                                    + clockRadius
+                                    * Math
+                                    .sin(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180)),
+                                centerY
+                                    + clockRadius
+                                    * Math
+                                    .cos(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180)),
+                                centerX
+                                    + (clockRadius - 3 - t)
+                                    * Math
+                                    .sin(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180)),
+                                centerY
+                                    + (clockRadius - 3 - t)
+                                    * Math
+                                    .cos(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180))));
                 }
             }
         } else {
             int angle = 360 / 12;
             for (int i = 3; i <= 12; i += 3) {
                 getChildren()
-                        .add(
-                                new Text(
-                                        centerX - 3 + (clockRadius - 15) * Math.sin(Math.toRadians(-(i * angle) - 180)),
-                                        centerY + 5 + (clockRadius - 15) * Math.cos(Math.toRadians(-(i * angle) - 180)),
-                                        i + ""));
+                    .add(
+                        new Text(
+                            centerX - 3 + (clockRadius - 15) * Math
+                                .sin(Math.toRadians(-(i * angle) - 180)),
+                            centerY + 5 + (clockRadius - 15) * Math
+                                .cos(Math.toRadians(-(i * angle) - 180)),
+                            i + ""));
             }
         }
     }

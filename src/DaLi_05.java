@@ -1,3 +1,13 @@
+import static lib.Misc.IO.print;
+import static lib.Misc.IO.println;
+import static lib.Misc.IO.scanByte;
+import static lib.Misc.IO.scanDouble;
+import static lib.Misc.IO.scanFloat;
+import static lib.Misc.IO.scanInt;
+import static lib.Misc.IO.scanNextLine;
+import static lib.Misc.Randomizer.randomInt;
+
+import java.util.Arrays;
 import lib.Math.Algebra;
 import lib.Math.Primes;
 import lib.Math.Scales;
@@ -5,12 +15,8 @@ import lib.Math.Statistics;
 import lib.Misc.Calendar;
 import lib.Misc.IO;
 
-import java.util.Arrays;
-
-import static lib.Misc.IO.*;
-import static lib.Misc.Randomizer.randomInt;
-
 public abstract class DaLi_05 {
+
     public static void main(String[] args) {
 
         ex51();
@@ -32,13 +38,18 @@ public abstract class DaLi_05 {
         int count = 0;
         for (int i = 0; i < 5; i++) {
             int a = randomInt(100), b = randomInt(100), t = 0;
-            if (a < b) t = a;
+            if (a < b) {
+                t = a;
+            }
             a = b;
             b = t;
             IO.print("\n%d : Enter result of %d - %d", count++, a, b);
             int result = scanInt();
-            if (result == a - b) print("You win.");
-            else IO.print("You lose: %d - %d = %d", a, b, (a - b));
+            if (result == a - b) {
+                print("You win.");
+            } else {
+                IO.print("You lose: %d - %d = %d", a, b, (a - b));
+            }
         }
         IO.print("\nCorrect answers = %d", count);
     }
@@ -61,8 +72,8 @@ public abstract class DaLi_05 {
         IO.print("%s %14s    |    %10s %11s", "Celsius", "Fahrenheit", "Fahrenheit", "Celsius");
         for (int i = 0; i <= 100; i++) {
             IO.print(
-                    "\n%3d %18.2f    |    %3d %18.2f",
-                    i * 2, Scales.celsiusToFahrenheit(i * 2), i * 5, Scales.fahrenheitToCelsius(i * 5));
+                "\n%3d %18.2f    |    %3d %18.2f",
+                i * 2, Scales.celsiusToFahrenheit(i * 2), i * 5, Scales.fahrenheitToCelsius(i * 5));
         }
     }
 
@@ -70,8 +81,8 @@ public abstract class DaLi_05 {
         IO.print("%s %17s    |    %12s %9s", "Ping", "Square Meter", "Square Meter", "Ping");
         for (int i = 10; i <= 80; i += 5) {
             IO.print(
-                    "\n%3d %18.2f    |    %3d %18.2f",
-                    i, Scales.pingToSquareMeter(i), i + 20, Scales.fahrenheitToCelsius(i + 20));
+                "\n%3d %18.2f    |    %3d %18.2f",
+                i, Scales.pingToSquareMeter(i), i + 20, Scales.fahrenheitToCelsius(i + 20));
         }
     }
 
@@ -135,22 +146,28 @@ public abstract class DaLi_05 {
     public static void ex10() { // Find numbers divisible by 3 and 4
         String log = "";
         int count = 0;
-        for (int i = 1; count < 100; i++)
+        for (int i = 1; count < 100; i++) {
             if (i % 12 == 0) {
                 log += String.format("%6d", i);
-                if (++count % 10 == 0) log += "\n";
+                if (++count % 10 == 0) {
+                    log += "\n";
+                }
             }
+        }
         print(log);
     }
 
     public static void ex11() { // Find numbers divisible by 3 or 4, but not both
         String log = "";
         int count = 0;
-        for (int i = 1; count < 100; i++)
+        for (int i = 1; count < 100; i++) {
             if ((i % 3 == 0 || i % 4 == 0) && !(i % 3 == 0 && i % 4 == 0)) {
                 log += String.format("%6d", i);
-                if (++count % 10 == 0) log += "\n";
+                if (++count % 10 == 0) {
+                    log += "\n";
+                }
             }
+        }
         print(log);
     }
 
@@ -184,15 +201,20 @@ public abstract class DaLi_05 {
         int lineCount = 0;
         for (int i = '!'; i <= '~'; i++) {
             IO.print("%2c", (char) i);
-            if (++lineCount % 10 == 0) println("");
+            if (++lineCount % 10 == 0) {
+                println("");
+            }
         }
     }
 
     public static void ex16() { // Find the factors of an integer
-        for (int i = 120; i < 130; i++) println(i + " : " + Arrays.toString(Primes.getPrimeFactors(i)));
-
-        for (int i = 2; i < 1500000; i *= 2)
+        for (int i = 120; i < 130; i++) {
             println(i + " : " + Arrays.toString(Primes.getPrimeFactors(i)));
+        }
+
+        for (int i = 2; i < 1500000; i *= 2) {
+            println(i + " : " + Arrays.toString(Primes.getPrimeFactors(i)));
+        }
     }
 
     public static void ex17() { // Display pyramid
@@ -200,7 +222,9 @@ public abstract class DaLi_05 {
         while (number > 0) {
             for (int i = -number; i <= number; i++) {
                 IO.print("%3d", Math.abs(i));
-                if (i == -1) i += 2;
+                if (i == -1) {
+                    i += 2;
+                }
             }
             println("");
             number--;
@@ -210,27 +234,37 @@ public abstract class DaLi_05 {
     public static void ex18() { // Display four patterns using loops
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                if (j <= i) print(" $ ");
+                if (j <= i) {
+                    print(" $ ");
+                }
             }
             println("");
         }
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                if (j >= i) print(" $ ");
+                if (j >= i) {
+                    print(" $ ");
+                }
             }
             println("");
         }
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                if (j <= i) print(" $ ");
-                else print("   ");
+                if (j <= i) {
+                    print(" $ ");
+                } else {
+                    print("   ");
+                }
             }
             println("");
         }
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                if (j >= i) print(" $ ");
-                else print("   ");
+                if (j >= i) {
+                    print(" $ ");
+                } else {
+                    print("   ");
+                }
             }
             println("");
         }
@@ -240,9 +274,15 @@ public abstract class DaLi_05 {
         int lines = 15;
 
         for (int i = 0; i <= lines; i++) {
-            for (int j = 0; j < lines - i; j++) IO.print("%6s", "");
-            for (int j = 0; j < (i) + 1; j++) IO.print("%6d", (int) Math.pow(3, j));
-            for (int k = i; k > 0; k--) IO.print("%6d", (int) Math.pow(3, k - 1));
+            for (int j = 0; j < lines - i; j++) {
+                IO.print("%6s", "");
+            }
+            for (int j = 0; j < (i) + 1; j++) {
+                IO.print("%6d", (int) Math.pow(3, j));
+            }
+            for (int k = i; k > 0; k--) {
+                IO.print("%6d", (int) Math.pow(3, k - 1));
+            }
             println("");
         }
     }
@@ -259,9 +299,11 @@ public abstract class DaLi_05 {
         for (double i = 5.0; i <= 10; i += 0.25) {
             double monthlyInterestRate = i / 1200.0;
             double monthlyPayment =
-                    (loan * monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate, years * 12)));
+                (loan * monthlyInterestRate / (1 - 1 / Math
+                    .pow(1 + monthlyInterestRate, years * 12)));
             IO.print(
-                    "%5.2f     %5.2f          %8.2f\n", i, monthlyPayment, (monthlyPayment * 12) * years);
+                "%5.2f     %5.2f          %8.2f\n", i, monthlyPayment,
+                (monthlyPayment * 12) * years);
         }
     }
 
@@ -273,7 +315,7 @@ public abstract class DaLi_05 {
         double monthlyRate = annualRate / 1200;
 
         double monthlyPayment =
-                loanAmount * monthlyRate / (1 - 1 / Math.pow(1 + monthlyRate, years * 12));
+            loanAmount * monthlyRate / (1 - 1 / Math.pow(1 + monthlyRate, years * 12));
 
         IO.print("Monthly Payment: %.2f\n", monthlyPayment);
         IO.print("Total Payment: %.2f\n", (monthlyPayment * 12) * years);
@@ -331,7 +373,8 @@ public abstract class DaLi_05 {
         int year = scanInt("Enter year: ");
         for (int i = 1; i < 13; i++) {
             IO.print(
-                    "%9s 1, %d is %s\n", Calendar.monthName(i), year, Calendar.dayOfWeekString(year, i, 1));
+                "%9s 1, %d is %s\n", Calendar.monthName(i), year,
+                Calendar.dayOfWeekString(year, i, 1));
         }
     }
 
@@ -371,7 +414,9 @@ public abstract class DaLi_05 {
         }
         if (number == (Integer.parseInt(lotteryA + "" + lotteryB))) {
             print("You win");
-        } else print("You lose. Winner is " + lotteryA + "" + lotteryB);
+        } else {
+            print("You lose. Winner is " + lotteryA + "" + lotteryB);
+        }
     }
 
     public static void ex32() { // Game: lottery
@@ -401,7 +446,8 @@ public abstract class DaLi_05 {
                 reply = "draw";
                 results = ("" + results.charAt(1) + results.charAt(2) + "D");
             } else {
-                if ((ai == 0 && player == 1) || (ai == 1 && player == 2) || (ai == 2 && player == 0)) {
+                if ((ai == 0 && player == 1) || (ai == 1 && player == 2) || (ai == 2
+                    && player == 0)) {
                     reply = "win";
                     results = ("" + results.charAt(1) + results.charAt(2) + "H");
                 } else {
@@ -443,21 +489,27 @@ public abstract class DaLi_05 {
     public static void ex39() { // Financial application: find the sales amount
         final double COMMISSION_SOUGHT = 30000;
         double salesAmount, // Sales amount
-                commission, // Employee commission
-                balance; // Sales balance
+            commission, // Employee commission
+            balance; // Sales balance
         salesAmount = 0; // Initialize accumulator to 0
         do {
             balance = commission = 0; // Set balance and commission to 0
             salesAmount += 0.01; // Increase sales amount by $0.01
 
             // If sales amount is $10,000.01 and above commission rate is 12%
-            if (salesAmount > 10000) commission += (balance = salesAmount - 10000) * 0.12;
+            if (salesAmount > 10000) {
+                commission += (balance = salesAmount - 10000) * 0.12;
+            }
 
             // If sales amount is $5,000.01-$10,000 commission rate is 10%
-            if (salesAmount > 5000) commission += (balance -= balance - 5000) * 0.10;
+            if (salesAmount > 5000) {
+                commission += (balance -= balance - 5000) * 0.10;
+            }
 
             // If sales amount is $0.01-$5,000 commission rate is 8%
-            if (salesAmount > 0) commission += balance * 0.08;
+            if (salesAmount > 0) {
+                commission += balance * 0.08;
+            }
 
             // While commission is less than commission sought loop
         } while (commission < COMMISSION_SOUGHT);
@@ -470,8 +522,11 @@ public abstract class DaLi_05 {
         int heads = 0, tails = 0;
         for (int i = 0; i < 2000000; i++) {
             int coin = randomInt(2);
-            if (coin == 0) heads++;
-            else tails++;
+            if (coin == 0) {
+                heads++;
+            } else {
+                tails++;
+            }
         }
         IO.print("%d Heads\n%d Tails", heads, tails);
     }
@@ -483,7 +538,9 @@ public abstract class DaLi_05 {
             if (newNumber > max) {
                 max = newNumber;
                 maxCount = 1;
-            } else if (newNumber == max) maxCount++;
+            } else if (newNumber == max) {
+                maxCount++;
+            }
         } while (newNumber != 0);
         IO.print("max number is %d, repeated %d times.", max, maxCount);
     }
@@ -491,21 +548,27 @@ public abstract class DaLi_05 {
     public static void ex42() { // Financial application: find the sales amount
         final double COMMISSION_SOUGHT = 30000;
         double salesAmount, // Sales amount
-                commission = 0, // Employee commission
-                balance; // Sales balance
+            commission = 0, // Employee commission
+            balance; // Sales balance
         salesAmount = 0; // Initialize accumulator to 0
         while (commission < COMMISSION_SOUGHT) {
             balance = commission = 0; // Set balance and commission to 0
             salesAmount += 0.01; // Increase sales amount by $0.01
 
             // If sales amount is $10,000.01 and above commission rate is 12%
-            if (salesAmount > 10000) commission += (balance = salesAmount - 10000) * 0.12;
+            if (salesAmount > 10000) {
+                commission += (balance = salesAmount - 10000) * 0.12;
+            }
 
             // If sales amount is $5,000.01-$10,000 commission rate is 10%
-            if (salesAmount > 5000) commission += (balance -= balance - 5000) * 0.10;
+            if (salesAmount > 5000) {
+                commission += (balance -= balance - 5000) * 0.10;
+            }
 
             // If sales amount is $0.01-$5,000 commission rate is 8%
-            if (salesAmount > 0) commission += balance * 0.08;
+            if (salesAmount > 0) {
+                commission += balance * 0.08;
+            }
 
             // While commission is less than commission sought loop
         }
@@ -551,13 +614,15 @@ public abstract class DaLi_05 {
         if (isbn13string.length() == 12) {
             for (int i = 0; i < 12; i++) {
                 checksum +=
-                        (i % 2 == 1)
-                                ? Integer.parseInt(Character.toString(isbn13string.charAt(i)))
-                                : 3 * Integer.parseInt(Character.toString(isbn13string.charAt(i)));
+                    (i % 2 == 1)
+                        ? Integer.parseInt(Character.toString(isbn13string.charAt(i)))
+                        : 3 * Integer.parseInt(Character.toString(isbn13string.charAt(i)));
             }
             checksum = 10 - (checksum % 10);
             IO.print("The ISBN-13 number is %s%d", isbn13string, checksum == 10 ? 0 : checksum);
-        } else println("Invalid input");
+        } else {
+            println("Invalid input");
+        }
     }
 
     public static void ex48() { // Process string

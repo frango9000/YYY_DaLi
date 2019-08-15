@@ -1,12 +1,16 @@
 package lib.Data;
 
-import lib.Misc.Randomizer;
-
-import java.util.*;
-
 import static lib.Misc.IO.scanInt;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import lib.Misc.Randomizer;
+
 public class ListManip {
+
     public static <E> void printList(Collection<E> list) {
         printList(list, 0, list.size() - 1, false, 0);
     }
@@ -20,14 +24,16 @@ public class ListManip {
     }
 
     public static <E> void printList(
-            Collection<E> list, int start, int end, boolean withIndex, int firstIndex) {
+        Collection<E> list, int start, int end, boolean withIndex, int firstIndex) {
         String index = "";
         int indexNum = 0;
         Iterator<E> it = list.iterator();
 
         while (it.hasNext()) {
             if (start <= indexNum && end >= indexNum) {
-                if (withIndex) index = (indexNum + firstIndex) + " ";
+                if (withIndex) {
+                    index = (indexNum + firstIndex) + " ";
+                }
                 System.out.println(index + it.next());
             }
             indexNum++;
@@ -49,7 +55,9 @@ public class ListManip {
     public static <E extends Comparable<E>> E max(ArrayList<E> list) {
         E max = list.get(0);
         for (int i = 1; i < list.size(); i++) {
-            if (list.get(i).compareTo(max) > 0) max = list.get(i);
+            if (list.get(i).compareTo(max) > 0) {
+                max = list.get(i);
+            }
         }
         return max;
     }
@@ -57,7 +65,9 @@ public class ListManip {
     public static <E extends Comparable<E>> E min(ArrayList<E> list) {
         E min = list.get(0);
         for (int i = 1; i < list.size(); i++) {
-            if (list.get(i).compareTo(min) < 0) min = list.get(i);
+            if (list.get(i).compareTo(min) < 0) {
+                min = list.get(i);
+            }
         }
         return min;
     }
@@ -76,7 +86,9 @@ public class ListManip {
         int i;
         while (true) {
             i = scanInt();
-            if (i == 0) break;
+            if (i == 0) {
+                break;
+            }
             list.add(i);
         }
         return list;
@@ -101,8 +113,9 @@ public class ListManip {
     public static <E> void removeDuplicate(ArrayList<E> list) {
         ArrayList<E> list2 = new ArrayList<>();
         for (int i = 0; i < list.size(); ) {
-            if (list2.contains(list.get(i))) list.remove(i);
-            else {
+            if (list2.contains(list.get(i))) {
+                list.remove(i);
+            } else {
                 list2.add(list.get(i));
                 i++;
             }

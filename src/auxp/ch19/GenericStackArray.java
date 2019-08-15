@@ -3,6 +3,7 @@ package auxp.ch19;
 import java.util.Arrays;
 
 public class GenericStackArray<E> {
+
     private Object[] content;
 
     public GenericStackArray() {
@@ -16,8 +17,11 @@ public class GenericStackArray<E> {
     public int getSize() {
         int size = 0;
         for (Object o : content) {
-            if (o != null) size++;
-            else return size;
+            if (o != null) {
+                size++;
+            } else {
+                return size;
+            }
         }
         return content.length;
     }

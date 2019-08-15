@@ -9,6 +9,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class CarPane extends Pane {
+
     private double x = 0;
     private double y = 40;
     private double radius = 5;
@@ -55,8 +56,11 @@ public class CarPane extends Pane {
     }
 
     void moveCar() {
-        if (x <= getWidth()) x += 1;
-        else x = 0;
+        if (x <= getWidth()) {
+            x += 1;
+        } else {
+            x = 0;
+        }
         drawCar();
     }
 }

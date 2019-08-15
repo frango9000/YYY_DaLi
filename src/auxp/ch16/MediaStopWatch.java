@@ -1,6 +1,7 @@
 package auxp.ch16;
 
 public class MediaStopWatch {
+
     private long elapsedTime = 0;
     private long startTime;
     private long endTime;
@@ -42,7 +43,7 @@ public class MediaStopWatch {
         long totalHours = totalMinutes / 60;
         long currentHour = totalHours % 24;
         return String.format(
-                "%02d:%02d:%02d:%03d", currentHour, currentMinute, currentSecond, currentMilliseconds);
+            "%02d:%02d:%02d:%03d", currentHour, currentMinute, currentSecond, currentMilliseconds);
     }
 
     public String getElapsedFormat() {

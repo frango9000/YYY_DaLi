@@ -1,3 +1,9 @@
+import static lib.Misc.IO.print;
+import static lib.Misc.IO.println;
+import static lib.Misc.IO.scanByte;
+import static lib.Misc.IO.scanFloat;
+import static lib.Misc.IO.scanInt;
+
 import lib.Geometry.Hexagon;
 import lib.Geometry.Point;
 import lib.Geometry.Triangle;
@@ -8,8 +14,6 @@ import lib.Math.Scales;
 import lib.Misc.Calendar;
 import lib.Misc.IO;
 import lib.Misc.Time;
-
-import static lib.Misc.IO.*;
 
 public abstract class DaLi_02 {
 
@@ -60,14 +64,23 @@ public abstract class DaLi_02 {
         print("Enter a number between 0 and 1000: ");
         int number = scanInt();
         int er, mb, nu;
-        if (number % 10 == 0) er = 1;
-        else er = number % 10;
+        if (number % 10 == 0) {
+            er = 1;
+        } else {
+            er = number % 10;
+        }
 
-        if ((number / 10) % 10 == 0) mb = 1;
-        else mb = (number / 10) % 10;
+        if ((number / 10) % 10 == 0) {
+            mb = 1;
+        } else {
+            mb = (number / 10) % 10;
+        }
 
-        if ((number / 100) % 10 == 0) nu = 1;
-        else nu = (number / 100) % 10;
+        if ((number / 100) % 10 == 0) {
+            nu = 1;
+        } else {
+            nu = (number / 100) % 10;
+        }
 
         println((nu * mb * er));
     }
@@ -79,12 +92,12 @@ public abstract class DaLi_02 {
         int years = (int) Calendar.minutesToYears(totalMinutes);
         int remainingDays = (int) Calendar.yearsToDays(yearsfloat - years);
         println(
-                totalMinutes
-                        + " minutes is approximately "
-                        + years
-                        + " years and "
-                        + remainingDays
-                        + " days");
+            totalMinutes
+                + " minutes is approximately "
+                + years
+                + " years and "
+                + remainingDays
+                + " days");
     }
 
     public static void ex08() { // Current time
@@ -119,9 +132,9 @@ public abstract class DaLi_02 {
         float finalTemperature = scanFloat();
 
         println(
-                "The energy needed is : "
-                        + (m * (finalTemperature - initialTemperature) * 4184f)
-                        + " joules");
+            "The energy needed is : "
+                + (m * (finalTemperature - initialTemperature) * 4184f)
+                + " joules");
     }
 
     public static void ex11() { // Population projection
@@ -146,8 +159,8 @@ public abstract class DaLi_02 {
         print("Enter Acceleration: ");
         float acceleration = scanFloat();
         println(
-                "The minimum runway length for this airplane is "
-                        + (Physics.lengthOfSpeedChange(0, takeOffSpeed, acceleration)));
+            "The minimum runway length for this airplane is "
+                + (Physics.lengthOfSpeedChange(0, takeOffSpeed, acceleration)));
     }
 
     public static void ex13() { // Financial application: compound value
@@ -190,7 +203,8 @@ public abstract class DaLi_02 {
         float y2 = scanFloat();
 
         println(
-                "The distance between the two points is :" + Point.distanceBetweenPoints(x1, y1, x2, y2));
+            "The distance between the two points is :" + Point
+                .distanceBetweenPoints(x1, y1, x2, y2));
     }
 
     public static void ex16() { // Geometry: getArea of a hexagon
@@ -208,10 +222,10 @@ public abstract class DaLi_02 {
         float windSpeed = scanFloat();
 
         double windChill =
-                35.74
-                        + (0.6215 * temp)
-                        - (35.75 * Math.pow(windSpeed, 0.16))
-                        + (0.4275 * temp * Math.pow(windSpeed, 0.16));
+            35.74
+                + (0.6215 * temp)
+                - (35.75 * Math.pow(windSpeed, 0.16))
+                + (0.4275 * temp * Math.pow(windSpeed, 0.16));
         println("The wind chill index is " + windChill);
     }
 
@@ -227,19 +241,19 @@ public abstract class DaLi_02 {
         double[] mp = Point.middlePoint(ax, ay, bx, by);
         double mx = mp[0], my = mp[1];
         println(
-                "( "
-                        + ax
-                        + ", "
-                        + ay
-                        + " )      ( "
-                        + bx
-                        + ", "
-                        + by
-                        + " )      ( "
-                        + mx
-                        + ", "
-                        + my
-                        + " )");
+            "( "
+                + ax
+                + ", "
+                + ay
+                + " )      ( "
+                + bx
+                + ", "
+                + by
+                + " )      ( "
+                + mx
+                + ", "
+                + my
+                + " )");
     }
 
     public static void ex19() { // Geometry: getArea of a triangle
@@ -276,8 +290,8 @@ public abstract class DaLi_02 {
         print("Enter number of years: ");
         float years = scanFloat();
         println(
-                "Future value is "
-                        + Finance.getFutureInvestmentValue(investment, anualInterestRate, years));
+            "Future value is "
+                + Finance.getFutureInvestmentValue(investment, anualInterestRate, years));
     }
 
     public static void ex22() { // Financial application: monetary units

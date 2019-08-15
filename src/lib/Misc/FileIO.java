@@ -1,12 +1,11 @@
 package lib.Misc;
 
-import lib.Data.ArrayManip;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import lib.Data.ArrayManip;
 
 public class FileIO {
 
@@ -56,7 +55,9 @@ public class FileIO {
 
     public static String getFileExtension(String filename) {
         int lastIndexOf = filename.lastIndexOf(".");
-        if (lastIndexOf == -1) return ""; // empty extension
+        if (lastIndexOf == -1) {
+            return ""; // empty extension
+        }
         return filename.substring(lastIndexOf + 1);
     }
 

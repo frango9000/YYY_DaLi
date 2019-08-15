@@ -1,6 +1,7 @@
 package lib.Data;
 
 public abstract class CharManip {
+
     /**
      * Generate a random character between ch1 and ch2
      */

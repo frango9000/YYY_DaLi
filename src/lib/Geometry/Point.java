@@ -3,6 +3,7 @@ package lib.Geometry;
 import java.util.HashMap;
 
 public class Point {
+
     public double x;
     public double y;
     public double z;
@@ -36,13 +37,14 @@ public class Point {
     public static Point[] toPointsArray(double[][] points) {
         Point[] array = new Point[points.length];
         for (int i = 0; i < points.length; i++) {
-            array[i] = new Point(points[i][0], points[i][1], points[i].length >= 3 ? points[i][2] : 0);
+            array[i] = new Point(points[i][0], points[i][1],
+                points[i].length >= 3 ? points[i][2] : 0);
         }
         return array;
     }
 
     public static double distanceBetweenPoints(
-            double x1, double y1, double z1, double x2, double y2, double z2) {
+        double x1, double y1, double z1, double x2, double y2, double z2) {
         return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2) + Math.pow(z2 - z1, 2));
     }
 
@@ -55,7 +57,7 @@ public class Point {
     }
 
     public static double[] middlePoint(
-            double x1, double y1, double z1, double x2, double y2, double z2) {
+        double x1, double y1, double z1, double x2, double y2, double z2) {
         return new double[]{(x1 + x2) / 2, (y1 + y2) / 2, (z1 + z2) / 2};
     }
 
@@ -86,7 +88,7 @@ public class Point {
 
     public static double closestPointsDistance(Point... points) {
         return distanceBetweenPoints(
-                points[closestPointsIndex(points)[0]], points[closestPointsIndex(points)[1]]);
+            points[closestPointsIndex(points)[0]], points[closestPointsIndex(points)[1]]);
     }
 
     public static HashMap<Point, Point> closestPoints(Point... points) {

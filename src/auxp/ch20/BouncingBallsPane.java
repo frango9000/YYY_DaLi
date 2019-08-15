@@ -21,6 +21,7 @@ import javafx.util.Duration;
 import lib.Misc.Randomizer;
 
 public class BouncingBallsPane extends Application {
+
     @Override // Override the start method in the Application class
     public void start(Stage primaryStage) {
         MultipleBallPane ballPane = new MultipleBallPane();
@@ -53,6 +54,7 @@ public class BouncingBallsPane extends Application {
     }
 
     private class MultipleBallPane extends Pane {
+
         private Timeline animation;
 
         public MultipleBallPane() {
@@ -101,11 +103,11 @@ public class BouncingBallsPane extends Application {
                 Ball ball = (Ball) node;
                 // Check boundaries
                 if (ball.getCenterX() < ball.getRadius()
-                        || ball.getCenterX() > getWidth() - ball.getRadius()) {
+                    || ball.getCenterX() > getWidth() - ball.getRadius()) {
                     ball.dx *= -1; // Change ball move direction
                 }
                 if (ball.getCenterY() < ball.getRadius()
-                        || ball.getCenterY() > getHeight() - ball.getRadius()) {
+                    || ball.getCenterY() > getHeight() - ball.getRadius()) {
                     ball.dy *= -1; // Change ball move direction
                 }
                 // Adjust ball position
@@ -123,13 +125,16 @@ public class BouncingBallsPane extends Application {
                         ballA.setRadius(ballA.getRadius() + ballB.getRadius());
                         this.getChildren().remove(ballB);
                         size--;
-                    } else j++;
+                    } else {
+                        j++;
+                    }
                 }
             }
         }
     }
 
     class Ball extends Circle {
+
         private double dx = 1, dy = 1;
         private Point2D center = new Point2D(1, 1);
 

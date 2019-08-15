@@ -1,5 +1,6 @@
 package auxp.ch14;
 
+import java.util.Arrays;
 import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
@@ -13,9 +14,8 @@ import lib.Geometry.Point;
 import lib.Misc.Randomizer;
 import lib.MyFX.ToolFX;
 
-import java.util.Arrays;
-
 public class MyHangman extends Pane {
+
     final int TRIES = 7;
     String[] words = {"inheritance", "recursion", "polymorphism"};
     String gameWord;
@@ -36,53 +36,57 @@ public class MyHangman extends Pane {
         resetGame();
 
         setOnKeyTyped(
-                event -> {
-                    if (!gameOver) {
-                        notification.setText("");
-                        char pressed = Character.toLowerCase(event.getCharacter().charAt(0));
-                        if (ArrayManip.contains(hiddenLetters, pressed) || pressedLetters[pressed - 'a']) {
-                            notification.setText("letter already pressed");
+            event -> {
+                if (!gameOver) {
+                    notification.setText("");
+                    char pressed = Character.toLowerCase(event.getCharacter().charAt(0));
+                    if (ArrayManip.contains(hiddenLetters, pressed) || pressedLetters[pressed
+                        - 'a']) {
+                        notification.setText("letter already pressed");
 
-                        } else if (ArrayManip.contains(gameWord.toCharArray(), pressed)) {
-                            int[] positions = ArrayManip.linearSearchAll(gameWord.toCharArray(), pressed);
-                            for (int i = 0; i < positions.length; i++) {
-                                hiddenLetters[positions[i]] = pressed;
-                                pressedLetters[pressed - 'a'] = true;
-                                word.setText(String.valueOf(hiddenLetters));
-                            }
-                        } else {
+                    } else if (ArrayManip.contains(gameWord.toCharArray(), pressed)) {
+                        int[] positions = ArrayManip
+                            .linearSearchAll(gameWord.toCharArray(), pressed);
+                        for (int i = 0; i < positions.length; i++) {
+                            hiddenLetters[positions[i]] = pressed;
                             pressedLetters[pressed - 'a'] = true;
-                            switch (++trie) {
-                                case 1:
-                                    head.setVisible(true);
-                                    break;
-                                case 2:
-                                    body.setVisible(true);
-                                    break;
-                                case 3:
-                                    lArm.setVisible(true);
-                                    break;
-                                case 4:
-                                    rArm.setVisible(true);
-                                    break;
-                                case 5:
-                                    lLeg.setVisible(true);
-                                    break;
-                                case 6:
-                                    rLeg.setVisible(true);
-                                    break;
-                                case TRIES:
-                                    notification.setText("Game Over");
-                                    gameOver = true;
-                                    break;
-                            }
+                            word.setText(String.valueOf(hiddenLetters));
+                        }
+                    } else {
+                        pressedLetters[pressed - 'a'] = true;
+                        switch (++trie) {
+                            case 1:
+                                head.setVisible(true);
+                                break;
+                            case 2:
+                                body.setVisible(true);
+                                break;
+                            case 3:
+                                lArm.setVisible(true);
+                                break;
+                            case 4:
+                                rArm.setVisible(true);
+                                break;
+                            case 5:
+                                lLeg.setVisible(true);
+                                break;
+                            case 6:
+                                rLeg.setVisible(true);
+                                break;
+                            case TRIES:
+                                notification.setText("Game Over");
+                                gameOver = true;
+                                break;
                         }
                     }
-                });
+                }
+            });
         setOnKeyPressed(
-                event -> {
-                    if (event.getCode() == KeyCode.ENTER) resetGame();
-                });
+            event -> {
+                if (event.getCode() == KeyCode.ENTER) {
+                    resetGame();
+                }
+            });
     }
 
     public void paint() {
@@ -115,8 +119,9 @@ public class MyHangman extends Pane {
         notification.setY(word.getY() + 20);
         ToolFX.setFillStroke(Color.WHITE, Color.BLACK, arc, head);
         getChildren()
-                .addAll(
-                        frame1, frame2, frame3, arc, body, lArm, lLeg, rArm, rLeg, head, word, notification);
+            .addAll(
+                frame1, frame2, frame3, arc, body, lArm, lLeg, rArm, rLeg, head, word,
+                notification);
     }
 
     public void resetGame() {

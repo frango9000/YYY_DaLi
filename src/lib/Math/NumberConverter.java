@@ -8,8 +8,9 @@ public class NumberConverter {
 
     public static int binToDec(String bin) throws NumberFormatException {
         for (int i = 0; i < bin.length(); i++) {
-            if (bin.charAt(i) != '0' && bin.charAt(i) != '1')
+            if (bin.charAt(i) != '0' && bin.charAt(i) != '1') {
                 throw new NumberFormatException("String is not a binary string");
+            }
         }
         return Integer.parseInt(bin, 2);
     }
@@ -36,7 +37,9 @@ public class NumberConverter {
 
     public static String decToHex(int dec, int bits) {
         StringBuilder hex = new StringBuilder(decToHex(dec));
-        while (hex.length() < bits) hex.insert(0, 0);
+        while (hex.length() < bits) {
+            hex.insert(0, 0);
+        }
         return hex.toString();
     }
 
@@ -46,8 +49,9 @@ public class NumberConverter {
 
     public static int octToDec(String oct) throws NumberFormatException {
         for (int i = 0; i < oct.length(); i++) {
-            if (oct.charAt(i) < '0' || oct.charAt(i) > '7')
+            if (oct.charAt(i) < '0' || oct.charAt(i) > '7') {
                 throw new NumberFormatException("String is not an octal string");
+            }
         }
         return Integer.parseInt(oct, 8);
     }
@@ -68,8 +72,9 @@ public class NumberConverter {
         hex = hex.toLowerCase();
         for (int i = 0; i < hex.length(); i++) {
             if (!(hex.charAt(i) >= '0' || hex.charAt(i) <= '9')
-                    || !(hex.charAt(i) >= 'a' || hex.charAt(i) <= 'f'))
+                || !(hex.charAt(i) >= 'a' || hex.charAt(i) <= 'f')) {
                 throw new NumberFormatException("String is not a hex string");
+            }
         }
         return Integer.parseInt(hex, 16);
     }

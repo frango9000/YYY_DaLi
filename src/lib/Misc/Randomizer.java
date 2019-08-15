@@ -1,10 +1,9 @@
 package lib.Misc;
 
-import lib.Data.ArrayManip;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import lib.Data.ArrayManip;
 
 public abstract class Randomizer {
 
@@ -42,7 +41,7 @@ public abstract class Randomizer {
     }
 
     public static int[] randomIntsArray(
-            int elements, int lowBound, int highBound) { // high bound is exclusive
+        int elements, int lowBound, int highBound) { // high bound is exclusive
         int range = highBound - lowBound;
         int[] randoms = new int[elements];
         for (int i = 0; i < randoms.length; i++) {
@@ -88,7 +87,9 @@ public abstract class Randomizer {
                 }
             }
             return randoms;
-        } else return null;
+        } else {
+            return null;
+        }
     }
 
     public static int[] randomUniqueIntsArray(int elements, int highBound) {
@@ -117,7 +118,8 @@ public abstract class Randomizer {
         return randomDoublesArray(elements, elements);
     }
 
-    public static double[][] randomDoublesTable(int rows, int columns, int lowBound, int highBound) {
+    public static double[][] randomDoublesTable(int rows, int columns, int lowBound,
+        int highBound) {
         double[][] table = new double[rows][columns];
         for (int i = 0; i < rows; i++) {
             table[i] = randomDoublesArray(columns, lowBound, highBound);
@@ -150,7 +152,7 @@ public abstract class Randomizer {
     }
 
     public static ArrayList<Double> randomDoubleList(
-            int elements, double lowBound, double highBound) {
+        int elements, double lowBound, double highBound) {
         ArrayList<Double> list = new ArrayList<>(elements);
         for (int i = 0; i < elements; i++) {
             list.add(randomDouble(lowBound, highBound));

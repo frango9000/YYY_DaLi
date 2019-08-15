@@ -1,10 +1,10 @@
+import static lib.Misc.IO.println;
+
 import lib.Geometry.Circle;
 import lib.Geometry.Rectangle;
 import lib.Math.Algebra;
 import lib.Math.Scales;
 import lib.Misc.Calendar;
-
-import static lib.Misc.IO.println;
 
 public abstract class DaLi_01 {
 
@@ -70,7 +70,8 @@ public abstract class DaLi_01 {
     }
 
     public static void ex10() { // Average speed in miles
-        println("Average Speed: " + (Scales.kilometerToMile(15f) / (50.5f / 60f)) + "miles per hour.");
+        println(
+            "Average Speed: " + (Scales.kilometerToMile(15f) / (50.5f / 60f)) + "miles per hour.");
     }
 
     public static void ex11() { // Population projection
@@ -92,10 +93,10 @@ public abstract class DaLi_01 {
 
     public static void ex12() { // Average speed in kilometers
         println(
-                "Average Speed: "
-                        + (Scales.mileToKilometer(24f)
-                        / (1f + Calendar.minutesToHours(40) + Calendar.secondsToHours(35)))
-                        + " km per hour.");
+            "Average Speed: "
+                + (Scales.mileToKilometer(24f)
+                / (1f + Calendar.minutesToHours(40) + Calendar.secondsToHours(35)))
+                + " km per hour.");
     }
 
     public static void ex13() { // Algebra: solve 2 * 2 linear equations

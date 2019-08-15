@@ -3,6 +3,7 @@ package lib.Geometry.Tridimensional;
 import lib.Geometry.Triangle;
 
 public class Prism extends Triangle {
+
     public double length;
 
     public Prism(float sides, float length) {

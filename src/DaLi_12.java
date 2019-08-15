@@ -1,11 +1,11 @@
+import static lib.Misc.IO.print;
+import static lib.Misc.IO.println;
+import static lib.Misc.IO.scanChar;
+import static lib.Misc.IO.scanInt;
+import static lib.Misc.IO.scanNext;
+
 import auxp.ch07.Hangman;
 import auxp.ch12.WebCrawler;
-import lib.Math.NumberConverter;
-import lib.Misc.FileIO;
-import lib.Misc.FileIn;
-import lib.Misc.FileOut;
-import lib.Misc.Randomizer;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,8 +15,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import static lib.Misc.IO.*;
+import lib.Math.NumberConverter;
+import lib.Misc.FileIO;
+import lib.Misc.FileIn;
+import lib.Misc.FileOut;
+import lib.Misc.Randomizer;
 
 public abstract class DaLi_12 {
 
@@ -268,7 +271,9 @@ public abstract class DaLi_12 {
 
             while (scan.hasNextLine()) {
                 String n = scan.nextLine();
-                if (n.startsWith(id + "")) println(n);
+                if (n.startsWith(id + "")) {
+                    println(n);
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -386,8 +391,9 @@ public abstract class DaLi_12 {
     public static void ex26() { // Create a directory
         String newDir = scanNext("Enter a new dir name: ");
         File f1 = new File("src/auxp/ch12/" + newDir + "/");
-        if (f1.exists()) println("Directory already exists");
-        else {
+        if (f1.exists()) {
+            println("Directory already exists");
+        } else {
             f1.mkdir();
         }
     }
@@ -446,8 +452,9 @@ public abstract class DaLi_12 {
             String file = FileIn.fileToString(in);
 
             for (int i = 0; i < file.length(); i++) {
-                if (Character.isLetter(file.charAt(i)))
+                if (Character.isLetter(file.charAt(i))) {
                     counts[Character.toLowerCase(file.charAt(i)) - 'a']++;
+                }
             }
             for (int letter = 0; letter < counts.length; letter++) {
                 println("%c : %d", letter + 'a', counts[letter]);
@@ -462,10 +469,10 @@ public abstract class DaLi_12 {
         for (int i = 0; i < urls.length; i++) {
             try {
                 urls[i] =
-                        new URL(
-                                "http://liveexample.pearsoncmg.com/data/babynamesranking20"
-                                        + String.format("%02d", i + 1)
-                                        + ".txt");
+                    new URL(
+                        "http://liveexample.pearsoncmg.com/data/babynamesranking20"
+                            + String.format("%02d", i + 1)
+                            + ".txt");
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -503,10 +510,10 @@ public abstract class DaLi_12 {
         for (int i = 0; i < urls.length; i++) {
             try {
                 urls[i] =
-                        new URL(
-                                "http://liveexample.pearsoncmg.com/data/babynamesranking20"
-                                        + String.format("%02d", i + 1)
-                                        + ".txt");
+                    new URL(
+                        "http://liveexample.pearsoncmg.com/data/babynamesranking20"
+                            + String.format("%02d", i + 1)
+                            + ".txt");
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }

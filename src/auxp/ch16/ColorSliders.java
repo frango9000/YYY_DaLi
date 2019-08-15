@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 public class ColorSliders extends VBox {
+
     protected Slider redSlide;
     protected Slider greenSlide;
     protected Slider blueSlide;
@@ -45,10 +46,10 @@ public class ColorSliders extends VBox {
 
     private void setColor() {
         text.setFill(
-                new Color(
-                        redSlide.getValue(),
-                        greenSlide.getValue(),
-                        blueSlide.getValue(),
-                        opacSlide.getValue()));
+            new Color(
+                redSlide.getValue(),
+                greenSlide.getValue(),
+                blueSlide.getValue(),
+                opacSlide.getValue()));
     }
 }

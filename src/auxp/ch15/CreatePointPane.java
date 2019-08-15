@@ -38,7 +38,8 @@ public class CreatePointPane extends Pane {
         this.tries = trie - 1;
         Text text = new Text(300, 50, "Click to start");
         Text time = new Text(500, 50, "00:00:00");
-        Circle c = new Circle(Randomizer.randomInt(600), Randomizer.randomInt(600), radius, Color.GRAY);
+        Circle c = new Circle(Randomizer.randomInt(600), Randomizer.randomInt(600), radius,
+            Color.GRAY);
         c.setVisible(false);
         MediaStopWatch sw = new MediaStopWatch();
 
@@ -46,30 +47,30 @@ public class CreatePointPane extends Pane {
         p.setMinSize(600, 600);
 
         text.setOnMouseClicked(
-                event -> {
-                    if (!c.isVisible()) {
-                        sw.start();
-                        c.setVisible(true);
-                        text.setVisible(false);
-                    }
-                });
+            event -> {
+                if (!c.isVisible()) {
+                    sw.start();
+                    c.setVisible(true);
+                    text.setVisible(false);
+                }
+            });
 
         c.setOnMouseClicked(
-                event -> {
-                    c.setCenterY(Randomizer.randomInt(600));
-                    c.setCenterX(Randomizer.randomInt(600));
+            event -> {
+                c.setCenterY(Randomizer.randomInt(600));
+                c.setCenterX(Randomizer.randomInt(600));
 
-                    if (tries > 0) {
-                        tries--;
-                    } else {
-                        sw.stop();
-                        c.setVisible(false);
-                        text.setVisible(true);
-                        time.setText(sw.getElapsedFormat());
-                        tries = trie - 1;
-                    }
-                    System.out.println(tries);
-                });
+                if (tries > 0) {
+                    tries--;
+                } else {
+                    sw.stop();
+                    c.setVisible(false);
+                    text.setVisible(true);
+                    time.setText(sw.getElapsedFormat());
+                    tries = trie - 1;
+                }
+                System.out.println(tries);
+            });
         getChildren().addAll(text, time, c);
     }
 
@@ -111,11 +112,16 @@ public class CreatePointPane extends Pane {
             if (circles.contains(event.getX(), event.getY())) {
                 ObservableList<Node> list = circles.getChildren();
                 for (int i = 0; i < list.size(); ) {
-                    if (list.get(i).contains(event.getX(), event.getY())) list.remove(i);
-                    else i++;
+                    if (list.get(i).contains(event.getX(), event.getY())) {
+                        list.remove(i);
+                    } else {
+                        i++;
+                    }
                 }
             }
         }
-        if (boundingRectangle) setBoundingRectangle();
+        if (boundingRectangle) {
+            setBoundingRectangle();
+        }
     }
 }

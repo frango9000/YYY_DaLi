@@ -3,6 +3,7 @@ package lib.Geometry;
 import lib.Math.Algebra;
 
 public class Line {
+
     public Point pointA;
     public Point pointB;
 
@@ -73,7 +74,7 @@ public class Line {
 
     public double squaredLength() {
         return (pointB.x - pointA.x) * (pointB.x - pointA.x)
-                + (pointB.y - pointA.y) * (pointB.y - pointA.y);
+            + (pointB.y - pointA.y) * (pointB.y - pointA.y);
     }
 
     public double[] intersect(Line line) {
@@ -86,7 +87,7 @@ public class Line {
 
     public double crossProduct(Point point) {
         return ((pointB.x - pointA.x) * (point.y - pointA.y)
-                - (point.x - pointA.x) * (pointB.y - pointA.y));
+            - (point.x - pointA.x) * (pointB.y - pointA.y));
     }
 
     public double crossProduct(double x, double y) {
@@ -103,16 +104,16 @@ public class Line {
 
     public double dotProduct(Point point) {
         return ((pointB.x - pointA.x) * (point.x - pointA.x)
-                - (point.y - pointA.y) * (pointB.y - pointA.y));
+            - (point.y - pointA.y) * (pointB.y - pointA.y));
     }
 
     public boolean isOnSegment(Point point) {
         return !((crossProduct(point) > 0)
-                || (crossProduct(point) < 0)
-                || (point.x < pointA.x)
-                || (point.y < pointA.y)
-                || (point.x > pointB.x)
-                || (point.y > pointB.y));
+            || (crossProduct(point) < 0)
+            || (point.x < pointA.x)
+            || (point.y < pointA.y)
+            || (point.x > pointB.x)
+            || (point.y > pointB.y));
     }
 
     public Point middlePoint() {
@@ -127,8 +128,12 @@ public class Line {
         if (pointA.x >= pointB.x) {
             if (pointA.y <= pointB.y) {
                 return -(Math.toDegrees(Math.atan(slope)));
-            } else return 360 - (Math.toDegrees(Math.atan(slope)));
-        } else return 180 - (Math.toDegrees(Math.atan(slope)));
+            } else {
+                return 360 - (Math.toDegrees(Math.atan(slope)));
+            }
+        } else {
+            return 180 - (Math.toDegrees(Math.atan(slope)));
+        }
     }
 
     public double getAngle(Line line) {

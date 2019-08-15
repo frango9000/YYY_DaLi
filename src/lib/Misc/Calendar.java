@@ -1,6 +1,7 @@
 package lib.Misc;
 
 public class Calendar {
+
     long millis;
 
     long day;
@@ -89,7 +90,9 @@ public class Calendar {
 
     public static String dayName(int dayNumber) {
         String dayName = "";
-        if (dayNumber > 6) dayNumber = dayNumber % 7;
+        if (dayNumber > 6) {
+            dayNumber = dayNumber % 7;
+        }
         switch (dayNumber) {
             case 0:
                 dayName = "Sunday";
@@ -138,8 +141,11 @@ public class Calendar {
     }
 
     public static int daysInYear(int year) {
-        if (isLeapYear(year)) return 366;
-        else return 365;
+        if (isLeapYear(year)) {
+            return 366;
+        } else {
+            return 365;
+        }
     }
 
     public static boolean isLeapYear(long year) {
@@ -176,7 +182,9 @@ public class Calendar {
         if (month == 1 || month == 2) {
             m = month + 12;
             year -= 1;
-        } else m = month;
+        } else {
+            m = month;
+        }
         int j = year / 100;
         int k = year % 100;
         int q = day;
@@ -191,15 +199,21 @@ public class Calendar {
     }
 
     public static String consoleCalendar(int year, int month) {
-        StringBuilder calendar = new StringBuilder(String.format("%20s %d\n", monthName(month), year));
+        StringBuilder calendar = new StringBuilder(
+            String.format("%20s %d\n", monthName(month), year));
         calendar.append("-------------------------------------\n");
 
-        for (int i = 0; i < 7; i++) calendar.append(String.format("%5s", dayName(i).substring(0, 3)));
+        for (int i = 0; i < 7; i++) {
+            calendar.append(String.format("%5s", dayName(i).substring(0, 3)));
+        }
         calendar.append("\n");
 
         for (int index = 0, day = 1; day <= daysInMonth(month, year); index++) {
-            if (index == dayOfWeek(year, month, day)) calendar.append(String.format("%5d", day++));
-            else calendar.append(String.format("%5s", " "));
+            if (index == dayOfWeek(year, month, day)) {
+                calendar.append(String.format("%5d", day++));
+            } else {
+                calendar.append(String.format("%5s", " "));
+            }
 
             if (index > 5) {
                 calendar.append("\n");
@@ -213,7 +227,7 @@ public class Calendar {
         long days = millis / 86400000;
         int yearsPassedApprox = (int) days / 365;
         int daysPassedThisYear =
-                (int) (days - (yearsPassedApprox * 365 + leapYearsCount(yearsPassedApprox)));
+            (int) (days - (yearsPassedApprox * 365 + leapYearsCount(yearsPassedApprox)));
         year = yearsPassedApprox + 1970;
         setMonthAndDay(daysPassedThisYear);
     }

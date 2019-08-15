@@ -1,5 +1,17 @@
+import static lib.Misc.IO.print;
+import static lib.Misc.IO.println;
+import static lib.Misc.IO.scanByte;
+import static lib.Misc.IO.scanInt;
+import static lib.Misc.IO.scanNext;
+import static lib.Misc.IO.scanNextLine;
+import static lib.Misc.Randomizer.randomDoublesArray;
+import static lib.Misc.Randomizer.randomInt;
+import static lib.Misc.Randomizer.randomIntsArray;
+import static lib.Misc.Randomizer.randomUniqueIntsArray;
+
 import auxp.ch07.DeckOfCards;
 import auxp.ch07.Hangman;
+import java.util.Arrays;
 import lib.Data.ArrayManip;
 import lib.Data.StringManip;
 import lib.Math.Algebra;
@@ -8,12 +20,8 @@ import lib.Math.Statistics;
 import lib.Misc.Calendar;
 import lib.Misc.IO;
 
-import java.util.Arrays;
-
-import static lib.Misc.IO.*;
-import static lib.Misc.Randomizer.*;
-
 public abstract class DaLi_07 {
+
     public static void main(String[] args) {
 
         ex37();
@@ -28,14 +36,22 @@ public abstract class DaLi_07 {
         int best = 0;
         for (int i = 0; i < students.length; i++) {
             students[i] = scanByte("Enter grade for student " + (i + 1));
-            if (students[i] > best) best = students[i];
+            if (students[i] > best) {
+                best = students[i];
+            }
         }
         for (int i = 1; i <= students.length; i++) {
-            if (students[i] >= best - 5) IO.print("Student %d grade A", i);
-            else if (students[i] >= best - 10) IO.print("Student %d grade B", i);
-            else if (students[i] >= best - 15) IO.print("Student %d grade C", i);
-            else if (students[i] >= best - 20) IO.print("Student %d grade D", i);
-            else IO.print("Student %d grade F", i);
+            if (students[i] >= best - 5) {
+                IO.print("Student %d grade A", i);
+            } else if (students[i] >= best - 10) {
+                IO.print("Student %d grade B", i);
+            } else if (students[i] >= best - 15) {
+                IO.print("Student %d grade C", i);
+            } else if (students[i] >= best - 20) {
+                IO.print("Student %d grade D", i);
+            } else {
+                IO.print("Student %d grade F", i);
+            }
             println("");
         }
     }
@@ -46,9 +62,13 @@ public abstract class DaLi_07 {
             eleven[i] = scanInt("Enter number " + (i + 1) + " ");
         }
         for (int i = 0; i < eleven.length - 1; i++) {
-            if (eleven[i] < eleven[10]) println("lesser");
-            else if (eleven[i] > eleven[10]) println("greater");
-            else println("equal");
+            if (eleven[i] < eleven[10]) {
+                println("lesser");
+            } else if (eleven[i] > eleven[10]) {
+                println("greater");
+            } else {
+                println("equal");
+            }
         }
     }
 
@@ -57,11 +77,15 @@ public abstract class DaLi_07 {
         int num = -1;
         for (int i = 0; num != 0; i++) {
             num = scanInt("Enter numbers; 0 to break;");
-            if (num > 0 && num < 101) numbers[num]++;
+            if (num > 0 && num < 101) {
+                numbers[num]++;
+            }
         }
         for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] != 0)
-                IO.print(" number %d appears %d time%s\n", i, numbers[i], numbers[i] > 1 ? "s" : "");
+            if (numbers[i] != 0) {
+                IO.print(" number %d appears %d time%s\n", i, numbers[i],
+                    numbers[i] > 1 ? "s" : "");
+            }
         }
     }
 
@@ -94,8 +118,11 @@ public abstract class DaLi_07 {
         int[] nums = randomIntsArray(20, 1, 9);
         int odd = 0, even = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] % 2 == 0) even++;
-            else odd++;
+            if (nums[i] % 2 == 0) {
+                even++;
+            } else {
+                odd++;
+            }
         }
         IO.print("%d odds%n%d evens", odd, even);
     }
@@ -103,9 +130,18 @@ public abstract class DaLi_07 {
     public static void ex06() { // The Sieve of Eratosthenes
         boolean[] primes = new boolean[50];
         Arrays.fill(primes, true);
-        for (int i = 2; i < primes.length; i++)
-            for (int j = i + 1; j < primes.length; j++) if (j % i == 0) primes[j] = false;
-        for (int i = 0; i < primes.length; i++) if (primes[i]) IO.print("%d is prime\n", i);
+        for (int i = 2; i < primes.length; i++) {
+            for (int j = i + 1; j < primes.length; j++) {
+                if (j % i == 0) {
+                    primes[j] = false;
+                }
+            }
+        }
+        for (int i = 0; i < primes.length; i++) {
+            if (primes[i]) {
+                IO.print("%d is prime\n", i);
+            }
+        }
     }
 
     public static void ex07() { // Count single digits
@@ -182,14 +218,16 @@ public abstract class DaLi_07 {
             endTime = System.nanoTime();
             totalTime = endTime - startTime;
             IO.print(
-                    "Linear search of number %d took %dns found in index %d%n", search, totalTime, index);
+                "Linear search of number %d took %dns found in index %d%n", search, totalTime,
+                index);
 
             startTime = System.nanoTime();
             index = ArrayManip.binarySearch(array, search);
             endTime = System.nanoTime();
             totalTime = endTime - startTime;
             IO.print(
-                    "Binary search of number %d took %dns found in index %d%n%n", search, totalTime, index);
+                "Binary search of number %d took %dns found in index %d%n%n", search, totalTime,
+                index);
         }
     }
 
@@ -244,8 +282,11 @@ public abstract class DaLi_07 {
         String string = scanNext("Enter string ");
         int countHigh = 0, countLow = 0;
         for (int i = 0; i < string.length(); i++) {
-            if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z') countHigh++;
-            else if (string.charAt(i) >= 'a' && string.charAt(i) <= 'z') countLow++;
+            if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z') {
+                countHigh++;
+            } else if (string.charAt(i) >= 'a' && string.charAt(i) <= 'z') {
+                countLow++;
+            }
         }
         print("%d Uppercases,%n%d Lowercases.", countHigh, countLow);
     }
@@ -255,7 +296,9 @@ public abstract class DaLi_07 {
 
         for (int student = 1; student <= 100; student++) {
             for (int locker = 0; locker < lockers.length; locker++) {
-                if ((locker + 1) % student == 0) lockers[locker] = !(lockers[locker]);
+                if ((locker + 1) % student == 0) {
+                    lockers[locker] = !(lockers[locker]);
+                }
             }
         }
         for (int locker = 0; locker < lockers.length; locker++) {
@@ -290,7 +333,9 @@ public abstract class DaLi_07 {
         ArrayManip.printArray(rands);
         for (int i = 0; i < rands.length; i++) {
             for (int j = 0; j < rands.length; j++) {
-                if (i != j) println(rands[i] + " " + rands[j]);
+                if (i != j) {
+                    println(rands[i] + " " + rands[j]);
+                }
             }
         }
     }
@@ -299,7 +344,9 @@ public abstract class DaLi_07 {
         for (int i = 1; i <= 6; i++) {
             for (int j = 1; j <= 6; j++) {
                 for (int k = 1; k <= 6; k++) {
-                    if (i + j + k == 9) print("Dice 1: %d | Dice 2: %d | Dice 3: %d = 9%n", i, j, k);
+                    if (i + j + k == 9) {
+                        print("Dice 1: %d | Dice 2: %d | Dice 3: %d = 9%n", i, j, k);
+                    }
                 }
             }
         }
@@ -311,9 +358,11 @@ public abstract class DaLi_07 {
     }
 
     public static boolean ex30isConsecutiveFour(int[] array) {
-        for (int i = 0; i < array.length - 3; i++)
-            if (array[i] == array[i + 1] && array[i] == array[i + 2] && array[i] == array[i + 3])
+        for (int i = 0; i < array.length - 3; i++) {
+            if (array[i] == array[i + 1] && array[i] == array[i + 2] && array[i] == array[i + 3]) {
                 return true;
+            }
+        }
         return false;
     }
 
@@ -387,12 +436,17 @@ public abstract class DaLi_07 {
         int balls = 10;
         for (int i = 0; i < balls; i++) {
             int slot = 0;
-            String randomPath = Integer.toBinaryString(randomInt(-1 + (int) Math.pow(2, slots.length)));
-            while (randomPath.length() != slots.length) randomPath = "0" + randomPath;
+            String randomPath = Integer
+                .toBinaryString(randomInt(-1 + (int) Math.pow(2, slots.length)));
+            while (randomPath.length() != slots.length) {
+                randomPath = "0" + randomPath;
+            }
             println(randomPath);
 
             for (int j = 0; j < randomPath.length(); j++) {
-                if (randomPath.charAt(j) == '1') slot++;
+                if (randomPath.charAt(j) == '1') {
+                    slot++;
+                }
             }
             slots[slot]++;
         }

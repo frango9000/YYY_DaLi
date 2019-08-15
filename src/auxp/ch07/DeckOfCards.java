@@ -1,12 +1,15 @@
 package auxp.ch07;
 
 public class DeckOfCards {
+
     public static void main() {
         int[] deck = new int[52];
         int[] picks = new int[4];
 
         // Initialize the cards
-        for (int i = 0; i < deck.length; i++) deck[i] = i;
+        for (int i = 0; i < deck.length; i++) {
+            deck[i] = i;
+        }
 
         // Shuffle the cards
         shuffleCards(deck);
@@ -59,7 +62,9 @@ public class DeckOfCards {
     public static boolean isOneOFEachSuit(int[] picks) {
         for (int i = 0; i < picks.length; i++) {
             for (int j = 0; j < picks.length; j++) {
-                if (i != j && (picks[i] / 13 == picks[j] / 13)) return false;
+                if (i != j && (picks[i] / 13 == picks[j] / 13)) {
+                    return false;
+                }
             }
         }
         return true;
@@ -70,7 +75,8 @@ public class DeckOfCards {
      */
     public static void print(int[] picks) {
         String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
-        String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+        String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen",
+            "King"};
 
         for (int i = 0; i < picks.length; i++) {
             System.out.println(ranks[picks[i] % 13] + " of " + suits[picks[i] / 13]);

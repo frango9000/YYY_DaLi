@@ -6,6 +6,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
 public class Rectanguloid extends Pane {
+
     public void paint() {
         double angle = 45;
         double depth = 150;
@@ -22,15 +23,18 @@ public class Rectanguloid extends Pane {
         r2.setStroke(Color.BLACK);
 
         Line lineTL =
-                new Line(
-                        0, depth * Math.cos(Math.toRadians(angle)), depth * Math.sin(Math.toRadians(angle)), 0);
+            new Line(
+                0, depth * Math.cos(Math.toRadians(angle)), depth * Math.sin(Math.toRadians(angle)),
+                0);
         Line lineTR = new Line(width, depth * Math.cos(Math.toRadians(angle)), getWidth(), 0);
 
         Line lineBL = new Line(0, getHeight(), depth * Math.sin(Math.toRadians(angle)), height);
         Line lineBR = new Line(width, getHeight(), getWidth(), height);
 
         getChildren().clear();
-        if (width > 0 && height > 0) getChildren().addAll(r1, r2, lineTL, lineTR, lineBL, lineBR);
+        if (width > 0 && height > 0) {
+            getChildren().addAll(r1, r2, lineTL, lineTR, lineBL, lineBR);
+        }
     }
 
     @Override

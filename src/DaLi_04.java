@@ -1,15 +1,26 @@
-import lib.Geometry.*;
+import static lib.Misc.IO.print;
+import static lib.Misc.IO.println;
+import static lib.Misc.IO.scanChar;
+import static lib.Misc.IO.scanFloat;
+import static lib.Misc.IO.scanInt;
+import static lib.Misc.IO.scanNext;
+import static lib.Misc.IO.scanNextLine;
+import static lib.Misc.Randomizer.randomInt;
+
+import java.util.Random;
+import java.util.Scanner;
+import lib.Geometry.Circle;
+import lib.Geometry.Hexagon;
+import lib.Geometry.Pentagon;
+import lib.Geometry.Point;
+import lib.Geometry.Polygon;
+import lib.Geometry.Triangle;
 import lib.Geometry.Tridimensional.Sphere;
 import lib.Misc.Asserts;
 import lib.Misc.IO;
 
-import java.util.Random;
-import java.util.Scanner;
-
-import static lib.Misc.IO.*;
-import static lib.Misc.Randomizer.randomInt;
-
 public abstract class DaLi_04 {
+
     public static void main(String[] args) {
 
         ex25();
@@ -50,11 +61,17 @@ public abstract class DaLi_04 {
 
         int prize;
         int matches = ep05matches(lottery, guess);
-        if (lottery == guess) prize = 12000;
-        else if (matches == 3) prize = 7000;
-        else if (matches == 2) prize = 5000;
-        else if (matches == 1) prize = 2000;
-        else prize = 0;
+        if (lottery == guess) {
+            prize = 12000;
+        } else if (matches == 3) {
+            prize = 7000;
+        } else if (matches == 2) {
+            prize = 5000;
+        } else if (matches == 1) {
+            prize = 2000;
+        } else {
+            prize = 0;
+        }
 
         println("Winning lottery number is " + lottery);
         println("Your prize is " + prize);
@@ -66,7 +83,9 @@ public abstract class DaLi_04 {
         int count = 0;
         for (int i = 0; i < arrA.length; i++) {
             for (int j = 0; j < arrB.length; j++) {
-                if (arrA[i] == arrB[j]) count++;
+                if (arrA[i] == arrB[j]) {
+                    count++;
+                }
             }
         }
         return count;
@@ -109,8 +128,8 @@ public abstract class DaLi_04 {
         Sphere sphere = new Sphere(6371.01);
 
         IO.print(
-                "Distance between points is %4.10f",
-                sphere.distanceBetweenPoints(new Point(x1, y1), new Point(x2, y2)));
+            "Distance between points is %4.10f",
+            sphere.distanceBetweenPoints(new Point(x1, y1), new Point(x2, y2)));
     }
 
     public static void ex03() { // Geography: estimate areas
@@ -206,7 +225,7 @@ public abstract class DaLi_04 {
     public static void ex13() { // (Vowel or consonant?
         print("Enter a character: ");
         char character = scanChar();
-        if (Character.isAlphabetic(character))
+        if (Character.isAlphabetic(character)) {
             switch (Character.toUpperCase(character)) {
                 case 'A':
                 case 'E':
@@ -219,7 +238,9 @@ public abstract class DaLi_04 {
                     println("Consonant");
                     break;
             }
-        else println("Invalid Input.");
+        } else {
+            println("Invalid Input.");
+        }
     }
 
     public static void ex14() { // Convert letter grade to number)
@@ -246,7 +267,9 @@ public abstract class DaLi_04 {
                     println("Invalid Input.");
                     break;
             }
-        } else println("Invalid Input.");
+        } else {
+            println("Invalid Input.");
+        }
     }
 
     public static void ex15() { // Phone key pads)
@@ -260,16 +283,28 @@ public abstract class DaLi_04 {
     public static int ex15(char letter) {
         if (Character.isLetter(letter)) {
             letter = Character.toUpperCase(letter);
-            if (letter >= 'W') return 9;
-            else if (letter >= 'T') return 8;
-            else if (letter >= 'P') return 7;
-            else if (letter >= 'M') return 6;
-            else if (letter >= 'J') return 5;
-            else if (letter >= 'G') return 4;
-            else if (letter >= 'D') return 3;
-            else if (letter >= 'A') return 2;
-            else return -1;
-        } else return -1;
+            if (letter >= 'W') {
+                return 9;
+            } else if (letter >= 'T') {
+                return 8;
+            } else if (letter >= 'P') {
+                return 7;
+            } else if (letter >= 'M') {
+                return 6;
+            } else if (letter >= 'J') {
+                return 5;
+            } else if (letter >= 'G') {
+                return 4;
+            } else if (letter >= 'D') {
+                return 3;
+            } else if (letter >= 'A') {
+                return 2;
+            } else {
+                return -1;
+            }
+        } else {
+            return -1;
+        }
     }
 
     public static void ex16() { // Random character
@@ -288,17 +323,21 @@ public abstract class DaLi_04 {
         print(month + " " + year + " has ");
 
         if (month.equals("Jan")
-                || month.equals("Mar")
-                || month.equals("May")
-                || month.equals("Jul")
-                || month.equals("Aug")
-                || month.equals("Oct")
-                || month.equals("Dec")) println(31 + " days");
-        else if (month.equals("Apr")
-                || month.equals("Jun")
-                || month.equals("Sep")
-                || month.equals("Nov")) println(30 + " days");
-        else println(((leapYear) ? 29 : 28) + " days");
+            || month.equals("Mar")
+            || month.equals("May")
+            || month.equals("Jul")
+            || month.equals("Aug")
+            || month.equals("Oct")
+            || month.equals("Dec")) {
+            println(31 + " days");
+        } else if (month.equals("Apr")
+            || month.equals("Jun")
+            || month.equals("Sep")
+            || month.equals("Nov")) {
+            println(30 + " days");
+        } else {
+            println(((leapYear) ? 29 : 28) + " days");
+        }
     }
 
     public static void ex18() { // Student major and status
@@ -366,7 +405,9 @@ public abstract class DaLi_04 {
             println("1 is substring of 2");
         } else if (code1.contains(code2)) {
             println("2 is substring of 1");
-        } else println("no substrings");
+        } else {
+            println("no substrings");
+        }
     }
 
     public static void ex23() { // Financial application: payroll
@@ -387,22 +428,22 @@ public abstract class DaLi_04 {
         // Display payroll statement
         double grossPay, federal, state, totalDeduction;
         System.out.println(
-                "Employee Name: "
-                        + name
-                        + "\nHours Worked: "
-                        + hoursWorked
-                        + "\nPay Rate: $"
-                        + hourlyPayRate
-                        + "\nGross Pay: $"
-                        + (grossPay = hoursWorked * hourlyPayRate)
-                        + "\nDeductions:\n   Federal Witholding (20.0%): $"
-                        + (federal = grossPay * federalTaxRate)
-                        + "\n   State Witholding (9.0%): $"
-                        + (state = grossPay * stateTaxRate)
-                        + "\n   Total Deduction: $"
-                        + (totalDeduction = federal + state)
-                        + "\nNet Pay: $"
-                        + (grossPay - totalDeduction));
+            "Employee Name: "
+                + name
+                + "\nHours Worked: "
+                + hoursWorked
+                + "\nPay Rate: $"
+                + hourlyPayRate
+                + "\nGross Pay: $"
+                + (grossPay = hoursWorked * hourlyPayRate)
+                + "\nDeductions:\n   Federal Witholding (20.0%): $"
+                + (federal = grossPay * federalTaxRate)
+                + "\n   State Witholding (9.0%): $"
+                + (state = grossPay * stateTaxRate)
+                + "\n   Total Deduction: $"
+                + (totalDeduction = federal + state)
+                + "\nNet Pay: $"
+                + (grossPay - totalDeduction));
     }
 
     public static void ex24() { // Enter three countries
@@ -418,24 +459,24 @@ public abstract class DaLi_04 {
         if (country1.compareTo(country2) < 0 && country1.compareTo(country3) < 0) {
             println(country1);
             println(
-                    ""
-                            + (country2.compareTo(country3) < 0
-                            ? country2 + country3
-                            : country3 + "\n" + country2));
+                ""
+                    + (country2.compareTo(country3) < 0
+                    ? country2 + country3
+                    : country3 + "\n" + country2));
         } else if (country2.compareTo(country1) < 0 && country2.compareTo(country3) < 0) {
             println(country2);
             println(
-                    ""
-                            + (country3.compareTo(country1) < 0
-                            ? country3 + country1
-                            : country1 + "\n" + country3));
+                ""
+                    + (country3.compareTo(country1) < 0
+                    ? country3 + country1
+                    : country1 + "\n" + country3));
         } else if (country3.compareTo(country2) < 0 && country3.compareTo(country1) < 0) {
             println(country3);
             println(
-                    ""
-                            + (country1.compareTo(country2) < 0
-                            ? country1 + country2
-                            : country2 + "\n" + country1));
+                ""
+                    + (country1.compareTo(country2) < 0
+                    ? country1 + country2
+                    : country2 + "\n" + country1));
         }
     }
 

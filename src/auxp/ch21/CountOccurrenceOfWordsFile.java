@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 public class CountOccurrenceOfWordsFile {
+
     public static void main(String[] args) {
 
         Map<String, Integer> map = new TreeMap<>();
@@ -18,7 +19,9 @@ public class CountOccurrenceOfWordsFile {
                 String next = in.next().toLowerCase();
                 if (map.containsKey(next)) {
                     map.replace(next, map.get(next) + 1);
-                } else map.put(next, 1);
+                } else {
+                    map.put(next, 1);
+                }
             }
         } catch (Exception ignored) {
         }

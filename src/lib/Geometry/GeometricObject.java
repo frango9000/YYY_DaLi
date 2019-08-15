@@ -17,15 +17,23 @@ public abstract class GeometricObject implements Comparable<GeometricObject>, Cl
     @Override
     public int compareTo(GeometricObject o) {
         double dif = getArea() - o.getArea();
-        if (dif > 0) return 1;
-        else if (dif < 0) return -1;
-        else return 0;
+        if (dif > 0) {
+            return 1;
+        } else if (dif < 0) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
         GeometricObject go = (GeometricObject) obj;
         return Double.compare(go.getArea(), getArea()) == 0;
     }

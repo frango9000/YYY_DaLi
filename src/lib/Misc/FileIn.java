@@ -1,18 +1,19 @@
 package lib.Misc;
 
-import lib.Data.ArrayManip;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import lib.Data.ArrayManip;
 
 public class FileIn {
 
     public static String fileToString(File file) throws FileNotFoundException {
         StringBuilder content = new StringBuilder();
         try (Scanner scan = new Scanner(file)) {
-            while (scan.hasNextLine()) content.append(scan.nextLine()).append("\n");
+            while (scan.hasNextLine()) {
+                content.append(scan.nextLine()).append("\n");
+            }
         }
         return content.toString();
     }
@@ -25,8 +26,11 @@ public class FileIn {
         int lineNumber = 1;
         try (Scanner scan = new Scanner(file)) {
             while (scan.hasNextLine()) {
-                if (scan.nextLine().equals(line)) return lineNumber;
-                else lineNumber++;
+                if (scan.nextLine().equals(line)) {
+                    return lineNumber;
+                } else {
+                    lineNumber++;
+                }
             }
         }
         return -1;

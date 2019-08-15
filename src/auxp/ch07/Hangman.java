@@ -1,17 +1,18 @@
 package auxp.ch07;
 
-import lib.Data.ArrayManip;
-
-import java.util.Arrays;
-
 import static lib.Misc.IO.print;
 import static lib.Misc.IO.scanChar;
 import static lib.Misc.Randomizer.randomInt;
 
+import java.util.Arrays;
+import lib.Data.ArrayManip;
+
 public class Hangman {
 
     public static void startGame(String[] words) {
-        if (words == null) words = new String[]{"water", "fishing", "natural", "programming"};
+        if (words == null) {
+            words = new String[]{"water", "fishing", "natural", "programming"};
+        }
         String word = words[randomInt(4)];
         char[] covered = new char[word.length()];
         Arrays.fill(covered, '*');
@@ -19,8 +20,9 @@ public class Hangman {
         while (ArrayManip.contains(covered, '*') && tries < 10) {
 
             char guess =
-                    Character.toLowerCase(
-                            scanChar("(Guess) %d/10 Enter a letter in word %s", tries, String.valueOf(covered)));
+                Character.toLowerCase(
+                    scanChar("(Guess) %d/10 Enter a letter in word %s", tries,
+                        String.valueOf(covered)));
             boolean miss = true;
             if (!ArrayManip.contains(covered, Character.toLowerCase(guess))) {
                 for (int i = 0; i < word.length(); i++) {
@@ -30,10 +32,14 @@ public class Hangman {
                     }
                 }
             }
-            if (miss) tries++;
+            if (miss) {
+                tries++;
+            }
         }
-        if (ArrayManip.contains(covered, '*'))
+        if (ArrayManip.contains(covered, '*')) {
             print("You lose, word is %s your best %s", word, String.valueOf(covered));
-        else print("You win word %s", String.valueOf(covered));
+        } else {
+            print("You win word %s", String.valueOf(covered));
+        }
     }
 }

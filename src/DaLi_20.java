@@ -1,19 +1,23 @@
+import static lib.Misc.IO.println;
+import static lib.Misc.IO.scanNext;
+
 import auxp.MainFX;
 import auxp.ch14.MyHangman;
 import auxp.ch20.BouncingBallsPane;
 import auxp.ch20.CalendarComparator;
 import auxp.ch20.LinkedNumbersPane;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.ListIterator;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
 import javafx.application.Application;
 import lib.Data.ListManip;
 import lib.Misc.Randomizer;
 import lib.Misc.StopWatch;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.*;
-
-import static lib.Misc.IO.println;
-import static lib.Misc.IO.scanNext;
 
 public abstract class DaLi_20 {
 
@@ -32,7 +36,9 @@ public abstract class DaLi_20 {
         try (Scanner scan = new Scanner(lorem).useDelimiter("[ .,:;\n]")) {
             while (scan.hasNext()) {
                 String newWord = scan.next().trim();
-                if (!(newWord.length() < 1 || " ".equals(newWord))) words.add(newWord);
+                if (!(newWord.length() < 1 || " ".equals(newWord))) {
+                    words.add(newWord);
+                }
             }
 
         } catch (FileNotFoundException e) {
@@ -75,7 +81,9 @@ public abstract class DaLi_20 {
             if (answer.equalsIgnoreCase(capitals.get(shuffled.get(i)))) {
                 println("Your answer is correct");
                 count++;
-            } else println("Correct answer is %s", capitals.get(shuffled.get(i)));
+            } else {
+                println("Correct answer is %s", capitals.get(shuffled.get(i)));
+            }
         }
         println("Correct count is %d", count);
     }
@@ -90,10 +98,10 @@ public abstract class DaLi_20 {
         calendars.sort(new CalendarComparator());
         for (GregorianCalendar calendar : calendars) {
             System.out.printf(
-                    "%d-%d-%d%n",
-                    calendar.get(GregorianCalendar.DAY_OF_MONTH),
-                    calendar.get(GregorianCalendar.MONTH) + 1,
-                    calendar.get(GregorianCalendar.YEAR));
+                "%d-%d-%d%n",
+                calendar.get(GregorianCalendar.DAY_OF_MONTH),
+                calendar.get(GregorianCalendar.MONTH) + 1,
+                calendar.get(GregorianCalendar.YEAR));
         }
     }
 
@@ -125,7 +133,9 @@ public abstract class DaLi_20 {
         StopWatch sw3 = new StopWatch();
         ListIterator<Integer> it2 = millions.listIterator();
         try {
-            while (true) it2.next();
+            while (true) {
+                it2.next();
+            }
         } catch (NoSuchElementException ignored) {
         }
         it2.previous();

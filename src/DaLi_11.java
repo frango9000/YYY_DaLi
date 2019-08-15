@@ -1,12 +1,11 @@
+import static lib.Misc.IO.print;
+import static lib.Misc.IO.println;
+
+import java.util.ArrayList;
 import lib.Data.ListManip;
 import lib.Data.MatrixManip;
 import lib.Geometry.Triangle;
 import lib.Misc.Randomizer;
-
-import java.util.ArrayList;
-
-import static lib.Misc.IO.print;
-import static lib.Misc.IO.println;
 
 public abstract class DaLi_11 {
 

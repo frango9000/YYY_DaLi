@@ -7,6 +7,7 @@ import lib.Geometry.Polygon;
 import lib.Math.Algebra;
 
 public class MyPolygonOutline extends Pane {
+
     public void paint() {
         double radius = Algebra.min(getHeight(), getWidth()) * 0.8 / 2;
         Polygon base = new Polygon(20, radius, true);

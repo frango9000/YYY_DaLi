@@ -1,6 +1,7 @@
 package auxp.ch19;
 
 public class GenericStackList<E> {
+
     private java.util.ArrayList<E> list = new java.util.ArrayList<>();
 
     public int getSize() {

@@ -1,17 +1,20 @@
+import static lib.Misc.IO.print;
+import static lib.Misc.IO.println;
+
 import auxp.ch11.MyStack;
 import auxp.ch13.BigRational;
 import auxp.ch13.Complex;
 import auxp.ch13.Rational;
 import auxp.ch13.RationalCalculator;
+import java.util.ArrayList;
 import lib.Data.ListManip;
-import lib.Geometry.*;
+import lib.Geometry.Circle;
+import lib.Geometry.GeometricObject;
+import lib.Geometry.Octagon;
+import lib.Geometry.Rectangle;
+import lib.Geometry.Square;
 import lib.Misc.Calendar;
 import lib.Misc.Randomizer;
-
-import java.util.ArrayList;
-
-import static lib.Misc.IO.print;
-import static lib.Misc.IO.println;
 
 public abstract class DaLi_13 {
 

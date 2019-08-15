@@ -1,6 +1,7 @@
 package auxp.ch19;
 
 public class MyPair<E> {
+
     E first;
     E second;
 
@@ -12,7 +13,9 @@ public class MyPair<E> {
     public static double min(MyPair<? extends Number> pair) {
         if (pair.first.doubleValue() < pair.second.doubleValue()) {
             return pair.first.doubleValue();
-        } else return pair.second.doubleValue();
+        } else {
+            return pair.second.doubleValue();
+        }
     }
 
     public E getFirst() {

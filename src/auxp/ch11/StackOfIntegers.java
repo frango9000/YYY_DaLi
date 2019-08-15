@@ -3,6 +3,7 @@ package auxp.ch11;
 import java.util.Arrays;
 
 public class StackOfIntegers {
+
     public static final int DEFAULT_CAPACITY = 16;
     private int[] elements;
     private int size;

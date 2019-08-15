@@ -1,10 +1,9 @@
 package auxp.ch10;
 
-import lib.Math.Algebra;
+import static lib.Misc.IO.println;
 
 import java.util.Arrays;
-
-import static lib.Misc.IO.println;
+import lib.Math.Algebra;
 
 public class MyString {
 

@@ -1,11 +1,10 @@
 package lib.Data;
 
-import lib.Math.Algebra;
-import lib.Misc.Randomizer;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import lib.Math.Algebra;
+import lib.Misc.Randomizer;
 
 public abstract class ArrayManip {
 
@@ -48,11 +47,12 @@ public abstract class ArrayManip {
 
     public static int[] removeFromArray(int[] array, int index) {
         int[] newArray = new int[array.length - 1];
-        for (int i = 0, j = 0; i < array.length; i++)
+        for (int i = 0, j = 0; i < array.length; i++) {
             if (i != index) {
                 newArray[j] = array[i];
                 j++;
             }
+        }
         return newArray;
     }
 
@@ -61,41 +61,52 @@ public abstract class ArrayManip {
     }
 
     public static boolean isSortedAsc(int[] array) {
-        for (int i = 0; i < array.length; i++)
-            for (int j = i + 1; j < array.length; j++) if (array[i] > array[j]) return false;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i] > array[j]) {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 
     public static int[] bubbleSort(int... array) {
-        for (int i = 0; i < array.length; i++)
-            for (int j = i + 1; j < array.length; j++)
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
                 if (array[i] > array[j]) {
                     int aux = array[i];
                     array[i] = array[j];
                     array[j] = aux;
                 }
+            }
+        }
         return array;
     }
 
     public static double[] bubbleSort(double... array) {
-        for (int i = 0; i < array.length; i++)
-            for (int j = i + 1; j < array.length; j++)
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
                 if (array[i] > array[j]) {
                     double aux = array[i];
                     array[i] = array[j];
                     array[j] = aux;
                 }
+            }
+        }
         return array;
     }
 
     public static String[] bubbleSort(String... array) {
-        for (int i = 0; i < array.length; i++)
-            for (int j = i + 1; j < array.length; j++)
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
                 if (array[i].compareTo(array[j]) > 0) {
                     String aux = array[i];
                     array[i] = array[j];
                     array[j] = aux;
                 }
+            }
+        }
         return array;
     }
 
@@ -136,30 +147,39 @@ public abstract class ArrayManip {
     }
 
     public static boolean isSortedDesc(int[] array) {
-        for (int i = 0; i < array.length; i++)
-            for (int j = i + 1; j < array.length; j++) if (array[i] < array[j]) return false;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i] < array[j]) {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 
     public static int[] bubbleSortDesc(int[] array) {
-        for (int i = 0; i < array.length; i++)
-            for (int j = i + 1; j < array.length; j++)
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
                 if (array[i] < array[j]) {
                     int aux = array[i];
                     array[i] = array[j];
                     array[j] = aux;
                 }
+            }
+        }
         return array;
     }
 
     public static double[] bubbleSortDesc(double[] array) {
-        for (int i = 0; i < array.length; i++)
-            for (int j = i + 1; j < array.length; j++)
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
                 if (array[i] < array[j]) {
                     double aux = array[i];
                     array[i] = array[j];
                     array[j] = aux;
                 }
+            }
+        }
         return array;
     }
 
@@ -201,15 +221,19 @@ public abstract class ArrayManip {
 
     public static boolean isSortedConstantInterval(int[] array) {
         if (isSortedAsc(array) || isSortedDesc(array)) {
-            int constant = Math.abs(Algebra.max(array[0], array[1]) - Algebra.min(array[0], array[1]));
+            int constant = Math
+                .abs(Algebra.max(array[0], array[1]) - Algebra.min(array[0], array[1]));
             for (int i = 0; i < array.length - 1; i++) {
-                if ((Math.abs(Algebra.max(array[i], array[i + 1]) - Algebra.min(array[i], array[i + 1])))
-                        != constant) {
+                if ((Math
+                    .abs(Algebra.max(array[i], array[i + 1]) - Algebra.min(array[i], array[i + 1])))
+                    != constant) {
                     return false;
                 }
             }
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
     public static void printArray(double[] array) {
@@ -321,14 +345,18 @@ public abstract class ArrayManip {
 
     public static boolean contains(int[] array, int number) {
         for (int i1 : array) {
-            if (i1 == number) return true;
+            if (i1 == number) {
+                return true;
+            }
         }
         return false;
     }
 
     public static boolean contains(char[] array, char character) {
         for (char c : array) {
-            if (c == character) return true;
+            if (c == character) {
+                return true;
+            }
         }
         return false;
     }
@@ -346,13 +374,19 @@ public abstract class ArrayManip {
     }
 
     public static int linearSearch(int[] array, int number) {
-        for (int i = 0; i < array.length; i++) if (array[i] == number) return i;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == number) {
+                return i;
+            }
+        }
         return -1;
     }
 
     public static int linearSearch(String[] array, String match) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i].contains(match)) return i;
+            if (array[i].contains(match)) {
+                return i;
+            }
         }
         return -1;
     }
@@ -360,24 +394,32 @@ public abstract class ArrayManip {
     public static int[] linearSearchAll(int[] array, int number) {
         ArrayList<Integer> matches = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == number) matches.add(i);
+            if (array[i] == number) {
+                matches.add(i);
+            }
         }
         int[] ret = new int[matches.size()];
         Iterator<Integer> it = matches.listIterator();
         int count = 0;
-        while (it.hasNext()) ret[count++] = it.next();
+        while (it.hasNext()) {
+            ret[count++] = it.next();
+        }
         return ret;
     }
 
     public static int[] linearSearchAll(char[] array, char character) {
         ArrayList<Integer> matches = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == character) matches.add(i);
+            if (array[i] == character) {
+                matches.add(i);
+            }
         }
         int[] ret = new int[matches.size()];
         Iterator<Integer> it = matches.listIterator();
         int count = 0;
-        while (it.hasNext()) ret[count++] = it.next();
+        while (it.hasNext()) {
+            ret[count++] = it.next();
+        }
         return ret;
     }
 
@@ -386,9 +428,13 @@ public abstract class ArrayManip {
         int high = array.length - 1;
         while (high >= low) {
             int mid = (low + high) / 2;
-            if (number < array[mid]) high = mid - 1;
-            else if (number == array[mid]) return mid;
-            else low = mid + 1;
+            if (number < array[mid]) {
+                high = mid - 1;
+            } else if (number == array[mid]) {
+                return mid;
+            } else {
+                low = mid + 1;
+            }
         }
         return -1;
     }
@@ -398,9 +444,13 @@ public abstract class ArrayManip {
         int high = array.length - 1;
         while (high >= low) {
             int mid = (low + high) / 2;
-            if (find.compareTo(array[mid]) < 0) high = mid - 1;
-            else if (find.compareTo(array[mid]) == 0) return mid;
-            else low = mid + 1;
+            if (find.compareTo(array[mid]) < 0) {
+                high = mid - 1;
+            } else if (find.compareTo(array[mid]) == 0) {
+                return mid;
+            } else {
+                low = mid + 1;
+            }
         }
         return -1;
     }
@@ -422,20 +472,28 @@ public abstract class ArrayManip {
     }
 
     public static boolean isStrictIdentical(int[] array1, int[] array2) {
-        if (array1.length != array2.length) return false;
+        if (array1.length != array2.length) {
+            return false;
+        }
         for (int i = 0; i < array1.length; i++) {
-            if (array1[i] != array2[i]) return false;
+            if (array1[i] != array2[i]) {
+                return false;
+            }
         }
         return true;
     }
 
     public static boolean isIdentical(int[] array1, int[] array2) {
-        if (array1.length != array2.length) return false;
+        if (array1.length != array2.length) {
+            return false;
+        }
         boolean[] hasValueOnIndex = new boolean[array1.length];
 
         for (int i = 0; i < array1.length; i++) {
             for (int j = 0; j < array2.length; j++) {
-                if (array1[i] == array2[j] && !hasValueOnIndex[j]) hasValueOnIndex[j] = true;
+                if (array1[i] == array2[j] && !hasValueOnIndex[j]) {
+                    hasValueOnIndex[j] = true;
+                }
             }
         }
         return isAllTrue(hasValueOnIndex);
@@ -443,7 +501,9 @@ public abstract class ArrayManip {
 
     public static boolean isAllTrue(boolean[] marks) {
         for (int i = 0; i < marks.length; i++) {
-            if (!marks[i]) return false;
+            if (!marks[i]) {
+                return false;
+            }
         }
         return true;
     }

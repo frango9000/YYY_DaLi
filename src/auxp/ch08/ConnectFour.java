@@ -1,10 +1,10 @@
 package auxp.ch08;
 
+import java.util.Arrays;
 import lib.Misc.IO;
 
-import java.util.Arrays;
-
 public class ConnectFour {
+
     Board board;
 
     public static void main(String[] args) {
@@ -24,7 +24,7 @@ public class ConnectFour {
         }
         board.printBoard();
         System.out.println(
-                "Game " + (board.gameOver() == ' ' ? "Tied" : "Over\n Winner is " + board.gameOver()));
+            "Game " + (board.gameOver() == ' ' ? "Tied" : "Over\n Winner is " + board.gameOver()));
     }
 
     void enterColumn(Player player) {
@@ -47,6 +47,7 @@ public class ConnectFour {
     }
 
     public class Board {
+
         int rows;
         int cols;
         char[][] table;
@@ -71,7 +72,9 @@ public class ConnectFour {
         boolean isFull() {
             for (int i = 0; i < table.length; i++) {
                 for (int j = 0; j < table[i].length; j++) {
-                    if (table[i][j] == ' ') return false;
+                    if (table[i][j] == ' ') {
+                        return false;
+                    }
                 }
             }
             return true;
@@ -81,8 +84,11 @@ public class ConnectFour {
             for (int i = 0; i < table.length; i++) {
                 String row = "";
                 for (int j = 0, k = 0; k < (table[i].length * 2) + 1; k++) {
-                    if (k % 2 == 0) row += "|";
-                    else row += table[i][j++];
+                    if (k % 2 == 0) {
+                        row += "|";
+                    } else {
+                        row += table[i][j++];
+                    }
                 }
                 System.out.println(row);
             }
@@ -93,14 +99,18 @@ public class ConnectFour {
 
         Character gameOver() {
             // pre-check
-            if (table.length < 4 || table[0].length < 4) return null;
-            if (isFull()) return ' ';
+            if (table.length < 4 || table[0].length < 4) {
+                return null;
+            }
+            if (isFull()) {
+                return ' ';
+            }
             // Rows
             for (int i = 0; i < table.length; i++) {
                 for (int j = 0; j < table[i].length - 3; j++) {
                     if (table[i][j] != ' ' & table[i][j] == table[i][j + 1]
-                            && table[i][j] == table[i][j + 2]
-                            && table[i][j] == table[i][j + 3]) {
+                        && table[i][j] == table[i][j + 2]
+                        && table[i][j] == table[i][j + 3]) {
                         return table[i][j];
                     }
                 }
@@ -109,8 +119,8 @@ public class ConnectFour {
             for (int i = 0; i < table.length - 3; i++) {
                 for (int j = 0; j < table[i].length; j++) {
                     if (table[i][j] != ' ' & table[i][j] == table[i + 1][j]
-                            && table[i][j] == table[i + 2][j]
-                            && table[i][j] == table[i + 3][j]) {
+                        && table[i][j] == table[i + 2][j]
+                        && table[i][j] == table[i + 3][j]) {
                         return table[i][j];
                     }
                 }
@@ -119,8 +129,8 @@ public class ConnectFour {
             for (int i = 0; i < table.length - 3; i++) {
                 for (int j = 0; j < table[i].length - 3; j++) {
                     if (table[i][j] != ' ' & table[i][j] == table[i + 1][j + 1]
-                            && table[i][j] == table[i + 2][j + 2]
-                            && table[i][j] == table[i + 3][j + 3]) {
+                        && table[i][j] == table[i + 2][j + 2]
+                        && table[i][j] == table[i + 3][j + 3]) {
                         return table[i][j];
                     }
                 }
@@ -129,8 +139,8 @@ public class ConnectFour {
             for (int i = 0; i < table.length - 3; i++) {
                 for (int j = 3; j < table[i].length; j++) {
                     if (table[i][j] != ' ' & table[i][j] == table[i + 1][j - 1]
-                            && table[i][j] == table[i + 2][j - 2]
-                            && table[i][j] == table[i + 3][j - 3]) {
+                        && table[i][j] == table[i + 2][j - 2]
+                        && table[i][j] == table[i + 3][j - 3]) {
                         return table[i][j];
                     }
                 }
@@ -140,7 +150,9 @@ public class ConnectFour {
         }
 
         boolean isValidColumn(int column) {
-            if (table[0].length < column || column < 1) return false;
+            if (table[0].length < column || column < 1) {
+                return false;
+            }
             return lowestRowInColumn(column) >= 0;
         }
 
@@ -151,11 +163,15 @@ public class ConnectFour {
         int lowestRowInColumn(int column) {
             int columnIndex = column - 1;
             int lastRow = table.length - 1;
-            if (table[lastRow][columnIndex] == ' ') return lastRow;
-            else
+            if (table[lastRow][columnIndex] == ' ') {
+                return lastRow;
+            } else {
                 for (int row = 0; row < table.length; row++) {
-                    if (table[row][columnIndex] != ' ') return row - 1;
+                    if (table[row][columnIndex] != ' ') {
+                        return row - 1;
+                    }
                 }
+            }
             return -1;
         }
     }

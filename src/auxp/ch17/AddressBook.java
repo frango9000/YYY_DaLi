@@ -1,5 +1,8 @@
 package auxp.ch17;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -9,11 +12,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-
 public class AddressBook extends BorderPane {
+
     private final int NAME = 32;
     private final int STREET = 32;
     private final int CITY = 20;
@@ -40,39 +40,45 @@ public class AddressBook extends BorderPane {
 
         // set text fields max length
         nameTF
-                .textProperty()
-                .addListener(
-                        observable -> {
-                            if (nameTF.getText().length() > NAME)
-                                nameTF.setText(nameTF.getText().substring(0, NAME));
-                        });
+            .textProperty()
+            .addListener(
+                observable -> {
+                    if (nameTF.getText().length() > NAME) {
+                        nameTF.setText(nameTF.getText().substring(0, NAME));
+                    }
+                });
         streetTF
-                .textProperty()
-                .addListener(
-                        observable -> {
-                            if (streetTF.getText().length() > STREET)
-                                streetTF.setText(streetTF.getText().substring(0, STREET));
-                        });
+            .textProperty()
+            .addListener(
+                observable -> {
+                    if (streetTF.getText().length() > STREET) {
+                        streetTF.setText(streetTF.getText().substring(0, STREET));
+                    }
+                });
         cityTF
-                .textProperty()
-                .addListener(
-                        observable -> {
-                            if (cityTF.getText().length() > CITY)
-                                cityTF.setText(cityTF.getText().substring(0, CITY));
-                        });
+            .textProperty()
+            .addListener(
+                observable -> {
+                    if (cityTF.getText().length() > CITY) {
+                        cityTF.setText(cityTF.getText().substring(0, CITY));
+                    }
+                });
         stateTF
-                .textProperty()
-                .addListener(
-                        observable -> {
-                            if (stateTF.getText().length() > STATE)
-                                stateTF.setText(stateTF.getText().substring(0, STATE));
-                        });
+            .textProperty()
+            .addListener(
+                observable -> {
+                    if (stateTF.getText().length() > STATE) {
+                        stateTF.setText(stateTF.getText().substring(0, STATE));
+                    }
+                });
         zipTF
-                .textProperty()
-                .addListener(
-                        observable -> {
-                            if (zipTF.getText().length() > ZIP) zipTF.setText(zipTF.getText().substring(0, ZIP));
-                        });
+            .textProperty()
+            .addListener(
+                observable -> {
+                    if (zipTF.getText().length() > ZIP) {
+                        zipTF.setText(zipTF.getText().substring(0, ZIP));
+                    }
+                });
 
         grid.addRow(0, new Label("Name"), nameTF);
         grid.addRow(1, new Label("Street"), streetTF);
@@ -128,8 +134,11 @@ public class AddressBook extends BorderPane {
 
     void previous() {
         try (RandomAccessFile inout = new RandomAccessFile(file, "rw")) {
-            if (count > 1) count--;
-            else count = 1;
+            if (count > 1) {
+                count--;
+            } else {
+                count = 1;
+            }
             inout.seek((count * 91) - 91);
             read(inout);
             System.out.println("Reading address #" + count);

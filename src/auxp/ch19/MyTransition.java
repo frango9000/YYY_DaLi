@@ -1,6 +1,7 @@
 package auxp.ch19;
 
 public class MyTransition<E, F, G> extends MyAssociation<E, F> {
+
     G third;
 
     public MyTransition(E first, F second, G third) {
@@ -9,10 +10,10 @@ public class MyTransition<E, F, G> extends MyAssociation<E, F> {
     }
 
     public static double sum(
-            MyTransition<? extends Number, ? extends Number, ? extends Number> transition) {
+        MyTransition<? extends Number, ? extends Number, ? extends Number> transition) {
         return transition.first.doubleValue()
-                + transition.second.doubleValue()
-                + transition.third.doubleValue();
+            + transition.second.doubleValue()
+            + transition.third.doubleValue();
     }
 
     public G getThird() {

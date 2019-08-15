@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class WebCrawler2 {
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a URL: ");
@@ -43,7 +44,9 @@ public class WebCrawler2 {
                     if (endIndex > 0) { // Ensure that a correct URL is found
                         list.add(line.substring(current, endIndex));
                         current = line.indexOf("http:", endIndex);
-                    } else current = -1;
+                    } else {
+                        current = -1;
+                    }
                 }
             }
         } catch (Exception ex) {

@@ -1,5 +1,7 @@
 package auxp.ch20;
 
+import java.util.Comparator;
+import java.util.LinkedList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,10 +11,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import lib.Data.ListManip;
 
-import java.util.Comparator;
-import java.util.LinkedList;
-
 public class LinkedNumbersPane extends BorderPane {
+
     LinkedList<Integer> numbers = new LinkedList<>();
     TextArea textArea;
 
@@ -38,44 +38,44 @@ public class LinkedNumbersPane extends BorderPane {
         setBottom(bot);
 
         add.setOnAction(
-                event -> {
-                    int num;
-                    try {
-                        num = Integer.parseInt(newNumber.getText());
-                        if (!numbers.contains(num)) {
-                            numbers.add(num);
-                            updateListText();
-                        }
-                    } catch (NumberFormatException ignored) {
+            event -> {
+                int num;
+                try {
+                    num = Integer.parseInt(newNumber.getText());
+                    if (!numbers.contains(num)) {
+                        numbers.add(num);
+                        updateListText();
                     }
-                });
+                } catch (NumberFormatException ignored) {
+                }
+            });
         rem.setOnAction(
-                event -> {
-                    int num;
-                    try {
-                        num = Integer.parseInt(newNumber.getText());
-                        if (numbers.contains(num)) {
-                            numbers.remove((Object) num);
-                            updateListText();
-                        }
-                    } catch (NumberFormatException ignored) {
+            event -> {
+                int num;
+                try {
+                    num = Integer.parseInt(newNumber.getText());
+                    if (numbers.contains(num)) {
+                        numbers.remove((Object) num);
+                        updateListText();
                     }
-                });
+                } catch (NumberFormatException ignored) {
+                }
+            });
         sort.setOnAction(
-                event -> {
-                    numbers.sort(null);
-                    updateListText();
-                });
+            event -> {
+                numbers.sort(null);
+                updateListText();
+            });
         shuffle.setOnAction(
-                event -> {
-                    ListManip.shuffle(numbers);
-                    updateListText();
-                });
+            event -> {
+                ListManip.shuffle(numbers);
+                updateListText();
+            });
         reverse.setOnAction(
-                event -> {
-                    numbers.sort(Comparator.reverseOrder());
-                    updateListText();
-                });
+            event -> {
+                numbers.sort(Comparator.reverseOrder());
+                updateListText();
+            });
     }
 
     private void updateListText() {

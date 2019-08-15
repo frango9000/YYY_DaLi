@@ -1,10 +1,10 @@
 package lib.Geometry;
 
+import java.util.Random;
 import lib.Math.Algebra;
 
-import java.util.Random;
-
 public class Rectangle extends GeometricObject {
+
     private final int numOfSides = 4;
     private double width;
     private double height;
@@ -46,9 +46,9 @@ public class Rectangle extends GeometricObject {
 
     public static Rectangle boundingRectangle(Point... points) {
         double minX = Integer.MAX_VALUE,
-                minY = Integer.MAX_VALUE,
-                maxX = Integer.MIN_VALUE,
-                maxY = Integer.MIN_VALUE;
+            minY = Integer.MAX_VALUE,
+            maxX = Integer.MIN_VALUE,
+            maxY = Integer.MIN_VALUE;
         for (int point = 0; point < points.length; point++) {
             minX = Algebra.min(minX, points[point].x);
             minY = Algebra.min(minY, points[point].y);
@@ -133,14 +133,16 @@ public class Rectangle extends GeometricObject {
         double yDistance = Math.abs(this.center.y - rectangle.center.y);
 
         if (xDistance <= Math.abs(this.width - rectangle.width) / 2
-                && yDistance <= Math.abs(this.height - rectangle.height) / 2) {
-            if (this.width > rectangle.width)
+            && yDistance <= Math.abs(this.height - rectangle.height) / 2) {
+            if (this.width > rectangle.width) {
                 return true; // System.out.println("rectangle 2 is in rectangle 1");
-            else return !(rectangle.width > this.width);
+            } else {
+                return !(rectangle.width > this.width);
+            }
         } else if (xDistance <= Math.abs(this.width + rectangle.width) / 2
-                && yDistance <= Math.abs(this.height + rectangle.height) / 2)
+            && yDistance <= Math.abs(this.height + rectangle.height) / 2) {
             return false; // System.out.println("r2 contains r1");
-        else {
+        } else {
             return false; // System.out.println("r2 does not overlap r1");
         }
         // return true;
@@ -152,6 +154,6 @@ public class Rectangle extends GeometricObject {
 
         // Overlap
         return xDistance <= this.width + rectangle.width / 2
-                && yDistance <= this.height + rectangle.height / 2;
+            && yDistance <= this.height + rectangle.height / 2;
     }
 }

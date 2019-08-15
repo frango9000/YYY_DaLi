@@ -1,4 +1,20 @@
-import auxp.ch14.*;
+import static lib.Misc.IO.scanInt;
+import static lib.Misc.Randomizer.randomInt;
+
+import auxp.ch14.Chart1;
+import auxp.ch14.Chart2;
+import auxp.ch14.ClockPane;
+import auxp.ch14.MyCylinder;
+import auxp.ch14.MyGrid;
+import auxp.ch14.MyHangman;
+import auxp.ch14.MySineGraph;
+import auxp.ch14.QuadFunction;
+import auxp.ch14.RandArrow;
+import auxp.ch14.Rectanguloid;
+import auxp.ch14.StopPane;
+import auxp.ch14.UglySmiley;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -6,9 +22,17 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.ArcType;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -17,12 +41,6 @@ import javafx.stage.Stage;
 import lib.Geometry.Point;
 import lib.Misc.Randomizer;
 import lib.MyFX.ToolFX;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-
-import static lib.Misc.IO.scanInt;
-import static lib.Misc.Randomizer.randomInt;
 
 public class DaLi_14 extends Application {
 
@@ -48,7 +66,7 @@ public class DaLi_14 extends Application {
         pane.setVgap(10);
 
         String[] images = {
-                "res/image/flag5.gif", "res/image/4.jpg", "res/image/china.gif", "res/image/flag1.gif"
+            "res/image/flag5.gif", "res/image/4.jpg", "res/image/china.gif", "res/image/flag1.gif"
         };
         Group g = new Group();
         for (int i = 0; i < images.length; i++) {
@@ -177,12 +195,17 @@ public class DaLi_14 extends Application {
             HBox h1 = new HBox();
             HBox h2 = new HBox();
             for (int j = 0; j < 17; j++) {
-                if (j == 8) continue;
+                if (j == 8) {
+                    continue;
+                }
                 Color w = new Color(1, 1, 1, 1);
                 Color b = new Color(0, 0, 0, 1);
                 Rectangle r = new Rectangle(40, 40, (j % 2 == 0) ? w : b);
-                if (j < 8) h1.getChildren().add(r);
-                else h2.getChildren().add(r);
+                if (j < 8) {
+                    h1.getChildren().add(r);
+                } else {
+                    h2.getChildren().add(r);
+                }
             }
             checkers.getChildren().addAll(h1, h2);
         }
@@ -372,9 +395,13 @@ public class DaLi_14 extends Application {
 
         Text label = new Text(300, 400, "");
 
-        if (rr1.contains(rr2)) label.setText("r1 contains r2");
-        else if (rr1.overlaps(rr2)) label.setText("r1 overlaps r2");
-        else label.setText("r1 not in r2");
+        if (rr1.contains(rr2)) {
+            label.setText("r1 contains r2");
+        } else if (rr1.overlaps(rr2)) {
+            label.setText("r1 overlaps r2");
+        } else {
+            label.setText("r1 not in r2");
+        }
         ToolFX.setFillStroke(null, Color.BLACK, r1, r2);
         return new Pane(r1, r2, label);
     }
@@ -395,7 +422,8 @@ public class DaLi_14 extends Application {
 
         pane.getChildren().addAll(polygon, point);
         Text text =
-                new Text("The point is " + (polygon.contains(x, y) ? "" : "not ") + "inside the polygon  ");
+            new Text(
+                "The point is " + (polygon.contains(x, y) ? "" : "not ") + "inside the polygon  ");
         text.setTranslateY(400);
         pane.getChildren().add(text);
         return pane;

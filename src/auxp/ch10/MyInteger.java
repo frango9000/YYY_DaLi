@@ -3,6 +3,7 @@ package auxp.ch10;
 import lib.Math.Primes;
 
 public class MyInteger {
+
     int value;
 
     public MyInteger(int value) {

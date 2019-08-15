@@ -14,11 +14,11 @@ public class Chart2 extends Pane {
         double scaleY = getHeight() / 500;
 
         ObservableList<PieChart.Data> pieChartData =
-                FXCollections.observableArrayList(
-                        new PieChart.Data("Apple", 13),
-                        new PieChart.Data("HTC", 25),
-                        new PieChart.Data("Samsung", 10),
-                        new PieChart.Data("Others", 22));
+            FXCollections.observableArrayList(
+                new PieChart.Data("Apple", 13),
+                new PieChart.Data("HTC", 25),
+                new PieChart.Data("Samsung", 10),
+                new PieChart.Data("Others", 22));
         final PieChart chart = new PieChart(pieChartData);
         chart.setTitle("Smartphone Brands");
 

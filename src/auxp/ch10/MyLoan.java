@@ -3,6 +3,7 @@ package auxp.ch10;
 import java.io.Serializable;
 
 public class MyLoan implements Serializable {
+
     private double annualInterestRate;
     private int numberOfYears;
     private double loanAmount;
@@ -73,9 +74,9 @@ public class MyLoan implements Serializable {
     public double getMonthlyPayment() {
         double monthlyInterestRate = annualInterestRate / 1200;
         double monthlyPayment =
-                loanAmount
-                        * monthlyInterestRate
-                        / (1 - (1 / Math.pow(1 + monthlyInterestRate, numberOfYears * 12)));
+            loanAmount
+                * monthlyInterestRate
+                / (1 - (1 / Math.pow(1 + monthlyInterestRate, numberOfYears * 12)));
         return monthlyPayment;
     }
 

@@ -1,10 +1,10 @@
 package auxp.ch10;
 
+import java.util.InputMismatchException;
 import lib.Misc.Asserts;
 
-import java.util.InputMismatchException;
-
 public class Calculator {
+
     /**
      * Main method
      */
@@ -16,11 +16,14 @@ public class Calculator {
             System.out.println("Usage: java Calculator operand1 operator operand2");
             throw new InputMismatchException();
         }
-        if (!Asserts.isInteger(args[0]) || !Asserts.isInteger(args[2]))
+        if (!Asserts.isInteger(args[0]) || !Asserts.isInteger(args[2])) {
             throw new NumberFormatException();
+        }
 
         char op = args[1].charAt(0);
-        if (op != '+' && op != '-' && op != '*' && op != '/') throw new InputMismatchException();
+        if (op != '+' && op != '-' && op != '*' && op != '/') {
+            throw new InputMismatchException();
+        }
 
         // The result of the operation
         int result = 0;

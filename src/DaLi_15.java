@@ -2,7 +2,14 @@ import auxp.ch14.ClockPane;
 import auxp.ch14.MyCylinder;
 import auxp.ch14.MySineGraph;
 import auxp.ch14.StopPane;
-import auxp.ch15.*;
+import auxp.ch15.AnimatedPendulum;
+import auxp.ch15.CarPane;
+import auxp.ch15.CreatePointPane;
+import auxp.ch15.MovableCirclesPane;
+import auxp.ch15.MovableRectanglePane;
+import auxp.ch15.RunningFan;
+import auxp.ch15.SimpleAnimationPane;
+import auxp.ch15.TaggedTrianglePane;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -14,9 +21,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -47,15 +63,15 @@ public class DaLi_15 extends Application {
 
         Button refreshBtn = new Button("Refresh");
         refreshBtn.setOnAction(
-                e -> {
-                    cards.getChildren().clear();
-                    for (int i = 0; i < elements; i++) {
-                        int rand = Randomizer.randomInt(1, 53);
-                        Image img = new Image("res/image/card/" + (rand + 1) + ".png");
-                        ImageView iv = new ImageView(img);
-                        cards.getChildren().add(iv);
-                    }
-                });
+            e -> {
+                cards.getChildren().clear();
+                for (int i = 0; i < elements; i++) {
+                    int rand = Randomizer.randomInt(1, 53);
+                    Image img = new Image("res/image/card/" + (rand + 1) + ".png");
+                    ImageView iv = new ImageView(img);
+                    cards.getChildren().add(iv);
+                }
+            });
         BorderPane bp = new BorderPane();
         bp.setCenter(cards);
         bp.setBottom(refreshBtn);
@@ -116,40 +132,44 @@ public class DaLi_15 extends Application {
         buttons.setSpacing(10);
 
         add.setOnAction(
-                event -> {
-                    if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
-                        t3.setText((Double.parseDouble(t1.getText()) + Double.parseDouble(t2.getText())) + "");
-                    } else {
-                        t3.setText("N/A");
-                    }
-                });
+            event -> {
+                if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
+                    t3.setText(
+                        (Double.parseDouble(t1.getText()) + Double.parseDouble(t2.getText())) + "");
+                } else {
+                    t3.setText("N/A");
+                }
+            });
 
         sub.setOnAction(
-                event -> {
-                    if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
-                        t3.setText((Double.parseDouble(t1.getText()) - Double.parseDouble(t2.getText())) + "");
-                    } else {
-                        t3.setText("N/A");
-                    }
-                });
+            event -> {
+                if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
+                    t3.setText(
+                        (Double.parseDouble(t1.getText()) - Double.parseDouble(t2.getText())) + "");
+                } else {
+                    t3.setText("N/A");
+                }
+            });
 
         mult.setOnAction(
-                event -> {
-                    if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
-                        t3.setText((Double.parseDouble(t1.getText()) * Double.parseDouble(t2.getText())) + "");
-                    } else {
-                        t3.setText("N/A");
-                    }
-                });
+            event -> {
+                if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
+                    t3.setText(
+                        (Double.parseDouble(t1.getText()) * Double.parseDouble(t2.getText())) + "");
+                } else {
+                    t3.setText("N/A");
+                }
+            });
 
         divi.setOnAction(
-                event -> {
-                    if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
-                        t3.setText((Double.parseDouble(t1.getText()) / Double.parseDouble(t2.getText())) + "");
-                    } else {
-                        t3.setText("N/A");
-                    }
-                });
+            event -> {
+                if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
+                    t3.setText(
+                        (Double.parseDouble(t1.getText()) / Double.parseDouble(t2.getText())) + "");
+                } else {
+                    t3.setText("N/A");
+                }
+            });
         VBox vb = new VBox(values, buttons);
         vb.setPadding(new Insets(10));
         vb.setSpacing(5);
@@ -179,18 +199,19 @@ public class DaLi_15 extends Application {
 
         Button result = new Button("Result");
         result.setOnAction(
-                event -> {
-                    if (Asserts.isDouble(tx1.getText())
-                            && Asserts.isDouble(tx2.getText())
-                            && Asserts.isDouble(tx3.getText())) {
-                        tx4.setText(
-                                (Double.parseDouble(tx1.getText())
-                                        + (Double.parseDouble(tx2.getText()) * Double.parseDouble(tx3.getText())))
-                                        + "");
-                    } else {
-                        tx4.setText("N/A");
-                    }
-                });
+            event -> {
+                if (Asserts.isDouble(tx1.getText())
+                    && Asserts.isDouble(tx2.getText())
+                    && Asserts.isDouble(tx3.getText())) {
+                    tx4.setText(
+                        (Double.parseDouble(tx1.getText())
+                            + (Double.parseDouble(tx2.getText()) * Double
+                            .parseDouble(tx3.getText())))
+                            + "");
+                } else {
+                    tx4.setText("N/A");
+                }
+            });
         grid.add(result, 1, 4);
 
         grid.setHgap(5);
@@ -205,9 +226,9 @@ public class DaLi_15 extends Application {
         Text text = new Text(s1);
 
         text.setOnMouseClicked(
-                event -> {
-                    text.setText((s1.equals(text.getText())) ? s2 : s1);
-                });
+            event -> {
+                text.setText((s1.equals(text.getText())) ? s2 : s1);
+            });
 
         StackPane pane = new StackPane(text);
         pane.setPadding(new Insets(30));
@@ -233,13 +254,13 @@ public class DaLi_15 extends Application {
         // String.format("(%.1f, %.1f)", event.getX(), event.getY()))));
 
         pane.setOnMousePressed(
-                event ->
-                        pane.getChildren()
-                                .add(
-                                        new Text(
-                                                event.getX(),
-                                                event.getY(),
-                                                String.format("(%.1f, %.1f)", event.getX(), event.getY()))));
+            event ->
+                pane.getChildren()
+                    .add(
+                        new Text(
+                            event.getX(),
+                            event.getY(),
+                            String.format("(%.1f, %.1f)", event.getX(), event.getY()))));
         pane.setOnMouseReleased(event -> pane.getChildren().clear());
 
         return pane;
@@ -250,38 +271,38 @@ public class DaLi_15 extends Application {
         pane.setMinSize(400, 400);
 
         pane.setOnKeyPressed(
-                event -> {
-                    double x, y;
-                    if (pane.getChildren().size() == 0) {
-                        x = 100.0;
-                        y = 100.0;
-                    } else {
-                        x = ((Line) (pane.getChildren().get(pane.getChildren().size() - 1))).getEndX();
-                        y = ((Line) (pane.getChildren().get(pane.getChildren().size() - 1))).getEndY();
-                    }
-                    Line line = new Line();
-                    line.setStartX(x);
-                    line.setStartY(y);
-                    double eX = x, eY = y;
-                    switch (event.getCode()) {
-                        case UP:
-                            eY = y - 10;
-                            break;
-                        case DOWN:
-                            eY = y + 10;
-                            break;
-                        case LEFT:
-                            eX = x - 10;
-                            break;
-                        case RIGHT:
-                            eX = x + 10;
-                            break;
-                    }
-                    line.setEndX(eX);
-                    line.setEndY(eY);
-                    line.setStroke(Color.BLACK);
-                    pane.getChildren().add(line);
-                });
+            event -> {
+                double x, y;
+                if (pane.getChildren().size() == 0) {
+                    x = 100.0;
+                    y = 100.0;
+                } else {
+                    x = ((Line) (pane.getChildren().get(pane.getChildren().size() - 1))).getEndX();
+                    y = ((Line) (pane.getChildren().get(pane.getChildren().size() - 1))).getEndY();
+                }
+                Line line = new Line();
+                line.setStartX(x);
+                line.setStartY(y);
+                double eX = x, eY = y;
+                switch (event.getCode()) {
+                    case UP:
+                        eY = y - 10;
+                        break;
+                    case DOWN:
+                        eY = y + 10;
+                        break;
+                    case LEFT:
+                        eX = x - 10;
+                        break;
+                    case RIGHT:
+                        eX = x + 10;
+                        break;
+                }
+                line.setEndX(eX);
+                line.setEndY(eY);
+                line.setStroke(Color.BLACK);
+                pane.getChildren().add(line);
+            });
         return pane;
     }
 
@@ -293,14 +314,14 @@ public class DaLi_15 extends Application {
         StringBuilder sb = new StringBuilder();
 
         pane.setOnKeyPressed(
-                event -> {
-                    if (event.getCode() == KeyCode.ENTER) {
-                        text.setText(sb.toString());
-                        sb.setLength(0);
-                    } else {
-                        sb.append(event.getText());
-                    }
-                });
+            event -> {
+                if (event.getCode() == KeyCode.ENTER) {
+                    text.setText(sb.toString());
+                    sb.setLength(0);
+                } else {
+                    sb.append(event.getText());
+                }
+            });
         return pane;
     }
 
@@ -313,34 +334,34 @@ public class DaLi_15 extends Application {
         pane.setPadding(new Insets(5));
 
         pane.setOnKeyPressed(
-                event -> {
-                    switch (event.getCode()) {
-                        case UP:
-                            circ.setCenterY(
-                                    circ.getCenterY() - circ.getRadius() - 10 < 0
-                                            ? circ.getRadius() + 5
-                                            : circ.getCenterY() - 5);
-                            break;
-                        case DOWN:
-                            circ.setCenterY(
-                                    circ.getCenterY() + circ.getRadius() + 10 > pane.getHeight()
-                                            ? pane.getWidth() - circ.getRadius() - 5
-                                            : circ.getCenterY() + 5);
-                            break;
-                        case LEFT:
-                            circ.setCenterX(
-                                    circ.getCenterX() - circ.getRadius() - 10 < 0
-                                            ? circ.getRadius() + 5
-                                            : circ.getCenterX() - 5);
-                            break;
-                        case RIGHT:
-                            circ.setCenterX(
-                                    circ.getCenterX() + circ.getRadius() + 10 > pane.getWidth()
-                                            ? pane.getWidth() - circ.getRadius() - 5
-                                            : circ.getCenterX() + 5);
-                            break;
-                    }
-                });
+            event -> {
+                switch (event.getCode()) {
+                    case UP:
+                        circ.setCenterY(
+                            circ.getCenterY() - circ.getRadius() - 10 < 0
+                                ? circ.getRadius() + 5
+                                : circ.getCenterY() - 5);
+                        break;
+                    case DOWN:
+                        circ.setCenterY(
+                            circ.getCenterY() + circ.getRadius() + 10 > pane.getHeight()
+                                ? pane.getWidth() - circ.getRadius() - 5
+                                : circ.getCenterY() + 5);
+                        break;
+                    case LEFT:
+                        circ.setCenterX(
+                            circ.getCenterX() - circ.getRadius() - 10 < 0
+                                ? circ.getRadius() + 5
+                                : circ.getCenterX() - 5);
+                        break;
+                    case RIGHT:
+                        circ.setCenterX(
+                            circ.getCenterX() + circ.getRadius() + 10 > pane.getWidth()
+                                ? pane.getWidth() - circ.getRadius() - 5
+                                : circ.getCenterX() + 5);
+                        break;
+                }
+            });
         return pane;
     }
 
@@ -354,25 +375,26 @@ public class DaLi_15 extends Application {
         pane.setPadding(new Insets(5));
 
         pane.setOnMouseMoved(
-                event -> {
-                    labels.getChildren().clear();
-                    labels
-                            .getChildren()
-                            .add(
-                                    new Text(
-                                            event.getX(),
-                                            event.getY() - 10,
-                                            String.format("(%.1f, %.1f)", event.getX(), event.getY())));
-                    labels
-                            .getChildren()
-                            .add(
-                                    new Text(
-                                            event.getX(),
-                                            event.getY(),
-                                            "The point is "
-                                                    + ((circ.contains(event.getX(), event.getY()) ? "inside " : "outside "))
-                                                    + "the circle."));
-                });
+            event -> {
+                labels.getChildren().clear();
+                labels
+                    .getChildren()
+                    .add(
+                        new Text(
+                            event.getX(),
+                            event.getY() - 10,
+                            String.format("(%.1f, %.1f)", event.getX(), event.getY())));
+                labels
+                    .getChildren()
+                    .add(
+                        new Text(
+                            event.getX(),
+                            event.getY(),
+                            "The point is "
+                                + ((circ.contains(event.getX(), event.getY()) ? "inside "
+                                : "outside "))
+                                + "the circle."));
+            });
         return pane;
     }
 
@@ -386,27 +408,27 @@ public class DaLi_15 extends Application {
         pane.setPadding(new Insets(5));
 
         pane.setOnMouseMoved(
-                event -> {
-                    labels.getChildren().clear();
-                    labels
-                            .getChildren()
-                            .add(
-                                    new Text(
-                                            event.getX(),
-                                            event.getY() - 10,
-                                            String.format("(%.1f, %.1f)", event.getX(), event.getY())));
-                    labels
-                            .getChildren()
-                            .add(
-                                    new Text(
-                                            event.getX(),
-                                            event.getY(),
-                                            "The point is "
-                                                    + ((rectangle.contains(event.getX(), event.getY())
-                                                    ? "inside "
-                                                    : "outside "))
-                                                    + "the rectangle."));
-                });
+            event -> {
+                labels.getChildren().clear();
+                labels
+                    .getChildren()
+                    .add(
+                        new Text(
+                            event.getX(),
+                            event.getY() - 10,
+                            String.format("(%.1f, %.1f)", event.getX(), event.getY())));
+                labels
+                    .getChildren()
+                    .add(
+                        new Text(
+                            event.getX(),
+                            event.getY(),
+                            "The point is "
+                                + ((rectangle.contains(event.getX(), event.getY())
+                                ? "inside "
+                                : "outside "))
+                                + "the rectangle."));
+            });
         return pane;
     }
 
@@ -420,27 +442,27 @@ public class DaLi_15 extends Application {
         pane.setPadding(new Insets(5));
 
         pane.setOnMouseMoved(
-                event -> {
-                    labels.getChildren().clear();
-                    labels
-                            .getChildren()
-                            .add(
-                                    new Text(
-                                            event.getX(),
-                                            event.getY() - 10,
-                                            String.format("(%.1f, %.1f)", event.getX(), event.getY())));
-                    labels
-                            .getChildren()
-                            .add(
-                                    new Text(
-                                            event.getX(),
-                                            event.getY(),
-                                            "The point is "
-                                                    + ((polygon.contains(event.getX(), event.getY())
-                                                    ? "inside "
-                                                    : "outside "))
-                                                    + "the polygon."));
-                });
+            event -> {
+                labels.getChildren().clear();
+                labels
+                    .getChildren()
+                    .add(
+                        new Text(
+                            event.getX(),
+                            event.getY() - 10,
+                            String.format("(%.1f, %.1f)", event.getX(), event.getY())));
+                labels
+                    .getChildren()
+                    .add(
+                        new Text(
+                            event.getX(),
+                            event.getY(),
+                            "The point is "
+                                + ((polygon.contains(event.getX(), event.getY())
+                                ? "inside "
+                                : "outside "))
+                                + "the polygon."));
+            });
         return pane;
     }
 
@@ -462,10 +484,10 @@ public class DaLi_15 extends Application {
         Rectangle r = new Rectangle(100, 100, 100, 100);
         Pane pane = new Pane(r);
         r.setOnMouseDragged(
-                event -> {
-                    r.setX(event.getX() - r.getWidth() / 2);
-                    r.setY(event.getY() - r.getHeight() / 2);
-                });
+            event -> {
+                r.setX(event.getX() - r.getWidth() / 2);
+                r.setY(event.getY() - r.getHeight() / 2);
+            });
         pane.setMinSize(600, 600);
         pane.setPadding(new Insets(5));
         return pane;
@@ -530,25 +552,25 @@ public class DaLi_15 extends Application {
     public static Pane ex29() { // Racing car
         CarPane cp = new CarPane();
         cp.setOnKeyPressed(
-                event -> {
-                    if (event.getCode() == KeyCode.ENTER) {
-                        cp.pause();
-                    }
-                });
+            event -> {
+                if (event.getCode() == KeyCode.ENTER) {
+                    cp.pause();
+                }
+            });
         cp.setOnKeyReleased(
-                event -> {
-                    if (event.getCode() == KeyCode.ENTER) {
-                        cp.play();
-                    }
-                });
+            event -> {
+                if (event.getCode() == KeyCode.ENTER) {
+                    cp.play();
+                }
+            });
         cp.setOnKeyPressed(
-                event -> {
-                    if (event.getCode() == KeyCode.UP) {
-                        cp.increaseSpeed();
-                    } else if (event.getCode() == KeyCode.DOWN) {
-                        cp.decreaseSpeed();
-                    }
-                });
+            event -> {
+                if (event.getCode() == KeyCode.UP) {
+                    cp.increaseSpeed();
+                } else if (event.getCode() == KeyCode.DOWN) {
+                    cp.decreaseSpeed();
+                }
+            });
         return cp;
     }
 
@@ -559,17 +581,17 @@ public class DaLi_15 extends Application {
     public static Pane ex31() { // Geometry: pendulum
         AnimatedPendulum pendu = new AnimatedPendulum();
         pendu.setOnKeyPressed(
-                event -> {
-                    if (event.getCode() == KeyCode.UP) {
-                        pendu.increaseSpeed();
-                    } else if (event.getCode() == KeyCode.DOWN) {
-                        pendu.decreaseSpeed();
-                    } else if (event.getCode() == KeyCode.S) {
-                        pendu.stopAnimation();
-                    } else if (event.getCode() == KeyCode.P) {
-                        pendu.playAnimation();
-                    }
-                });
+            event -> {
+                if (event.getCode() == KeyCode.UP) {
+                    pendu.increaseSpeed();
+                } else if (event.getCode() == KeyCode.DOWN) {
+                    pendu.decreaseSpeed();
+                } else if (event.getCode() == KeyCode.S) {
+                    pendu.stopAnimation();
+                } else if (event.getCode() == KeyCode.P) {
+                    pendu.playAnimation();
+                }
+            });
         return pendu;
     }
 

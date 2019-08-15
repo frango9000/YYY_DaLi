@@ -26,17 +26,17 @@ public class RandArrow extends Pane {
         double angle = angled.getAngle();
 
         Line l =
-                new Line(
-                        x1,
-                        y1,
-                        (x1 + (length * Math.sin(Math.toRadians(angle + 180 + 90 - 15)))),
-                        (y1 + (length * Math.cos(Math.toRadians(angle + 180 + 90 - 15)))));
+            new Line(
+                x1,
+                y1,
+                (x1 + (length * Math.sin(Math.toRadians(angle + 180 + 90 - 15)))),
+                (y1 + (length * Math.cos(Math.toRadians(angle + 180 + 90 - 15)))));
         Line r =
-                new Line(
-                        x1,
-                        y1,
-                        (x1 + (length * Math.sin(Math.toRadians(angle - 75)))),
-                        (y1 + (length * Math.cos(Math.toRadians(angle - 75)))));
+            new Line(
+                x1,
+                y1,
+                (x1 + (length * Math.sin(Math.toRadians(angle - 75)))),
+                (y1 + (length * Math.cos(Math.toRadians(angle - 75)))));
 
         getChildren().clear();
         getChildren().addAll(main, l, r);

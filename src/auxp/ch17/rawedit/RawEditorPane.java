@@ -1,16 +1,31 @@
 package auxp.ch17.rawedit;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 import lib.Math.NumberConverter;
-
-import javax.swing.*;
-import java.io.*;
 
 public class RawEditorPane extends BorderPane {
 
@@ -62,13 +77,13 @@ public class RawEditorPane extends BorderPane {
         setAlignment(saveButton, Pos.CENTER);
 
         browseButton.setOnAction(
-                event -> {
-                    file = fileChooser.showOpenDialog(new Stage());
-                    if (file != null && file.exists()) {
-                        fileDir.setText(file.getAbsolutePath());
-                        readFile(file);
-                    }
-                });
+            event -> {
+                file = fileChooser.showOpenDialog(new Stage());
+                if (file != null && file.exists()) {
+                    fileDir.setText(file.getAbsolutePath());
+                    readFile(file);
+                }
+            });
 
         saveButton.setOnAction(event -> saveAction());
     }
@@ -133,12 +148,12 @@ public class RawEditorPane extends BorderPane {
         browsePane.setAlignment(Pos.BASELINE_LEFT);
         browsePane.setPadding(new Insets(10));
         browsePane.setBorder(
-                new Border(
-                        new BorderStroke(
-                                Color.LIGHTGRAY,
-                                BorderStrokeStyle.SOLID,
-                                CornerRadii.EMPTY,
-                                BorderWidths.DEFAULT)));
+            new Border(
+                new BorderStroke(
+                    Color.LIGHTGRAY,
+                    BorderStrokeStyle.SOLID,
+                    CornerRadii.EMPTY,
+                    BorderWidths.DEFAULT)));
         return browsePane;
     }
 

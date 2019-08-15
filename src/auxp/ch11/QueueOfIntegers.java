@@ -3,6 +3,7 @@ package auxp.ch11;
 import java.util.Arrays;
 
 public class QueueOfIntegers {
+
     public static final int DEFAULT_CAPACITY = 8;
     private int[] elements;
     private int size;

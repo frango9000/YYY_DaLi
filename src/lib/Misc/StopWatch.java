@@ -1,6 +1,7 @@
 package lib.Misc;
 
 public class StopWatch {
+
     private long startTime;
     private long endTime;
 
@@ -37,7 +38,7 @@ public class StopWatch {
         long totalHours = totalMinutes / 60;
         long currentHour = totalHours % 24;
         return String.format(
-                "%02d:%02d:%02d:%03d", currentHour, currentMinute, currentSecond, currentMilliseconds);
+            "%02d:%02d:%02d:%03d", currentHour, currentMinute, currentSecond, currentMilliseconds);
     }
 
     public void consoleOutElapsedTime() {

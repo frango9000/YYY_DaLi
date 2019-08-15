@@ -47,15 +47,19 @@ public abstract class StringManip {
             char lowestChar = unsorted.charAt(i);
             boolean uppercase = CharManip.isUpperCase(unsorted.charAt(i));
             for (int j = i + 1; j < unsorted.length(); j++) {
-                if (Character.toUpperCase(unsorted.charAt(i)) > Character.toUpperCase(unsorted.charAt(j))) {
+                if (Character.toUpperCase(unsorted.charAt(i)) > Character
+                    .toUpperCase(unsorted.charAt(j))) {
                     lowestChar = unsorted.charAt(j);
                     uppercase = CharManip.isUpperCase(lowestChar);
                     unsorted.setCharAt(j, unsorted.charAt(i));
                     unsorted.setCharAt(i, lowestChar);
                 }
             }
-            if (uppercase) sorted.append(Character.toUpperCase(lowestChar));
-            else sorted.append(Character.toLowerCase(lowestChar));
+            if (uppercase) {
+                sorted.append(Character.toUpperCase(lowestChar));
+            } else {
+                sorted.append(Character.toLowerCase(lowestChar));
+            }
         }
         return sorted.toString();
     }
@@ -79,7 +83,9 @@ public abstract class StringManip {
         for (int i = 0, j = 0; i < bits; i++) {
             if (unformated.length() + i >= bits) {
                 binary.append(unformated.charAt(j++));
-            } else binary.append('0');
+            } else {
+                binary.append('0');
+            }
         }
         return binary.toString();
     }

@@ -18,11 +18,21 @@ public class Primes {
     public static long calcsDone = 0L;
 
     public static boolean isPrime(long number) {
-        if (number == 1) return false;
-        if (number == 2) return true;
-        if (number > 2 && isEven(number)) return false;
-        if (number > 3 && isDivisible3(number)) return false;
-        if (number > 5 && isDivisible5(number)) return false;
+        if (number == 1) {
+            return false;
+        }
+        if (number == 2) {
+            return true;
+        }
+        if (number > 2 && isEven(number)) {
+            return false;
+        }
+        if (number > 3 && isDivisible3(number)) {
+            return false;
+        }
+        if (number > 5 && isDivisible5(number)) {
+            return false;
+        }
         return countDivisors(number) == 0;
     }
 
@@ -68,12 +78,14 @@ public class Primes {
     }
 
     public static ArrayList<Integer> listOfPrimes(
-            int lowBound, int highBound) { // inclusive bounds min = 2
+        int lowBound, int highBound) { // inclusive bounds min = 2
         lowBound = Math.max(lowBound, 2);
         ArrayList<Integer> list = new ArrayList<>();
 
         while (lowBound <= highBound) {
-            if (isPrime(lowBound)) list.add(lowBound);
+            if (isPrime(lowBound)) {
+                list.add(lowBound);
+            }
             lowBound++;
         }
         return list;
@@ -101,20 +113,24 @@ public class Primes {
     }
 
     public static int[] getPrimeFactors(int number) {
-        if (Primes.isPrime(number)) return new int[]{number};
+        if (Primes.isPrime(number)) {
+            return new int[]{number};
+        }
 
         int[] array = new int[(int) Math.round(Math.sqrt(number))];
         int[] primes = arrayOfPrimes((number));
         int count = 0, tempValue = number;
 
-        for (int i = 0; tempValue != 1; i++)
-            for (int j = 0; j < primes.length; j++)
+        for (int i = 0; tempValue != 1; i++) {
+            for (int j = 0; j < primes.length; j++) {
                 if (tempValue % primes[j] == 0) {
                     tempValue /= primes[j];
                     array[i] = primes[j];
                     count++;
                     break;
                 }
+            }
+        }
 
         // System.out.println(number+":"+Arrays.toString(Arrays.copyOf(array, count)));
         return Arrays.copyOf(array, count);
@@ -127,8 +143,8 @@ public class Primes {
 
     public static boolean isPrime(BigInteger n) {
         for (BigInteger d = new BigInteger("2");
-             d.compareTo(n.divide(new BigInteger("2"))) <= 0;
-             d = d.add(new BigInteger("1"))) {
+            d.compareTo(n.divide(new BigInteger("2"))) <= 0;
+            d = d.add(new BigInteger("1"))) {
             if (n.remainder(d).compareTo(new BigInteger("0")) == 0) {
                 return false;
             }

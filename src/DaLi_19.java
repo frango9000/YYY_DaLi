@@ -1,8 +1,12 @@
-import auxp.ch19.*;
+import auxp.ch19.GenericStackArray;
+import auxp.ch19.GenericStackInheritedList;
+import auxp.ch19.MyAssociation;
+import auxp.ch19.MyPair;
+import auxp.ch19.MyTransition;
+import auxp.ch19.MyTriplet;
+import java.util.ArrayList;
 import lib.Data.ListManip;
 import lib.Misc.Randomizer;
-
-import java.util.ArrayList;
 
 public abstract class DaLi_19 {
 

@@ -1,3 +1,8 @@
+import static lib.Misc.IO.print;
+import static lib.Misc.IO.println;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
 import lib.Data.ArrayManip;
 import lib.Data.MatrixManip;
 import lib.Geometry.Line;
@@ -6,12 +11,6 @@ import lib.Geometry.Polygon;
 import lib.Geometry.Rectangle;
 import lib.Misc.Randomizer;
 import lib.Misc.StopWatch;
-
-import java.util.Date;
-import java.util.GregorianCalendar;
-
-import static lib.Misc.IO.print;
-import static lib.Misc.IO.println;
 
 public abstract class DaLi_09 {
 
@@ -27,11 +26,11 @@ public abstract class DaLi_09 {
         Rectangle rect2 = new Rectangle(3.5, 35.9);
 
         println(
-                "%.3f %.3f %.3f %.3f",
-                rect1.getWidth(), rect1.getHeight(), rect1.getArea(), rect1.getPerimeter());
+            "%.3f %.3f %.3f %.3f",
+            rect1.getWidth(), rect1.getHeight(), rect1.getArea(), rect1.getPerimeter());
         println(
-                "%.3f %.3f %.3f %.3f",
-                rect2.getWidth(), rect2.getHeight(), rect2.getArea(), rect2.getPerimeter());
+            "%.3f %.3f %.3f %.3f",
+            rect2.getWidth(), rect2.getHeight(), rect2.getArea(), rect2.getPerimeter());
     }
 
     public static void ex02() { // The Stock class
@@ -52,18 +51,18 @@ public abstract class DaLi_09 {
         GregorianCalendar gc1 = new GregorianCalendar();
         println(gc1.toString());
         println(
-                gc1.get(GregorianCalendar.YEAR)
-                        + " "
-                        + gc1.get(GregorianCalendar.MONTH)
-                        + " "
-                        + gc1.get(GregorianCalendar.DAY_OF_MONTH));
+            gc1.get(GregorianCalendar.YEAR)
+                + " "
+                + gc1.get(GregorianCalendar.MONTH)
+                + " "
+                + gc1.get(GregorianCalendar.DAY_OF_MONTH));
         gc1.setTimeInMillis(1234567898765L);
         println(
-                gc1.get(GregorianCalendar.YEAR)
-                        + " "
-                        + gc1.get(GregorianCalendar.MONTH)
-                        + " "
-                        + gc1.get(GregorianCalendar.DAY_OF_MONTH));
+            gc1.get(GregorianCalendar.YEAR)
+                + " "
+                + gc1.get(GregorianCalendar.MONTH)
+                + " "
+                + gc1.get(GregorianCalendar.DAY_OF_MONTH));
     }
 
     public static void ex06() { // Stopwatch

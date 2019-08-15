@@ -5,17 +5,27 @@ import auxp.ch17.encryption.Crypt;
 import auxp.ch17.rawedit.RawEditorPane;
 import auxp.ch17.splitter.FileSplitter;
 import auxp.ch17.splitter.SplitterTabbedPane;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.Date;
+import java.util.Scanner;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.*;
-import java.util.Date;
-import java.util.Scanner;
-
 public class DaLi_17 extends Application {
+
     public static void main(String[] args) {
         // ex18();
         Application.launch(args);
@@ -63,7 +73,7 @@ public class DaLi_17 extends Application {
         File textfile = new File("src/auxp/ch12/e24data.txt");
         File binfile = new File("src/auxp/ch17/Exercise17_04.dat");
         try (Scanner in = new Scanner(textfile);
-             DataOutputStream out = new DataOutputStream(new FileOutputStream(binfile))) {
+            DataOutputStream out = new DataOutputStream(new FileOutputStream(binfile))) {
             while (in.hasNextLine()) {
                 out.writeUTF(in.nextLine());
             }
@@ -162,7 +172,8 @@ public class DaLi_17 extends Application {
     }
 
     public static void ex17() { // BitOutputStream
-        try (BitOutputStream out = new BitOutputStream(new File("src/auxp/ch17/Exercise17_17.dat"))) {
+        try (BitOutputStream out = new BitOutputStream(
+            new File("src/auxp/ch17/Exercise17_17.dat"))) {
             out.writeBit('0');
             out.writeBit("10000100100001001");
             out.writeBit('1', '0', '1');

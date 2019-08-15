@@ -3,6 +3,7 @@ package lib.Misc;
 import javafx.util.Duration;
 
 public class Time {
+
     long totalMilliseconds;
     long totalSeconds;
     long currentSecond;
@@ -88,44 +89,48 @@ public class Time {
 
     public String timeToString() {
         return ("Current time is "
-                + currentHour
-                + ":"
-                + currentMinute
-                + ":"
-                + currentSecond
-                + " GMT: ");
+            + currentHour
+            + ":"
+            + currentMinute
+            + ":"
+            + currentSecond
+            + " GMT: ");
     }
 
     public String timeToStringM(byte offset) {
         long offsetHour = currentHour + offset;
-        if (offsetHour >= 24) offsetHour -= 24;
+        if (offsetHour >= 24) {
+            offsetHour -= 24;
+        }
         return ("Current time is "
-                + offsetHour
-                + ":"
-                + currentMinute
-                + ":"
-                + currentSecond
-                + " GMT: "
-                + offset);
+            + offsetHour
+            + ":"
+            + currentMinute
+            + ":"
+            + currentSecond
+            + " GMT: "
+            + offset);
     }
 
     public String timeToString(byte offset) {
         long offsetHour = currentHour + offset;
         String post = "AM";
-        if (offsetHour >= 24) offsetHour -= 24;
+        if (offsetHour >= 24) {
+            offsetHour -= 24;
+        }
         if (offsetHour > 12) {
             offsetHour -= 12;
             post = "PM";
         }
         return ("Current time is "
-                + offsetHour
-                + ":"
-                + currentMinute
-                + ":"
-                + currentSecond
-                + " "
-                + post
-                + " GMT: "
-                + offset);
+            + offsetHour
+            + ":"
+            + currentMinute
+            + ":"
+            + currentSecond
+            + " "
+            + post
+            + " GMT: "
+            + offset);
     }
 }

@@ -3,6 +3,7 @@ package lib.Geometry.Tridimensional;
 import lib.Geometry.Point;
 
 public class Sphere {
+
     public double radius;
 
     public Sphere() {
@@ -23,6 +24,7 @@ public class Sphere {
         double y2 = Math.toRadians(pointB.y);
 
         return radius
-                * Math.acos(Math.sin(x1) * Math.sin(x2) + Math.cos(x1) * Math.cos(x2) * Math.cos(y1 - y2));
+            * Math
+            .acos(Math.sin(x1) * Math.sin(x2) + Math.cos(x1) * Math.cos(x2) * Math.cos(y1 - y2));
     }
 }

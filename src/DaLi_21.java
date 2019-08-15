@@ -1,18 +1,22 @@
+import static lib.Misc.IO.println;
+import static lib.Misc.IO.scanNext;
+
 import auxp.MainFX;
 import auxp.ch21.BabyNamesPane;
 import auxp.ch21.CountOccurrenceOfWords;
 import auxp.ch21.CountOccurrenceOfWordsFile;
 import auxp.ch21.WebCrawler2;
-import lib.Data.ListManip;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
-
-import static lib.Misc.IO.println;
-import static lib.Misc.IO.scanNext;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+import lib.Data.ListManip;
 
 public abstract class DaLi_21 {
 
@@ -108,8 +112,11 @@ public abstract class DaLi_21 {
             while ((int2char = in.read()) != -1) {
                 char c = (char) int2char;
                 if (c >= 'a' && c <= 'z') {
-                    if (vocals.contains(c)) vNum++;
-                    else cNum++;
+                    if (vocals.contains(c)) {
+                        vNum++;
+                    } else {
+                        cNum++;
+                    }
                 }
             }
         } catch (Exception ignored) {
@@ -147,7 +154,9 @@ public abstract class DaLi_21 {
             if (answer.equalsIgnoreCase(entries.getValue())) {
                 println("Your answer is correct");
                 count++;
-            } else println("Correct answer is %s", entries.getValue());
+            } else {
+                println("Correct answer is %s", entries.getValue());
+            }
         }
         println("Correct count is %d", count);
     }

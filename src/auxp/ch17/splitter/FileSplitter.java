@@ -1,9 +1,13 @@
 package auxp.ch17.splitter;
 
-import lib.Misc.FileIO;
-
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import lib.Misc.FileIO;
 
 public class FileSplitter {
 
@@ -44,7 +48,8 @@ public class FileSplitter {
                 in.read(split);
 
                 File piece =
-                        new File(file.getAbsolutePath() + "." + String.format("%0" + digits + "d", count++));
+                    new File(
+                        file.getAbsolutePath() + "." + String.format("%0" + digits + "d", count++));
 
                 try (FileOutputStream out = new FileOutputStream(piece)) {
                     out.write(split);
@@ -92,15 +97,18 @@ public class FileSplitter {
         File actual;
         while (true) {
             actual =
-                    new File(
-                            file0.getParent()
-                                    + "/"
-                                    + baseName
-                                    + "."
-                                    + String.format("%0" + extensionSize + "d", count++));
+                new File(
+                    file0.getParent()
+                        + "/"
+                        + baseName
+                        + "."
+                        + String.format("%0" + extensionSize + "d", count++));
             // System.out.println(actual.getAbsolutePath() + actual.exists());
-            if (!actual.exists()) break;
-            else splitFiles.add(actual);
+            if (!actual.exists()) {
+                break;
+            } else {
+                splitFiles.add(actual);
+            }
         }
 
         return splitFiles;

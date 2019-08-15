@@ -1,8 +1,9 @@
 package lib.Math;
 
 public class Physics {
+
     public static double lengthOfSpeedChange(
-            float initialSpeed, float finalSpeed, float acceleration) {
+        float initialSpeed, float finalSpeed, float acceleration) {
         return Math.pow(finalSpeed - initialSpeed, 2) / (2 * acceleration);
     }
 

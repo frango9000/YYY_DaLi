@@ -4,6 +4,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 
 public class MyGrid extends Pane {
+
     private int size;
 
     public MyGrid() {

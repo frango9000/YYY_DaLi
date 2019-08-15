@@ -1,7 +1,13 @@
+import static lib.Misc.IO.print;
+import static lib.Misc.IO.println;
+import static lib.Misc.IO.scanInt;
+
 import auxp.ch10.MyInteger;
 import auxp.ch10.MyString;
 import auxp.ch11.QueueOfIntegers;
 import auxp.ch11.StackOfIntegers;
+import java.math.BigInteger;
+import java.util.ArrayList;
 import lib.Geometry.Circle;
 import lib.Geometry.Point;
 import lib.Geometry.Rectangle;
@@ -9,11 +15,6 @@ import lib.Geometry.Triangle;
 import lib.Math.Primes;
 import lib.Misc.Calendar;
 import lib.Misc.Time;
-
-import java.math.BigInteger;
-import java.util.ArrayList;
-
-import static lib.Misc.IO.*;
 
 public abstract class DaLi_10 {
 
@@ -112,15 +113,15 @@ public abstract class DaLi_10 {
 
         Rectangle rb = Rectangle.boundingRectangle(p1, p2, p3, p4, p5);
         print(
-                rb.getArea()
-                        + " "
-                        + rb.getPerimeter()
-                        + " "
-                        + rb.getHeight()
-                        + " "
-                        + rb.getWidth()
-                        + " "
-                        + rb.getCenter());
+            rb.getArea()
+                + " "
+                + rb.getPerimeter()
+                + " "
+                + rb.getHeight()
+                + " "
+                + rb.getWidth()
+                + " "
+                + rb.getCenter());
     }
 
     public static void ex16() { // Divisible by 2 or 3 BigInteger
@@ -131,7 +132,7 @@ public abstract class DaLi_10 {
 
         while (count < 10) {
             if (z.compareTo(n.remainder(new BigInteger("2"))) == 0
-                    || z.compareTo(n.remainder(new BigInteger("3"))) == 0) {
+                || z.compareTo(n.remainder(new BigInteger("3"))) == 0) {
                 println(n);
                 count++;
             }

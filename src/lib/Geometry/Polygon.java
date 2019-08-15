@@ -3,6 +3,7 @@ package lib.Geometry;
 import java.util.Arrays;
 
 public class Polygon extends GeometricObject {
+
     protected int numOfSides;
     protected double sideLength;
     protected double radius; // radius of the circle formed by corners
@@ -65,7 +66,9 @@ public class Polygon extends GeometricObject {
 
     public Point[] setPoints(double angleOfPoint0) {
         points = new Point[numOfSides];
-        if (center == null) center = new Point(0, 0);
+        if (center == null) {
+            center = new Point(0, 0);
+        }
         double div = 360.0 / numOfSides;
         angleOfPoint0 = angleOfPoint0 % div;
 
@@ -88,14 +91,20 @@ public class Polygon extends GeometricObject {
     }
 
     public Point[] setBotHorizontal() {
-        if (numOfSides % 2 == 0) setTopHorizontal();
-        else setVertexOnTop();
+        if (numOfSides % 2 == 0) {
+            setTopHorizontal();
+        } else {
+            setVertexOnTop();
+        }
         return points;
     }
 
     public Point[] setBotOnVertex() {
-        if (numOfSides % 2 != 0) setTopHorizontal();
-        else setVertexOnTop();
+        if (numOfSides % 2 != 0) {
+            setTopHorizontal();
+        } else {
+            setVertexOnTop();
+        }
         return points;
     }
 
@@ -118,20 +127,20 @@ public class Polygon extends GeometricObject {
     @Override
     public String toString() {
         return "Polygon{"
-                + "\nnumOfSides="
-                + numOfSides
-                + ",\n sideLength="
-                + sideLength
-                + ",\n radius="
-                + radius
-                + ",\n center="
-                + center.toString()
-                + ",\n points="
-                + Arrays.toString(points)
-                + ",\n getArea="
-                + getArea()
-                + ",\n getPerimeter="
-                + getPerimeter()
-                + '}';
+            + "\nnumOfSides="
+            + numOfSides
+            + ",\n sideLength="
+            + sideLength
+            + ",\n radius="
+            + radius
+            + ",\n center="
+            + center.toString()
+            + ",\n points="
+            + Arrays.toString(points)
+            + ",\n getArea="
+            + getArea()
+            + ",\n getPerimeter="
+            + getPerimeter()
+            + '}';
     }
 }

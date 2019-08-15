@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WebCrawler {
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a URL: ");
@@ -21,7 +22,9 @@ public class WebCrawler {
                 listOfTraversedURLs.add(urlString);
                 System.out.println("Crawl " + urlString);
                 for (String s : getSubURLs(urlString)) {
-                    if (!listOfTraversedURLs.contains(s)) listOfPendingURLs.add(s);
+                    if (!listOfTraversedURLs.contains(s)) {
+                        listOfPendingURLs.add(s);
+                    }
                 }
             }
         }
@@ -41,7 +44,9 @@ public class WebCrawler {
                     if (endIndex > 0) { // Ensure that a correct URL is found
                         list.add(line.substring(current, endIndex));
                         current = line.indexOf("http:", endIndex);
-                    } else current = -1;
+                    } else {
+                        current = -1;
+                    }
                 }
             }
         } catch (Exception ex) {

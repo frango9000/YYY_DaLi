@@ -1,5 +1,9 @@
 package auxp.ch21;
 
+import java.io.File;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.TreeMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -11,25 +15,22 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
-import java.io.File;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.TreeMap;
-
 public class BabyNamesPane extends BorderPane {
 
     private TreeMap<String, Integer>[] males;
     private TreeMap<String, Integer>[] females;
 
     private ObservableList<Integer> years =
-            FXCollections.observableArrayList(2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010);
+        FXCollections
+            .observableArrayList(2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010);
 
     public BabyNamesPane() {
         setPadding(new Insets(5));
         getNames();
 
         ComboBox<Integer> year = new ComboBox<>(years);
-        ComboBox<String> gender = new ComboBox<>(FXCollections.observableArrayList("Male", "Female"));
+        ComboBox<String> gender = new ComboBox<>(
+            FXCollections.observableArrayList("Male", "Female"));
         TextField name = new TextField();
         Button find = new Button("Find");
         Button sout = new Button("*");
@@ -46,40 +47,40 @@ public class BabyNamesPane extends BorderPane {
         setBottom(text);
 
         find.setOnAction(
-                event -> {
-                    int y = year.getValue() - 2001;
-                    boolean boy = gender.getValue().equals("Male");
-                    String query = name.getText();
+            event -> {
+                int y = year.getValue() - 2001;
+                boolean boy = gender.getValue().equals("Male");
+                String query = name.getText();
 
-                    TreeMap<String, Integer>[] selectedGender = boy ? males : females;
-                    TreeMap<String, Integer> selectedYear = selectedGender[y];
+                TreeMap<String, Integer>[] selectedGender = boy ? males : females;
+                TreeMap<String, Integer> selectedYear = selectedGender[y];
 
-                    try {
-                        int position = selectedYear.get(query);
-                        text.setText(
-                                (boy ? "Boy" : "Girl")
-                                        + " name "
-                                        + query
-                                        + " is ranked #"
-                                        + position
-                                        + " in year "
-                                        + (y + 2001));
-                    } catch (NullPointerException e) {
-                        text.setText("Name not found with given parameters");
-                    }
-                });
+                try {
+                    int position = selectedYear.get(query);
+                    text.setText(
+                        (boy ? "Boy" : "Girl")
+                            + " name "
+                            + query
+                            + " is ranked #"
+                            + position
+                            + " in year "
+                            + (y + 2001));
+                } catch (NullPointerException e) {
+                    text.setText("Name not found with given parameters");
+                }
+            });
 
         sout.setOnAction(
-                event -> {
-                    int y = year.getValue() - 2001;
-                    TreeMap<String, Integer> selectedMales = males[y];
-                    TreeMap<String, Integer> selectedFemales = females[y];
+            event -> {
+                int y = year.getValue() - 2001;
+                TreeMap<String, Integer> selectedMales = males[y];
+                TreeMap<String, Integer> selectedFemales = females[y];
 
-                    HashSet<String> commonNames = new HashSet<>(selectedMales.keySet());
+                HashSet<String> commonNames = new HashSet<>(selectedMales.keySet());
 
-                    commonNames.retainAll(selectedFemales.keySet());
-                    System.out.println(commonNames);
-                });
+                commonNames.retainAll(selectedFemales.keySet());
+                System.out.println(commonNames);
+            });
     }
 
     private void getNames() {
@@ -88,7 +89,8 @@ public class BabyNamesPane extends BorderPane {
 
         File[] files = new File[10];
         for (int i = 0; i < files.length; i++) {
-            files[i] = new File("src/res/txt/babynamesranking20" + String.format("%02d", i + 1) + ".txt");
+            files[i] = new File(
+                "src/res/txt/babynamesranking20" + String.format("%02d", i + 1) + ".txt");
         }
         int year = 0;
         for (File file : files) {

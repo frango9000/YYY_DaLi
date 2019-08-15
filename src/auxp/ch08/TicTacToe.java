@@ -3,6 +3,7 @@ package auxp.ch08;
 import lib.Misc.IO;
 
 public class TicTacToe {
+
     public static void main(String[] args) {
         TicTacToe game = new TicTacToe();
         game.startGame();
@@ -41,6 +42,7 @@ public class TicTacToe {
     }
 
     public class Board {
+
         char[][] table = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
 
         void printBoard() {
@@ -54,29 +56,33 @@ public class TicTacToe {
 
         boolean gameOver() {
             for (int i = 0; i < table.length; i++) {
-                if (table[i][0] != ' ' && (table[i][0] == table[i][1] && table[i][1] == table[i][2])) {
+                if (table[i][0] != ' ' && (table[i][0] == table[i][1]
+                    && table[i][1] == table[i][2])) {
                     return true;
                 }
             }
             for (int i = 0; i < table.length; i++) {
-                if (table[0][i] != ' ' && (table[0][i] == table[1][i] && table[1][i] == table[2][i])) {
+                if (table[0][i] != ' ' && (table[0][i] == table[1][i]
+                    && table[1][i] == table[2][i])) {
                     return true;
                 }
             }
             if (table[0][0] != ' ' && (table[0][0] == table[1][1] && table[1][1] == table[2][2])) {
                 return true;
-            } else if (table[0][2] != ' ' && (table[0][2] == table[1][1] && table[1][1] == table[2][0])) {
+            } else if (table[0][2] != ' ' && (table[0][2] == table[1][1]
+                && table[1][1] == table[2][0])) {
                 return true;
-            } else
+            } else {
                 return (table[0][0] != ' '
-                        && table[0][1] != ' '
-                        && table[0][2] != ' '
-                        && table[1][0] != ' '
-                        && table[1][1] != ' '
-                        && table[1][2] != ' '
-                        && table[2][0] != ' '
-                        && table[2][1] != ' '
-                        && table[2][2] != ' ');
+                    && table[0][1] != ' '
+                    && table[0][2] != ' '
+                    && table[1][0] != ' '
+                    && table[1][1] != ' '
+                    && table[1][2] != ' '
+                    && table[2][0] != ' '
+                    && table[2][1] != ' '
+                    && table[2][2] != ' ');
+            }
         }
 
         boolean validCoords(int[] coords) {
@@ -89,6 +95,7 @@ public class TicTacToe {
     }
 
     public class Player {
+
         char id;
 
         public Player(int num) {

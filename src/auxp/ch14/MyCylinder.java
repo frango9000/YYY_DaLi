@@ -8,6 +8,7 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
 
 public class MyCylinder extends Pane {
+
     public MyCylinder() {
         setHeight(200);
         setWidth(100);
@@ -38,17 +39,17 @@ public class MyCylinder extends Pane {
         arc2.setStroke(Color.BLACK);
 
         Line lineL =
-                new Line(
-                        centerX - radiusX,
-                        centerY + radiusY - length,
-                        centerX - radiusX,
-                        centerY - radiusY + length);
+            new Line(
+                centerX - radiusX,
+                centerY + radiusY - length,
+                centerX - radiusX,
+                centerY - radiusY + length);
         Line lineR =
-                new Line(
-                        centerX + radiusX,
-                        centerY + radiusY - length,
-                        centerX + radiusX,
-                        centerY - radiusY + length);
+            new Line(
+                centerX + radiusX,
+                centerY + radiusY - length,
+                centerX + radiusX,
+                centerY - radiusY + length);
 
         getChildren().clear();
         getChildren().addAll(ellipse, arc1, arc2, lineL, lineR);

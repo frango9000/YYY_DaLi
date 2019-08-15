@@ -13,6 +13,7 @@ import javafx.util.Duration;
 import lib.MyFX.ToolFX;
 
 public class AnimatedPendulum extends Pane {
+
     PathTransition pt;
     FadeTransition ft;
 
@@ -26,7 +27,7 @@ public class AnimatedPendulum extends Pane {
         arc.setType(ArcType.OPEN);
         Circle base = new Circle(arc.getCenterX(), arc.getCenterY(), 10, Color.DARKGREY);
         Circle circle =
-                new Circle(arc.getCenterX(), arc.getCenterY() + arc.getRadiusY(), 20, Color.BLACK);
+            new Circle(arc.getCenterX(), arc.getCenterY() + arc.getRadiusY(), 20, Color.BLACK);
 
         pt = new PathTransition(Duration.millis(1000), arc, circle);
         pt.setCycleCount(Timeline.INDEFINITE);
@@ -43,7 +44,7 @@ public class AnimatedPendulum extends Pane {
         }
 
         Line line =
-                new Line(arc.getCenterX(), arc.getCenterY(), circle.getCenterX(), circle.getCenterY());
+            new Line(arc.getCenterX(), arc.getCenterY(), circle.getCenterX(), circle.getCenterY());
 
         line.endXProperty().bind(circle.centerXProperty().add(circle.translateXProperty()));
         line.endYProperty().bind(circle.centerYProperty().add(circle.translateYProperty()));

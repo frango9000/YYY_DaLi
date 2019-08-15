@@ -3,12 +3,17 @@ package auxp.ch14;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.ArcType;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Line;
 import lib.Geometry.Point;
 import lib.Geometry.TriangleEquilateral;
 import lib.Math.Algebra;
 
 public class UglySmiley extends Pane {
+
     public UglySmiley() {
     }
 
@@ -23,20 +28,22 @@ public class UglySmiley extends Pane {
         face.setStroke(Color.BLACK);
 
         Ellipse eyeL =
-                new Ellipse(
-                        centerX - radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.2, radiusY * 0.15);
+            new Ellipse(
+                centerX - radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.2, radiusY * 0.15);
         eyeL.setFill(null);
         eyeL.setStroke(Color.BLACK);
         Ellipse eyeR =
-                new Ellipse(
-                        centerX + radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.2, radiusY * 0.15);
+            new Ellipse(
+                centerX + radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.2, radiusY * 0.15);
         eyeR.setFill(null);
         eyeR.setStroke(Color.BLACK);
 
         Circle cL =
-                new Circle(centerX - radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.1, Color.BLACK);
+            new Circle(centerX - radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.1,
+                Color.BLACK);
         Circle cR =
-                new Circle(centerX + radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.1, Color.BLACK);
+            new Circle(centerX + radiusX * 0.3, centerY - radiusY * 0.3, radiusX * 0.1,
+                Color.BLACK);
 
         TriangleEquilateral triangle = new TriangleEquilateral(radiusX * 0.2, true);
         triangle.setCenter(new Point(centerX, centerY + radiusY * 0.1));
@@ -47,7 +54,8 @@ public class UglySmiley extends Pane {
         Line n2 = new Line(ps[1].x, ps[1].y, ps[2].x, ps[2].y);
         n2.setStroke(Color.BLACK);
 
-        Arc mouth = new Arc(centerX, centerY + radiusY * 0.35, radiusX * 0.6, radiusY * 0.3, 180, 180);
+        Arc mouth = new Arc(centerX, centerY + radiusY * 0.35, radiusX * 0.6, radiusY * 0.3, 180,
+            180);
         mouth.setType(ArcType.OPEN);
         mouth.setFill(null);
         mouth.setStroke(Color.BLACK);
