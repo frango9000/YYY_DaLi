@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.Stack;
 import javafx.application.Application;
 import lib.Data.ListManip;
 import lib.Misc.Randomizer;
@@ -23,7 +24,7 @@ public abstract class DaLi_20 {
 
     public static void main(String[] args) {
 
-        ex07();
+        ex10();
     }
 
     public static void ex00() {
@@ -161,6 +162,38 @@ public abstract class DaLi_20 {
     }
 
     public static void ex10() { // Perform set operations on priority queues
+        Stack<String> s1 = new Stack<>();
+        s1.push("Chemistry");
+        s1.push("Mathematics");
+        s1.push("Biology");
+        s1.push("English");
+
+        Stack<String> s2 = new Stack<>();
+        s2.push("Biology");
+        s2.push("English");
+        s2.push("Geography");
+        s2.push("Physics");
+
+        for (String string : s1) {
+            if (!s2.contains(string)) {
+                System.out.println(string);
+            }
+        }
+
+        System.out.println();
+
+        for (String string : s2) {
+            if (s1.contains(string)) {
+                System.out.println(string);
+            }
+        }
+        System.out.println();
+
+        for (String string : s2) {
+            if (!s1.contains(string)) {
+                System.out.println(string);
+            }
+        }
     }
 
     public static void ex11() { // Remove Consecutive Integers
