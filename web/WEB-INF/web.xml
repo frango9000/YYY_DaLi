@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         version="4.0"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+  <servlet>
+    <servlet-class>auxp.ch37.FirstServlet</servlet-class>
+    <servlet-name>FirstServlet</servlet-name>
+  </servlet>
+  <servlet>
+    <servlet-class>auxp.ch37.ServletEx01</servlet-class>
+    <servlet-name>ServletEx01</servlet-name>
+  </servlet>
+  <servlet>
+    <servlet-class>auxp.ch37.ServletEx02</servlet-class>
+    <servlet-name>ServletEx02</servlet-name>
+  </servlet>
+  <servlet>
+    <servlet-class>auxp.ch37.ServletEx03</servlet-class>
+    <servlet-name>ServletEx03</servlet-name>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FirstServlet</servlet-name>
+    <url-pattern>/ch37a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletEx01</servlet-name>
+    <url-pattern>/ex01</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletEx02</servlet-name>
+    <url-pattern>/ex02</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletEx03</servlet-name>
+    <url-pattern>/ex03</url-pattern>
+  </servlet-mapping>
+</web-app>
