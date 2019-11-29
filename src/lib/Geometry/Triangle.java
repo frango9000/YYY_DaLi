@@ -118,4 +118,6 @@ public class Triangle extends GeometricObject {
     public int compareTo(GeometricObject o) {
         return 0;
     }
+
+
 }
