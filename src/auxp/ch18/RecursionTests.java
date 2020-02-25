@@ -60,9 +60,7 @@ public class RecursionTests {
     }
 
     private static void sort(int[] list, int start) {
-        if(start>=list.length-1){
-            return;
-        }else {
+        if(start<list.length-1){
             int minIndex = start;
             for (int i = minIndex+1; i < list.length; i++) {
                 if (list[i] < list[minIndex])
