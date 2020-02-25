@@ -42,6 +42,16 @@ public class RecursionTests {
             return num * factorial(num - 1);
     }
 
+    static int tailRecursiveFactorial(int num){
+        return tailRecursiveFactorial(num, 1);
+    }
+    static int tailRecursiveFactorial(int num, int result){
+        if(num == 0)
+            return result;
+        else return tailRecursiveFactorial(num-1, num*result);
+    }
+
+
 //  Inefficient new string on each call
 
 //    static boolean isPalindrome(String string){
