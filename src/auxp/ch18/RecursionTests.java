@@ -28,11 +28,22 @@ public class RecursionTests {
             return num * factorial(num - 1);
     }
 
-    static boolean isPalindrome(String string){
-        boolean firstAndLastMatch = string.substring(0, 1).equalsIgnoreCase(string.substring(string.length() - 1));
-        if(string.length() < 3)
-            return firstAndLastMatch;
-        else return firstAndLastMatch && isPalindrome(string.substring(1, string.length() - 1));
+//    static boolean isPalindrome(String string){
+//        boolean firstAndLastMatch = string.substring(0, 1).equalsIgnoreCase(string.substring(string.length() - 1));
+//        if(string.length() < 3)
+//            return firstAndLastMatch;
+//        else return firstAndLastMatch && isPalindrome(string.substring(1, string.length() - 1));
+//    }
+
+    public static boolean isPalindrome(String string){
+        return isPalindrome(string, 0, string.length()-1);
     }
 
+    private static boolean isPalindrome(String string, int start, int end) {
+        if(end<=start)
+            return true;
+        else if (string.charAt(start) != string.charAt(end))
+            return false;
+        else return isPalindrome(string,start+1, end-1);
+    }
 }
