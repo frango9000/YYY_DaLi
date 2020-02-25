@@ -167,7 +167,7 @@ public abstract class DaLi_21 {
     public static void ex11() { // Baby name popularity ranking
         MainFX.initializeToolkit(); // JavaFX toolkit init
         MainFX ui = new MainFX(new BabyNamesPane());
-        ui.go();
+        ui.show();
     }
 
     public static void ex12() { // Name for both genders

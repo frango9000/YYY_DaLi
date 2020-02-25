@@ -1,6 +1,5 @@
 package auxp;
 
-import auxp.ch14.MyHangman;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -18,7 +17,7 @@ public class MainFX extends Application {
         if (pane == null)
         // pane = new Pane(new Label("Default Pane"));
         {
-            pane = new MyHangman();
+            pane = new Pane();
         }
         // pane = new RawEditorPane();
     }
@@ -54,12 +53,12 @@ public class MainFX extends Application {
         primaryStage.show();
     }
 
-    public void go() {
+    public void show() {
         launch("");
     }
 
-    public void go(Node node) {
+    public void show(Node node) {
         setPane(node);
-        go();
+        show();
     }
 }

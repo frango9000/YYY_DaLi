@@ -59,7 +59,7 @@ public abstract class DaLi_20 {
     public static void ex02() { // Store numbers in a linked list
         MainFX.initializeToolkit(); // JavaFX toolkit init
         MainFX ui = new MainFX(new LinkedNumbersPane());
-        ui.go();
+        ui.show();
     }
 
     public static void ex03() { // Guessing the capitals
@@ -151,7 +151,7 @@ public abstract class DaLi_20 {
     public static void ex07() { // Game: hangman
         MainFX.initializeToolkit(); // JavaFX toolkit init
         MainFX ui = new MainFX(new MyHangman());
-        ui.go();
+        ui.show();
     }
 
     public static void ex08() { // Game: lottery
