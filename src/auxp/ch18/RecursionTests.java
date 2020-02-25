@@ -8,14 +8,17 @@ public class RecursionTests {
 
     public static void main(String[] args) {
 //        IntStream.range(0, 20).forEach(i -> System.out.println(factorial(i)));
-        System.out.println(isPalindrome("sddadds"));
-        System.out.println(isPalindrome("sddadsds"));
+//        System.out.println(isPalindrome("sddadds"));
+//        System.out.println(isPalindrome("sddadsds"));
 
-        int[] randomInts = IntStream.generate(() -> (int)(Math.random()*10)).limit(10).toArray();
+//        int[] randomInts = IntStream.generate(() -> (int)(Math.random()*100)).limit(20).toArray();
+//        System.out.println(Arrays.toString(randomInts));
+//        sort(randomInts);
+//        System.out.println(Arrays.toString(randomInts));
 
-        System.out.println(Arrays.toString(randomInts));
-        sort(randomInts);
-        System.out.println(Arrays.toString(randomInts));
+        int[] nums = {1,2,3,4,5,6,7,8,9};
+        System.out.println(binarySearch(nums, 4));
+
     }
 
 
@@ -73,5 +76,21 @@ public class RecursionTests {
             }
             sort(list, start+1);
         }
+    }
+    public static int binarySearch(int[] list, int search){
+        return binarySearch(list, search, 0, list.length);
+    }
+
+    private static int binarySearch(int[] list, int search, int start, int end){//both are inclusives
+        if(start>end)
+            return -start-1;
+        int mid = start+end/2;
+        if(search < list[mid])
+            return binarySearch(list, search, start, mid-1);
+        else if(search == list[mid])
+            return mid;
+        else
+            return binarySearch(list, search, mid+1, end);
+
     }
 }
