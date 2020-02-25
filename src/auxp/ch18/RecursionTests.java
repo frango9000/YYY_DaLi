@@ -1,8 +1,8 @@
 package auxp.ch18;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.stream.IntStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Objects;
 
 public class RecursionTests {
 
@@ -16,8 +16,11 @@ public class RecursionTests {
 //        sort(randomInts);
 //        System.out.println(Arrays.toString(randomInts));
 
-        int[] nums = {1,2,3,4,5,6,7,8,9};
-        System.out.println(binarySearch(nums, 4));
+//        int[] nums = {1,2,3,4,5,6,7,8,9};
+//        System.out.println(binarySearch(nums, 4));
+
+        File file = new File("C:/xampp/php");
+        System.out.println(file + ": " + recursiveFolderSize(file) + " bytes");
 
     }
 
@@ -38,6 +41,8 @@ public class RecursionTests {
         else
             return num * factorial(num - 1);
     }
+
+//  Inefficient new string on each call
 
 //    static boolean isPalindrome(String string){
 //        boolean firstAndLastMatch = string.substring(0, 1).equalsIgnoreCase(string.substring(string.length() - 1));
@@ -92,5 +97,18 @@ public class RecursionTests {
         else
             return binarySearch(list, search, mid+1, end);
 
+    }
+
+    public static long recursiveFolderSize(File file){
+        long sum  = 0;
+        if(file.isDirectory()) {
+           File[] files = file.listFiles();
+            assert files != null;
+            for(File subFile : files){
+                sum += recursiveFolderSize(subFile);
+            }
+        }
+        else sum += file.length();
+        return sum;
     }
 }
