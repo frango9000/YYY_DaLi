@@ -82,6 +82,7 @@ public class SierpinskiTriangle extends Application {
                 displayTriangles(order - 1, p1, p12, p31);
                 displayTriangles(order - 1, p12, p2, p23);
                 displayTriangles(order - 1, p31, p23, p3);
+//                displayTriangles(order - 1, p12, p23, p31);
             }
         }
     }
