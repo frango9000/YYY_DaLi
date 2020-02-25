@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 public class RecursionTests {
 
     public static void main(String[] args) {
-        IntStream.range(0, 20).forEach(i -> System.out.println(fib(i)));
+        IntStream.range(0, 20).forEach(i -> System.out.println(factorial(i)));
 
     }
 
@@ -20,5 +20,11 @@ public class RecursionTests {
             return fib(index - 2) + fib(index - 1);
     }
 
+    static int factorial(int num) {
+        if (num == 0)
+            return 1;
+        else
+            return num * factorial(num - 1);
+    }
 
 }
